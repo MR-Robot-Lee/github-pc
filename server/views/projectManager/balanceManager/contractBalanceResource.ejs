@@ -1,0 +1,36 @@
+<div id="noInfoResourceTable_search" style="margin: 10px 0;text-align: right;">
+    <select class="int int-default int-small14 settleStatus">
+        <option value="0">全部</option>
+        <option value="1">未结算</option>
+        <!--<option value="2">结算审批中</option>-->
+        <!--<option value="3">已确认</option>-->
+        <option value="9">结算已保存</option>
+        <option value="10">结算审批中</option>
+        <option value="11">结算已完成</option>
+        <option value="12">结算被驳回</option>
+    </select>
+    <input style="margin-left: 8px;" type="text" class="int int-default int-small14 keywords" placeholder="合同名称查询">
+    <span class="span-btn searchModal btn-fine-adj1">查询</span>
+</div>
+<div id="noInfoResourceTable_main" class="table-content" style="display: none;">
+    <table>
+        <thead>
+        <tr class="small">
+            <th class="border">序号</th>
+            <th class="border">合同编号</th>
+            <th class="border">合同名称</th>
+            <th class="border">合同方名称</th>
+            <!--<th class="border">供应方属性</th>-->
+            <th class="border">结算状态</th>
+            <!--<th class="border">结算(合同)资源状态</th>-->
+            <th class="border">约定结算方式</th>
+        </tr>
+        </thead>
+        <tbody id="resourceTable"></tbody>
+    </table>
+</div>
+<div name="noInfoResourceTable_page" id="page" style="margin: 20px 0;display: none;"></div>
+<div class='noInfo' id='noInfoResourceTable'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

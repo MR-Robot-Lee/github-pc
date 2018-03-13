@@ -1,0 +1,83 @@
+<div class="labor-attendance">
+    <div class="modal-form local-devices">
+        <div class="modal-form_title local-devices_title">本地设备 <span>( 注:考勤地点是本项目的考勤设备 )</span></div>
+        <div class="local-devices_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="border">设备名称</th>
+                        <th class="border">识别号</th>
+                        <th class="border">型号</th>
+                        <th class="border">容量(人脸/指纹)</th>
+                        <th class="border">状态</th>
+                        <th class="border">同步人数</th>
+                        <th class="border">考勤人员</th>
+                    </tr>
+                </thead>
+                <tbody id="localDeveicesTable"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-form attendance-setting">
+        <div class="modal-form_title atd-setting_title">考勤设置 <a style="margin: 0 10px;font-weight: normal;" class="span-btn background-list-gray complactData" id="attendanceSetting" href="#">设置</a></div>
+        <div class="atd-setting_content">
+            <div>
+                <div style="line-height: 30px;">
+                    <input disabled checked style="vertical-align: middle;margin-top: 0;" type="radio" name='check-statics'>
+                    <span style="color: #5b5b5b;">按打卡统计 <span style="color: #999;">( 只要有打卡记录均记为出勤人员 )</span></span>
+                </div>
+                <div style="line-height: 30px;">
+                    <input disabled style="vertical-align: middle;margin-top: 0;" type="radio" name='check-statics'>
+                    <span style="color: #5b5b5b;">按有效打卡统计 <span style="color: #999;">( 每个有效时段内均有打开记录,计为出勤人员,最多设置四次有效打卡 )</span></span>
+                </div>
+            </div>
+            <div class="effective-time" style="display: none;padding-left: 25px;">
+                <div style="font-weight: bold;line-height: 40px;color: #5b5b5b;">打卡有效时段</div>
+                <div>
+                    <div class="clearfix first-time">
+                        <span class="fl">考勤一次 :</span>
+                        <div class="fl start-time first-start-time"></div>
+                        <span class="fl">-</span>
+                        <div class="fl end-time first-end-time"></div>
+                    </div>
+                    <div class="clearfix second-time" style="line-height: 30px;margin-bottom: 10px;display: none;">
+                        <span class="fl">考勤二次 :</span>
+                        <div class="fl start-time second-start-time"></div>
+                        <span class="fl">-</span>
+                        <div class="fl end-time second-end-time"></div>
+                    </div>
+                    <div class="clearfix third-time" style="line-height: 30px;margin-bottom: 10px;display: none;">
+                        <span class="fl">考勤三次 :</span>
+                        <div class="fl start-time third-start-time"></div>
+                        <span class="fl">-</span>
+                        <div class="fl end-time third-end-time"></div>
+                    </div>
+                    <div class="clearfix fourth-time" style="line-height: 30px;margin-bottom: 10px;display: none;">
+                        <span class="fl">考勤四次 :</span>
+                        <div class="fl start-time fourth-start-time"></div>
+                        <span class="fl">-</span>
+                        <div class="fl end-time fourth-end-time"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="modal-form sync-supplier">-->
+        <!--<div class="modal-form_title sync-supplier_title">同步供应商 <span>( 注 :开启同步将与供应商共享考勤记录 )</span></div>-->
+        <!--<div class="sync-supplier_table">-->
+            <!--<table>-->
+                <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th class="border" style="width: 170px;">供应商名称</th>-->
+                        <!--<th class="border" style="width: 60px;">联系人</th>-->
+                        <!--<th class="border" style="width: 100px;">电话</th>-->
+                        <!--<th class="border">考勤班组</th>-->
+                        <!--<th class="border" style="width: 70px;">同步状态</th>-->
+                    <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody id="syncSupplierTable"></tbody>-->
+            <!--</table>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+

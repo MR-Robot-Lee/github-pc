@@ -1,0 +1,128 @@
+.UploadImage {
+  .item {
+    vertical-align: top;
+    background-color: #ffffff;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    position: relative;
+    border: 1px dashed #999999;
+    border-radius: 2px;
+    behavior: url(/dist/lib/htc/PIE.htc);
+    overflow: hidden;
+    &.UploadImage__add {
+      .icon-add {
+        cursor: pointer;
+        width: 180px;
+        height: 128px;
+        background: url(./images/add-image.png) no-repeat;
+        position: relative;
+        text-align: center;
+        &.finished {
+          &:hover {
+            .btn-re {
+              display: block;
+            }
+          }
+        }
+        .btn-re {
+          border: 1px solid #009441;
+          color: #009441;
+          background-color: #ffffff;
+          padding: 5px 0;
+          border-radius: 3px;
+          cursor: pointer;
+          display: none;
+          position: absolute;
+          width: 70px;
+          text-align: center;
+          top: 50%;
+          left: 50%;
+          margin-top: -12px;
+          margin-left: -35px;
+        }
+        .proc {
+          background-color: rgba(0, 0, 0, 0.4);
+          position: absolute;
+          width: 0%;
+          top: 0;
+          bottom: 0;
+          left: 0;
+        }
+        img {
+          width: 180px;
+          height: 128px;
+        }
+      }
+      input {
+        display: block;
+        position: absolute;
+        height: 0;
+        width: 0;
+      }
+    }
+    &.UploadImage__image {
+      .image {
+        img {
+          display: block;
+          width: 180px;
+          height: 128px;
+          outline: none;
+          border: none;
+        }
+      }
+      .close {
+        width: 17px;
+        height: 17px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 17px;
+        color: #666666;
+        cursor: pointer;
+        &:hover {
+          color: #999999;
+        }
+      }
+    }
+    .descText {
+      border-radius: 0 0 2px 2px;
+      behavior: url(/dist/lib/htc/PIE.htc);
+      padding: 10px;
+    }
+    .desc {
+      width: 180px;
+      border-radius: 0 0 2px 2px;
+      behavior: url(/dist/lib/htc/PIE.htc);
+      position: relative;
+      text-align: center;
+      textarea {
+        border: none;
+        border-top: dashed 1px #dedede;
+        border-bottom: solid 1px #dedede;
+        text-align: left;
+        height: 50px;
+        background-color: inherit;
+        outline: none;
+        display: block;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        resize: none;
+        width: 100%;
+        padding: 10px;
+        overflow: hidden;
+      }
+      .btn-add {
+        background-color: #009441;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 3px;
+        display: inline-block;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+    }
+
+  }
+}

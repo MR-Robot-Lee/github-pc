@@ -1,0 +1,72 @@
+<%- include('../layout/header') %>
+<div class="container page-employee page-knowledge">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <% if(type === "enterprise-material-index"){ %>
+                    <div class="employee-name">历史数据详情</div>
+                    <% }else if(type === "enterprise-step-index"){ %>
+                    <div class="employee-name">历史数据详情</div>
+                    <% }else if(type === "enterprise-charge-index"){ %>
+                    <div class="employee-name">历史数据详情</div>
+                    <% }else if(type === 'enterprise-subpackage-index'){ %>
+                    <div class="employee-name">历史数据详情</div>
+                    <% } else if(type === 'enterprise-supplier-index'){ %>
+                    <div class="employee-name">历史数据详情</div>
+                    <% } else if(type === 'enterprise-hr-index'){ %>
+                    <div class="employee-name">历史数据详情</div>
+                    <% } %>
+                    <div style="position: absolute;right: 20px;top: 50%;margin-top: -15px;">
+                        <span class="span-btn background-list-gray" id="callback">返回</span>
+                        <% if(type === 'enterprise-material-index'){ %>
+                        <input type="text" class="int int-default keywords int-small14" placeholder="请输入供货单位">
+                        <% }else if(type === "enterprise-step-index"){ %>
+                        <input type="text" class="int int-default keywords int-small14" placeholder="请输入合作单位">
+                        <% }else if(type === "enterprise-charge-index"){ %>
+                        <input type="text" class="int int-default keywords int-small14" placeholder="请输入合作单位">
+                        <% }else if(type === 'enterprise-subpackage-index'){ %>
+                        <input type="text" class="int int-default keywords int-small14" placeholder="请输入合作单位">
+                        <% } else if(type === 'enterprise-supplier-index'){ %>
+                        <input type="text" class="int int-default keywords int-small14" placeholder="请输入项目材料名称">
+                        <% } else if(type === 'enterprise-hr-index'){ %>
+                        <div class="int int-default int-small14 during" style="display: inline-block;vertical-align: middle;width: 150px;margin-right: 3px;cursor: pointer;color: #333333;line-height: 30px;"></div>
+                        <input type="text" class="int int-default keywords int-small14" style="vertical-align: middle;" placeholder="请输入">
+                        <span class="icon-enterprise-calendar" style="position: absolute;top: 6px;right: 225px;"></span>
+                        <% } %>
+                        <% if(type === 'enterprise-supplier-index'){ %>
+                        <select class="enterpriseType int int-default int-small14">
+                            <option value="1">材料</option>
+                            <!--<option value="2">其它</option>-->
+                            <option value="3">人工</option>
+                            <option value="4">措施</option>
+                            <option value="5">分包</option>
+                        </select>
+                        <% } %>
+                        <span class="span-btn" id="modalHistoryModal" data-type="<%- type %>">查询</span>
+                    </div>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'enterprise-material-index'){ %>
+                    <%- include('./material/materialDetail') %>
+                    <% }else if(type === 'enterprise-step-index'){ %>
+                    <%- include('./step/stepDetail') %>
+                    <% }else if (type === 'enterprise-charge-index') { %>
+                    <%- include('./labourCharge/laborDetail') %>
+                    <% } else if(type === 'enterprise-subpackage-index'){ %>
+                    <%- include('./subpackage/subpackageDetail') %>
+                    <% } else if(type === 'enterprise-supplier-index'){ %>
+                    <%- include('./supplier/supplierHistory') %>
+                    <% } else if(type === 'enterprise-hr-index'){ %>
+                    <%- include('./hr/hrDetail') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../layout/footer') %>
+<script type='text/javascript' src="/dist/enterprise.js"></script>

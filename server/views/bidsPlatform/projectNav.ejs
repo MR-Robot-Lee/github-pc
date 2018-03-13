@@ -1,0 +1,64 @@
+<ul class="nav-content">
+    <% if(nav === "bids-add"){ %>
+    <li class="active">
+        <a href="/bids/add">
+            <span class="communique-add"></span>
+            新建招标
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/bids/add">
+            <span class="communique-add"></span>
+            新建招标
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "bids-all"){ %>
+    <li class="active">
+        <a href="/bids">
+            <span class="bids-all"></span>
+            招标公告
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/bids">
+            <span class="bids-all"></span>
+            招标公告
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'bids-notice'){ %>
+    <li class="active">
+        <a href="/bids/notice">
+            <span class="bids-notice"></span>
+            中标公示
+        </a>
+        <ul class="nav-content no-padding"></ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/bids/notice">
+            <span class="bids-notice"></span>
+            中标公示
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'bids-setting'){ %>
+    <li class="active">
+        <a href="/bids/setting">
+            <span class="communique-process"></span>
+            设置
+        </a>
+        <ul class="nav-content no-padding"></ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/bids/setting">
+            <span class="communique-process"></span>
+            设置
+        </a>
+    </li>
+    <% } %>
+</ul>

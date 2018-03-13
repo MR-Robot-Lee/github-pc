@@ -1,0 +1,85 @@
+<ul class="nav-content">
+    <% if(nav === "contract"){ %>
+    <li class="active">
+        <a href="/contract/add">
+            <span class="contract-add"></span>
+            添加合同工
+        </a>
+    </li>
+    <% }else{ %>
+    <li>
+        <a href="/contract/add">
+            <span class="contract-add"></span>
+            添加合同工
+        </a>
+    </li>
+    <% } %>
+
+    <% if(nav === "all"){ %>
+    <li class="active">
+        <a href="/contract">
+            <span class="contract-all"></span>
+            全部合同
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/contract">
+            <span class="contract-all"></span>
+            全部合同
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "attr" || nav === "classify"){ %>
+    <li class="active">
+        <a>
+            <span class="contract-setting"></span>
+            合同配置
+            <i class="icon-select-arrow active"></i>
+        </a>
+        <ul class="nav-content no-padding">
+            <% if(nav === "classify"){ %>
+            <li class="active">
+                <a href="/contract/setting/classify">
+                    合同分类配置
+                </a>
+            </li>
+            <% }else{ %>
+            <li>
+                <a href="/contract/setting/classify">
+                    合同分类配置
+                </a>
+            </li>
+            <% } %>
+            <% if(nav === "attr"){ %>
+            <li class="active">
+                <a href="/contract/setting/attr">合同方属性配置</a>
+            </li>
+            <% }else{ %>
+            <li>
+                <a href="/contract/setting/attr">合同方属性配置</a>
+            </li>
+            <% } %>
+
+        </ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a>
+            <span class="contract-setting"></span>
+            合同配置
+            <i class="icon-select-arrow"></i>
+        </a>
+        <ul class="nav-content no-padding">
+            <li>
+                <a href="/contract/setting/classify">
+                    合同分类配置
+                </a>
+            </li>
+            <li>
+                <a href="/contract/setting/attr">合同方属性配置</a>
+            </li>
+        </ul>
+    </li>
+    <% } %>
+</ul>

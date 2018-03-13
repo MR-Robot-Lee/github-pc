@@ -1,0 +1,32 @@
+<div class="modal-form" style="margin: 10px 20px;font-size: 12px" id="hrHistoryId" data-hid="<%- id %>" data-workerno="<%- workerNo %>">
+    <div class="bold-title"></div>
+    <div style="margin-top: 10px;">
+        <label class="bold-title bold-title-enterprise">手机号码 :</label>
+        <span style="display:inline-block;" name="phone"></span>
+        <label style="margin-left: 30px;" class="bold-title bold-title-enterprise">身份证号码 :</label>
+        <span name="idNo" style="display:inline-block;"></span>
+    </div>
+    <div style="margin-top: 10px;">
+        <label class="bold-title bold-title-enterprise">建档日期 :</label>
+        <span style="display:inline-block;" name="attendTime"></span>
+        <label style="margin-left: 30px;" class="bold-title bold-title-enterprise">累计出勤 :</label>
+        <span name="attendCount" style="display:inline-block;"></span>
+    </div>
+</div>
+<div class="table-content">
+    <table>
+        <thead>
+        <tr class="small">
+            <th style="width: 45px;color: #5b5b5b;" class="border">序号</th>
+            <th style="color: #5b5b5b;" class="border">日期</th>
+            <th style="color: #5b5b5b;" class="border">项目简称</th>
+            <th style="color: #5b5b5b;" class="border">供应商</th>
+            <th style="color: #5b5b5b;" class="border">班组</th>
+            <th style="color: #5b5b5b;" class="border">工种</th>
+            <th style="color: #5b5b5b;" class="border">考勤记录</th>
+        </tr>
+        </thead>
+        <tbody id="hrHistory"></tbody>
+    </table>
+</div>
+<!--<div id="page" style="margin: 20px 0;"></div>-->

@@ -1,0 +1,79 @@
+<div class="bid-item-list" name="noInfoBidsList_main">
+    <div style="display: inline-block;vertical-align: middle;margin-top: 20px;padding-left: 10px;">
+        <label style="margin-left:10px;">类型名称 :</label>
+        <select class="int int-default int-small14" id="bidType">
+            <option value="">全部类型</option>
+            <option value="2">材料库</option>
+            <option value="3">人工费库</option>
+            <option value="4">措施库</option>
+            <option value="5">分包项库</option>
+        </select>
+        <label style="margin-left:10px;">项目名称 :</label>
+        <select class="int int-default int-small14" id="allProject" style="width: 200px;">
+            <option value="">全部项目</option>
+        </select>
+        <label style="margin-left:10px;">状态名称 :</label>
+        <select class="int int-default int-small14" id="bidStatus" style="width: 200px;">
+            <option value="">全部状态</option>
+            <option value="1">已保存</option>
+            <option value="2">招标中</option>
+            <option value="3">已截止</option>
+            <option value="4">流标</option>
+            <option value="5">评审中</option>
+            <option value="6">审批中</option>
+            <option value="7">审批完成</option>
+            <option value="8">被驳回</option>
+            <option value="9">已删除</option>
+        </select>
+        <input style="padding-left: 5px;margin-left: 10px;" type="text" class="int int-default keywords" placeholder="请输入关键字">
+        <span style="margin-top: -4px;line-height: 30px;margin-left: 7px;" class="span-btn" id="searchModal">查询</span>
+    </div>
+    <div class="all-bids" style="padding: 0 15px;">
+    </div>
+</div>
+<div class="bid-item-detail" style="display: none;">
+    <div class="detail-contain">
+        <div class="clearfix detail-top">
+            <div class="fl detail-title">中铁一局办公楼装修劳务招标公告</div>
+            <div class="fl bid-status">状态 : <span>已确认</span></div>
+        </div>
+        <div class="clearfix detail-info">
+            <div class="fl">阅读 : <span>126</span></div>
+            <div class="fl">转发 : <span>126</span></div>
+            <div class="fl">点赞 : <span>126</span></div>
+            <div class="fl">邀请 : <span>126</span></div>
+            <div class="fl">投标 : <span>126</span></div>
+        </div>
+        <div class="detail-content">
+            <div class="clearfix con-top">
+                <div class="fl">投标单位 : <span>5</span></div>
+                <div class="fl">中标单位 : <span>西安团队建筑装饰有限公司</span></div>
+            </div>
+            <div class="con-container clearfix">
+            </div>
+            <div class="clearfix" style="margin-bottom: 10px;">
+                <div class="fl">谁可以看见 : </div>
+                <div class="fl">
+                    <input type="radio" name="">
+                    <span>所有人可见</span>
+                    <input type="radio" name="">
+                    <span>仅投标方可见</span>
+                    <input type="radio" name="">
+                    <span>仅中标方可见</span>
+                    <input type="radio" name="">
+                    <span>全部不可见</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail-footer">
+        <a class="span-btn span-btn-bc confirm-active failure" href="javascript:;">不满足需求，重新招标</a>
+        <a class="span-btn span-btn-bc confirm-active back-to-list" href="javascript:;">取消</a>
+        <a class="span-btn confirm-active" href="javascript:;">已确定中标单位，提交审批</a>
+    </div>
+</div>
+<div name="noInfoBidsList_page" id="page" style="margin: 20px 0;"></div>
+<div class='noInfo' id='noInfoBidsList'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

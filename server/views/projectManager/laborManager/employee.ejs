@@ -1,0 +1,37 @@
+<div class="modal-form" style="padding: 10px 0;">
+    <div style="text-align: right;">
+        <label>供应商 :</label>
+        <select class="int int-default int-small14 entpSelect">
+            <option value="0">请选择供应商</option>
+        </select>
+        <label style="margin-left: 15px;">班组 :</label>
+        <select class="int int-default int-small14 teamSelect">
+            <option value="0">请选择班组</option>
+        </select>
+        <label style="margin-left: 15px;">姓名查询 :</label>
+        <input class="int int-default int-small14 keywords" placeholder="请输入姓名或手机号"/>
+        <span class="span-btn btn-fine-adj1 search">查询</span>
+    </div>
+</div>
+<div class="table-content" name="noInfoEmployeeManagerList_main" style="display: none;">
+    <table>
+        <thead>
+            <tr class="small">
+                <th class="border" style="width: 45px;">序号</th>
+                <th class="border">姓名</th>
+                <th class="border">手机号码</th>
+                <th class="border">性别</th>
+                <th class="border">出生年月</th>
+                <th class="border">籍贯</th>
+                <th class="border">工种</th>
+                <th class="border" style="width: 160px;">操作</th>
+            </tr>
+        </thead>
+        <tbody id="empManagerTable"></tbody>
+    </table>
+</div>
+<div name="noInfoEmployeeManagerList_page" id="page" style="margin: 20px 0;display: none;"></div>
+<div class='noInfo' id='noInfoEmployeeManagerList'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

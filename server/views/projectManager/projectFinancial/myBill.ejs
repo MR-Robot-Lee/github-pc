@@ -1,0 +1,109 @@
+<div id="materialPlan">
+    <div class="modal-form" style="position: relative;padding-top: 10px;text-align: right;">
+        <span style="float: left;" class="span-btn btn-fine-adj1" id="reimbursementApply">
+            <span style="margin-right: 3px;" class="icon-create"></span>
+            <span style="line-height: 30px;">报销申请</span>
+        </span>
+        <span style="float: left;" class="span-btn btn-fine-adj1" id="prepayments">
+            <span style="margin-right: 3px;" class="icon-create"></span>
+            <span style="line-height: 30px;">预付款申请</span>
+        </span>
+        <span style="float: left;" class="span-btn btn-fine-adj1" id="duepayments">
+            <span style="margin-right: 3px;" class="icon-create"></span>
+            <span style="line-height: 30px;">结算/应付款申请</span>
+        </span>
+        <div id="noInfoFinancialMe_search" style="">
+            <label class="bold-title">关联合同:</label>
+            <input style="" class="int int-default int-small14 cntrNo" type="text" placeholder="请输入关联合同" />
+            <label style="margin-left: 10px;" class="bold-title">款项来源:</label>
+            <select style="" class="int int-default int-small14 fundResc">
+                <option value="0">全部</option>
+                <option value="1">报销</option>
+                <option value="2">预付款</option>
+                <option value="3">材料实付款</option>
+                <option value="4">材料应付款</option>
+                <option value="5">结算应付款</option>
+            </select>
+            <label style="margin-left: 10px;" class="bold-title">审核状态:</label>
+            <select style="" class="int int-default int-small14 billStatus">
+                <option value="0">全部</option>
+                <!--<option value="1">已保存</option>-->
+                <option value="2">审批中</option>
+                <option value="3">已完成</option>
+                <option value="4">已驳回</option>
+            </select>
+            <!--<div style="position: absolute;right: 0;top: 50%;margin-top: -10px;">-->
+            <input style="margin: 0 5px;" class="int int-default int-small14 keywords" type="text"
+                   placeholder="收款人查询" />
+            <span class="span-btn btn-fine-adj1" id="modalSearch">查询</span>
+            <!--</div>-->
+        </div>
+    </div>
+    <div id="noInfoFinancialMe_main" class="table-content" style="display: none;">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border">款项来源</th>
+                <th class="border">费用单名称</th>
+                <th class="border">费用单号</th>
+                <th class="border">生成时间</th>
+                <th class="border">收款人</th>
+                <th class="border">金额</th>
+                <th style="width: 70px;" class="border">审核状态</th>
+                <th class="border" style="width: 115px">操作</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="position: absolute;display: none;z-index: 150;">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="financialMe"></tbody>
+        </table>
+    </div>
+    <div class="knowledge-detail">
+        <div class="knowledge-detail-title"  style="border-bottom: 1px solid #ddd">
+            <span class="span-btn background-list-gray" id="delKnowledge">导出</span>
+            <span class="icon-close" style="position: absolute;right: 20px;margin-top:6px"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>审批结果:</label>
+            <span name="apprStatus"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label style="width: 60px;display: inline-block;">申 请 人 :</label>
+            <span name="applyUserName"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>申请时间:</label>
+            <span name="applyTime"></span>
+        </div>
+        <div class="knowledge-detail-item clearfix">
+            <label style="float: left;">申请内容:</label>
+            <div name="applyContent" style="white-space: pre-line;float: left;margin-left: 3px;line-height: 24px;"></div>
+        </div>
+        <div class="knowledge-attach" style="border-bottom:1px solid #ececec;padding-bottom: 10px">
+            <label>附件:</label>
+            <div class="attach-list"></div>
+            <div class="clr"></div>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>审批流程:</label>
+            <span name="apprUserName"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>流程说明:</label>
+            <span name="remark"></span>
+        </div>
+        <div class="knowledge-detail-item" style="border-top: 1px solid #ececec">
+            <div class="modal-form" style="margin: 10px 0;display: none; " id="projectShow">
+                <span style="color: #999999;">审批进度 : </span><span class="bold-title" name="projectName"></span>
+            </div>
+            <div class="approval-process"></div>
+        </div>
+    </div>
+    <div name="noInfoFinancialMe_page" id="page" style="margin: 20px 0;display: none;"></div>
+</div>
+<div class='noInfo' id='noInfoFinancialMe'>
+    <div class="icon-uninformed"></div>
+    <p>暂无申请信息，请点击左上角创建！</p>
+</div>

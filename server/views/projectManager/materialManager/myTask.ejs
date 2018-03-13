@@ -1,0 +1,33 @@
+<div id="materialPlan">
+    <div style="text-align: right;padding-top: 10px">
+        <!--<span style="margin-left: 7px;" class="span-btn background-list-gray btn-fine-adj1">仅显示未完成任务</span>-->
+        <!--<span style="margin-left: 7px;" class="span-btn background-list-gray btn-fine-adj1">显示全部任务</span>-->
+        <!--<input style="margin-left: 7px;" type="text" class="int int-default int-small14" placeholder="请输入关键字查找" />-->
+        <!--<span style="margin-left: 7px;" class="span-btn btn-fine-adj1">查询</span>-->
+    </div>
+    <div id="noInfoMyTaskTable_main" class="table-content" style="display: none;">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th style="width: 45px" class="border">序号</th>
+                <th class="border">计划单类型</th>
+                <th class="border">计划单名称</th>
+                <th class="border">材料单编号</th>
+                <th class="border">任务名称</th>
+                <th class="border">任务提醒时间</th>
+                <th class="border">任务完成时间</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="display: none;position: absolute;z-index: 200;">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="myTaskTable"></tbody>
+        </table>
+    </div>
+    <!--<div name="noInfoMyTaskTable_page" id="page" style="margin: 20px 0;display: none;"></div>-->
+</div>
+
+<div class='noInfo' id='noInfoMyTaskTable'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

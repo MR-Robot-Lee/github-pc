@@ -1,0 +1,63 @@
+.UploadAttach {
+  position: relative;
+  input {
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+  }
+  .btn-add {
+    width: 80px;
+    padding: 10px 0;
+    color: #ffffff;
+    text-align: center;
+    background-color: #009441;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    .proc {
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      width: 0%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  .UploadAttach__item {
+    margin-top: 10px;
+    text-align: left;
+    .icon {
+      width: 30px;
+      height: 34px;
+      display: inline-block;
+      background-repeat: no-repeat;
+      //&.icon-xls {
+      //  background-image: url(images/icon_xls.png);
+      //}
+      //&.icon-pdf {
+      //  background-image: url(images/icon_pdf.png);
+      //}
+      //&.icon-doc {
+      //  background-image: url(images/icon_doc.png);
+      //}
+      //&.icon-png {
+      //  height: 28px;
+      //  background-image: url(images/img-none.png);
+      //}
+    }
+    .detail {
+      display: inline-block;
+      vertical-align: top;
+      padding: 3px 0 0 5px;
+      .remove {
+        margin-top: 5px;
+        color: #229aec;
+        cursor: pointer;
+      }
+    }
+  }
+}

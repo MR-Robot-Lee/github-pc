@@ -1,0 +1,48 @@
+<ul class="nav-content" style="width: 260px;">
+    <% if(nav === "system-index"){ %>
+    <li style="width: 259px;" class="active ">
+        <a style="padding-left: 50px;" href="/system" class="system">
+            <span class="pro-company"></span>
+            企业信息
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system" class="system">
+            <span class="pro-company"></span>
+            企业信息
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "contact"){ %>
+    <li class="active">
+        <a style="padding-left: 50px;" href="/system/contact" class="system">
+            <span class="pro-contacts"></span>
+            联系人信息
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system/contact" class="system">
+            <span class="pro-contacts"></span>
+            联系人信息
+        </a>
+    </li>
+    <% } %>
+
+    <% if(nav === "billboard"){ %>
+    <li class="active">
+        <a style="padding-left: 50px;" href="/system/billboard" class="system">
+            <span class="pro-publicity"></span>
+            宣传栏更新
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system/billboard" class="system">
+            <span class="pro-publicity"></span>
+            宣传栏更新
+        </a>
+    </li>
+    <% } %>
+</ul>

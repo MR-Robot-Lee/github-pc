@@ -1,0 +1,57 @@
+.Select {
+  position: relative;
+  .Select-active {
+    border: 1px solid #ddd;
+    text-align: left;
+    background: #fff;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding: 0 10px;
+    position: relative;
+    &::after {
+      position: absolute;
+      background: url(./images/document-arrow-open.png);
+      content: '';
+      right: 5px;
+      top: 50%;
+      margin-top: -2px;
+      width: 10px;
+      height: 4px;
+    }
+  }
+  .Select-render {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    display: none;
+    &.active {
+      display: inline-block;
+    }
+    li {
+      padding: 5px 0 5px 10px;
+      font-size: 12px;
+      text-align: left;
+      &:hover {
+        background: #f3fdf7;
+        i {
+          text-decoration: underline;
+        }
+      }
+      i {
+        position: absolute;
+        right: 20px;
+        font-style: normal;
+        cursor: pointer;
+        color: #df6e09;
+      }
+    }
+  }
+}

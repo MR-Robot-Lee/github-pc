@@ -1,0 +1,50 @@
+<!--定金报销单-->
+<div class="model-project-common" style="width: 640px;">
+    <div class="model-section">
+        <div class="table-content" style="margin:0;">
+            <table>
+                <tbody>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold;width: 75px;">分部名称</td>
+                    <td class="border subProjName" colspan="3"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold;width:75px;">费用名称</td>
+                    <td class="border" style="width:214px "><input class="placeholderColor" type="text" placeholder="请输入" name="costName"></td>
+                    <td class="border" style="font-weight: bold;width: 75px; ">费用单编号</td>
+                    <td class="border costNo"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">材料单名称</td>
+                    <td class="border mtrlPlanName"></td>
+                    <td class="border" style="font-weight: bold">材料单编号</td>
+                    <td class="border mtrlPlanNo"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">采购负责人</td>
+                    <td class="border prchUserName"></td>
+                    <td class="border" style="font-weight: bold">报销人</td>
+                    <td class="border recObjName"></td>
+                </tr>
+                <tr style="position: relative;" class="small">
+                    <td class="border" style="font-weight: bold">总金额</td>
+                    <td style="text-align: center;" class="border costMoney"></td>
+                    <div style="position: absolute;top: 218px;left: 285px;color: #5b5b5b;"> 元</div>
+                    <td class="border" style="font-weight: bold">含税金额</td>
+                    <td style="text-align: center;" class="border taxMoney"></td>
+                    <div style="position: absolute;top: 218px;left: 575px;color: #5b5b5b;"> 元</div>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">备忘</td>
+                    <td class="border" colspan="3" rowspan="2"><input class="placeholderColor" type="text" placeholder="请输入备忘信息" name="remark">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn approvalMaterial">提交审批</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

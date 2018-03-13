@@ -1,0 +1,42 @@
+<%- include('./layout/header') %>
+<div class='IndexMain'>
+    <div class='nav project'>
+        <div class="project-nickname"></div>
+        <ul>
+            <li><a href='#/dashbord'>首页</a></li>
+            <li><a href='#/communique'>公告</a></li>
+            <li><a href='#/approval'>审批</a></li>
+            <li><a href='#/knowledge'>知识</a></li>
+            <li><a href='#/document'>文档</a></li>
+            <li><a href='#/report'>施工快报</a></li>
+            <li><a href='#/locale'>现场</a></li>
+            <li><a href='#/project/charged'>项目管理</a></li>
+            <li id="enterprise"><a href='#/enterprise'>企业库</a></li>
+            <!--<li><a href='#/contract'>合同管理</a></li>-->
+            <!--<li><a href='#/l'>快速申请</a></li>-->
+            <li id="system"><a href='/system' target="_blank">系统设置</a></li>
+            <div class="right-menu">
+                <div style="cursor: pointer" class="small-logo">
+                    <div class="company-list-handler company-hide">
+                        <div class="company-content" id="companyList"></div>
+                    </div>
+                </div>
+                <div class="company-list">
+                </div>
+                <div style="cursor: pointer;" class="login-out login-out-hide">
+                    <div class="login-handler">退出系统</div>
+                </div>
+            </div>
+            <!--<li id="bids"><a href="#/bids">招标平台</a></li>-->
+        </ul>
+        <!--<div class="project-system-setting">退出系统</div>-->
+    </div>
+    <div class='body'>
+        <!-- <div style="width: 100%;height: 100%">
+             <iframe src='/test'></iframe>
+         </div>-->
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/index.js"></script>
+<%- include('./layout/footer') %>

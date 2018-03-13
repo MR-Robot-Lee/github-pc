@@ -1,0 +1,47 @@
+<%- include('../../layout/projectHeader') %>
+<div class='IndexMain container-project page-memorandum' id="projectSchedule" data-id="<%- id %>">
+    <div class='project-menu-title'><span><%- name %></span>
+        <div style="position: absolute;top: 5px;left: 25px;width: 36px;height: 36px;border-radius: 50%;box-shadow: 0px 0px 2px 1px #c1c1c1;background-color: #fff;"><img style="width: 28px;height: 25px;border-radius: 50%;margin-top: 6px;" name='projectPrincipalLogo' src="./../../../dist/images/my-apply.png" alt=""></div>
+        <div id="projectPrincipal" style="position: absolute;top: 13px;left: 70px;font-size: 14px"></div>
+    </div>
+    <div class="container-content-project page-budget">
+        <%- include('./../projectDetailManager/projectNav') %>
+        <div class="project-list">
+            <div class="budget-title">异常备忘</div>
+            <div class="budget-menus">
+                <% if(type === 'exception'){ %>
+                <a class="item active" href="/project/exception/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    异常备忘
+                </a>
+                <% }else{ %>
+                <a class="item " href="/project/exception/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    异常备忘
+                </a>
+                <% } %>
+                <% if(type === 'process'){ %>
+                <a class="item active" href="/project/exception/process/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    过程备忘
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/exception/process/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    过程备忘
+                </a>
+                <% } %>
+            </div>
+            <div class="project-list-wrap top-88">
+                <% if(type === 'exception'){ %>
+                <%- include('./exceptionMemorandum') %>
+                <% }else { %>
+                <%- include('./processMemorandum') %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/project.js"></script>
+<%- include('../../layout/footer') %>

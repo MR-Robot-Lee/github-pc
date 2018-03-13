@@ -1,0 +1,43 @@
+<!--提计划-->
+<div class="model-project-common" style="width:1064px">
+    <div class="modal-form" style="margin: 10px 20px;position:relative;">
+        <label class="bold-title projectName" style="width: 200px;display: inline-block"></label>
+        <label>编号:</label>
+        <span class="projectNo" style="width: 200px;display: inline-block"></span>
+        <span class="span-btn background-list-gray budgetSelect"
+              style="position: absolute;right: 0;top: 50%;margin-top:-15px;">选材</span>
+        <!-- <span class="span-btn background-list-gray budgetInside" style="margin-left: 389px">预算内选材</span>
+         <span class="span-btn background-list-gray budgetBeside">预算外选材</span>-->
+    </div>
+    <div class="table-content" style="height: 496px;overflow: auto">
+        <table>
+            <thead>
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border">分部名称</th>
+                <th class="border">材料分类</th>
+                <th class="border">材料名称</th>
+                <th class="border">规格型号</th>
+                <th class="border" style="width:60px">单位</th>
+                <th style="width: 60px;" class="border">单价</th>
+                <th class="border" style="width:70px">数量</th>
+                <th style="width: 80px;" class="border planType">可计划余量</th>
+                <th class="border" style="width: 100px">操作</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="modal-form" style="margin: 10px 20px;">
+        <label class="bold-title purchasePeopleLabel">采购人:</label>
+        <div class="int int-default int-small14 purchasePeople"
+             style="display: inline-block;vertical-align: middle;color: #999;width: 80px;line-height: 28px;">单击选择
+        </div>
+        <label style="margin-left: 15px;" class="bold-title purchaseTime">计划到场时间:</label>
+        <input style="width: 155px;" placeholder="单击选择" type="date" class="int int-default int-small14" />
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">保存</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

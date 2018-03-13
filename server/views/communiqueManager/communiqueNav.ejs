@@ -1,0 +1,48 @@
+<ul class="nav-content">
+    <% if(nav === "communique-add"){ %>
+    <li class="active" id="addCommunique">
+        <a href="/communique/add">
+            <span class="communique-add"></span>
+            新建公告
+        </a>
+    </li>
+    <% }else { %>
+    <li id="addCommunique">
+        <a href="/communique/add">
+            <span class="communique-add"></span>
+            新建公告
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "communique-setting"){ %>
+    <li class="active" id="communiqueSetting">
+        <a href="/communique/setting">
+            <span class="communique-process"></span>
+            功能设置
+        </a>
+    </li>
+    <% }else { %>
+    <li id="communiqueSetting">
+        <a href="/communique/setting">
+            <span class="communique-process"></span>
+            功能设置
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'communique-all' || nav === 'communique-detail'){ %>
+    <li class="active">
+        <a href="/communique">
+            <span class="all"></span>
+            全部公告
+        </a>
+        <ul style="overflow: hidden" class="nav-content no-padding" id="communiqueChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/communique">
+            <span class="all"></span>
+            全部公告
+        </a>
+    </li>
+    <% } %>
+</ul>

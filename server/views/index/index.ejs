@@ -1,0 +1,100 @@
+<%- include('../layout/header') %>
+<div class="CompanyIndexMain">
+    <div class="company-header">
+        <div class="right-menu">
+            <div class="small-logo">
+                <div class="company-list-handler company-hide">
+                    <div style="height: auto;width: 160px;" class="company-content-header" id="companyHeaderList"></div>
+                </div>
+            </div>
+            <div style="margin-right: 20px;" class="company-list"></div>
+            <div class="login-out login-out-hide">
+                <div class="login-handler">退出系统</div>
+            </div>
+        </div>
+    </div>
+    <div class="company-content">
+        <div class="user-title">
+            <img class="user-img" />
+            <div class="user-handler">修改头像</div>
+            <input type="file" id="updateFile">
+        </div>
+        <div class="user-item">
+            <div class="user-info">
+                <span class="person-info">个人信息</span>
+            </div>
+            <div class="modal-form">
+                <div style="margin-bottom: 20px;padding-left: 25px;">
+                    <label class="label-block int-small"><i class="icon-fill-in">*</i>姓名:</label>
+                    <input style="color:#5b5b5b" type="text" class="int int-default no-border" name="userName" disabled>
+                    <div style="display: inline-block;">
+                        <span class="span-color-blue update" style="cursor:pointer;">修改</span>
+                        <span class="span-btn confirm" style="display: none">提交</span>
+                        <span class="span-btn span-btn-bc confirm-active cancel" style="display: none">取消</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;padding-left: 25px;">
+                    <label class="label-block int-small"><i class="icon-fill-in">*</i>性别:</label>
+                    <select style="color:#5b5b5b" class="int int-default no-border" name="sex" disabled>
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
+                    <div style="display: inline-block">
+                        <span class="span-color-blue update" style="cursor:pointer;">修改</span>
+                        <span class="span-btn confirm" style="display: none">提交</span>
+                        <span class="span-btn span-btn-bc confirm-active cancel" style="display: none">取消</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;padding-left: 25px;">
+                    <label class="label-block int-small"><i class="icon-fill-in">*</i>手机号:</label>
+                    <input style="color:#5b5b5b" type="text" class="int int-default no-border" name="mobile" disabled>
+                    <div style="display: inline-block">
+                        <span class="span-color-blue update" style="cursor:pointer;" data-type="mobile">修改</span>
+                        <span class="span-btn confirm" style="display: none">提交</span>
+                        <span class="span-btn span-btn-bc confirm-active cancel" style="display: none">取消</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;padding-left: 25px;">
+                    <label class="label-block int-small"><i class="icon-fill-in">*</i>密码:</label>
+                    <input style="color:#5b5b5b" type="password" class="int int-default no-border" value="......" style="font-size: 18px;"
+                           disabled>
+                    <div style="display: inline-block">
+                        <span class="span-color-blue update" style="cursor:pointer;" data-type="pwd">修改</span>
+                        <span class="span-btn confirm" style="display: none">提交</span>
+                        <span class="span-btn span-btn-bc confirm-active cancel" style="display: none">取消</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="user-item">
+            <div class="user-info">
+                <span class="person-info">我的公司</span>
+            </div>
+            <div style="background-color: #fff;">
+                <div class="add-company">
+                    <span class="icon-add-supplier"></span>
+                    <span>创建企业</span>
+                </div>
+                <div style="padding-bottom: 20px;" class="table-content">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th style="padding-left: 40px">企业号</th>
+                            <th>企业名称</th>
+                            <th style="width: 80px;padding-right: 40px">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody style="background-color: #fff;" id="companyList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script src="/dist/company.js"></script>
+<%- include('../layout/footer') %>

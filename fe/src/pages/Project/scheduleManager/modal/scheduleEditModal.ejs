@@ -1,0 +1,65 @@
+<div style="width: auto;" class="model-project-common model-schedule">
+    <div class="model-header">
+        <span class="project-title">进度编辑</span>
+        <span class="icon-close"></span>
+        <div style="margin-right: 10px;" class="model-position">
+            <a id="modelDel">删除行</a> <span style="color: #999;">|</span>
+            <a id="modelAdd">增加行</a> <span style="color: #999;">|</span>
+            <a id="modelSort">按开工时间排序</a>
+        </div>
+    </div>
+    <div class="model-section">
+        <div class="modal-form">
+            <div class="item">
+                <label class="bold-title"><i class="icon-fill-in">*</i>进度计划名称 :</label>
+                <input style="margin: 0 3px;width: 339px;" class="int int-default" name="schedName" data-warn="进度计划名称"
+                       placeholder="请输入进度名称" />
+                <label style="margin-left: 15px;" class="bold-title"><i class="icon-fill-in">*</i>合同工期 :</label>
+                <input style="margin: 0 3px;width: 69px;" class="int int-default int-small14" name="cntrDays"
+                       data-warn="合同工期" placeholder="请输入合同工期" />天
+                <label style="margin-left: 15px;" class="bold-title"><i class="icon-fill-in">*</i>进度负责人 :</label>
+                <div class="int int-default int-small14" id="chargeUserName"
+                     style="display: inline-block;vertical-align: middle;font-size: 12px;line-height: 28px;margin: 0 3px;width: 65px;">
+                    点击选择
+                </div>
+            </div>
+            <div class="item">
+                <label class="bold-title"><i class="icon-fill-in">*</i>开工日期 :</label>
+                自 <input style="margin: 0 3px;width: 160px;" class="int int-default int-small14 planBeginTime"
+                         type="date" name="planBeginTime"
+                         data-warn="开工时间" /> 至
+                <input style="margin: 0 3px;width: 160px;" class="int int-default int-small14 planEndTime" type="date"
+                       name="planEndTime"
+                       data-warn="竣工时间" />
+                <label style="margin-left: 15px;" class="bold-title"><i class="icon-fill-in">*</i>计划工期 :</label>
+                <input style="width: 70px;margin: 0 3px;" class="int int-default int-small11 planDays" name="planDays"
+                       disabled placeholder="系统计算" />天
+                <label style="margin-left: 15px;" class="bold-title"><i class="icon-fill-in">*</i>计划工日 :</label>
+                <input style="width: 70px;margin: 0 3px;" class="int int-default int-small11" name="planWorkDays"
+                       disabled placeholder="系统计算" />工日
+            </div>
+        </div>
+        <div class="table-content">
+            <table>
+                <thead>
+                <tr>
+                    <th class="border" style="width: 45px;">选择</th>
+                    <th class="border" style="width: 45px;">序号</th>
+                    <th class="border" style="width: 300px;">项目名称</th>
+                    <th class="border" style="width: 60px;">责任人</th>
+                    <th class="border" style="width: 100px;">计划工期(天)</th>
+                    <th class="border" style="width: 100px;">每天人数</th>
+                    <th class="border">计划开始时间</th>
+                    <th class="border">计划完成时间</th>
+                </tr>
+                </thead>
+                <tbody id="modalScheduleTable"></tbody>
+            </table>
+        </div>
+        <div style="margin-top: 20px;text-align: right">
+            <!--<span class="span-btn span-btn-bc confirm-active" id="modalApproval">提交审批</span>-->
+            <span class="span-btn" id="modalSave">确认</span>
+            <span class="span-btn span-btn-bc confirm-active" id="confirm">取消</span>
+        </div>
+    </div>
+</div>

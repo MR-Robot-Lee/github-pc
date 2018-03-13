@@ -1,0 +1,48 @@
+<ul class="nav-content" style="width: 260px;">
+    <% if(nav === "role-add"){ %>
+    <li class="active">
+        <a style="padding-left: 50px;" href="/system/role/add" class="system">
+            <span class="add-duty"></span>
+            新增职务
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system/role/add" class="system">
+            <span class="add-duty"></span>
+            新增职务
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "role-index"){ %>
+    <li class="active">
+        <a style="padding-left: 50px;" href="/system/role" class="system">
+            <span class="jurisdiction"></span>
+            职务权限列表
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system/role" class="system">
+            <span class="jurisdiction"></span>
+            职务权限列表
+        </a>
+    </li>
+    <% } %>
+
+    <% if(nav === "role-department"){ %>
+    <li class="active">
+        <a style="padding-left: 50px;" href="/system/role/department" class="system">
+            <span class="job-list"></span>
+            项目部职务列表
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system/role/department" class="system">
+            <span class="job-list"></span>
+            项目部职务列表
+        </a>
+    </li>
+    <% } %>
+</ul>

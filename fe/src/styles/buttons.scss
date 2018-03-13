@@ -1,0 +1,99 @@
+.span-btn {
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #009441;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 3px;
+  margin:0 5px;
+  &:hover {
+    background: rgba(16, 179, 86, .85)
+  }
+  &.span-btn-bc {
+    border: 1px solid $blue;
+    background-color: #ffffff;
+    color: $blue;
+    line-height: 28px;
+  }
+  &.span-small {
+    height: 25px;
+    line-height: 25px;
+  }
+  &.background-blue {
+    background-color: #09ac50;
+  }
+  &.background-gray {
+    background-color: #efefef;
+    color: $fcx;
+  }
+  &.background-yellow {
+    background-color: #c76a16;
+    color: #ffffff;
+  }
+  &.background-list-gray {
+    border: 1px solid $form-border;
+    background-color: #efefef;
+    color: #5b5b5b;
+    line-height: 28px;
+    &:hover {
+      border: 1px solid #009441;
+      color: #009441;
+      background: #fff;
+    }
+  }
+  &.background-9441 {
+    background-color: #f0f0f0;
+    border: 1px solid $fcxxx;
+    color: $fcxx;
+    line-height: 28px;
+    &:hover {
+      color: $blue;
+      border-color: $blue;
+      background-color: #ffffff;
+    }
+  }
+}
+
+.span-btn-right {
+  margin-right: 10px;
+}
+
+.span-btn-right2 {
+  margin-right: 20px;
+}
+
+.span-btn-right3 {
+  margin-right: 30px;
+}
+
+.span-btn-left2 {
+  margin-left: 20px;
+}
+
+.span-btn-left5 {
+  margin-left: 50px;
+}
+
+.span-btn-left11 {
+  margin-left: 110px;
+}
+
+.span-btn-bottom8 {
+  margin-bottom: 80px;
+}
+
+.span-btn-bottom {
+  margin-bottom: 5px;
+}
+
+.span-color-blue {
+  color: $blue;
+}
+
+.border-gray {
+  border: 1px solid $form-border;
+}

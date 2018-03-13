@@ -1,0 +1,124 @@
+.table-content {
+  margin: 0 20px;
+  table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+    thead {
+      tr {
+        background: #eeeeee;
+        height: 40px;
+        font-weight: bold;
+        &.middle {
+          height: 36px;
+        }
+        &.small {
+          height: 30px;
+        }
+        th {
+          text-align: left;
+          padding-left: 10px;
+          border-bottom: 1px solid #d4d4d4;
+          border-top: 1px solid #d4d4d4;
+          &.border {
+            border: 1px solid #d4d4d4;
+          }
+        }
+      }
+    }
+    tbody {
+      &.sort {
+        tr {
+          cursor: move;
+        }
+      }
+      tr {
+        font-weight: normal;
+        height: 40px;
+        &.active-bc {
+          background-color: $bc;
+          input {
+            background-color: $bc;
+          }
+        }
+        &:nth-child(2n) {
+          background: #f8f8f8;
+        }
+        &.small {
+          height: 30px;
+        }
+        &.reversion {
+          height: 10px;
+        }
+        td {
+          text-align: left;
+          padding-left: 10px;
+          color: $fcxx;
+          border-bottom: 1px solid #d4d4d4;
+          &:hover {
+            .material-manager-modal {
+              display: block !important;
+            }
+          }
+          &.border {
+            border: 1px solid #d4d4d4;
+          }
+          a {
+            cursor: pointer;
+            font-size: 12px;
+            &:hover {
+              &.edit-a {
+                color: #009441 !important;
+                text-decoration: underline;
+              }
+              &.delete-a {
+                color: #de6d0b !important;
+                text-decoration: underline;
+              }
+            }
+          }
+          &.background {
+            background-color: #f8f8f8;
+          }
+          .td-item {
+            float: left;
+            padding: 5px 10px 5px 0;
+            label {
+              font-weight: bold;
+              color: $fcx;
+            }
+          }
+          input[type=text], input[type=date] {
+            border: none;
+            outline: none;
+            height: 30px;
+            box-sizing: border-box;
+            width: 100%;
+          }
+          &.large {
+            max-width: 200px;
+          }
+          &.small {
+            max-width: 80px;
+          }
+        }
+        &.active:hover {
+          background-color: $bc;
+          .icon-exception {
+            background: url(./images/icon-exception-active.png) no-repeat;
+          }
+          .icon-arrow-gray {
+            background: url(./images/fj_active.png) no-repeat;
+          }
+          td {
+            a {
+              color: $fcx;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

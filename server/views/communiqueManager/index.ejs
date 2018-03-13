@@ -1,0 +1,44 @@
+<%- include('../layout/header') %>
+<div class="container page-employee page-knowledge">
+    <div class="span-left">
+        <%- include('./communiqueNav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <% if(type === "communique-add"){ %>
+                    <div class="employee-name">新建公告</div>
+                    <% }else if(type === "communique-setting"){ %>
+                    <div class="employee-name">功能设置</div>
+                    <% }else if(type === 'communique-all'){ %>
+                    <div class="employee-name">全部公告</div>
+                    <% } else if (type === 'communique-detail'){ %>
+                    <div class="employee-name"></div>
+                    <% } %>
+                    <% if(type === "communique-setting"){ %>
+                    <div style="line-height: 28px;" class="add-type" id="knowledgeType">
+                        <span></span>创建栏目
+                    </div>
+                    <div id="refreshData" class="icon-refresh" style="position: absolute;
+                    right: 30px;top: 50%;margin-top: -9px;cursor: pointer;"></div>
+                    <% } %>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'communique-add'){ %>
+                    <%- include('./addCommunique') %>
+                    <% }else if(type === 'communique-setting'){ %>
+                    <%- include('./functionSetting') %>
+                    <% }else if (type === 'communique-all') { %>
+                    <%- include('./allCommunique') %>
+                    <% }else if (type === 'communique-detail'){ %>
+                    <%- include('./CommuniqueDetail') %>
+                    <% } %>
+                </div>
+                <div class="container-list-update"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/communique.js"></script>
+<%- include('../layout/footer') %>

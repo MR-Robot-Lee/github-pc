@@ -1,0 +1,117 @@
+<div class="model-project-common">
+    <div class="model-section modal-form">
+        <div class="bold-title" style="text-align: center;margin-bottom: 10px">材料管理(实付款有合同)费用报销单</div>
+        <div class="table-content" style="margin: 0">
+            <table>
+                <tbody>
+                <tr class="small">
+                    <td class="border" style="width: 75px;font-weight: bold;">分部名称</td>
+                    <td class="border subProjName" colspan="6"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="width: 75px;font-weight: bold;">费用名称</td>
+                    <td class="border" style="width: 212px;"><input class="placeholderColor" type="text" placeholder="请输入" name="costName"></td>
+                    <td class="border" style="font-weight: bold;width: 75px;">费用编号</td>
+                    <td class="border costNo"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">材料单名称</td>
+                    <td class="border mtrlPlanName"></td>
+                    <td class="border" style="font-weight: bold">材料单编号</td>
+                    <td class="border mtrlPlanNo"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">采购负责人</td>
+                    <td class="border prchUserName"></td>
+                    <td class="border" style="font-weight: bold;position: relative;">结算金额<span style="position: absolute;top: 8px;left: 188px;font-size: 14px;font-weight: normal;">元</span></td>
+                    <td style="text-align: center;padding-left: 0;" class="border costMoney"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">供货单位</td>
+                    <td class="border entprName"></td>
+                    <td class="border" style="font-weight: bold;position: relative;">含税金额<span style="position: absolute;top: 8px;left: 188px;font-size: 14px;font-weight: normal;">元</span></td>
+                    <td style="text-align: center;padding-left: 0;" class="border taxMoney"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div id="contractInfo" style="position: relative;">
+                <div class="bold-title" style="text-align: center;margin: 10px 0">合同信息</div>
+                <table>
+                    <tbody>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold;width:75px;">合同名称</td>
+                        <td class="border cntrName" colspan="3" style="width: 212px;"></td>
+                        <td class="border" style="font-weight: bold">合同编号</td>
+                        <td class="border cntrNo" colspan="2"></td>
+                    </tr>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold;">合作单位</td>
+                        <td class="border entpName" colspan="3"></td>
+                        <td class="border" style="font-weight: bold;width: 80px;">合作负责人</td>
+                        <td class="border contactName" colspan="2"></td>
+                    </tr>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold">合同金额</td>
+                        <td style="width: 111px;" class="border cntrPrice"></td>
+                        <td class="border" style="font-weight: bold;width: 56px;">含税</td>
+                        <td name="taxType" class="border" style="width: 40px;text-align: center;padding-left: 0px;">
+                            <!--<label><input type="checkbox" value="1" name="taxType">是</label>-->
+                            <!--<label><input type="checkbox" value="2" name="taxType">否</label>-->
+                        </td>
+                        <td class="border" style="font-weight: bold">约定质保金</td>
+                        <td class="border ensureMoney"></td>
+                        <td style="width: 50px;" class="border ensureMonth"></td>
+                    </tr>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold" rowspan="3">付款方式</td>
+                        <td class="border payTypeDesc" colspan="6" rowspan="3"></td>
+                        <!--<td class="border" style="font-weight: bold">开户行</td>-->
+                        <!--<td class="border openBank" colspan="2"></td>-->
+
+                    </tr>
+                    <tr class="small">
+                        <!--<td class="border" style="font-weight: bold">开户名</td>-->
+                        <!--<td class="border openName" colspan="2"></td>-->
+                    </tr>
+                    <tr class="small">
+                        <!--<td class="border" style="font-weight: bold">账号</td>-->
+                        <!--<td class="border bankCard" colspan="2"></td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bold-title" style="text-align: center;margin: 10px 0">实付账款</div>
+            <table>
+                <tbody>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold;width: 75px;" rowspan="2">预付金额</td>
+                    <td class="border payedMoney" style="width:212px;"></td>
+                    <td class="border" style="font-weight: bold;width: 75px;position: relative;">实付款金额<span style="position: absolute;top: 8px;left: 188px;font-size: 14px;font-weight: normal;">元</span></td>
+                    <td style="text-align: center;padding-left: 0;" class="border payableMoney"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border payedTaxMoney"></td>
+                    <td class="border" style="font-weight: bold;position: relative;">应提供税票<span style="position: absolute;top: 8px;left: 188px;font-size: 14px;font-weight: normal;">元</span></td>
+                    <td style="text-align: center;padding-left: 0;" class="border payableTaxMoney"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">暂扣质保金</td>
+                    <td style="position: relative;padding-left: 0px;" class="border"><input class="placeholderColor" style="text-align: center;" type="text" placeholder="请输入金额" name="ensureMoney"><div style="position: absolute;top: 9px;right: 10px;"> 元</div></td>
+                    <td class="border" style="font-weight: bold">质保期限</td>
+                    <td style="position: relative;padding-left: 0px;" class="border"><input class="placeholderColor" style="text-align: center;" type="text" placeholder="请输入期限" name="ensureMonth"><div style="position: absolute;top: 9px;right: 10px;"> 月</div></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">备忘</td>
+                    <td class="border" colspan="5"><input class="placeholderColor" type="text" placeholder="请输入备忘信息" name="remark"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="model-footer">
+        <!--<span class="span-btn span-btn-bc confirm-active importContract">导入合同信息</span>-->
+        <!--<span class="span-btn span-btn-bc confirm-active payMoney">已支付定金</span>-->
+        <!--<span class="span-btn span-btn-bc confirm-active approvalMaterial">提交审批</span>-->
+        <span class="span-btn span-btn-bc confirm-active cancel" data-model-close>返回</span>
+    </div>
+</div>

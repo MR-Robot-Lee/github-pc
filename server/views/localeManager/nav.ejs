@@ -1,0 +1,73 @@
+<ul class="nav-content">
+    <% if(nav === "locale-attention"){ %>
+    <li class="active">
+        <a href="/locale/attention">
+            <span class="concern-projects"></span>
+            关注工程
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/locale/attention">
+            <span class="concern-projects"></span>
+            关注工程
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "locale-manager" || nav === 'locale-schedule' || nav === 'locale-detail' ||  nav === 'locale-all'){ %>
+    <li class="active">
+        <a href="/locale">
+            <span class="enterprise-project"></span>
+            现场管理
+        </a>
+        <ul class="nav-content no-padding nav-none" style="display: block;">
+            <% if(nav === 'locale-all' || navType === 'all'){ %>
+            <!--<li class="active" data-type="0">-->
+                <!--<a style="padding-left: 35px;" href="/locale">-->
+                    <!--全部-->
+                <!--</a>-->
+            <!--</li>-->
+            <% }else{ %>
+            <!--<li class="" data-type="0">-->
+                <!--<a style="padding-left: 35px;" href="/locale">-->
+                    <!--全部-->
+                <!--</a>-->
+            <!--</li>-->
+            <% } %>
+            <% if(nav === 'locale-manager' || navType === 'manager'){ %>
+            <li class="active" data-type="3">
+                <a style="padding-left: 35px;" href="/locale/manager">
+                    安全文明
+                </a>
+            </li>
+            <% }else{ %>
+            <li>
+                <a style="padding-left: 35px;" href="/locale/manager">
+                    安全文明
+                </a>
+            </li>
+            <% } %>
+            <% if(nav === 'locale-schedule' || navType === 'schedule'){ %>
+            <li class="active" data-type="4">
+                <a style="padding-left: 35px;" href="/locale/schedule">
+                    质量进度
+                </a>
+            </li>
+            <% }else{ %>
+            <li>
+                <a style="padding-left: 35px;" href="/locale/schedule">
+                    质量进度
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/locale/manager">
+            <span class="enterprise-project"></span>
+            现场管理
+        </a>
+    </li>
+    <% } %>
+</ul>

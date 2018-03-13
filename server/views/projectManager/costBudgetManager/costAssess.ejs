@@ -1,0 +1,119 @@
+<div class="project-list-wrap">
+    <div style="padding-left: 10px;" class="cost-assess-nav">
+        成本评估报告
+    </div>
+    <div style="border-bottom: none" class="cost-assess-content">
+        <div class="modal-form border-bottom">
+            <div class="item">
+                <label class="bold-title">合同金额:</label><span style="color: #009941" id="cntrMoney"></span>
+                <label class="bold-title" style="margin-left: 10px">预期结算金额:</label>
+                <input type="text" class="int int-default int-small14 expctMoneys" disabled />
+                <span class="span-btn background-list-gray btn-fine-adj1" id="editPrice">编辑</span>
+                <label class="bold-title" style="margin-left: 10px">结算方式:</label>
+                <span class="span-color-blue" id="settleType"></span>
+                <label class="bold-title" style="margin-left: 10px">毛利润:</label>
+                <span class="span-color-blue budGrossProfit"></span>
+                <label class="bold-title" style="margin-left: 10px">利润率:</label>
+                <span class="span-color-blue budGrossProfitTest"></span>
+                <span class="span-btn background-list-gray" id="economyTarget" style="margin-right: 60px;float: right;">成本评估</span>
+            </div>
+        </div>
+        <div style="border-bottom: 1px solid #e9e9e9;height: 315px;min-width: 1080px;">
+            <div class="cost-income-item border-right" style="height: 315px;width: 520px;">
+                <div class="modal-form">
+                    <div class="item bold-title">项目成本构成</div>
+                </div>
+                <!--<div class="table-content" style="height: 220px;overflow-y: auto;">-->
+                <div class="table-content" style="height: 220px;">
+                    <table style="width: auto;">
+                        <thead>
+                        <tr class="small">
+                            <th class="border" style="width: 70px;">费用构成</th>
+                            <th class="border" style="width: 80px;">金额</th>
+                            <th class="border" style="width: 90px;">占总成本(%)</th>
+                        </tr>
+                        </thead>
+                        <tbody id="profitDom"></tbody>
+                    </table>
+                </div>
+                <div class="costIncome" id="costIncome"></div>
+            </div>
+            <div style="width: 540px;" class="cost-income-item">
+                <div style="margin-left:10px;font-weight: bold;height:40px;line-height: 40px">
+                    工程(分部)构成
+                </div>
+                <div class="table-content" style="margin-left: 10px;height: 220px;overflow-y: auto;">
+                    <table style="border-bottom: 1px solid #e9e9e9">
+                        <thead>
+                        <tr class="small">
+                            <th class="border" style="width: 80px;">分部名称</th>
+                            <th class="border" style="width: 68px;">结算金额</th>
+                            <th class="border" style="width: 59px;">占总(%)</th>
+                        </tr>
+                        </thead>
+                        <tbody id="divisionProjectTable"></tbody>
+                    </table>
+                </div>
+                <div class="costIncome" id="costContract"></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="modal-form" style="margin: 10px 0">
+            <label class="bold-title">分部成本构成</label>
+        </div>
+        <div class="table-content">
+            <table style="table-layout: fixed;">
+                <thead>
+                <tr>
+                    <th>分部名称</th>
+                    <th>直接成本</th>
+                    <th>材料费</th>
+                    <th>辅材费</th>
+                    <th>人工费</th>
+                    <th>措施费</th>
+                    <th>分包费</th>
+                    <th>异常量</th>
+                </tr>
+                </thead>
+                <tbody id="costDivisionTable"></tbody>
+            </table>
+        </div>
+        <!-- <div class="modal-form" style="margin-top: 10px">
+             <label class="bold-title">异常备忘合计</label>
+             <label style="margin-left: 30px" class="bold-title">标记异常:</label>
+             <span style="color: #009941" id="exceCount"></span>
+         </div>-->
+        <!--<div class="modal-form" style="margin-top: 10px">
+            <div class="item">
+                <label class="bold-title">经济指标综合</label>
+            </div>
+            <div class="item">
+                <input type="text" name='economyTarget' class="int int-default int-large" disabled />
+            </div>
+        </div>
+        <div class="modal-form">
+            <div class="item">
+                <label for="" class="bold-title">决策参考综述</label>
+            </div>
+            <div class="item">
+                <input type="text" class="int int-default int-large" name='decisionSummary' disabled />
+            </div>
+        </div>
+        <div class="modal-form">
+            <div class="item">
+                <label for="" class="bold-title">风险评估</label>
+            </div>
+            <div class="item">
+                <input type="text" name='riskEstimate' class="int int-default int-large" disabled />
+            </div>
+        </div>
+        <div class="modal-form" style="width: 640px">
+            <div class="item">
+                <label for="" class="bold-title">重点监测</label>
+            </div>
+            <div class="item">
+                <input type="text" name='importanceMonitor' class="int int-default int-large" disabled />
+            </div>
+        </div>-->
+    </div>
+</div>

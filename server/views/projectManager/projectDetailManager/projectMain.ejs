@@ -1,0 +1,107 @@
+<div class="project-list-wrap" style="padding-left: 0px;">
+    <div class="page-project-main">
+        <span style="line-height: 28px;" class="span-btn background-9441" id="newNotice">新建通知</span>
+        <span style="line-height: 28px;" class="span-btn background-9441" id="temporaryTask">临时任务</span>
+        <span style="line-height: 28px;" class="span-btn background-9441" id="safeManager">安全文明</span>
+        <span style="line-height: 28px;" class="span-btn background-9441" id="qualifyManager">质量进度</span>
+        <a style="line-height: 28px;" class="span-btn background-9441" id="systemSettingBtn" href="/project/setting/<%- id %>?name=<%- name %>">系统设置</a>
+        <!--主页 主要内容-->
+        <div class="msg-list">
+            <!--内部通知 和 临时任务-->
+            <div class="msg-banner">
+                <ul></ul>
+                <!--控制器-->
+                <div class="tab-control">
+                    <div class="control-bg"></div>
+                    <div class="control-buoy"></div>
+                    <div class="control-buoy-fixed"></div>
+                    <div class="control-desk">
+                        <div class="tab-item-container">
+                            <div class="tab-item tab-item-1 active" data-type="1"></div>
+                            <div class="tab-item tab-item-2" data-type="2"></div>
+                            <div class="tab-item tab-item-3" data-type="3"></div>
+                            <div class="tab-item tab-item-4" data-type="4"></div>
+                            <div class="tab-item tab-item-5" data-type="5"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--无数据提示-->
+                <div id="noInfo_banner" style="position: absolute;top: 55px;left: 265px;">
+                <div style="transform: scale(0.6)" class="icon-uninformed"></div>
+                <div style="position: absolute;left: 65px;top: 24px;width: 200px;color: #999999;">暂无符合条件信息</div>
+                </div>
+            </div>
+
+            <!--安全进度管理 模块-->
+            <div class="msg-item">
+                <!--标题-->
+                <div class="msg-title">
+                    <span class="pro-safemanage pro-adj"></span><span style="margin-left: 34px;">安全文明管理</span>
+                    <a class="msg-more confirm-hover" href="/project/safe/<%- id %>?mainName=安全文明管理&name=<%-name%>">更多</a>
+                </div>
+                <!--内容-->
+                <div id="safeManage" class="msg-container"></div>
+                <!--无数据提示-->
+                <div id="noInfo_safeManage" style="position: absolute;top: 85px;left: 265px;">
+                    <div style="transform: scale(0.6)" class="icon-uninformed"></div>
+                    <div style="position: absolute;left: 65px;top: 24px;width: 200px;color: #999999;">暂无符合条件信息</div>
+                </div>
+            </div>
+
+            <!--质量进度管理 模块-->
+            <div class="msg-item">
+                <!--标题-->
+                <div class="msg-title">
+                    <span class="pro-quality pro-adj"></span><span style="margin-left: 34px;">质量进度管理</span>
+                    <a class="msg-more confirm-hover" href="/project/safe/<%- id %>?mainName=质量进度管理&name=<%-name%>">更多</a>
+                </div>
+                <!--内容-->
+                <div id="Quality" class="msg-container"></div>
+                <!--无数据提示-->
+                <div id="noInfo_quality" style="position: absolute;top: 85px;left: 265px;">
+                    <div style="transform: scale(0.6)" class="icon-uninformed"></div>
+                    <div style="position: absolute;left: 65px;top: 24px;width: 200px;color: #999999;">暂无符合条件信息</div>
+                </div>
+            </div>
+        </div>
+
+        <!--系统信息-->
+        <div class="float-model system-msg">
+            <!--标题-->
+            <div class="msg-title clearfix">
+                <span class="pro-systemsetting pro-adj"></span>
+                <span class="sys-title">系统信息</span>
+                <a class="msg-more fr confirm-hover" href="/project/setting/list/<%- id %>?name=<%- name %>">更多</a>
+            </div>
+            <!--内容-->
+            <div id="systemSetting" class="msg-container">
+            </div>
+            <!--无数据提示-->
+            <div id="noInfo_system" style="position: absolute;top: 55px;left: 70px;">
+                <div style="transform: scale(0.6)" class="icon-uninformed"></div>
+                <div style="position: absolute;left: 65px;top: 24px;width: 200px;color: #999999;">暂无符合条件信息</div>
+            </div>
+        </div>
+
+        <!--工程日志-->
+        <div class="float-model pro-calendar calendar">
+
+            <!--标题-->
+            <div class="msg-title clearfix">
+                <span class="pro-report pro-adj"></span>
+                <span class="sys-title">工程日志</span>
+                <!--<i class="addBold confirm-hover fr" id="addBold">添加日志</i>-->
+            </div>
+
+            <div class="float-section">
+                <div class="calendar_title">
+                    <i class="icon-left menu" data-type="sub"></i>
+                    <span>2012年12月</span>
+                    <i class="icon-right menu" data-type="add"></i>
+                </div>
+                <div class="week" id="weekTitle"></div>
+                <div class="weeks" id="weeks"></div>
+            </div>
+        </div>
+    </div>
+</div>

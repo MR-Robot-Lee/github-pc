@@ -1,0 +1,50 @@
+<%- include('../layout/header') %>
+<div class="container page-employee">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-list">
+                <div class="container-header">
+                    <div class="common-header">
+                        <div class="employee-name">栏目分类</div>
+                        <div class="add-type" id="settingType">
+                            <span></span>增加类型
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-list-warp" data-type="<%- type%>">
+                <div class="table-content">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>分类名称</th>
+                            <th>描述</th>
+                            <th>创建时间</th>
+                            <th>创建人</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>劳务合同</td>
+                            <td>关于劳务合同细则说明</td>
+                            <td>2017-12-12</td>
+                            <td>张小红</td>
+                            <td>
+                                <a>编辑</a>
+                                <div class="icon-line"></div>
+                                <a>删除</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

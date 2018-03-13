@@ -1,0 +1,36 @@
+<%- include('../layout/header') %>
+<div class="container page-employee">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="employee-name">工程类型</div>
+                    <div class="add-type" id="settingType">
+                        <span></span>增加类型
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-list-warp">
+            <div class="table-content">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>类型名称</th>
+                        <th>描述</th>
+                        <th>创建时间</th>
+                        <th>创建人</th>
+                        <th>数量</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="settings"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../layout/footer') %>

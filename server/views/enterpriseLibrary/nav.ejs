@@ -1,0 +1,123 @@
+<ul class="nav-content no-border">
+    <% if(nav === 'enterprise' || nav === 'enterprise-material-index'){ %>
+    <li class="active costGet" style="display: none;">
+        <a href="/enterprise">
+            <span class="enterprise-material"></span>
+            材料库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% }else{ %>
+    <li class="costGet" style="display: none;">
+        <a href="/enterprise">
+            <span class="enterprise-material"></span>
+            材料库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'charge' || nav === 'enterprise-charge-index'){ %>
+    <li class="active costGet" style="display: none;">
+        <a href="/enterprise/charge">
+            <span class="enterprise-person"></span>
+            人工费库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% }else{ %>
+    <li class="costGet" style="display: none;">
+        <a href="/enterprise/charge">
+            <span class="enterprise-person"></span>
+            人工费库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'step' || nav === 'enterprise-step-index'){ %>
+    <li class="active costGet" style="display: none;">
+        <a href="/enterprise/step">
+            <span class="enterprise-step"></span>
+            措施费
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% }else{ %>
+    <li class="costGet" style="display: none;">
+        <a href="/enterprise/step">
+            <span class="enterprise-step"></span>
+            措施费库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'subpackage' || nav === 'enterprise-subpackage-index'){ %>
+    <li class="active costGet" style="display: none;">
+        <a href="/enterprise/subpackage">
+            <span class="enterprise-package"></span>
+            分包项库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% }else{ %>
+    <li class="costGet" style="display: none;">
+        <a href="/enterprise/subpackage">
+            <span class="enterprise-package"></span>
+            分包项库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'supplier' || nav === 'enterprise-supplier-index'){ %>
+    <li class="active" id="supplierNav" style="display: none;">
+        <a href="/enterprise/supplier">
+            <span class="enterprise-supplier"></span>
+            供应商库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% }else{ %>
+    <li id="supplierNav" style="display: none;">
+        <a href="/enterprise/supplier">
+            <span class="enterprise-supplier"></span>
+            供应商库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% } %>
+
+    <% if(nav === 'library'){ %>
+    <li class="active" id="libraryNav" style="display: none;">
+        <a href="/enterprise/library">
+            <span class="project-participate"></span>
+            项目库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% }else{ %>
+    <li id="libraryNav" style="display: none;">
+        <a href="/enterprise/library">
+            <span class="project-participate"></span>
+            项目库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% } %>
+
+    <% if(nav === 'hr'){ %>
+    <li class="active" id="" style="display: block;">
+        <a href="/enterprise/hr">
+            <span class="project-participate"></span>
+            人力资源库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% }else{ %>
+    <li id="hrNav" style="display: block;">
+        <a href="/enterprise/hr">
+            <span class="project-participate"></span>
+            人力资源库
+            <span class="icon-nav-arrow"></span>
+        </a>
+    </li>
+    <% } %>
+</ul>

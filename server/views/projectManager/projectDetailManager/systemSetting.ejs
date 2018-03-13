@@ -1,0 +1,97 @@
+<div class="project-list-wrap">
+    <div class="page-main-setting" id="settingSystemData">
+        <div class="page-main-setting-content">
+            <div class="bold-title" style="padding: 10px 0;"><span style="margin-right: 5px;">智能管理参数设置 : </span><span
+                        style="font-size: 12px;font-weight:normal;color:#5b5b5b;">( 参数值=采用值÷系统值，0&lt;参数值&lt;10,可保留两位小数 )</span>
+            </div>
+
+            <div class="setting-item" style="padding: 5px 0;padding-left: 20px;">
+                <label style="margin-right: 5px;font-weight: normal;" class="bold-title">价格管理 :</label>
+                <span class="label-color">正常范围值</span>
+                <input class="input-indentation" type="text" style="width: 40px;border: 1px solid #d1d1d1;height:25px"
+                       name="excpBudPriceMin"
+                       data-warn="结算单价最小值"
+                       placeholder="填写"/> -
+                <input class="input-indentation" type="text" style="width: 41px;border: 1px solid #d1d1d1;height:25px"
+                       name="excpBudPriceMax"
+                       data-warn="结算单价最大值"
+                       placeholder="填写"/>
+            </div>
+            <div class="setting-item" style="padding: 5px 0;padding-left: 20px;">
+                <label style="margin-right: 5px;font-weight: normal;" class="bold-title">数量管理/财务动态风险评估 :</label>
+                <label class="label-color"><input type="radio" value="1" name="excpQpyType" checked/>采用成本预算</label>
+                <label class="label-color"><input type="radio" value="2" name="excpQpyType"/>不采用成本预算</label>
+            </div>
+            <div class="setting-item">
+                <label style="margin-right: 5px;" class="bold-title">间接费标准 :</label>
+                <label class="label-color"><i>*</i></label>
+                <input class="input-indentation" type="text" name="overhead" data-warn="间接费标准"/> % <span
+                        style="font-size: 12px;font-weight:normal;color:#5b5b5b;"> (计价基础为：预期结算金额) </span>
+            </div>
+
+            <div class="setting-item">
+                <label style="margin-right: 5px;" class="bold-title">结算方式 :</label>
+                <label class="label-color"><input type="radio" value="1" name="settleType"/>固定总价</label>
+                <label class="label-color"><input type="radio" value="2" name="settleType"/>固定综合单价</label>
+            </div>
+            <div class="setting-item">
+                <label style="margin-right: 5px;" class="bold-title">合同价格 :</label>
+                <label class="label-color"><i>*</i>合同价款 :</label>
+                <input class="input-indentation" style="width: 90px;" type="text" name="cntrPrice" data-warn="合同价款"/> 元
+            </div>
+            <div class="setting-item clearfix">
+                <label style="margin-right: 5px;" class="bold-title fl">分部名称 :</label>
+                <div class="fl">
+                    <div class="add-project-name">
+                        <div id="project-department"></div>
+                        <div class="project-department-ipt" style="padding: 3px 0px;display: none;">
+                            <input style="height: 30px;" type="text" placeholder="填写分部名字"
+                                   class="int int-default int-middle" name="subProjName"/>
+                            <span style="margin-left: 5px;" class="span-btn" id="confirmSetting">确认</span>
+                            <span style="margin-left: 5px;" class="span-btn span-btn-bc confirm-active"
+                                  id="cancelSetting">取消</span>
+                        </div>
+                    </div>
+                    <div style="padding-bottom: 2px;" class="add-project-department">
+                        <span style="margin-left: 3px;" class="icon-add-content"></span>添加分部
+                    </div>
+                </div>
+
+            </div>
+            <div class="setting-item">
+                <label style="margin-right: 5px;" class="bold-title">成本预算 :</label>
+                <label style="color:#009441" class="label-color">
+                    <!--<input type="checkbox" checked=checked>-->
+                    √
+                    成本评估采用预期结算金额
+                </label>
+            </div>
+            <div class="setting-item">
+                <label style="margin-right: 5px;" class="bold-title">施工日志 :</label>
+                <label class="label-color"><i>*</i>负责人 :</label>
+                <div name="buidLogUserNo" data-warn="施工负责人"
+                     style="color: #999;
+                     display:inline-block;
+                     text-align: center;
+                     line-height: 22px;
+                     cursor: pointer;
+                     border: 1px solid #bbb;
+                     min-width: 60px;height: 25px;border-radius: 3px;vertical-align: middle;font-size: 12px;padding: 0 10px;">
+                    单击选择
+                </div>
+            </div>
+            <div class="setting-item">
+                <label style="margin-right: 5px;" class="bold-title">工程状态 :</label>
+                <label><input type="radio" value="1" name="projState"/>未开工</label>
+                <label style="margin-left: 40px;"><input type="radio" value="2" name="projState"/>在建</label>
+                <label style="margin-left: 40px;"><input type="radio" value="3" name="projState"/>停工</label>
+                <label style="margin-left: 40px;"><input type="radio" value="4" name="projState"/>竣工</label>
+                <label style="margin-left: 40px;"><input type="radio" value="5" name="projState"/>质保</label>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: left;padding-left: 850px;" class="setting-menu">
+        <span style="margin-right: 5px;" class="span-btn" id="settingSave">保存</span>
+        <a class="span-btn span-btn-bc confirm-active" href="/project/detail/<%- id %>?name=<%- name %>">取消</a>
+    </div>
+</div>

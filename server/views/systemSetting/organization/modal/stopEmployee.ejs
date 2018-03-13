@@ -1,0 +1,50 @@
+<%- include('../../../layout/header') %>
+<div class="model-project-common">
+    <div class="page-budget">
+        <div class="budget-menus" style="padding-left: 20px">
+            <a class="item"
+               id="materialEnterpriseModal"
+               href="javascript:void(0)"
+               data-type="material">
+                <span class="menu-line"></span>
+                材料库
+            </a>
+            <a class="item"
+               id="laborEnterpriseModal"
+               data-type="labor"
+               href="javascript:void(0)">
+                <span class="menu-line"></span>
+                人工费库
+            </a>
+        </div>
+        <div class="clr"></div>
+    </div>
+    <div class="model-section" style="height: 300px">
+        <textarea placeholder="请输入停用原因" cols="30" rows="10" class="int int-default"
+                  style="width: 100%;height: 150px;resize: none"></textarea>
+    </div>
+    <div class="table-content" style="height: 300px;overflow-y: auto">
+        <table>
+            <thead>
+            <tr class="small">
+                <th>操作</th>
+                <th>操作人</th>
+                <th>操作时间</th>
+                <th>原因</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="small">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确定</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

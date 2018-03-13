@@ -1,0 +1,33 @@
+<div id="costQuantity">
+    <div class="cost-quantity-page">
+        <a data-type="0" class="search active">全部显示</a>
+        <div style="margin: 0 4px;" class="icon-line"></div>
+        <a data-type="1" class="search">无计算式项不显示</a>
+        <!--<div style="margin: 0 4px;" class="icon-line"></div>-->
+        <!--<a style="margin-right: 3px;">导出</a>-->
+        <input style="margin-left: 8px;" class="int int-default int-small16" name="keywords" placeholder="请输入关键字" />
+        <span class="span-btn btn-fine-adj1" id="searchModal">查询</span>
+    </div>
+    <div class="table-content">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border" style="width: 45px">编号</th>
+                <th class="border" style="width: 160px">项目名称</th>
+                <th class="border" style="width: 60px">单位</th>
+                <th class="border" style="width: 90px;">清单量</th>
+                <th class="border" style="width: 60px">核算量</th>
+                <th class="border">计算式</th>
+                <th class="border" style="width: 45px">操作</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="display: none;position:absolute;
+                       top: 50px;z-index: 200">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="costQuantityTable"></tbody>
+        </table>
+    </div>
+    <div id="page" style="margin: 20px 0;"></div>
+</div>

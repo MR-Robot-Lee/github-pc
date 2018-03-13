@@ -1,0 +1,30 @@
+<div style="padding: 10px 0 10px 20px;margin: 0;" class="document-menus" data-id="<%- id %>" data-type="<%- nav %>"
+     data-type-no="<%- typeNo %>">
+    <span class="span-btn background-list-gray" id="callback">返回上一级</span>
+    <span class="span-btn background-9441" id="newFile">新建文件夹</span>
+    <span class="span-btn background-list-gray">上传</span>
+    <a class="span-btn background-list-gray" href="javascript:window.initDownload()">下载</a>
+    <span class="span-btn background-list-gray" id="move">移动到</span>
+    <span class="span-btn background-list-gray" id="del">删除</span>
+    <input type="file" id="upload" />
+</div>
+<div id="noInfoAdministrationManagerTable_main" class="table-content" style="display: none;">
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 60px;">
+                <input type="checkbox" />
+            </th>
+            <th>文件名称</th>
+            <th style="width: 200px;">创建人</th>
+            <th style="width: 200px;">创建时间</th>
+            <th style="width: 200px;">查看</th>
+        </tr>
+        </thead>
+        <tbody id="administrationManagerTable"></tbody>
+    </table>
+</div>
+<div class='noInfo' id='noInfoAdministrationManagerTable'>
+    <div class="icon-uninformed"></div>
+    <p>暂无文件夹，请点击上方“新建文件夹”创建！</p>
+</div>

@@ -1,0 +1,48 @@
+<div class="model-project-common">
+    <div class="model-section">
+        <div class="modal-form">
+            <div class="item" style="padding-bottom: 26px">
+                <label class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>合同名称:</label>
+                <input type="text" class="int int-default" placeholder="请输入合同名称" style="width: 400px" name="title">
+            </div>
+            <div class="item" style="padding-bottom: 26px;">
+                <label style="width: 80px;text-align: right;" class="bold-title label-block"><i class="icon-fill-in">*</i>负责人:</label>
+                <div class="int int-default chargePersonal"
+                     style="width: 400px;color:##5b5b5b;display: inline-block;cursor: pointer;font-size: 14px;line-height: 28px;">
+                    单击选择
+                </div>
+            </div>
+            <div class="item" style="padding-bottom: 26px;">
+                <label class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>所属分部:</label>
+                <select class="int int-default subProjectModal" style="width: 400px"></select>
+            </div>
+            <div class="item" style="padding-bottom: 26px;position: relative;">
+                <label class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>合同分类:</label>
+                <select class="int int-default contractType" style="width: 400px">
+                    <option value="0">请选择合同分类</option>
+                    <!--<option value="1">总包合同</option>-->
+                    <!--<option value="2">采购合同</option>-->
+                    <option value="3">分包合同</option>
+                    <option value="4">劳务合同</option>
+                    <option value="5">租赁合同</option>
+                    <option value="6">材料采购合同</option>
+                    <option value="7">加工运输合同</option>
+                </select>
+                <div id="contractTypeCapion" style="position: absolute;left: 90px;top: 30px;font-size: 12px;line-height: 26px;color:#f77260"></div>
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>合同方:</label>
+                <div class="int int-default addContracter"
+                     style="width: 400px;vertical-align:middle;color:#5b5b5b;
+                     display: inline-block;cursor: pointer;font-size: 14px;line-height: 28px;position: relative">
+                    单击选择
+                </div>
+                <div style="position: relative" class="supplierList"></div>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确认</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

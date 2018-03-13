@@ -1,0 +1,146 @@
+<div class="modal-form" style="margin: 18px 0;color: #5b5b5b;border-bottom: 1px solid #e9e9e9">
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11">企业编号 :</label>
+        <input type="text" class="int int-default" style="width: 200px;color: #5b5b5b" name="etpNo" placeholder="系统获取" disabled>
+    </div>
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11"><i class="icon-fill-in">*</i>企业名称 :</label>
+        <input type="text" class="int int-default" style="width: 446px;color: #5b5b5b" name="etpName" placeholder="请输入企业名称">
+    </div>
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11"><i class="icon-fill-in">*</i>企业电话 :</label>
+        <input type="text" class="int int-default" style="width: 446px;color: #5b5b5b" placeholder="请输入企业电话" name="etpTel">
+    </div>
+    <!--<div class="" style="margin-bottom: 20px;position: relative">-->
+        <!--<label class="label-block int-small11">企业LOGO:</label>-->
+        <!--<label class="span-color-blue" style="cursor: pointer;"><span class="icon-arrow"></span>上传文件</label>-->
+        <!--<input type="file" style="position: absolute;left: 56px;opacity: 0;top: 0; z-index: 2;cursor: pointer;"-->
+               <!--id="upload">-->
+        <!--<div style="margin-left: 113px;margin-top: 10px;width: 120px;height: 80px;position: relative;">-->
+            <!--<img style="width: 100%;height: 100%;" name="etpLogo" />-->
+            <!--<div class="etpLogo"-->
+                 <!--style="position: absolute;top: 0;left: 0;bottom: 0;-->
+                 <!--right: 0;background-color: #f8f8f8;-->
+                 <!--font-size: 16px;-->
+                 <!--display: none;-->
+                 <!--border:1px solid #bbb;-->
+                 <!--text-align: center;-->
+                 <!--line-height: 80px;-->
+                 <!--color: #bbb;">LOGO</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11"><i class="icon-fill-in">*</i>企业性质 :</label>
+        <select class="int int-default" style="width: 446px;color: #5b5b5b" name="entpType">
+            <option value="a">请选择</option>
+            <option value="0">有限责任</option>
+            <option value="1">股份制</option>
+            <option value="2">个体</option>
+            <option value="3">私营</option>
+            <option value="4">其他</option>
+        </select>
+    </div>
+
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11"><i class="icon-fill-in">*</i>所在地区 :</label>
+        <select class="int int-default" style="width: 210px;margin-right: 10px;color: #5b5b5b" name="etpProvince">
+            <option value="0">请选择</option>
+        </select>
+        <select class="int int-default" style="width: 220px;color: #5b5b5b" name="etpCity">
+            <option value="0">请选择</option>
+        </select>
+    </div>
+    <div class="clearfix" style="margin-bottom: 20px;">
+        <label class="label-block int-small11 fl"><i class="icon-fill-in">*</i>主营业务 :</label>
+        <!--<select class="int int-default" style="width: 446px;color: #5b5b5b" name="etpPerLevel"></select>-->
+        <div class="fl etpPerLevel" style="line-height: 26px;" >
+            <div style="margin-left: 3px;line-height: 20px;margin-bottom: 5px;">( 可多选 )</div>
+            <div>
+                <input type="checkbox" value="1" name="etpPerLevel">
+                <span>建筑工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="2" name="etpPerLevel">
+                <span>公路工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="3" name="etpPerLevel">
+                <span>铁路工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="4" name="etpPerLevel">
+                <span>港口与航道工程</span>
+            </div>
+            <div>
+                <input type="checkbox" value="6" name="etpPerLevel">
+                <span>电力工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="7" name="etpPerLevel">
+                <span>矿山工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="10" name="etpPerLevel">
+                <span>通信工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="5" name="etpPerLevel">
+                <span>水利水电工程</span>
+            </div>
+            <div>
+                <input type="checkbox" value="11" name="etpPerLevel">
+                <span>机电工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="18" name="etpPerLevel">
+                <span>桥梁工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="25" name="etpPerLevel">
+                <span>古建筑工程</span>
+                <input style="margin-left: 16px;" type="checkbox" value="20" name="etpPerLevel">
+                <span>钢结构工程</span>
+            </div>
+            <div>
+                <input type="checkbox" value="19" name="etpPerLevel">
+                <span>隧道工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="27" name="etpPerLevel">
+                <span>环保工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="8" name="etpPerLevel">
+                <span>石油化工工程</span>
+            </div>
+            <div>
+                <input type="checkbox" value="9" name="etpPerLevel">
+                <span>市政共用工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="15" name="etpPerLevel">
+                <span>电子智能化工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="22" name="etpPerLevel">
+                <span>建筑装修装饰工程</span>
+            </div>
+            <div>
+                <input type="checkbox" value="24" name="etpPerLevel">
+                <span>建筑幕墙工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="12" name="etpPerLevel">
+                <span>建筑业劳务分包</span>
+                <input style="margin-left: 30px;" type="checkbox" value="14" name="etpPerLevel">
+                <span>起重设备安装工程</span>
+            </div>
+            <div>
+                <input type="checkbox" value="16" name="etpPerLevel">
+                <span>消防设施工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="21" name="etpPerLevel">
+                <span>模板脚手架工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="17" name="etpPerLevel">
+                <span>防水防腐保温工程</span>
+            </div>
+            <div>
+                <input type="checkbox" value="13" name="etpPerLevel">
+                <span>地基基础工程</span>
+                <input style="margin-left: 30px;" type="checkbox" value="23" name="etpPerLevel">
+                <span>建筑机电安装工程</span>
+                <input style="margin-left: 16px;" type="checkbox" value="26" name="etpPerLevel">
+                <span>城市及道路照明工程</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11">企业网址 :</label>
+        <input type="text" class="int int-default" style="width: 446px;color: #5b5b5b" placeholder="请输入企业网址" name="etpNetAddr">
+    </div>
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11">企业邮箱 :</label>
+        <input type="text" class="int int-default" style="width: 446px;color: #5b5b5b" placeholder="请输入企业邮箱" name="etpEmail">
+    </div>
+    <div class="" style="margin-bottom: 20px;">
+        <label class="label-block int-small11">企业地址 :</label>
+        <input type="text" class="int int-default" style="width: 446px;color: #5b5b5b" placeholder="请输入企业地址" name="etpAddr">
+    </div>
+</div>
+<div style="margin-bottom: 20px;text-align: left;margin-left: 20px;">
+    <span class="span-btn confirm">保存</span>
+</div>

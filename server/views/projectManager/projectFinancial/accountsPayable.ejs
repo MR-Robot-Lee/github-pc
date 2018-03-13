@@ -1,0 +1,98 @@
+<div id="materialPlan">
+    <div id="noInfoFinancialPay_search" class="modal-form" style="padding-top: 10px;text-align: right;">
+        <label class="bold-title">关联合同:</label>
+        <input style="" type="text" class="int int-default int-small14 cntrNo" placeholder="请输入关联合同" />
+        <label style="margin-left: 10px;" class="bold-title">查看分部:</label>
+        <select style="" class="int int-default int-small14" id="subProject">
+            <option value="0">全部</option>
+        </select>
+        <label style="margin-left: 10px;" class="bold-title">费用来源:</label>
+        <select style="" class="int int-default int-small14 from">
+            <option value="0">全部</option>
+            <!--<option value="1">报销款申请</option>-->
+            <!--<option value="2">预付款申请</option>-->
+            <!--<option value="3">实付款申请</option>-->
+            <!--<option value="4">应付款申请</option>-->
+            <option value="4">材料应付款</option>
+            <option value="5">结算款</option>
+        </select>
+        <label style="margin-left: 10px;" class="bold-title">审批状态:</label>
+        <select style="" class="int int-default int-small14 payableStatus">
+            <option value="">全部</option>
+            <option value="1">申请中</option>
+            <option value="2">已确认</option>
+            <option value="3">已驳回</option>
+            <option value="4">已结转</option>
+        </select>
+        <input style="margin: 0 5px;" type="text" class="int int-default int-small14 keywords" placeholder="合作方名称查询" />
+        <span class="span-btn btn-fine-adj1" id="modalSearch">查询</span>
+    </div>
+    <div id="noInfoFinancialPay_main" class="table-content" style="display: none;">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border">款项来源</th>
+                <th class="border">费用单名称</th>
+                <th class="border">费用单编号</th>
+                <th class="border">合作(供应)方</th>
+                <th style="width: 85px;" class="border">款项负责人</th>
+                <th class="border">结算金额</th>
+                <th class="border">应付款余额</th>
+                <th style="width: 70px;" class="border">状态</th>
+                <th class="border" style="width: 110px">应付款项查看</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="position: absolute;display: none;z-index: 150;">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="financialPay"></tbody>
+        </table>
+    </div>
+</div>
+<div class="knowledge-detail">
+    <div style="border-bottom: 1px solid #e9e9e9" class="knowledge-detail-title">
+        <span class="span-btn background-list-gray" id="delKnowledge">导出</span>
+        <span class="icon-close" style="position: absolute;right: 20px;margin-top:6px"></span>
+    </div>
+    <div class="knowledge-detail-item">
+        <label>审批结果:</label>
+        <span name="apprStatus"></span>
+    </div>
+    <div class="knowledge-detail-item">
+        <label style="width: 60px;display: inline-block;">申 请 人 :</label>
+        <span name="applyUserName"></span>
+    </div>
+    <div class="knowledge-detail-item">
+        <label>申请时间:</label>
+        <span name="applyTime"></span>
+    </div>
+    <div class="knowledge-detail-item clearfix">
+        <label style="float: left;">申请内容:</label>
+        <div name="applyContent" style="white-space: pre-line;float: left;margin-left: 3px;"></div>
+    </div>
+    <div class="knowledge-attach" style="border-bottom:1px solid #ececec;padding-bottom: 10px">
+        <label>附件:</label>
+        <div class="attach-list"></div>
+        <div class="clr"></div>
+    </div>
+    <div class="knowledge-detail-item">
+        <label>审批流程:</label>
+        <span name="apprUserName"></span>
+    </div>
+    <div class="knowledge-detail-item">
+        <label>流程说明:</label>
+        <span name="remark"></span>
+    </div>
+    <div class="knowledge-detail-item" style="border-top: 1px solid #ececec">
+        <div class="modal-form" style="margin: 10px 0;display: none; " id="projectShow">
+            <span style="color: #999999;">审批进度 : </span><span class="bold-title" name="projectName"></span>
+        </div>
+        <div class="approval-process"></div>
+    </div>
+</div>
+<div name="noInfoFinancialPay_page" id="page" style="margin: 20px 0;display: none;"></div>
+<div class='noInfo' id='noInfoFinancialPay'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

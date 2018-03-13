@@ -1,0 +1,42 @@
+<%- include('../layout/header') %>
+<div class="container page-employee">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="employee-name">栏目分类</div>
+                    <div style="line-height: 28px;" class="add-type" id="reportType">
+                        <span></span>增加类型
+                    </div>
+                </div>
+            </div>
+            <div class="container-list-warp">
+                <div class="table-content" id="sectionTypeList" style="margin: 0;display: none;">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th style="border-top: none">序号</th>
+                            <th style="padding-left: 20px;border-top: none">类型名称</th>
+                            <th style="border-top: none">描述</th>
+                            <th style="border-top: none">创建时间</th>
+                            <th style="border-top: none">创建人</th>
+                            <th style="border-top: none">数量</th>
+                            <th style="border-top: none" id="typeHandle">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="sectionType"></tbody>
+                    </table>
+                </div>
+                <div class='noInfo' id='noInfoSectionType'>
+                    <div class="icon-uninformed"></div>
+                    <p>还没有栏目，点击左上角的“创建类型”，快去创建吧！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src="/dist/report.js"></script>
+<%- include('../layout/footer') %>

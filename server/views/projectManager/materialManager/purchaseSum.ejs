@@ -1,0 +1,58 @@
+<div id="materialPlan">
+    <div class="modal-form" style="position: relative;padding-top: 10px;text-align: right;">
+        <label style="margin-left: 8px;" class="bold-title">类别类型:</label>
+        <select class="int int-default int-small14 mtrlCategory">
+            <option value="">请选择类型</option>
+        </select>
+        -
+        <select class="int int-default int-small14 mtrlType">
+            <option value="">请选择类型</option>
+        </select>
+        <label style="margin-left: 8px;" class="bold-title">分部名称:</label>
+        <select class="int int-default int-small14 subProject">
+            <option value="a">请选择分部</option>
+        </select>
+        <label style="margin-left: 8px;" class="bold-title">费用分类:</label>
+        <select class="int int-default int-small14 costType">
+            <option value="0" selected>全部</option>
+            <option value="1">预算内</option>
+            <option value="2">预算外</option>
+        </select>
+        <!-- <label class="bold-title">排序:</label>
+         <select class="int int-default int-small14">
+             <option value="a">请选择分部</option>
+         </select>-->
+        <!--<div style="position: absolute;right: 0;top: 50%;margin-top: -15px">-->
+        <input style="margin-left: 8px;" class="int int-default int-small14 mtrlPlanNo" placeholder="请输入计划单编号" />
+        <input style="margin-left: 8px;" class="int int-default int-small14 keyword" placeholder="请输入材料名称" />
+        <span class="span-btn searchModal btn-fine-adj1">查询</span>
+        <!--</div>-->
+    </div>
+    <div id="noInfoPurchaseSumTable_main" class="table-content" style="display: none;">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th style="width: 45px;" class="border">序号</th>
+                <!--<th class="border">材料编号</th>-->
+                <th class="border">材料名称</th>
+                <th class="border">规格型号</th>
+                <th style="width: 60px;" class="border">单位</th>
+                <th style="width: 60px;" class="border">数量</th>
+                <th style="width: 80px;" class="border">采购单价</th>
+                <th class="border">供货单位</th>
+                <th class="border">采购时间</th>
+                <th style="width: 45px;" class="border">含税</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="position: absolute;display: none;z-index: 150;">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="purchaseSumTable"></tbody>
+        </table>
+    </div>
+    <div name="noInfoPurchaseSumTable_page" id="page" style="margin: 20px 0;display: none;"></div>
+</div>
+<div class='noInfo' id='noInfoPurchaseSumTable'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

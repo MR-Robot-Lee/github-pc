@@ -1,0 +1,97 @@
+.int {
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
+  border-radius: 3px;
+  //color: #5b5b5b;
+  color: #999;
+  &:hover {
+    border-color: #999;
+  }
+  &:focus{
+    border-color: #009441;
+  }
+}
+
+.int-default {
+  outline: none;
+  padding: 0 5px;
+  height: 30px;
+  font-family: "Microsoft YaHei";
+  line-height: 20px;
+  width: 180px;
+  letter-spacing: 1px;
+  &.no-border {
+    border: none;
+  }
+}
+
+textarea.int-default{
+  padding:5px;
+}
+
+.int-large {
+  width: 640px;
+}
+
+.int-small14 {
+  width: 140px;
+}
+
+.int-small13 {
+  width: 130px;
+}
+
+.int-small16 {
+  width: 160px;
+}
+
+.int-middle {
+  width: 300px;
+}
+
+.int-large44 {
+  width: 430px;
+}
+
+.int-middle256 {
+  width: 256px;
+}
+
+.int-middle26 {
+  width: 260px;
+}
+
+.int-middle32 {
+  width: 320px;
+}
+
+.int-small11 {
+  width: 110px;
+}
+
+.int-small106 {
+  width: 106px;
+}
+.int-small93{
+  width: 93px;
+}
+.int-small {
+  width: 60px;
+}
+
+.int-small8 {
+  width: 80px;
+}
+
+.int-small4 {
+  width: 40px;
+}
+
+.textarea-default {
+  margin-left: 3px;
+  padding: 3px 5px;
+  resize: none;
+  width: 80%;
+  height: 58px;
+  outline: none;
+}

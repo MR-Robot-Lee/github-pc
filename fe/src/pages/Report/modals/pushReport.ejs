@@ -1,0 +1,48 @@
+<div class="modal-employee-add report-add">
+    <div class="employee-section report-section">
+        <div class="item">
+            <label><i>*</i>栏目分类:</label>
+            <select class="larger sectionType">
+                <option value="0">请选择</option>
+            </select>
+        </div>
+        <div class="clr"></div>
+        <div class="item">
+            <label><i>*</i>所属项目部:</label>
+            <select class="larger projectDepartment">
+                <option value="0">请选择</option>
+            </select>
+        </div>
+        <div class="clr"></div>
+        <div class="item">
+            <label><i>*</i>标题:</label>
+            <input class="larger title" type="text" placeholder="请输入标题,不超过36个字符数">
+        </div>
+        <div class="clr"></div>
+        <div class="item">
+            <label><i>*</i>正文:</label>
+            <textarea class="larger default content" placeholder="请输入快报内容,不超过3000个字符数"></textarea>
+        </div>
+        <div class="clr"></div>
+        <div class="item">
+            <label><i>*</i>添加图片:</label>
+            <div class="reportImage"></div>
+        </div>
+        <div class="clr"></div>
+        <div class="item">
+            <label><i>*</i>上传附件:</label>
+            <div class="reportFile"></div>
+        </div>
+        <div class="clr"></div>
+        <div class="attach-handler">
+            <label><input type="checkbox" checked disabled>允许评论</label>
+            <label><input type="checkbox" checked disabled>允许下载</label>
+        </div>
+    </div>
+    <div class="employee-footer report-footer">
+        <span class="add-update-cancel add-update-preview">预览</span>
+        <span class="add-update-cancel add-save" data-id="2">保存</span>
+        <span class="add-update-save add-update-release" data-id="1">发布</span>
+        <span class="add-update-cancel" data-model-close>取消</span>
+    </div>
+</div>

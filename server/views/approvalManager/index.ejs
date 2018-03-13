@@ -1,0 +1,83 @@
+<%- include('../layout/header') %>
+<div class="container page-employee page-approval page-knowledge">
+    <div class="span-left">
+        <%- include('./approvalNav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list page-budget">
+            <div class="container-header">
+                <div class="common-header">
+                    <% if(type === 'approval-add'){ %>
+                    <div class="employee-name">新建申请</div>
+                    <% }else if(type === 'approval-apply'){ %>
+                    <div class="employee-name">我的申请</div>
+                    <% }else if (type === 'approval-me') { %>
+                    <div class="employee-name">我的审批</div>
+                    <% }else if(type === 'approval-copy'){ %>
+                    <div class="employee-name">抄送给我的</div>
+                    <% }else if(type === 'approval-manager'){ %>
+                    <div class="employee-name">审批管理</div>
+                    <% } else if(type === 'approval-setting' || type === 'approval-type' || type === 'approval-setting-add'){ %>
+                    <div class="employee-name">流程设置</div>
+                    <% } else if(type === 'approval-manager-detail'){ %>
+                    <div style="margin-top: 5px;">
+                        <a class="confirm-hover" href="/approval/manager">返回</a>
+                        <div style="margin: 0 5px" class="icon-line"></div>
+                        <a class="confirm-hover">导出</a>
+                        <!--<div style="margin: 0 5px" class="icon-line"></div>-->
+                        <!--<a class="delete-hover" id="delManager" href="javascript:void(0)">删除</a>-->
+                    </div>
+                    <% } %>
+                    <% if(type === 'approval-apply' || type === 'approval-copy'){ %>
+                    <div style="display: inline-block;vertical-align: middle;margin-left: 20px;">
+                        <label style="margin-left:10px;">流程类型:</label>
+                        <select class="int int-default int-small14" id="tmplType"></select>
+                        <label style="margin-left:10px;">项目名称:</label>
+                        <select class="int int-default int-small14" id="projId" style="width: 200px;"></select>
+                        <span style="margin-top: -2px;line-height: 30px;margin-left: 7px;" class="span-btn" id="searchModal">查询</span>
+                    </div>
+                    <div class="search-result allReportBtn" style="margin-left: 80px;">
+                        <div class="item active" data-id="0">全部</div>
+                        <div class="item" data-id="1">审批中</div>
+                        <div class="item" data-id="2">同意</div>
+                        <div class="item" data-id="3">不同意</div>
+                    </div>
+                    <% } %>
+                    <% if(type === 'approval-me'){ %>
+                    <div style="display: inline-block;vertical-align: middle;margin-left: 20px;">
+                        <label style="margin-left: 20px;">流程类型:</label>
+                        <select class="int int-default int-small14" id="tmplType"></select>
+                        <label style="margin-left: 20px;">项目名称:</label>
+                        <select class="int int-default int-small14" id="projId" style="width: 200px;"></select>
+                        <span style="margin: -2px 0 0 7px;line-height: 30px;" class="span-btn" id="searchModal">查询</span>
+                    </div>
+                    <div class="search-result allReportBtn" style="margin-left: 80px;">
+                        <div class="item active" data-id="0">全部</div>
+                        <div class="item" data-id="1">审批中</div>
+                        <div class="item" data-id="2">同意</div>
+                        <div class="item" data-id="3">不同意</div>
+                        <div class="item" data-id="4">未处理</div>
+                    </div>
+                    <% } %>
+                </div>
+                <% if(type === 'approval-add'){ %>
+                <%- include('./newApplay') %>
+                <% }else if(type === 'approval-setting' || type === 'approval-type' || type === 'approval-setting-add'){ %>
+                <%- include('./processIndex') %>
+                <% }else if (type === 'approval-manager') { %>
+                <%- include('./approvalManager') %>
+                <% }else if(type === 'approval-apply'){ %>
+                <%- include('./myApplay') %>
+                <% }else if(type === 'approval-me'){ %>
+                <%- include('./myApproval') %>
+                <% } else if(type === 'approval-copy'){ %>
+                <%- include('./makeCopyForMe') %>
+                <% }else if(type === 'approval-manager-detail'){ %>
+                <%- include('./approvalManagerDetail') %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/approval.js"></script>
+<%- include('../layout/footer') %>

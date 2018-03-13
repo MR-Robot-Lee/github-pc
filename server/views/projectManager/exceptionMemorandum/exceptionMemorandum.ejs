@@ -1,0 +1,47 @@
+<div id="noInfoExceptionMemorandum_search" class="main-search-form" style="margin-top: 10px;margin-bottom: 10px;text-align: right;">
+    <label class="form-bold">分部查询:</label>
+    <select style="margin-left: 5px;" class="int int-default int-small14 subProject" id="">
+        <option value="0" selected>全部分部</option>
+    </select>
+    <label class="form-bold" style="margin-left: 15px;">异常阶段:</label>
+        <select style="margin-left: 5px;" class="int int-default int-small14" id="selectException">
+            <option value="0" selected>全部阶段</option>
+            <option value="1">成本预算</option>
+            <option value="2">材料管理</option>
+            <option value="3">合同管理</option>
+            <option value="4">结算管理</option>
+        </select>
+        <label style="margin-left: 15px;" class="form-bold">显示项:</label>
+        <select style="margin-left: 5px;" class="int int-default int-small14" id="selectExceptionType">
+            <option value="0" selected>全部异常项</option>
+            <option value="1">有备忘项</option>
+            <option value="2">无备忘项</option>
+        </select>
+        <input style="margin-left: 15px;" type="text" class="int int-default int-small14" placeholder="请输入名称关键字" id="keyword"/>
+        <span style="margin-left: 15px;" class="span-btn btn-fine-adj1" id="exceptionSearch">查询</span>
+    <div class="clr"></div>
+</div>
+<div id="noInfoExceptionMemorandum_main" class="table-content" style="display: none;">
+    <table>
+        <thead>
+        <tr>
+            <th class="border" style="width: 45px">序号</th>
+            <th style="width: 70px;" class="border">异常阶段</th>
+            <th style="width: 250px;" class="border">名称</th>
+            <th style="width: 60px;" class="border">采用值</th>
+            <th style="width: 60px;" class="border">系统值</th>
+            <th style="width: 95px;" class="border">内置参数</th>
+            <th class="border" style="width: 200px">系统说明</th>
+            <th class="border">备忘内容</th>
+            <!--<th class="border" style="width: 60px">备忘人</th>-->
+            <th class="border" style="width: 80px">操作</th>
+        </tr>
+        </thead>
+        <tbody id="exceptionMemorandum"></tbody>
+    </table>
+</div>
+<div name="noInfoExceptionMemorandum_page" id="page" style="margin-top: 10px;text-align: center;display: none;"></div>
+<div class='noInfo' id='noInfoExceptionMemorandum'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

@@ -1,0 +1,27 @@
+<%- include('../layout/header') %>
+<div class="PageLoginMain">
+    <div class="login-header">
+        <div class="logo-ori">
+            <span class="logo"></span>
+            <span class="logo-name">阿筑工程管理服务平台</span>
+        </div>
+        <% if(type === 'register'){ %>
+        <a class="register-btn" href="/login">个人登录</a>
+        <% }else if(type === 'login'){ %>
+        <a class="register-btn" href="/login/register">企业注册</a>
+        <% } %>
+    </div>
+    <% if(type === 'login'){ %>
+    <%- include('./login') %>
+    <% } else if(type === 'register'){ %>
+    <%- include('./register') %>
+    <% }else if(type === 'password'){ %>
+    <%- include('./password') %>
+    <% }else if(type === 'reset'){ %>
+    <%- include('./resetPwd') %>
+    <% }else if(type === 'register-success'){ %>
+    <%- include('./registerSuccess') %>
+    <% } %>
+</div>
+<script src="/dist/login.js"></script>
+<%- include('../layout/footer') %>

@@ -1,0 +1,45 @@
+<div class="budget-menus">
+    <% if(type === 'approval-type'){ %>
+    <a class="item active"
+       id="materialEnterpriseModal"
+       href="/approval/setting/type"
+       data-type="material">
+        <span class="menu-line"></span>
+        流程类型
+    </a>
+    <% }else{ %>
+    <a class="item"
+       id="materialEnterpriseModal"
+       href="/approval/setting/type"
+       data-type="material">
+        <span class="menu-line"></span>
+        流程类型
+    </a>
+    <% } %>
+    <% if(type === 'approval-setting' || type === 'approval-setting-add'){ %>
+    <a class="item active"
+       id="laborEnterpriseModal"
+       data-type="labor"
+       href="/approval/setting">
+        <span class="menu-line"></span>
+        流程设置
+    </a>
+    <% }else{ %>
+    <a class="item"
+       id="laborEnterpriseModal"
+       data-type="labor"
+       href="/approval/setting">
+        <span class="menu-line"></span>
+        流程设置
+    </a>
+    <% } %>
+</div>
+<div class="container-list-warp top90">
+    <% if(type === 'approval-type'){ %>
+    <%- include('./ProcessType') %>
+    <% }else if(type === 'approval-setting-add'){ %>
+    <%- include('./addProcessSetting') %>
+    <% }else if(type === 'approval-setting'){ %>
+    <%- include('./processSetting') %>
+    <% } %>
+</div>

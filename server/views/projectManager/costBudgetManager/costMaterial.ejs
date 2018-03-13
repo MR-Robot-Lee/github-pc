@@ -1,0 +1,40 @@
+<div id="costMaterial">
+    <div class="cost-material-page" style="height: 40px;">
+
+        <label style="margin-left: 20px;line-height: 30px;">总价:</label>
+        <span style="color: #009941;line-height: 30px;" id="materialPrice">0.00元</span>
+        <div class="material-position">
+            <!--<a>导出</a>-->
+            <select style="margin-left: 8px;" class="int int-default int-small14" id="costMaterialType"></select>
+            <select style="margin-left: 8px;" class="int int-default int-small14" id="costMaterialLevel">
+                <option value="a">材料分类</option>
+            </select>
+            <input style="margin-left: 8px;" type="text" name="keywords" class="int int-default int-small14" placeholder="请输入关键字查找" />
+            <span class="span-btn btn-fine-adj1" id="searchModal">查询</span>
+        </div>
+    </div>
+    <div class="table-content">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th style="width: 45px;" class="border">序号</th>
+                <th class="border">材料类别</th>
+                <th class="border">材料分类</th>
+                <th class="border">材料名称</th>
+                <th class="border">规格型号</th>
+                <th style="width: 60px;" class="border">单位</th>
+                <th style="width: 60px;" class="border">数量</th>
+                <th style="width: 60px;" class="border">单价</th>
+                <th class="border">合价</th>
+                <th class="border" style="width: 110px">操作</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="display: none;position:absolute;
+                       top: 50px;z-index: 200">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="costMaterialTable"></tbody>
+        </table>
+    </div>
+    <div id="page" style="margin: 20px 0;"></div>
+</div>

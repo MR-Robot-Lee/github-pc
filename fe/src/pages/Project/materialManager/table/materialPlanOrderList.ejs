@@ -1,0 +1,64 @@
+<div id="noInfoPlanList_main" class="materialManagerOrder" style="display: none;">
+    <div class="modal-form" style="padding: 0 20px">
+        <div class="item" style="position: relative;padding: 20px 0">
+            <div style="position: absolute;right: 0;top: 50%;margin-top: -15px;">
+                <label>状态:</label>
+                <span name="approval"></span>
+                <span class="span-btn background-list-gray mentionPlan" id="mentionPlan" style="display: none;">提计划</span>
+                <!--<span class="span-btn background-list-gray">查看审批</span>-->
+                <span class="span-btn background-list-gray">导出</span>
+                <!--<span class="span-btn background-list-gray span-btn-bc cancel">退出</span>-->
+            </div>
+        </div>
+        <div class="item">
+            <label class="bold-title" style="font-size: 12px;">计划人:</label>
+            <input style="margin-right: 15px;width: 70px;" disabled class="int int-default int-small11" name="planUser" />
+            <label class="bold-title" style="font-size: 12px;">采购人:</label>
+            <input style="margin-right: 15px;width: 70px;" class="int int-default int-small11" disabled name="prchUser" />
+            <label class="bold-title" style="font-size: 12px;">计划到场时间:</label>
+            <input style="margin-right: 15px;width: 150px;" type='date' class="int int-default int-small14" disabled name="planAppearTime" />
+            <label class="bold-title" style="font-size: 12px;position: relative ;">预计资金:<span style="position: absolute;left: 145px;top: 0;font-weight: normal;">元</span></label>
+            <input style="margin-right: 15px;" class="int int-default int-small11" disabled name="planMoney" />
+            <label class="bold-title" style="font-size: 12px;position: relative ;">其中预算外金额:<span style="position: absolute;left: 180px;top: 0;font-weight: normal;">元</span></label>
+            <input style="margin-right: 15px;" type="text" class="int int-default int-small11" disabled name="outPlanMoney" />
+        </div>
+    </div>
+    <div class="table-content"
+         style="margin: 0 20px;">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th style="width: 45px;" class="border">序号</th>
+                <th style="min-width: 70px;" class="border">分部名称</th>
+                <th style="min-width: 140px;" class="border">材料分类</th>
+                <th style="min-width: 70px;" class="border">材料名称</th>
+                <th style="min-width: 75px;" class="border">规格型号</th>
+                <th style="min-width: 60px;" class="border">单位</th>
+                <th style="min-width: 60px;" class="border">数量</th>
+                <th style="min-width: 60px;" class="border">单价</th>
+                <th style="min-width: 80px;" class="border">合价</th>
+                <th class="border" style="max-width: 240px;">说明</th>
+                <th style="width: 70px;" class="border">异常备忘</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="position: absolute;display: none;z-index: 200">
+            <tr class="small"></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div style="text-align: right;
+    margin: 10px 0px;
+    padding: 10px 20px;
+    border-top: 1px solid #e9e9e9;">
+        <!--<span class="span-btn span-btn-bc confirm-active directPurchase">直传采购人</span>-->
+        <span class="span-btn submitApproval" style="display: none;">提交审批</span>
+        <!--<span class="span-btn save">保存</span>-->
+        <span class="span-btn span-btn-bc confirm-active cancel">取消</span>
+    </div>
+</div>
+<div class='noInfo' id='noInfoPlanList'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+    <span class="span-btn mentionPlan" id="mentionPlan" style="display: none;">提计划</span>
+</div>

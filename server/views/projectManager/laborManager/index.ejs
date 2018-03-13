@@ -1,0 +1,60 @@
+<%- include('../../layout/projectHeader') %>
+<div class='IndexMain container-project page-labor' id="projectSchedule" data-id="<%- id %>">
+    <div class='project-menu-title'><span><%- name %></span>
+        <div style="position: absolute;top: 5px;left: 25px;width: 36px;height: 36px;border-radius: 50%;box-shadow: 0px 0px 2px 1px #c1c1c1;background-color: #fff;"><img style="width: 28px;height: 25px;border-radius: 50%;margin-top: 6px;" name='projectPrincipalLogo' src="./../../../dist/images/my-apply.png" alt=""></div>
+        <div id="projectPrincipal" style="position: absolute;top: 13px;left: 70px;font-size: 14px"></div>
+    </div>
+    <div class="container-content-project page-budget">
+        <%- include('./../projectDetailManager/projectNav') %>
+        <div class="project-list">
+            <div class="budget-title clearfix" style="padding-right: 30px">劳动力管理</div>
+            <div class="budget-menus">
+                <% if(type === 'labor'){ %>
+                <a class="item active" href="/project/labor/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    人力动态
+                </a>
+                <% }else{ %>
+                <a class="item " href="/project/labor/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    人力动态
+                </a>
+                <% } %>
+                <% if(type === 'attendance'){ %>
+                <a class="item active" href="/project/attendance/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    考勤管理
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/attendance/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    考勤管理
+                </a>
+                <% } %>
+                <% if(type === 'employee'){ %>
+                <a class="item active" href="/project/employee/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    人员管理
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/employee/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    人员管理
+                </a>
+                <% } %>
+            </div>
+            <div class="project-list-wrap top-88">
+                <% if(type === 'labor'){ %>
+                <%- include('./laborStatus') %>
+                <% }else if(type === 'attendance') { %>
+                <%- include('./attendance') %>
+                <% }else if(type === 'employee'){ %>
+                <%- include('./employee') %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/project.js"></script>
+<%- include('../../layout/footer') %>

@@ -1,0 +1,53 @@
+<div class="container-list-warp">
+    <div class="my-apply" id="myApply">
+        <div id="noInfoMyApplyTable_main" class="my-apply-list" style="display: none;"></div>
+    </div>
+    <div class="knowledge-detail">
+        <div style="border-bottom: 1px solid #DDDDDD;" class="knowledge-detail-title">
+            <span class="span-btn background-list-gray" id="delKnowledge">导出</span>
+            <span class="icon-close" style="position: absolute;right: 20px;margin-top:6px"></span>
+        </div>
+        <div class="knowledge-detail" style="overflow: auto;padding: 10px 0;margin-top: 51px;box-shadow: none">
+            <div class="knowledge-detail-item">
+                <label>审批结果:</label>
+                <span name="apprStatus"></span>
+            </div>
+            <div class="knowledge-detail-item">
+                <label style="width: 60px;display: inline-block;"> 申 请 人 :</label>
+                <span name="applyUserName"></span>
+            </div>
+            <div class="knowledge-detail-item">
+                <label>申请时间:</label>
+                <span name="applyTime"></span>
+            </div>
+            <div class="knowledge-detail-item clearfix">
+                <label style="float: left;">申请内容:</label>
+                <div name="applyContent" style="white-space: pre-line;float: left;margin-left: 3px;"></div>
+            </div>
+            <div class="knowledge-attach" style="border-bottom:1px solid #ececec;padding-bottom: 10px">
+                <label>附件:</label>
+                <div class="attach-list"></div>
+                <div class="clr"></div>
+            </div>
+            <div class="knowledge-detail-item">
+                <label>审批流程:</label>
+                <span name="apprUserName"></span>
+            </div>
+            <div class="knowledge-detail-item">
+                <label>流程说明:</label>
+                <span name="remark"></span>
+            </div>
+            <div class="knowledge-detail-item" style="border-top: 1px solid #ececec">
+                <div class="modal-form" style="margin: 10px 0;display: none; " id="projectShow">
+                    <span style="color: #999999;">审批进度 : </span><span class="bold-title" name="projectName"></span>
+                </div>
+                <div class="approval-process"></div>
+            </div>
+        </div>
+    </div>
+    <div name="noInfoMyApplyTable_page" id="page" style="margin:20px 0;display: none;"></div>
+</div>
+<div class='noInfo' id='noInfoMyApplyTable'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

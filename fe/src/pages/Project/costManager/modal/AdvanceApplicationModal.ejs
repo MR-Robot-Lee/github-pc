@@ -1,0 +1,86 @@
+<!--预付款申请单-->
+<div class="model-project-common" style="width:752px">
+    <div class="model-header">
+        <span class="project-title">预付款申请单</span>
+        <div style="position: absolute;right: 20px;top: 50%;margin-top: -15px;" class="payApplyMenus">
+            <span class="span-btn background-list-gray">申请金额</span>
+            <span class="span-btn background-list-gray">导入合同</span>
+        </div>
+    </div>
+    <div class="model-section">
+        <div class="modal-form" style="padding-bottom: 10px;border-bottom: 1px solid #e9e9e9">
+            <div class="bold-title item">合同信息</div>
+            <div class="item">
+                <label class="bold-title">合同编号:</label>
+                <select class="int-small14 int int-default">
+                    <option value="a">单击选择</option>
+                </select>
+                <label class="bold-title" style="margin-left: 20px">合同金额:</label>
+                <input type="text" placeholder="系统信息" class="int-small14 int int-default" />
+                <label class="bold-title" style="margin-left: 20px">税票金额:</label>
+                <input type="text" placeholder="系统信息" class="int-small14 int int-default" />
+            </div>
+            <div class="item">
+                <label class="bold-title">合同方名称:</label>
+                <select class="int int-default int-middle32" style="width: 378px">
+                    <option value="a">单击选择</option>
+                </select>
+                <label class="bold-title" style="margin-left: 20px">收款人:</label>
+                <input type="text" placeholder="系统信息" disabled class="int-small14 int int-default" />
+            </div>
+            <div class="item">
+                <label class="bold-title" style="float: left;margin-top: 5px">银行信息:</label>
+                <div style="width: 600px;display: inline-block">
+                    <div style="float: left">
+                        <label style="margin-left: 10px">开户名:</label>
+                        <input type="text" placeholder="系统信息" class="int-default int" />
+                    </div>
+                    <div style="float: left;margin-left: 20px">
+                        <label>开户行:</label>
+                        <input type="text" placeholder="系统信息" class="int-default int" />
+                    </div>
+                    <div style="float: left;margin-top: 10px">
+                        <label>帐号:</label>
+                        <input type="text" placeholder="系统信息" class="int-default int" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-form" style="padding: 10px 0;border-bottom: 1px solid #e9e9e9">
+            <div class="bold-title item">
+                支付信息
+            </div>
+            <div class="item">
+                <label for="" class="bold-title">已支付金额:</label>
+                <input placeholder="系统信息" class="int int-default" />
+                <label for="" class="bold-title">支付后合计金额:</label>
+                <input placeholder="系统信息" class="int int-default" />
+            </div>
+            <div class="item">
+                <label for="" class="bold-title">已提供税票:</label>
+                <input placeholder="系统信息" class="int int-default" />
+                <label for="" class="bold-title">提交后累计税额:</label>
+                <input placeholder="系统信息" class="int int-default" />
+            </div>
+        </div>
+        <div class="modal-form" style="padding-top: 10px">
+            <div class="bold-title item">
+                申请信息
+            </div>
+            <div class="item">
+                <label for="" class="bold-title">申请名称:</label>
+                <input placeholder="系统信息" class="int int-default int-large44" />
+            </div>
+            <div class="item">
+                <label for="" class="bold-title">本次支付金额:</label>
+                <input placeholder="系统信息" class="int-default int" />
+                <label for="" class="bold-title">本次提供税票:</label>
+                <input placeholder="系统信息" class="int-default int" />
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">提交审批</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

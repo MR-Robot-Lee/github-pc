@@ -1,0 +1,433 @@
+.page-knowledge {
+  .all-knowledge-list {
+    padding: 0 20px;
+    .knowledge-item {
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 0 3px 1px $box-border;
+      position: relative;
+      &.active {
+        border: 2px solid #4cb47a;
+        margin:18px -2px -2px -2px;
+      }
+      .item-title {
+        border-bottom: 1px solid #f2f2f2;
+        background-color: #fcfcfc;
+        font-size: 16px;
+        padding: 10px 0 10px 20px;
+        color: #5b5b5b;
+        span{
+          float: right;
+          font-size: 12px;
+          line-height: 21px;
+          color: #999;
+          margin-right: 20px;
+        }
+      }
+      .item-content {
+        height: 70px;
+        padding: 2px 20px;
+        text-indent: 24px;
+        line-height: 33px;
+        font-size: 12px;
+        color: $fcxx;
+        overflow: hidden;
+        //width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        &:after {
+          content: '...';
+          color: $fcxxx;
+        }
+      }
+      .item-info {
+        border-top: 1px solid #f2f2f2;
+        background-color: #fcfcfc;
+        font-size: 12px;
+        color: #bdbebf;
+        padding: 13px;
+      }
+      &:hover {
+        box-shadow: 0 0 3px 3px $box-border;
+      }
+    }
+  }
+  .knowledge-detail{
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 48px;
+    bottom: -5px;
+    margin-bottom: 10px;
+    width: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 200;
+    box-shadow: 1px 1px 8px 5px #c1c1c1;
+    background-color: #fff;
+    transition: left 200ms;
+    &.zc{
+      top:0;
+      position: relative;
+      box-shadow: none;
+    }
+    &.approval-detail {
+      position: relative;
+      box-shadow: none;
+      display: block;
+      top: 0;
+    }
+    &.active {
+      display: block;
+    }
+    .knowledge-detail-title {
+      padding: 10px 0 10px 20px;
+      //border-bottom: 1px solid $box-border;
+    }
+    .knowledge-title {
+      font-size: 16px;
+      white-space: nowrap;
+      padding: 15px 0 15px 10px;
+      margin-left: 20px;
+      color: #5b5b5b;
+      border-top: 1px solid $box-border;
+    }
+    .knowledge-info {
+      margin-left: 20px;
+      padding-left: 10px;
+      border-bottom: 1px solid $box-border;
+      border-top: 1px solid $box-border;
+      color: #bdbebf;
+      font-size: 12px;
+      .info-item {
+        padding-top: 8px;
+        > label {
+          font-size: 12px;
+        }
+      }
+      span {
+        vertical-align: middle;
+        width: 130px;
+        display: inline-block;
+        color: $fcxx;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .knowledge-summary {
+      margin-top: 20px;
+      margin-left: 20px;
+      border: 1px solid $box-border;
+      background-color: #fcfcfc;
+      padding: 10px 0 10px 10px;
+      font-size: 12px;
+      > label {
+        color: #bdbebf;
+      }
+      > span {
+        color: #5b5b5b;
+      }
+    }
+    .knowledge-content {
+      margin:0 20px;
+      padding:0 20px;
+      text-indent: 28px;
+      color: #5b5b5b;
+      line-height: 2;
+      white-space: pre-wrap;
+    }
+    .knowledge-attach {
+      margin-left: 20px;
+      > label {
+        float: left;
+        color: #bdbebf;
+        margin-top: 10px;
+      }
+      .attach-list {
+        display: inline-block;
+        margin-left: 3px;
+        .attach-item {
+          margin-top: 10px;
+          text-align: left;
+          .icon {
+            width: 30px;
+            height: 34px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            //&.icon-xls {
+            //  background-image: url(images/icon_xls.png);
+            //}
+            //&.icon-pdf {
+            //  background-image: url(images/icon_pdf.png);
+            //}
+            //&.icon-doc {
+            //  background-image: url(images/icon_doc.png);
+            //}
+            //&.icon-none {
+            //  height: 28px;
+            //  background-image: url(images/img-none.png);
+            //}
+          }
+          .detail {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: -2px;
+            a {
+              margin-top: 5px;
+              color: #229aec;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .knowledge-detail-item {
+      margin: 10px 20px;
+      > label {
+        color: #999999;
+      }
+      .approval-process {
+        margin-left: 20px;
+        border-left: 1px solid #e9e9e9;
+        .approval-process-content {
+          position: relative;
+          background-color: #fcfcfc;
+          border: 1px solid #e9e9e9;
+          margin: 0 20px 20px 20px;
+          padding: 7px;
+          .status{
+            width: 50px;
+            color: #b5b5b5;
+            margin-left: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 35px;
+          }
+          .desc {
+            margin-left: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            width: 320px;
+            color: #b5b5b5;
+            line-height: 35px;
+            //overflow: hidden;
+            //white-space: nowrap;
+            //text-overflow: ellipsis;
+          }
+          .time {
+            color: #b5b5b5;
+            font-size: 12px;
+            margin-left: 10px;
+            line-height: 35px;
+          }
+          .content-image {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            box-shadow: 0 0 3px 1px #e9e9e9;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            img{
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+            .images {
+              position: absolute;
+              top: 4px;
+              left: 5px;
+              width: 22px;
+              height: 19px;
+              background: url(./images/my-apply-2.png) no-repeat;
+            }
+          }
+          .content-item {
+            display: inline-block;
+            vertical-align: middle;
+            width: 80px;
+            margin-left: 5px;
+            .user-name {
+              color: #333;
+              font-weight: bold;
+            }
+            .user-job {
+              font-size: 12px;
+              color: #999;
+            }
+          }
+          .color-4cb951 {
+            color: #4cb951;
+          }
+          .color-4db992 {
+            color: #4db992;
+          }
+          .color-c89421 {
+            color: #c89421;
+          }
+          .color-239bef {
+            color: #239bef;
+          }
+          .icon-approval-status {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            position: absolute;
+            left: -30px;
+            top: 15px;
+            &.agree{
+              background: url(./images/approval-agree.png) no-repeat;
+            }
+            &.un-agree {
+              background: url(./images/approval-unagree.png) no-repeat;
+            }
+            &.over {
+              background-image: none;
+              border-radius: 50%;
+              background-color: #cccccc;
+              color: #ffffff;
+              text-align: center;
+              .line {
+                width: 1px;
+                margin-top: 1px;
+                height: 14px;
+                display: inline-block;
+                border: 1px dashed #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .communique-new-comment {
+    margin-left: 20px;
+    .comments-list {
+      .comment-item {
+        margin-top: 20px;
+        .user-header-img {
+          float: left;
+          display: inline-block;
+          width: 32px;
+          height: 32px;
+          background: url(./images/usename.png);
+        }
+        .user-header-img-dom {
+          float: left;
+          display: inline-block;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+        }
+        .user-info {
+          margin-left: 5px;
+          display: inline-block;
+          color: #5b5b5b;
+          width: 740px;
+          .comment-time {
+            margin-left: 30px;
+            color: $fcxxx;
+          }
+          .comment-content {
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+.knowledge-modal-review {
+  .model-section {
+    padding: 0 20px;
+  }
+  .modal-knowledge-title {
+    text-align: center;
+    font-size: 16px;
+    height: 53px;
+    line-height: 53px;
+  }
+  .modal-knowledge-info {
+    padding-bottom: 10px;
+    border-top: 1px solid $box-border;
+    border-bottom: 1px solid $box-border;
+    > div {
+      font-size: 12px;
+      color: #bdbebf;
+      margin-top: 10px;
+      > span {
+        display: inline-block;
+        width: 119px;
+      }
+    }
+  }
+  .knowledge-modal-summary {
+    background-color: #fcfcfc;
+    border: 1px solid $box-border;
+    padding: 10px 5px;
+    margin-top: 20px;
+    label {
+      line-height: 2;
+      color: #bdbebf;
+    }
+    span {
+      color: #666;
+      line-height: 2;
+    }
+  }
+  .knowledge-modal-content {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+  .knowledge-attach {
+    > label {
+      float: left;
+      color: #bdbebf;
+      margin-top: 10px;
+    }
+    .attach-list {
+      display: inline-block;
+      margin-left: 3px;
+      .attach-item {
+        margin-top: 10px;
+        text-align: left;
+        .icon {
+          width: 30px;
+          height: 34px;
+          display: inline-block;
+          background-repeat: no-repeat;
+          //&.icon-xls {
+          //  background-image: url(images/icon_xls.png);
+          //}
+          //&.icon-pdf {
+          //  background-image: url(images/icon_pdf.png);
+          //}
+          //&.icon-doc {
+          //  background-image: url(images/icon_doc.png);
+          //}
+          //&.icon-none {
+          //  height: 28px;
+          //  background-image: url(images/img-none.png);
+          //}
+        }
+        .detail {
+          display: inline-block;
+          vertical-align: top;
+          margin-top: -2px;
+          a {
+            margin-top: 5px;
+            color: #229aec;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

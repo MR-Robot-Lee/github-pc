@@ -1,0 +1,112 @@
+.common-header {
+  padding: 8px 0 8px 20px;
+  display: table;
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid $box-border;
+  min-height: 47px;
+  &.word {
+    padding: 13px 0 13px 20px;
+  }
+  &.no-border {
+    padding: 13px 0 13px 20px;
+    border: none;
+    position: relative;
+  }
+  .search-form {
+    .common-title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .item {
+      padding: 5px 0;
+      float: left;
+    }
+    float: left;
+    select, input, button {
+      box-sizing: border-box;
+      height: 30px;
+      background-color: #ffffff;
+      border: 1px solid $form-border;
+      outline: none;
+      width: 60px;
+      cursor: pointer;
+    }
+    select, input {
+      margin-left: 5px;
+      width: 140px;
+      border-radius: 3px;
+    }
+    .btn {
+      border: none;
+      border-radius: 3px;
+      margin-left: 5px;
+      background-color: #009441;
+      color: #ffffff;
+      line-height: 30px;
+    }
+  }
+
+  .search-result {
+    font-size: 14px;
+    color: $fcx;
+    display: inline-block;
+    vertical-align: middle;
+    .result-state {
+      margin-left: 50px;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      span {
+        color: $blue;
+      }
+    }
+    .item {
+      cursor: pointer;
+      padding: 3px;
+      text-align: center;
+      width: 60px;
+      font-size: 14px;
+      float: left;
+      border: 1px solid $form-border;
+      margin-left: -1px;
+      &.margin-left {
+        margin-left: 100px;
+      }
+      &.active {
+        background-color: $blue !important;
+        color: #ffffff !important;
+        border-color: $blue !important;
+      }
+    }
+  }
+}
+
+.search-position {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  margin-top: -15px;
+}
+
+.icon-position {
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  right: 20px;
+  display: none;
+  &.small14 {
+    margin-top: -22px;
+  }
+}
+
+.select-active {
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  &:hover, &.active {
+    color: $blue;
+    text-decoration: underline;
+    text-decoration-color: $blue;
+  }
+}

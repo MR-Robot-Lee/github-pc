@@ -1,0 +1,48 @@
+<div class="container-list-warp">
+    <div class="modal-form" style="margin: 20px 0;border-bottom: 1px solid #e9e9e9;padding-bottom: 10px;">
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11"><i class="icon-fill-in">*</i>流程类型 :</label>
+            <select class="int int-default" style="width: 200px" id="processType"></select>
+        </div>
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11"><i class="icon-fill-in">*</i>流程名称 :</label>
+            <select class="int int-default" style="width: 400px" id="processName">
+                <option value="a"></option>
+            </select>
+        </div>
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11">审批流程 :</label>
+            <span style="color: #999999;" name="copyProjPosNames">暂无</span>
+        </div>
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11">流程说明 :</label>
+            <span style="color: #999999;" name="remark">暂无</span>
+        </div>
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11">抄送 :</label>
+            <span style="color: #999999;" name="copyUserNames">暂无</span>
+        </div>
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11">申请人 :</label>
+            <span class="currentUser"></span>
+        </div>
+        <div class="item" id="projectName" style="display: none;padding: 9px 0;">
+            <label class="label-block int-small11"><i class="icon-fill-in">*</i>项目部 :</label>
+            <select class="int int-default" style="width: 400px"></select>
+        </div>
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11" style="float: left;"><i class="icon-fill-in">*</i>申请内容 :</label>
+            <textarea class="int int-default"
+                      name="applyContent"
+                      style="width: 400px;height: 80px;resize: none;margin-left: 3px" placeholder="请输入内容"></textarea>
+        </div>
+        <div style="padding: 9px 0;" class="item">
+            <label class="label-block int-small11" style="float: left;">附件 :</label>
+            <div id="report" style="display: inline-block;margin-left: 3px;"></div>
+        </div>
+    </div>
+    <div style="text-align: left;padding-left: 440px;">
+        <span class="span-btn confirm">提交</span>
+        <!--<span class="span-btn span-btn-bc confirm-active">取消</span>-->
+    </div>
+</div>

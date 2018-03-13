@@ -1,0 +1,41 @@
+<%- include('../layout/header') %>
+<div class="container page-employee page-knowledge">
+    <div class="span-left">
+        <%- include('./projectNav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <% if(type === "knowledge-add"){ %>
+                    <div class="employee-name">新建知识库</div>
+                    <% }else if(type === "knowledge-type"){ %>
+                    <div class="employee-name">知识类型</div>
+                    <% }else if(type === "knowledge-all"){ %>
+                    <div class="employee-name">全部知识</div>
+                    <% } else if(type === 'knowledge-detail'){ %>
+                    <div class="employee-name"></div>
+                    <% } %>
+                    <% if(type === "knowledge-type"){ %>
+                    <div style="line-height: 28px;" class="add-type" id="knowledgeType">
+                        <span></span>增加类型
+                    </div>
+                    <% } %>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'knowledge-add'){ %>
+                    <%- include('./addKnowLedge') %>
+                    <% }else if(type === 'knowledge-type'){ %>
+                    <%- include('./knowLedgeType') %>
+                    <% }else if (type === 'knowledge-all') { %>
+                    <%- include('./allKnowledge') %>
+                    <% } else if (type === 'knowledge-detail') { %>
+                    <%- include('./knowledgeDetail') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/knowledge.js"></script>
+<%- include('../layout/footer') %>

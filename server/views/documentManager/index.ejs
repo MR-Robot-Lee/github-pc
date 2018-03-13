@@ -1,0 +1,43 @@
+<%- include('../layout/header') %>
+<div class="container page-employee page-document">
+    <div class="span-left">
+        <%- include('./documentNav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <% if(type === "document-add"){ %>
+                    <div class="employee-name">新建文件柜</div>
+                    <% }else if(type === "document-company" || type === 'document-admin'){ %>
+                    <div class="employee-name">
+                        <span id="parentName"><%- NavName %></span>
+                        <% if(type === 'document-admin'){ %>
+                        <span style="font-size: 12px;font-weight: 400" id="childName">><%- name %></span>
+                        <% } %>
+                    </div>
+                    <% }else if(type === "document-me"){ %>
+                    <div class="employee-name">我的文件柜</div>
+                    <% }else if(type === 'document-manager'){ %>
+                    <div class="employee-name">文件柜管理</div>
+                    <% } %>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'document-add'){ %>
+                    <%- include('./addFileCabinet') %>
+                    <% }else if(type === 'document-company'){ %>
+                    <%- include('./companyFileCabinet') %>
+                    <% }else if (type === 'document-me') { %>
+                    <%- include('./myFileCabinet') %>
+                    <% }else if(type === 'document-manager'){ %>
+                    <%- include('./fileCabinetManager') %>
+                    <% }else if(type === 'document-admin'){ %>
+                    <%- include('./administrationManager') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/document.js"></script>
+<%- include('../layout/footer') %>

@@ -1,0 +1,48 @@
+<div>
+    <div class="modal-form" style="margin: 10px 0;text-align: right;">
+        <label class="bold-form">分部查看:</label>
+        <select class="int int-default int-small14 subProject">
+            <option value="a">请选择分部</option>
+        </select>
+        <label style="margin-left: 8px;" class="bold-form">分类:</label>
+        <select class="int int-default int-small14 billType">
+            <option value="3" selected>人工</option>
+            <option value="4">措施</option>
+            <option value="5">分包</option>
+        </select>
+        <!--<label class="bold-form">余量查看</label>
+        <select class="int int-default int-small14">
+            <option value="1">非零余量</option>
+            <option value="2">零余量</option>
+        </select>-->
+        <span class="span-btn searchModal btn-fine-adj1">查询</span>
+    </div>
+    <div id="noInfoBillContractTable_main" class="table-content" style="display: none;">
+        <table>
+            <thead>
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border">分类</th>
+                <th class="border">项目名称</th>
+                <th class="border">工作内容</th>
+                <th class="border" style="width: 80px">单位</th>
+                <th class="border" style="width: 80px">数量</th>
+                <th class="border" style="width: 80px">单价</th>
+                <th class="border">合价</th>
+                <th class="border" style="width: 100px">可用资源</th>
+                <th class="border" style="width: 90px">操作</th>
+            </tr>
+            </thead>
+            <tbody id="billContractTable"></tbody>
+        </table>
+    </div>
+    <div name="noInfoBillContractTable_page" id="page" style="margin: 20px 0;display: none;"></div>
+</div>
+<!--<div id="contractResourceHide">-->
+    <!--<div class="icon-uninformed"></div>-->
+    <!--<div style="margin: 10px 0;color: #5b5b5b;">暂无符合条件的信息</div>-->
+<!--</div>-->
+<div class='noInfo' id='noInfoBillContractTable'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

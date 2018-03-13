@@ -1,0 +1,26 @@
+<div class="modal-form" style="margin: 20px 0" id="posId" data-id="<%- posId %>">
+    <label class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>职务名称:</label>
+    <input type="text" class="int int-default" placeholder="请输入职务名称" name="postName" />
+</div>
+<div class="modal-form" style="margin: 20px 0">
+    <label class="bold-title label-block int-small11" style="float: left;">职位描述:</label>
+    <textarea class="int int-default" style="resize: none;height: 100px;margin-left: 3px;width: 400px"
+              name="describes" placeholder="请输入职位描述"></textarea>
+</div>
+<div class="table-content" style="margin: 0;">
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 50px;padding-left: 20px;">编号</th>
+            <th style="width: 100px">应用名称</th>
+            <th style="width: 100px">功能模块</th>
+            <th style="width: 200px"><input id='getAllRole' type="checkbox">(全选)权限</th>
+            <th>权限描述</th>
+        </tr>
+        </thead>
+        <tbody id="addRoleTable"></tbody>
+    </table>
+</div>
+<div style="margin: 20px 0;text-align: center">
+    <span class="span-btn confirm">保存</span>
+</div>

@@ -1,0 +1,32 @@
+<%- include('../../layout/header') %>
+<div class='IndexMain'>
+    <%- include('../systemHeader') %>
+    <div class="container margin-58 page-account-index">
+        <div class="span-left" style="width: 260px;">
+            <%- include('./nav') %>
+        </div>
+        <div class="span-right" style="margin-left: 280px;">
+            <div class="container-list">
+                <div class="common-header word">
+                    <div class="search-form">
+                        <% if(type === 'account-info'){ %>
+                        <span class="common-title" s>账户信息</span>
+                        <% }else if(type === 'account-manager'){ %>
+                        <span class="common-title">账单管理</span>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'account-info'){ %>
+                    <%- include('./accountInfo') %>
+                    <% }else if(type === 'account-manager'){ %>
+                    <%- include('./accountManager') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/system.js"></script>
+<%- include('../../layout/footer') %>

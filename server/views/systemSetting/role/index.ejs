@@ -1,0 +1,43 @@
+<%- include('../../layout/header') %>
+<div class="IndexMain">
+    <%- include('../systemHeader') %>
+    <div class="container margin-58">
+        <div class="span-left" style="width: 260px;">
+            <%- include('./nav') %>
+        </div>
+        <div class="span-right" style="margin-left: 280px;">
+            <div class="container-list">
+                <div class="common-header word">
+                    <div class="search-form">
+                        <% if(type === 'role-index'){ %>
+                        <span class="common-title">职务权限列表</span>
+                        <% }else if(type === 'role-add'){ %>
+                        <span class="common-title">新增职务</span>
+                        <% }else if(type === 'role-department'){ %>
+                        <span class="common-title">项目部职务列表</span>
+                        <% } %>
+                    </div>
+                    <% if(type === 'role-department'){ %>
+                    <div style="position: absolute;margin-top: -5px;left: 130px">
+                        <span class="span-btn background-list-gray" id="addJob">新增项目部职务</span>
+                        <!--<span class="span-btn background-list-gray" id="exportData">批量导入</span>-->
+                    </div>
+                    <% } %>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'role-index'){ %>
+                    <%- include('./officialAuthority') %>
+                    <% }else if(type === 'role-add'){ %>
+                    <%- include('./addRole') %>
+                    <% }else if(type === 'role-department'){ %>
+                    <%- include('./projectDepartment') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/system.js"></script>
+<%- include('../../layout/footer') %>
+

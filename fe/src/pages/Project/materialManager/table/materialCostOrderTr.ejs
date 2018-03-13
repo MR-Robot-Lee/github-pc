@@ -1,0 +1,22 @@
+<tr class="small">
+    <td class="border"><%- count %></td>
+    <td class="border"><%- costNo %></td>
+    <td class="border"><%- costName %></td>
+    <td class="border"><%- subProjName %></td>
+    <td class="border"><%- acctType %></td>
+    <td class="border"><%- costMoney %></td>
+    <td class="border"><%- taxMoney %></td>
+    <td class="border"><%- entprName %></td>
+    <td class="border"><%- prepayMoney %></td>
+    <td class="border"><%- status %></td>
+    <td class="border">
+        <a class="confirm-hover" data-type="edit">
+            <% if( status == '已同意' || status == '审批中' ){ %>
+               查看费用
+            <%}else{ %>
+               费用编辑
+            <%} %>
+        </a>
+        <!--费用编辑 标记-->
+    </td>
+</tr>

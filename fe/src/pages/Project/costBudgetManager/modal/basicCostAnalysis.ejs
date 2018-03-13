@@ -1,0 +1,113 @@
+<div class="model-project-common basic-cost-analysis-modal">
+    <div class="model-section" style="height: 682px;padding-bottom: 25px;">
+        <div class="model-left-span">
+            <div style="padding-bottom: 10px;" class="modal-form">
+                <label class="bold-title">清单描述:</label>
+            </div>
+            <div class="modal-form descDetail" style="font-size: 12px;line-height: 20px;white-space: pre-line;"></div>
+        </div>
+        <div class="model-right-span">
+            <div class="modal-form border-bottom border">
+                <label class="bold-title">清单综合单价:</label>
+                <input class="int int-default int-small8"
+                       disabled name="origPrice"
+                       placeholder="系统计算" />
+                <label class="bold-title" style="margin-left: 10px;">成本核算单价:</label>
+                <input class="int int-default int-small8"
+                       placeholder="系统计算"
+                       disabled name="budPrice" />
+                <label id="costAnalysisUnit" class="bold-title" style="margin-left: 320px;">单位:</label>
+                <span></span>
+            </div>
+            <div class="modal-form border-bottom">
+                <label class="bold-title">材料费:</label>
+                <input class="int int-default int-small8"
+                       placeholder="系统计算"
+                       disabled name="budMtrlPrice" />
+                <label class="bold-title" style="margin-left: 10px;">人工费:</label>
+                <input class="int int-default int-small8"
+                       placeholder="系统计算"
+                       disabled name="budLaborPrice" />
+                <label class="bold-title" style="margin-left: 10px;">措施费:</label>
+                <input class="int int-default int-small8"
+                       placeholder="系统计算"
+                       disabled name="budMeasurePrice" />
+                <label class="bold-title" style="margin-left: 10px;">分包费:</label>
+                <input class="int int-default int-small8"
+                       placeholder="系统计算"
+                       disabled name="budSubletPrice" />
+                <label class="bold-title" style="margin-left: 10px;">辅材费:</label>
+                <input class="int int-default int-small8"
+                       placeholder="系统计算"
+                       disabled name="budSecMtrlPrice" />
+            </div>
+            <div class="page-budget">
+                <div class="budget-menus">
+                    <a class="item materialNav"
+                       data-type="material"
+                       href="javascript:void(0)">
+                        <span class="menu-line"></span>
+                        材料分析
+                    </a>
+                    <a class="item laborNav"
+                       data-type="labor"
+                       href="javascript:void(0)">
+                        <span class="menu-line"></span>
+                        人工分析
+                    </a>
+                    <a class="item stepNav"
+                       data-type="step"
+                       href="javascript:void(0)">
+                        <span class="menu-line"></span>
+                        措施费分析
+                    </a>
+                    <a class="item subpackageNav"
+                       data-type="subpackage"
+                       href="javascript:void(0)">
+                        <span class="menu-line"></span>
+                        分包费分析
+                    </a>
+                </div>
+                <div class="clr"></div>
+                <div class="table-content" style="margin:10px;">
+                    <table id="analysis">
+                        <thead id="showTitle">
+                        <tr class="small">
+                            <th style="width: 45px;" class="border">序号</th>
+                            <th class="border">材料名称</th>
+                            <th class="border">规格型号</th>
+                            <th class="border">单位</th>
+                            <th class="border">单位数量</th>
+                            <th class="border">单价</th>
+                            <th class="border">历史均价</th>
+                            <th class="border">辅材</th>
+                            <th class="border">操作</th>
+                        </tr>
+                        </thead>
+                        <thead id="hideTitle" style="position: absolute;z-index:200;display: none;">
+                        <tr class="small"></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class='noInfo' id='noInfoAnalysis'>
+                        <div class="icon-uninformed"></div>
+                        <p>没有符合条件的信息！ </p>
+                    </div>
+                </div>
+
+
+                <div style="position:absolute;right: 10px;bottom: 10px;">
+                    <span class="span-btn add">添加</span>
+                    <span class="span-btn confirm">保存</span>
+                    <span class="span-btn span-btn-bc confirm-active submit">确定</span>
+                </div>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+
+    <!--<div class="model-footer">-->
+        <!--&lt;!&ndash; <span class="span-btn span-btn-bc confirm-active confirm">确认</span>&ndash;&gt;-->
+        <!--<span class="span-btn span-btn-bc confirm-active submit">确定</span>-->
+    <!--</div>-->
+</div>

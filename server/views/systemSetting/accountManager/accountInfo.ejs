@@ -1,0 +1,81 @@
+<div style="padding: 10px 20px; color:#5b5b5b; border-bottom: 1px solid #e9e9e9">
+    <div style="margin-bottom: 15px;">
+        <label>企业名称:</label>
+        <span name="etpName" style="margin-left: 5px;color: #333;"></span>
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label>企业编号:</label>
+        <span name="companyNo" style="margin-left: 5px;color: #333;"></span>
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label>购买帐号:</label>
+        <span name="maxAccCount" style="margin-left: 5px;color: #333;"></span>
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label>存储空间:</label>
+        <div style="width: 100px;display: inline-block;vertical-align: middle;margin-left: 5px;">
+            <div class="Progress-Bar-fixed">
+                <div class="bar-item">
+                    <div class="span-default progress-bc-506774" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+        <span name="allowSize" style="font-size: 12px;color: #999;"></span>
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label>方案到期:</label>
+        <span name="limitTime" style="margin-left: 5px;"></span>
+        <label style="margin-left: 5px;">剩余:</label>
+        <span name="day"
+              style="text-decoration: underline;color: #449910;display: inline-block;padding: 0 10px;"></span>&nbsp;天
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label style="float: left;">立即购买:</label>
+        <div class="table-content" style="width:600px;display:inline-block;margin: 0 0 0 5px;">
+            <table>
+                <thead>
+                <tr class="small">
+                    <th class="border">可使用账号数</th>
+                    <th class="border">单价(人/年)</th>
+                    <th class="border">包含</th>
+                </tr>
+                </thead>
+                <tbody id="purchaseList"></tbody>
+            </table>
+        </div>
+    </div>
+    <div style="margin-left: 59px;">
+        <div>请根据企业需要选择购买年限:</div>
+        <div style="margin: 10px 0;">
+            <span class="span-btn selectType vip-type" data-type="1" data-y="一年">VIP一年</span>
+            <span class="span-btn background-list-gray vip-type" data-type="0.95" data-y="二年" style="margin:0 10px;">VIP两年(享受9.5折)</span>
+            <span class="span-btn background-list-gray vip-type" data-type="0.88" data-y="三年">VIP三年(享受8.8折)</span>
+        </div>
+        <div style="margin: 10px 0;">请根据企业年度需求购买账号:</div>
+        <div class="info-adder">
+            <span class="handle left">-</span>
+            <span class="count">10</span>
+            <span class="handle right">+</span>
+        </div>
+        <div style="margin: 10px 0;">已选择:</div>
+        <div>
+            <label>最小账号数:</label>
+            <span name="count" style="text-decoration: underline;color: #009941;padding: 0 5px;">10</span>个
+            <label style="margin-left: 10px;">使用期限:</label>
+            <span name="limit" style="text-decoration: underline;color: #009941;padding: 0 5px; margin-right: 10px;"></span>
+            <label>价格:</label>
+            <span name="money" style="text-decoration: underline;color: #009941;padding: 0 5px;"></span>元
+        </div>
+    </div>
+</div>
+<div style="margin-left: 80px; margin-bottom: 20px;">
+    <div style="margin: 10px 0;">
+        <label for="checkbox"><input type="checkbox" id="checkbox">本人已同意并签署</label><a id="checkServiceAgreement"
+                                                                                      style="cursor: pointer;">《服务协议》</a>
+    </div>
+    <div>
+        <span class="span-btn background-list-gray confirm" data-type="1">立即购买</span>
+        <span class="span-btn background-list-gray confirm" data-type="2" style="margin: 0 10px;">追加账号</span>
+        <span class="span-btn background-list-gray confirm" data-type="3">购买存储</span>
+    </div>
+</div>

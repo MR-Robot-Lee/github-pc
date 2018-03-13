@@ -1,0 +1,109 @@
+<div class="project-nav">
+    <% if(nav === 'main-setting-list'
+            || nav === 'detail'
+            || nav === 'safe-civilize'
+            || nav === 'main-setting'){ %>
+    <div class="active">
+        <a href="/project/detail/<%- id %>?name=<%- name %>">
+            <span class="project-main active"></span>
+            主页
+        </a>
+    </div>
+    <% }else { %>
+    <div>
+        <a href="/project/detail/<%- id %>?name=<%- name %>">
+            <span class="project-main"></span>
+            主页
+        </a>
+    </div>
+    <% } %>
+    <% if(nav === 'organization-instrument'
+            || nav === 'organization-task'){ %>
+    <div class="active"><a href="/project/organization/instrument/<%- id %>?name=<%- name %>"><span
+                    class="project-main instrument active"></span>组织结构</a></div>
+    <% }else { %>
+    <div><a href="/project/organization/instrument/<%- id %>?name=<%- name %>"><span
+                    class="project-main instrument"></span>组织结构</a></div>
+    <% } %>
+    <% if(nav === 'cost' || nav === 'budget'
+            || nav === 'quantity' || nav === 'material'
+            || nav === 'workerCount' || nav === 'step'
+            || nav === 'subpackage'){ %>
+    <div class="active" id="costNav"><a href="/project/cost/<%- id %>?name=<%- name %>"><span
+                    class="project-main cost active"></span>成本预算</a>
+    </div>
+    <% }else{ %>
+    <div id="costNav"><a href="/project/cost/<%- id %>?name=<%- name %>">
+            <span class="project-main cost "></span>成本预算</a></div>
+    <% } %>
+    <% if(nav === 'financial-status'
+            || nav === 'financial-report'
+            || nav === 'financial-cost'
+            || nav === 'financial-pay'
+            || nav === 'financial-me'){ %>
+    <div class="active"><a id="financialNav" href="/project/financial/status/<%- id %>?name=<%- name %>"><span
+                    class="project-main financial active"></span>项目财务</a></div>
+    <% }else { %>
+    <div><a id="financialNav" href="/project/financial/status/<%- id %>?name=<%- name %>"><span
+                    class="project-main financial "></span>项目财务</a>
+    </div>
+    <% } %>
+    <% if(nav === 'contract-sum' || nav === 'contract-resource' || nav === 'contract-detail'){ %>
+    <div class="active"><a href="/project/contract/sum/<%- id %>?name=<%- name %>"><span
+                    class="project-main contract active"></span>合同管理</a></div>
+    <% }else { %>
+    <div><a href="/project/contract/sum/<%- id %>?name=<%- name %>"><span class="project-main contract"></span>合同管理</a>
+    </div>
+    <% } %>
+    <% if(nav === 'project-material'
+            || nav === 'material-plan'
+            || nav === 'material-purchase'
+            || nav === 'material-amount'
+            || nav === 'material-summary'
+            || nav === 'material-purchase-order'
+            || nav === 'material-plan-order'
+            || nav === 'material-check-order'
+            || nav === 'material-cost-order'){ %>
+    <div class="active"><a href="/project/material/<%- id %>?name=<%- name %>"><span
+                    class="project-main material active"></span>材料管理</a></div>
+    <% }else { %>
+    <div><a href="/project/material/<%- id %>?name=<%- name %>"><span class="project-main material"></span>材料管理</a>
+    </div>
+    <% } %>
+    <% if(nav === 'schedule-secondary' || nav === 'schedule-main'){ %>
+    <div class="active"><a href="/project/schedule/<%- id %>?name=<%- name %>"><span
+                    class="project-main schedule active"></span>进度管理</a></div>
+    <% }else { %>
+    <div><a href="/project/schedule/<%- id %>?name=<%- name %>"><span class="project-main schedule"></span>进度管理</a>
+    </div>
+    <% } %>
+
+    <% if(nav === 'labor' || nav === 'attendance' || nav === 'employee'){ %>
+    <div id="laborNav" class="active"><a href="/project/labor/<%- id %>?name=<%- name %>"><span class="project-main labor active"></span>劳动力管理</a></div>
+    <% }else{ %>
+    <div id="laborNav"><a href="/project/labor/<%- id %>?name=<%- name %>"><span class="project-main labor"></span>劳动力管理</a></div>
+    <% } %>
+
+    <% if(nav === 'balance-index'
+            || nav === 'balance-resource' || nav === 'balance-contract'){ %>
+    <div class="active"><a href="/project/balance/index/<%- id %>?name=<%- name %>"><span
+                    class="project-main balance active"></span>结算管理</a></div>
+    <% }else{ %>
+    <div><a href="/project/balance/index/<%- id %>?name=<%- name %>"><span class="project-main balance"></span>结算管理</a>
+    </div>
+    <% } %>
+    <% if(type === 'project-document'){ %>
+    <div class="active"><a href="/project/document/<%- id %>?name=<%- name %>"><span
+                    class="project-main document active"></span>项目文档</a></div>
+    <% }else{ %>
+    <div><a href="/project/document/<%- id %>?name=<%- name %>"><span class="project-main document"></span>项目文档</a>
+    </div>
+    <% } %>
+    <% if(nav === 'exception' || nav === 'process'){ %>
+    <div class="active"><a href="/project/exception/<%- id %>?name=<%- name %>"><span
+                    class="project-main exception active"></span>异常备忘</a></div>
+    <% }else{ %>
+    <div><a href="/project/exception/<%- id %>?name=<%- name %>"><span class="project-main exception"></span>异常备忘</a>
+    </div>
+    <% } %>
+</div>

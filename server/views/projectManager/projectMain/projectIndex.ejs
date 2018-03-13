@@ -1,0 +1,61 @@
+<%- include('../../layout/header') %>
+<div class="container project-index-main">
+    <div class="span-left">
+        <%- include('../projectNav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <% if(type === "index"){ %>
+                    <span style="line-height: 30px;font-weight: bold;float: left;" class="common-title">全部项目</span>
+                    <% }else if(type === "charged"){ %>
+                    <span style="line-height: 30px;font-weight: bold;float: left;" class="common-title">我参与的项目</span>
+                    <% }else if(type === "participate"){ %>
+                    <span style="line-height: 30px;" class="common-title">我关注的项目</span>
+                    <% }else if(type === 'hardware'){ %>
+                    <span style="line-height: 30px;float: left;font-weight: bold;" class="common-title">考勤机</span>
+                    <% } %>
+                    <div style="float: left;" class="search-form">
+                        <% if(type === 'index' || type === "charged"){ %>
+                        <div style="float: left;margin-left: 20px;">
+                            <label>工程类型 :</label>
+                            <select style="margin-left: 0;" class="preTypeMain" id="preTypeMain"></select>
+                        </div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>项目状态 :</label>
+                            <select style="margin-left: 0;" class="preState" id="preState">
+                                <option value="a">项目状态</option>
+                                <option value="1">未开工</option>
+                                <option value="2">在建</option>
+                                <option value="3">停工</option>
+                                <option value="4">竣工</option>
+                                <option value="5">质保</option>
+                            </select>
+                        </div>
+                        
+                        <div style="float: left;margin-left: 5px;" class="">
+                            <input style="padding-left: 5px;width: 150px;" type="text" class="keywords" placeholder="请输入项目简称关键字" />
+                            <button style="line-height: 28px;" class="btn delete-active" id="btnSearch">查询</button>
+                        </div>
+                        <% } else if(type === 'hardware'){ %>
+                        <span style="line-height: 28px;margin-left: 10px;display: none;" class="span-btn background-9441" id="addAtdMachine">添加考勤机</span>
+                        <% } %>
+
+                    </div>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'participate'){ %>
+                    <%- include('./myAttentionProject') %>
+                    <% } else if(type === 'hardware'){ %>
+                    <%- include('./hardware') %>
+                    <% } else{%>
+                    <%- include('./projectList') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/project.js"></script>
+<%- include('../../layout/footer') %>

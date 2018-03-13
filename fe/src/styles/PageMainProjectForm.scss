@@ -1,0 +1,144 @@
+.main-search-form {
+  .form-item {
+    float: left;
+    display: inline-block;
+    line-height: 30px;
+    .form-bold {
+      font-weight: bold;
+    }
+    .margin-left {
+      margin-left: 10px;
+    }
+  }
+}
+
+.contract-item{
+  padding:6px 30px !important;
+  .contract-select{
+    width: 20px;
+    height: 60px;
+    text-align: center;
+    span{
+      margin-top: 23px;
+    }
+  }
+  .contract-content{
+    font:12px/20px "Microsoft YaHei";
+    margin-left: 5px;
+    color: #666;
+    span{
+      color: #333;
+    }
+    .subProjName{
+      display: inline-block;
+      width: 200px;
+      vertical-align: top;
+    }
+  }
+  .noCntr-sel{
+    height: 40px;
+    span{
+      margin-top: 13px;
+    }
+  }
+  .noCntr-con{
+    line-height: 40px;
+  }
+}
+
+.material-category{
+  ul{
+    z-index: 5;
+
+  }
+}
+
+.material-shift{
+  .type-ipt,.category-ipt{
+    position: relative;
+    display: none;
+    input{
+      padding-right: 64px;
+    }
+    .back-to-select{
+      //border-left: 1px solid #666666;
+      position: absolute;
+      top: 0;
+      right: 0;
+      //width: 60px;
+      padding:0 10px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      color: #999999;
+
+      .icon-back-to-select{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-top: -3px;
+        margin-right: 2px;
+        vertical-align: middle;
+        background: url(./images/back-to-select.png) no-repeat;
+      }
+      &:hover{
+        color: #666666;
+        .icon-back-to-select{
+          background: url(./images/back-to-select-active.png) no-repeat;
+        }
+      }
+    }
+  }
+  .type-sel,.category-sel{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #757575;
+    ul{
+      display: none;
+      position: absolute;
+      top: 29px;
+      left: -1px;
+      width: 260px;
+      background-color: #fff;
+      border:1px solid #009411;
+      border-radius: 2px;
+
+      li{
+        line-height: 36px;
+        padding-left: 10px;
+        &:hover{
+          background-color: #f3fcf7;
+          color: #009411;
+        }
+        &:first-child{
+          color: #009411;
+          span{
+            margin-top: -4px;
+          }
+        }
+      }
+    }
+    .select-arrow{
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      width: 0;
+      height: 0;
+      border-top: 6px solid #666;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      transition-duration: 0.2s;
+    }
+    .arrow-rotate{
+      transform:rotate(180deg);
+    }
+  }
+  .border-active{
+    border:1px solid #009411;
+  }
+}

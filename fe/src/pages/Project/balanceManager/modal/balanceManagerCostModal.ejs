@@ -1,0 +1,175 @@
+<div class="model-project-common" style="width: 1064px">
+   <!-- <div class="model-header">
+        <span class="project-title">查看结算</span>
+        &lt;!&ndash;<label style="font-size: 12px;margin-left: 20px">结算单生成时间:</label>
+        <span style="font-size: 12px">2017/12/21</span>&ndash;&gt;
+        <span class="icon-close"></span>
+    </div>-->
+    <div class="modal-form" style="margin: 10px 20px 0 20px;text-align: right">
+        <span class="span-btn background-list-gray">导入已支付信息</span>
+        <span class="span-btn background-list-gray editBalanceCost">编辑</span>
+    </div>
+    <div class="table-content" style="padding: 10px 0">
+        <table>
+            <thead>
+            <tr class="small">
+                <th class="border costNo">费用编号</th>
+                <th class="border costName">费用名称</th>
+                <th class="border subProjName">分部名称</th>
+                <th class="border budPrice">结算金额</th>
+                <th class="border cntrPrice">总金额</th>
+                <th class="border ">含税金额</th>
+                <th class="border ">款项负责人</th>
+                <th class="border cntrParty">供货单位</th>
+                <th class="border">收款人</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="small">
+                <td class="border "></td>
+                <td class="border"></td>
+                <td class="border"></td>
+                <td class="border"></td>
+                <td class="border"></td>
+                <td class="border"></td>
+                <td class="border"></td>
+                <td class="border"></td>
+                <td class="border"></td>
+            </tr>
+            <tr class="small">
+                <td class="border" rowspan="5">
+                    <div style="color: #333;font-weight: bold">结算信息</div>
+                </td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">结算名称</div>
+                </td>
+                <td class="border" colspan="3"></td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">结算单编号</div>
+                </td>
+                <td class="border" colspan="3"></td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">合同名称</div>
+                </td>
+                <td class="border" colspan="3"></td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">合同编号</div>
+                </td>
+                <td class="border" colspan="3"></td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">合作单位</div>
+                </td>
+                <td class="border" colspan="3"></td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">合同方负责人</div>
+                </td>
+                <td class="border" colspan="3"></td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">合同金额</div>
+                </td>
+                <td class="border"></td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">是否含税</div>
+                </td>
+                <td class="border">
+                    <label><input type="checkbox">是</label>
+                    <label><input type="checkbox">否</label>
+                </td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">约定质保期</div>
+                </td>
+                <td class="border" colspan="3"></td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">暂扣质保金</div>
+                </td>
+                <td class="border"></td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">期限</div>
+                </td>
+                <td class="border"></td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">费用生成人</div>
+                </td>
+                <td class="border" colspan="3"></td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">付款方式</div>
+                </td>
+                <td class="border" colspan="8"></td>
+            </tr>
+            <tr class="small">
+                <td class="border" rowspan="3">
+                    <div style="color: #333;font-weight: bold">合作方银行信息</div>
+                </td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">开户行</div>
+                </td>
+                <td class="border" colspan="7"></td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">开户名</div>
+                </td>
+                <td class="border" colspan="7"></td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">帐号</div>
+                </td>
+                <td class="border" colspan="7"></td>
+            </tr>
+            <tr class="small">
+                <td class="border" rowspan="2">
+                    <div style="color: #333;font-weight: bold">支付信息</div>
+                </td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">已支付金额</div>
+                </td>
+                <td class="border" colspan="3">
+                    <input type="text" placeholder="系统数据信息" disabled>
+                </td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">结算余额</div>
+                </td>
+                <td class="border" colspan="3">
+                    <input type="text" placeholder="请填写结算余额" disabled>
+                </td>
+            </tr>
+            <tr class="small">
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">已提供税票</div>
+                </td>
+                <td class="border" colspan="3">
+                    <input type="text" placeholder="系统数据信息" disabled>
+                </td>
+                <td class="border">
+                    <div style="color: #333;font-weight: bold">应缴票据</div>
+                </td>
+                <td class="border" colspan="3">
+                    <input type="text" placeholder="请填写应缴票据" disabled>
+                </td>
+            </tr>
+            <tr class="small">
+                <td class="border" rowspan="2">
+                    <div style="color: #333;font-weight: bold">备忘</div>
+                </td>
+                <td class="border" colspan="8"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn span-btn-bc confirm-active">提交审批</span>
+        <span class="span-btn">保存</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>返回</span>
+    </div>
+</div>

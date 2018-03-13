@@ -1,0 +1,43 @@
+<div class="model-project-common enterprise-add-model">
+    <div class="model-header">
+        <span class="project-title">新增</span>
+        <span class="icon-close"></span>
+    </div>
+    <div class="model-section" style="padding: 20px 30px 5px 55px;">
+        <div class="modal-form ">
+            <div class="item">
+                <label class="label-block bold-title int-small">工程名称:</label>
+                <input style="width: 300px;" type="text" class="int int-default int-middle256" name="projectName" data-caveat="工程名称" />
+            </div>
+            <div class="item">
+                <label class="label-block bold-title int-small">工程简称:</label>
+                <input style="width: 300px;" type="text" class="int int-default int-middle256" name="projShortTitle" data-caveat="工程简称" />
+            </div>
+            <div class="item">
+                <label class="label-block bold-title int-small">工程代码:</label>
+                <input style="width: 300px;" type="text" class="int int-default int-middle256" name="projectNo" data-caveat="工程代码" />
+            </div>
+            <div style="position: relative;left: -13px;" class="item projDeptName">
+                <label style="width: 74px;" class="label-block bold-title int-small">项目部名称:</label>
+                <input style="width: 300px;" type="text" class="int int-default int-middle256" name="projDeptName" data-caveat="项目部名称" />
+            </div>
+            <div class="item">
+                <label class="label-block bold-title int-small" style="position: relative;bottom: -2px;">负责人:</label>
+                <div class="int int-default int-middle256"
+                     data-caveat="点击选择负责人" id="chargeUserNo"
+                     style="color: #999;font-size: 12px;line-height: 28px;cursor: pointer;display:inline-block;width: 300px;"
+                >点击选择负责人
+                </div>
+            </div>
+            <div class="item">
+                <label class="label-block bold-title int-small">系统状态:</label>
+                <label><input type="radio" value="1" name="projStatus" checked="true" />开启</label>
+                <label style="margin-left: 50px"><input type="radio" value="2" name="projStatus" />关闭</label>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确定</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

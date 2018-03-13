@@ -1,0 +1,70 @@
+<div class="login-content register-content">
+    <div class="login-des">企业注册</div>
+    <div class="register-item">
+        <label class="register-label">企业名称&nbsp;:&nbsp;</label>
+        <input class="register-int" type="text" placeholder="请输入企业名称" name="companyName">
+    </div>
+    <div class="register-item">
+        <label class="register-label">企业性质&nbsp;:&nbsp;</label>
+        <select class="register-int" name="entpType">
+            <option value="a">请选择</option>
+            <option value="1">股份制</option>
+            <option value="2">个体</option>
+            <option value="3">私营</option>
+            <option value="4">有限责任</option>
+            <option value="5">其他</option>
+        </select>
+    </div>
+    <div class="register-item">
+        <label class="register-label">所在区域&nbsp;:&nbsp;</label>
+        <select class="register-int" style="width: 198px" name="province">
+            <option value="a">请选择</option>
+        </select>
+        <select class="register-int" style="width:198px" name="city">
+            <option value="a">请选择</option>
+        </select>
+    </div>
+    <div class="register-item">
+        <label class="register-label">个人帐号&nbsp;:&nbsp;</label>
+        <input class="register-int" type="text" placeholder="请输入您的手机号码/帐号" name="mobile">
+        <div style="width: 480px;margin: 10px auto 0 auto;text-align: right;">
+            <input class="register-int" type="text" style="width: 260px;" name="authImageCode" placeholder="请输入图片验证码">
+            <div style="width: 130px;border: 1px solid #ddd;
+            border-radius: 4px;margin-left: 5px;
+            display: inline-block;background-color: #fff;height: 48px;
+            vertical-align: middle;"><img style="width: 100%;height: 100%" src="" alt=""></div>
+        </div>
+    </div>
+    <div class="register-item">
+        <label class="register-label">手机验证&nbsp;:&nbsp;</label>
+        <input class="register-int" type="text" placeholder="请输入手机验证码" style="width: 260px;" name="authCode">
+        <span class="register-iphone" id="authCode">获取短信验证码</span>
+    </div>
+    <div class="register-item">
+        <label class="register-label">注册人&nbsp;:&nbsp;</label>
+        <input class="register-int" type="text" placeholder="请输入注册人姓名" name="userName">
+    </div>
+    <div class="register-item">
+        <label class="register-label">性别&nbsp;:&nbsp;</label>
+        <label style="width: 60px;display: inline-block;text-align: left;">
+            <input type="radio" value="1" name="sex">男</label>
+        <label style="width: 340px;display: inline-block;text-align: left;">
+            <input type="radio" value="2" name="sex">女</label>
+    </div>
+    <div class="register-item">
+        <label class="register-label">管理密码&nbsp;:&nbsp;</label>
+        <input class="register-int" type="password" placeholder="请输入注册密码" name="pwd">
+    </div>
+    <div class="register-item">
+        <label class="register-label">确认密码&nbsp;:&nbsp;</label>
+        <input class="register-int" type="password" placeholder="请输入确认注册密码" name="resetPwd">
+    </div>
+    <div class="register-item" style="text-align: left;position: relative;width: 480px;margin: 0 auto 10px auto;">
+        <label style="margin-left: 78px;"><input type="checkbox" id="agree"><span style="position: relative; top: -2px;">我已阅读并同意</span></label><a id="checkServiceAgreement" style="cursor: pointer;position: relative;top: -2px;">《注册协议》</a>
+        <a style="color:#10b356; text-decoration: underline;position:absolute;right: 0;display: inline-block;cursor: pointer;" href="http://www.azhu.co/" target=_blank>了解阿筑</a>
+    </div>
+    <div style="width: 480px;text-align: right;margin: 0 auto;">
+        <div class="register-btn-submit" id="register">提交</div>
+    </div>
+    <div class="model-wrap"></div>
+</div>

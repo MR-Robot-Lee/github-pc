@@ -1,0 +1,27 @@
+.page-account-index {
+  .info-adder {
+    border: 1px solid #ddd;
+    width: 140px;
+    border-radius: 3px;
+    &.inline-block{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .count {
+      width: 48px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .handle{
+      height: 30px;
+      width: 40px;
+      line-height: 30px;
+      vertical-align: middle;
+      display: inline-block;
+      text-align: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+}

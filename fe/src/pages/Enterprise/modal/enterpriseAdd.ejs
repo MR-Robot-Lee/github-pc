@@ -1,0 +1,43 @@
+<div style="width: 620px;" class="model-project-common model-cost-account enterprise-add-model">
+    <div class="model-header">
+        <span class="project-title">新增</span>
+        <span class="icon-close"></span>
+        <div class="model-position">
+            <a class="delete-hover" id="deleteColumn">删除行</a>
+            <span class="column" style="color: #5b5b5b;margin: 0 5px;">|</span>
+            <a class="confirm-hover" id="addColumn">增加行</a>
+        </div>
+    </div>
+    <div class="model-section">
+        <div class="table-content">
+            <table>
+                <thead>
+                <tr class="small">
+                    <th class="border" style="width: 45px;">序号</th>
+                    <th style="width: 170px;" class="border">费用名称</th>
+                    <th class="border">工作内容</th>
+                    <th style="width: 60px;" class="border">单位</th>
+                </tr>
+                </thead>
+                <tbody id="modalEnterprise">
+                <tr class="small">
+                    <td class="border order">1</td>
+                    <td class="border">
+                        <input type="text" name="laborName" placeholder="请填写" />
+                    </td>
+                    <td class="border">
+                        <input type="text" name="workContent" placeholder="请填写" />
+                    </td>
+                    <td class="border">
+                        <input type="text" name="unit" placeholder="请填写" style="max-width: 40px;min-width: 40px" />
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="model-section-btn">
+            <span class="span-btn confirm">确认</span>
+            <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+        </div>
+    </div>
+</div>

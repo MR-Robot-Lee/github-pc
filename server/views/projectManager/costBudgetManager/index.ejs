@@ -1,0 +1,112 @@
+<%- include('../../layout/projectHeader') %>
+<div class='IndexMain container-project page-cost' id="projectSchedule" data-id="<%- id %>">
+    <div class='project-menu-title'><span><%- name %></span>
+        <div style="position: absolute;top: 5px;left: 25px;width: 36px;height: 36px;border-radius: 50%;box-shadow: 0px 0px 2px 1px #c1c1c1;background-color: #fff;"><img style="width: 28px;height: 25px;border-radius: 50%;margin-top: 6px;" name='projectPrincipalLogo' src="./../../../dist/images/my-apply.png" alt=""></div>
+        <div id="projectPrincipal" style="position: absolute;top: 13px;left: 70px;font-size: 14px"></div>
+    </div>
+    <div class="container-content-project page-budget">
+        <%- include('./../projectDetailManager/projectNav') %>
+        <div class="project-list">
+            <% if(type === 'cost'){ %>
+            <div class="project-list-title">
+                成本预算
+                <div class="cost-menu">
+                    <a class="confirm-hover" href="/project/cost/<%- id %>?name=<%- name %>" style="margin-right: 10px;">成本评估</a>
+                    <div class="icon-line"></div>
+                    <div id="openSubProject" class="open-menu" style="margin-left: 10px;">
+                        打开
+                    </div>
+                </div>
+            </div>
+            <% }else { %>
+            <div class="budget-title">
+                <span class="span-title" id="subProjName">加载中...</span>
+                <span id="subProjNo"></span>
+                <div class="cost-menu">
+                    <a href="/project/cost/<%- id %>?name=<%- name %>" style="margin-right: 10px;">成本评估</a>
+                    <div class="icon-line"></div>
+                    <div id="openSubProject" class="open-menu" style="margin-left: 10px;">
+                        打开
+                    </div>
+                </div>
+            </div>
+            <div class="budget-menus">
+                <% if(type === 'budget'){ %>
+                <a class="item active" href="/project/cost/budget/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    成本预算
+                </a>
+                <% }else{ %>
+                <a class="item " href="/project/cost/budget/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    成本预算
+                </a>
+                <% } %>
+                <% if(type === 'quantity'){ %>
+                <a class="item active" href="/project/cost/quantity/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    工程量核算
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/cost/quantity/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    工程量核算
+                </a>
+                <% } %>
+                <% if(type === 'material'){ %>
+                <a class="item active" href="/project/cost/material/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    材料
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/cost/material/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    材料
+                </a>
+                <% } %>
+                <% if(type === 'workerCount'){ %>
+                <a class="item active" href="/project/cost/workerCount/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    人工
+                </a>
+                <% }else{ %>
+                <a class="item " href="/project/cost/workerCount/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    人工
+                </a>
+                <% } %>
+                <% if(type === 'step'){ %>
+                <a class="item active" href="/project/cost/step/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    措施费
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/cost/step/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    措施费
+                </a>
+                <% } %>
+                <% if(type === 'subpackage'){ %>
+                <a class="item active" href="/project/cost/subpackage/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    分包项
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/cost/subpackage/<%- id %>?subId=<%- subId %>&name=<%- name %>">
+                    <span class="menu-line"></span>
+                    分包项
+                </a>
+                <% } %>
+            </div>
+            <% } %>
+            <% if(type === 'cost'){ %>
+            <%- include('./costAssess') %>
+            <% }else { %>
+            <%- include('./costBudgetList') %>
+            <% } %>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/project.js"></script>
+<%- include('../../layout/footer') %>

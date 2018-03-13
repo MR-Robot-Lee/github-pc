@@ -1,0 +1,116 @@
+<div class="model-project-common">
+    <div class="model-header">
+        <span class="project-title">查看结算</span>
+        <label style="font-size: 12px;margin-left: 20px">结算单生成时间:</label>
+        <span style="font-size: 12px" class="project-time">-/-/-</span>
+        <span class="icon-close"></span>
+    </div>
+    <div class="model-section modal-form">
+        <div class="bold-title" style="text-align: center;margin-bottom: 10px">结算管理(应付款)费用单</div>
+        <div class="table-content" style="margin: 0">
+            <table>
+                <tbody>
+                <tr class="small">
+                    <td class="border" style="width: 75px;font-weight: bold;">分部名称</td>
+                    <td class="border subProjName" colspan="6"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="width: 75px;font-weight: bold;">费用名称</td>
+                    <td class="border costName" style="width: 212px;"></td>
+                    <td class="border" style="font-weight: bold;width: 75px;">费用编号</td>
+                    <td class="border costNo"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">结算单名称</td>
+                    <td class="border mtrlPlanName"></td>
+                    <td class="border" style="font-weight: bold">结算单编号</td>
+                    <td class="border mtrlPlanNo"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">费用生成人</td>
+                    <td class="border prchUserName"></td>
+                    <td class="border" style="font-weight: bold">结算金额</td>
+                    <td class="border costMoney"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">结算负责人</td>
+                    <td class="border entprName"></td>
+                    <td class="border" style="font-weight: bold">含税金额</td>
+                    <td class="border taxMoney"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div id="contractInfo">
+                <div class="bold-title" style="text-align: center;margin: 10px 0">合同信息</div>
+                <table>
+                    <tbody>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold;width:75px;">合同名称</td>
+                        <td class="border cntrName" colspan="3" style="width: 212px;"></td>
+                        <td class="border" style="font-weight: bold">合同编号</td>
+                        <td class="border cntrNo" colspan="2"></td>
+                    </tr>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold;">合作单位</td>
+                        <td class="border entpName" colspan="3"></td>
+                        <td class="border" style="font-weight: bold;width: 80px;">合作负责人</td>
+                        <td class="border contactName" colspan="2"></td>
+                    </tr>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold">合同金额</td>
+                        <td class="border cntrPrice"></td>
+                        <td class="border" style="font-weight: bold;width: 40px;">含税</td>
+                        <td class="border" style="width: 79px;"></td>
+                        <td class="border" style="font-weight: bold">约定质保金</td>
+                        <td class="border ensureMoney"></td>
+                        <td class="border ensureMonth"></td>
+                    </tr>
+                    <tr class="small">
+                        <td class="border" style="font-weight: bold" rowspan="3">付款方式</td>
+                        <td class="border payTypeDesc" colspan="6" rowspan="3"></td>
+                        <!--<td class="border" style="font-weight: bold">开户行</td>-->
+                        <!--<td class="border openBank" colspan="2"></td>-->
+                    </tr>
+                    <tr class="small">
+                        <!--<td class="border" style="font-weight: bold">开户名</td>-->
+                        <!--<td class="border openName" colspan="2"></td>-->
+                    </tr>
+                    <tr class="small">
+                        <!--<td class="border" style="font-weight: bold">账号</td>-->
+                        <!--<td class="border bankCard" colspan="2"></td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bold-title" style="text-align: center;margin: 10px 0">实付账款</div>
+            <table>
+                <tbody>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold;width: 75px;" rowspan="2">预付款</td>
+                    <td class="border payedMoney" style="width:212px;"></td>
+                    <td class="border" style="font-weight: bold;width: 75px;">实付款金额</td>
+                    <td class="border payableMoney"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border payedTaxMoney"></td>
+                    <td class="border" style="font-weight: bold">应提供税票</td>
+                    <td class="border payableTaxMoney"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">暂扣质保金</td>
+                    <td class="border ensurePayMoney"></td>
+                    <td class="border" style="font-weight: bold">质保期限</td>
+                    <td class="border ensurePayMonth"></td>
+                </tr>
+                <tr class="small">
+                    <td class="border" style="font-weight: bold">备忘</td>
+                    <td class="border remark" colspan="5"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>返回</span>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<ul class="nav-content">
+    <% if(nav === "add" || nav === 'review'){ %>
+    <li class="active" id="addNavReport">
+        <a href="/report/add?type=add">
+            <span class="add"></span>
+            我要发稿
+        </a>
+    </li>
+    <% }else{ %>
+    <li id="addNavReport">
+        <a href="/report/add?type=add">
+            <span class="add"></span>
+            我要发稿
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "report" || nav === "detail"){ %>
+    <li class="active">
+        <a href="/report">
+            <span class="all"></span>
+            全部快报
+        </a>
+    </li>
+    <% }else{ %>
+    <li>
+        <a href="/report">
+            <span class="all"></span>
+            全部快报
+        </a>
+    </li>
+    <% } %>
+
+    <% if(nav === "already"){ %>
+    <li class="active">
+        <a href="/report/already">
+            <span class="reported"></span>
+            已发快报
+        </a>
+    </li>
+    <% }else{ %>
+    <li>
+        <a href="/report/already">
+            <span class="reported"></span>
+            已发快报
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "unexecuted" ){ %>
+    <li class="active">
+        <a href="/report/unexecuted">
+            <span class="unreported"></span>
+            未发快报
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/report/unexecuted">
+            <span class="unreported"></span>
+            未发快报
+        </a>
+    </li>
+    <% } %>
+    <% if (nav === "section"){ %>
+    <li class="active" id="sectionNav">
+        <a href="/report/section">
+            <span class="report-type"></span>
+            栏目分类
+        </a>
+    </li>
+    <% }else { %>
+    <li id="sectionNav">
+        <a href="/report/section">
+            <span class="report-type"></span>
+            栏目分类
+        </a>
+    </li>
+    <% } %>
+
+</ul>

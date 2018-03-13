@@ -1,0 +1,25 @@
+<!--新建有合同结算单-->
+<div class="model-project-common">
+    <div class="modal-form" style="padding-top: 20px">
+        <div class="item" style="padding: 0 0 20px 10px;">
+            <label class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>结算单命名:</label>
+            <input type="text" class="int int-default" style="width: 390px" placeholder="请输入新建结算单名称"name="settleName">
+        </div>
+        <div class="item" style="padding: 0 0 20px 10px;">
+            <label class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>关联合同名称:</label>
+            <select type="text" class="int int-default" style="width: 390px" id="contractDetail"></select>
+        </div>
+        <div class="item" style="padding: 0 0 20px 10px;">
+            <label class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>关联合同编号:</label>
+            <input type="text" class="int int-default" name='cntrNo' style="width: 390px" disabled placeholder="系统信息">
+        </div>
+        <div class="item" style="padding: 0 0 20px 10px;">
+            <label class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>合同负责人:</label>
+            <input type="text" class="int int-default" name='cntrChargeName' style="width: 390px" disabled placeholder="系统信息">
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确认</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

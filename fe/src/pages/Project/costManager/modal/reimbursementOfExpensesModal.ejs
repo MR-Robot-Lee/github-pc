@@ -1,0 +1,47 @@
+<div class="model-project-common">
+    <div class="model-section modal-form">
+        <div style="margin-bottom: 20px;">
+            <label class="bold-title">费用类别:</label>
+            <select class="int int-default" style="width: 430px" name="costType">
+                <option value="a">请选择</option>
+                <option value="差旅费">差旅费</option>
+                <option value="通讯费">通讯费</option>
+                <option value="办公费">办公费</option>
+                <option value="实验检测费">实验检测费</option>
+                <option value="交通费">交通费</option>
+                <option value="住宿费">住宿费</option>
+                <option value="餐费">餐费</option>
+                <option value="招待费">招待费</option>
+                <option value="汽车使用费">汽车使用费</option>
+                <option value="办公用品费">办公用品费</option>
+                <option value="税金">税金</option>
+                <option value="管理费">管理费</option>
+                <option value="劳保费">劳保费</option>
+                <option value="水电费">水电费</option>
+                <option value="运杂费">运杂费</option>
+                <option value="房屋租金">房屋租金</option>
+                <option value="文宣费">文宣费</option>
+                <option value="其他">其他</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label class="bold-title">费用名称:</label>
+            <input class="int int-default" style="width: 430px" name="costName" placeholder="请输入费用名称" />
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label class="bold-title">报销金额:</label>
+            <input type="text" class="int int-default" name="billMoney" placeholder="请输入报销金额">
+            <label class="bold-title">税票金额:</label>
+            <input type="text" class="int int-default" name="taxMoney" placeholder="请输入税票金额">
+        </div>
+        <div>
+            <label class="bold-title" style="float: left;margin-right: 3px;">费用说明:</label>
+            <textarea class="int int-default" style="height: 80px;width: 430px" name="costRemark"
+                      placeholder="请输入费用说明"></textarea>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">提交审批</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>返回</span>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="page-job-alert">
+    <div class="job-header">项目财务</div>
+    <div class="job-alert-list">
+        <div style="margin: 10px 20px;">
+            <label>项目简称 :</label>
+            <select class="int int-default int-small14" id="projId">
+                <option value="0">全部</option>
+            </select>
+            <label style="margin-left: 10px;">款项来源 :</label>
+            <select class="int int-default int-small14" id="fundResc">
+                <option value="0">全部</option>
+                <option value="1">报销</option>
+                <option value="2">预付款</option>
+                <option value="3">材料实付款</option>
+                <option value="4">材料应付款</option>
+                <option value="5">结算应付款</option>
+            </select>
+            <label style="margin-left: 10px;">审核状态 :</label>
+            <select class="int int-default int-small14" id="status">
+                <option value="0">全部</option>
+                <!--<option value="1">已保存</option>-->
+                <option value="2">审批中</option>
+                <option value="3">已完成</option>
+                <option value="4">已驳回</option>
+            </select>
+            <span style="margin-left: 10px;" class="span-btn" id="searchModal">查询</span>
+        </div>
+        <div class="table-content">
+            <table>
+                <thead>
+                <tr class="small">
+                    <th class="border">序号</th>
+                    <th class="border">项目简称</th>
+                    <th class="border">款项来源</th>
+                    <th class="border">费用单编号</th>
+                    <th class="border">费用单名称</th>
+                    <th class="border">生成时间</th>
+                    <th class="border">收款人</th>
+                    <th class="border">金额</th>
+                    <th class="border">审核状态</th>
+                </tr>
+                </thead>
+                <tbody id="projectFinancial"></tbody>
+            </table>
+            <div id="page" style="margin: 20px 0;"></div>
+        </div>
+    </div>
+</div>

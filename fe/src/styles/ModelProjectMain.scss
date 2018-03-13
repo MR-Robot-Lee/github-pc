@@ -1,0 +1,1157 @@
+.model-project-common {
+  width: 560px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  .model-header {
+    position: relative;
+    padding: 10px 30px;
+    border-bottom: 1px solid $box-border;
+    .project-title {
+      font-size: 14px;
+      font-weight: bold;
+      i {
+        font-style: normal;
+        color: $fcxx;
+      }
+    }
+    select {
+      background-color: #ffffff;
+      border: 1px solid $box-border;
+      width: 140px;
+      height: 30px;
+      outline: none;
+      margin-left: 25px;
+    }
+    .icon-close {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      margin-top: -8.5px;
+    }
+  }
+  .model-section {
+    padding: 15px 30px;
+    &.model-border-radius {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    .model-item {
+      padding: 15px 0;
+      .title-small {
+        text-align: right;
+        width: 60px;
+        display: inline-block;
+      }
+      .title-middle {
+        text-align: right;
+        width: 65px;
+        display: inline-block;
+      }
+      .desc {
+        color: $fcxxx;
+        font-size: 12px;
+      }
+      i {
+        margin-right: 3px;
+        color: #ed6212;
+        font-style: normal;
+      }
+      .title-small-input {
+        width: 72px;
+        margin-right: 25px;
+        border: 1px solid $box-border;
+        height: 30px;
+        box-sizing: border-box;
+        background-color: #ffffff;
+      }
+      .title-large-input {
+        width: 412px;
+        border: 1px solid $box-border;
+        height: 30px;
+        box-sizing: border-box;
+        background-color: #ffffff;
+      }
+      .common-project-content {
+        margin-top: 10px;
+        .title-small {
+          color: $fcxx;
+          float: left;
+          width: 60px;
+          margin-right: 5px;
+        }
+      }
+      .title-textarea {
+        padding: 5px 24px;
+        overflow-y: auto;
+        display: inline-block;
+        width: 412px;
+        border: 1px solid $box-border;
+        height: 154px;
+        box-sizing: border-box;
+        background-color: #ffffff;
+
+        ol {
+          margin: 0;
+          padding: 0;
+          > li {
+            cursor: pointer;
+            padding: 3px 0;
+            list-style: decimal;
+            &:hover {
+              > strong {
+                color: $fcxx;
+              }
+              > a {
+                color: #ed6212;
+                text-decoration: underline;
+              }
+            }
+            > ul {
+              margin-left: 10px;
+              > li {
+                cursor: pointer;
+                padding: 3px 0;
+                list-style: disc;
+                &:hover {
+                  > strong {
+                    color: $fcxx;
+                  }
+                  > a {
+                    color: #ed6212;
+                    text-decoration: underline;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .model-section-btn {
+      text-align: right;
+      padding-top: 20px;
+    }
+  }
+  .model-footer {
+    border-top: 1px solid $box-border;
+    text-align: right;
+    padding: 10px 30px 10px 0;
+  }
+}
+
+.model-project {
+  width: 1022px;
+}
+
+.model-cost-account {
+  width: 850px;
+  .account-item {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $box-border;
+    .table-content {
+      margin: inherit;
+    }
+    .icon-close {
+      position: absolute;
+      right: 0;
+    }
+  }
+  .title-label {
+    font-weight: bold;
+    width: 80px;
+    display: inline-block;
+    text-align: right;
+  }
+  .title-inline-label {
+    font-weight: bold;
+    text-align: right;
+  }
+  .title-float-left {
+    float: left;
+  }
+  .account-content {
+    display: inline-block;
+    .desc-title {
+      font-weight: bold;
+    }
+    > ol {
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      -webkit-padding-start: 0;
+      list-style: decimal;
+      margin-left: 20px;
+      > li {
+        padding: 2px 0;
+        list-style: decimal;
+      }
+    }
+    input[type=text] {
+      padding: 0 5px;
+      height: 23px;
+      border: 1px solid $form-border;
+      background-color: #ffffff;
+      outline-color: $blue;
+      &.input-small {
+        width: 166px;
+      }
+      &.input-large {
+        width: 426px;
+      }
+    }
+    .content-item {
+      margin-top: 10px;
+    }
+  }
+}
+
+.modal-arrow-left {
+  position: relative;
+  border: 1px solid $form-border;
+  box-shadow: 0 0 3px 1px #e9e9e9;
+  .icon-triangle-left {
+    position: absolute;
+    right: -16px;
+    top: 60px;
+    &.top40 {
+      top: 43px;
+    }
+    span {
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: 15px 0 15px 15px;
+      border-style: solid;
+      border-color: transparent transparent transparent #ffffff; /*透明 透明 透明 黄*/
+      position: absolute;
+      top: -15px;
+      left: -17px;
+    }
+  }
+}
+
+.btn-footer {
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  padding: 20px 0;
+  right: 0;
+  left: 191px;
+  text-align: right;
+  border-top: 1px solid $box-border;
+}
+
+.model-financial-detail {
+  width: 632px;
+  .financial-model-item {
+    margin: 10px 0;
+    .financial-parent-item {
+      display: inline-block;
+      .financial-child-item {
+        margin-bottom: 10px;
+        .title {
+          display: inline-block;
+          width: 50px;
+          text-align: right;
+        }
+      }
+    }
+  }
+  .title-inline {
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 10px;
+    &.border-top {
+      border-top: 1px solid $box-border;
+    }
+  }
+  .title-line-label {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .financial-content {
+    width: 125px;
+    display: inline-block;
+  }
+}
+
+.model-balance-detail {
+  width: 712px;
+  .content-large {
+    width: 200px;
+  }
+  .content-small {
+    width: 80px;
+  }
+}
+
+.model-financial-confirm {
+  width: 440px;
+  .model-section {
+    font-size: 14px;
+  }
+}
+
+.enterprise-add-model {
+  width: 484px;
+  .label-gray {
+    color: $fcxxx;
+    cursor: pointer;
+  }
+  .table-content {
+    margin: inherit;
+  }
+  .enterprise-remind {
+    padding: 14px 0;
+    font-size: 16px;
+  }
+  .model-position {
+    position: absolute;
+    right: 57px;
+    top: 50%;
+    margin-top: -8px;
+    a {
+      cursor: pointer;
+    }
+  }
+}
+
+.delete-modal {
+  width: 400px;
+}
+
+.project-log-modal {
+  width: 660px;
+  .table-content {
+    margin: 0;
+  }
+}
+
+.task-detail-modal {
+  text-align: center;
+  .task-title {
+    font-size: 16px;
+  }
+  .edit-user-info {
+    margin: 10px 0;
+    color: $fcxxx;
+    font-size: 12px;
+  }
+  .task-content {
+    text-align: left;
+    font-size: 14px;
+    text-indent: 28px;
+    line-height: 2;
+    color: #5b5b5b;
+  }
+}
+
+.model-schedule {
+  width: 868px;
+  .table-content {
+    margin: 0;
+  }
+  .model-position {
+    position: absolute;
+    right: 57px;
+    top: 50%;
+    margin-top: -8px;
+    a {
+      cursor: pointer;
+      &:hover {
+        color: #009441;
+      }
+    }
+  }
+}
+
+.memorandum-detail {
+  position: absolute;
+  left: -260px;
+  top: -54px;
+  z-index: 100;
+  box-shadow: 0 0 3px 1px $box-border;
+  border: 1px solid $box-border;
+  width: 260px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  &.width-427 {
+    left: -427px;
+    width: 427px;
+  }
+  .memorandum-title {
+    font-size: 14px;
+    height: 46px;
+    line-height: 46px;
+    font-weight: bold;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: 1px solid $box-border;
+    .icon-close {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -8px;
+    }
+  }
+  .triangle-left {
+    position: absolute;
+    right: -12px;
+    top: 60px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    &.bebebe {
+      border-left: 12px solid #e9e9e9;
+    }
+    &.ffffff {
+      border-left: 12px solid #ffffff;
+      right: -11px;
+    }
+  }
+}
+
+.memorandum-modal {
+  width: 560px;
+  font-size: 14px;
+  .memorandum-textarea {
+    background-color: #ffffff;
+    border: 1px solid $form-border;
+    padding: 3px 5px;
+    border-radius: 3px;
+    height: 144px;
+    width: 498px;
+    resize: none;
+  }
+  .memorandum-content {
+    padding: 3px 0;
+    .color-009441 {
+      color: $blue;
+    }
+  }
+  .margin-left {
+    margin-left: 10px;
+  }
+}
+
+.schedule-manager-modal {
+  position: absolute;
+  left: -284px;
+  top: -54px;
+  z-index: 100;
+  box-shadow: 0 0 3px 1px $box-border;
+  border: 1px solid $box-border;
+  width: 284px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  .schedule-title {
+    font-size: 14px;
+    height: 42px;
+    border-bottom: 1px solid $box-border;
+    font-weight: bold;
+    padding-left: 20px;
+  }
+  .schedule-section {
+    padding: 10px;
+  }
+  .triangle-left {
+    position: absolute;
+    right: -12px;
+    top: 60px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    &.bebebe {
+      border-left: 12px solid #e9e9e9;
+    }
+    &.ffffff {
+      border-left: 12px solid #ffffff;
+      right: -11px;
+    }
+  }
+}
+
+.add-supplier-modal {
+  width: 484px;
+}
+
+.basic-cost-analysis-modal {
+  width: 1064px;
+  font-size: 14px;
+  .model-left-span {
+    overflow-y: auto;
+    padding: 10px 0 10px 10px;
+    height: 100%;
+    width: 212px;
+    float: left;
+    display: inline-block;
+    border: 1px solid $box-border;
+    .bold-title {
+      line-height: 2;
+    }
+    .analysis-list-item {
+      margin: 0 0 0 25px;
+      padding: 0;
+      list-style: decimal;
+      font-size: 12px;
+      color: $fcxx;
+      > li {
+        line-height: 2;
+        list-style: decimal;
+      }
+    }
+  }
+  .model-right-span {
+    width: 793px;
+    margin-left: -1px;
+    height: 100%;
+    float: left;
+    display: inline-block;
+    border: 1px solid $box-border;
+    position: relative;
+    .border-bottom {
+      padding-left: 10px;
+      line-height: 50px;
+      height: 50px;
+      &.border {
+        border-bottom: 1px solid $box-border;
+      }
+    }
+    .table-content {
+      overflow-y: auto;
+      height: 400px;
+      position: relative;
+    }
+  }
+}
+
+.cost-enterprise-data-base {
+  width: 860px;
+  font-size: 14px;
+  .budget-menus {
+    padding-left: 20px;
+  }
+  .enterprise-data-base-content {
+    position: relative;
+    margin-top: 10px;
+    height: 440px;
+    .modal-data-base-nav {
+      width: 220px;
+      background-color: #f8f8f8;
+      text-align: left;
+      position: absolute;
+      top: 0;
+      overflow: auto;
+      bottom: -51px;
+      > ul {
+        > li {
+          cursor: pointer;
+          &:hover, &.active {
+            background-color: $bc;
+          }
+          &.active-fff {
+            background-color: #ffffff;
+          }
+          > a {
+            display: block;
+            padding: 10px 15px;
+          }
+          > ul {
+            display: none;
+            font-size: 12px;
+            > li {
+              cursor: pointer;
+              padding: 10px 24px 10px 35px;
+              &:hover, &.active {
+                background-color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+    .enterprise-list {
+      margin-left: 230px;
+      position: absolute;
+      left: 0;
+      right: 10px;
+      bottom: 10px;
+      top: 0;
+      overflow-y: hidden;
+      .more-data {
+        &:hover {
+          color: #009941 !important;
+        }
+      }
+    }
+  }
+}
+
+.cost-add-child {
+  width: 614px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.cost-accounting-quantity {
+  width: 812px;
+  .account-span-left {
+    overflow-y: auto;
+    border: 1px solid $box-border;
+    width: 212px;
+    float: left;
+    height: 354px;
+    padding: 10px;
+    .line-height {
+      line-height: 2;
+    }
+    ol {
+      list-style: decimal;
+      padding-left: 25px;
+      margin: 0;
+      > li {
+        color: $fcxx;
+        list-style: decimal;
+      }
+    }
+  }
+  .account-span-right {
+    margin: -1px;
+    width: 538px;
+    float: left;
+    border: 1px solid $box-border;
+    height: 354px;
+    position: relative;
+    .accounting-quantity-formula {
+      text-align: left;
+      margin: 5px 10px;
+      position: relative;
+      .right {
+        position: absolute;
+        right: 0;
+        margin-top: 5px;
+      }
+      textarea {
+        margin-top: 5px;
+        width: 518px;
+        height: 185px;
+        padding: 10px 5px;
+        resize: none;
+        border-radius: 3px;
+        border: 1px solid $form-border;
+      }
+    }
+  }
+}
+
+.quantity-check-detail {
+  position: absolute;
+  left: -426px;
+  top: -54px;
+  z-index: 100;
+  box-shadow: 0 0 3px 1px $box-border;
+  border: 1px solid $box-border;
+  width: 426px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  .quantity-title {
+    font-size: 14px;
+    height: 42px;
+    line-height: 42px;
+    font-weight: bold;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: 1px solid $box-border;
+    .icon-close {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -8px;
+    }
+  }
+  .quantity-section {
+    margin: 0 10px;
+    .modal-form {
+      &.border {
+        border-bottom: 1px solid $box-border;
+      }
+      li {
+        font-size: 12px;
+        padding: 0;
+        margin-left: 20px;
+        list-style: decimal;
+        line-height: 2;
+        float: left;
+      }
+    }
+  }
+  .triangle-left {
+    position: absolute;
+    right: -12px;
+    top: 60px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    &.bebebe {
+      border-left: 12px solid #e9e9e9;
+    }
+    &.ffffff {
+      border-left: 12px solid #ffffff;
+      right: -11px;
+    }
+  }
+}
+
+.sub-project-list {
+  position: absolute;
+  top: 40px;
+  right: -30px;
+  z-index: 201;
+  box-shadow: 0 0 3px 1px $box-border;
+  border: 1px solid $box-border;
+  width: 200px;
+  height: 230px;
+  overflow-y: auto;
+  border-radius: 4px;
+  background-color: #ffffff;
+  .sub-project-lists {
+    padding: 5px 0;
+    .sub-project-item {
+      text-align: left;
+      padding-left: 20px;
+      height: 30px;
+      line-height: 30px;
+      .icon-circle {
+        width: 5px;
+        height: 5px;
+        background-color: $fcxx;
+        border-radius: 50%;
+        vertical-align: middle;
+        display: inline-block;
+      }
+      a {
+        vertical-align: middle;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 150px;
+        display: inline-block;
+        overflow: hidden;
+      }
+      &:hover {
+        background-color: $bc;
+        .icon-circle {
+          background-color: $blue;
+        }
+      }
+    }
+  }
+}
+
+.check-bank-info {
+  position: absolute;
+  left: -262px;
+  top: -32px;
+  z-index: 100;
+  box-shadow: 0 0 3px 1px $box-border;
+  border: 1px solid $box-border;
+  width: 262px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  .bank-info-section {
+    padding: 10px;
+  }
+  .triangle-left {
+    position: absolute;
+    right: -12px;
+    top: 32px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    &.bebebe {
+      border-left: 12px solid #e9e9e9;
+    }
+    &.ffffff {
+      border-left: 12px solid #ffffff;
+      right: -11px;
+    }
+  }
+}
+
+.model-document-admin {
+  font-size: 14px;
+  .admin-item {
+    margin-top: 10px;
+    > label {
+      color: #bdbebf;
+      display: inline-block;
+      width: 60px;
+      text-align: right;
+    }
+    > span {
+      color: #5b5b5b;
+    }
+    > div {
+      display: inline-block;
+      color: #5b5b5b;
+      width: 440px;
+      > span {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.material-manager-modal {
+  position: absolute;
+  left: 147px;
+  top: 60px;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 0 3px 1px #ddd;
+  border: 1px solid #ddd;
+  width: 402px;
+  height: 98px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  &.active {
+    display: block;
+  }
+  .material-section {
+    margin: 17px;
+  }
+  .triangle-left {
+    position: absolute;
+    left: -12px;
+    top: 34px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    &.bebebe {
+      border-right: 12px solid #e9e9e9;
+    }
+    &.ffffff {
+      border-right: 12px solid #ffffff;
+      left: -11px;
+    }
+  }
+}
+
+.select-job-modal {
+  width: 149px;
+  height: 200px;
+  box-shadow: 0 0 3px 1px #e9e9e9;
+  .job-list {
+    padding: 10px 0;
+    .job-item {
+      cursor: pointer;
+      padding: 10px;
+      &:hover {
+        background-color: $bc;
+        .icon-circle {
+          background-color: $blue;
+        }
+      }
+      .icon-circle {
+        width: 5px;
+        height: 5px;
+        background-color: $fcxx;
+        border-radius: 50%;
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.model-add-supplier, .modal-add-type {
+  border: 1px solid #f2f2f2;
+  border-radius: 3px;
+  box-shadow: 0 0 3px 1px #e9e9e9;
+  z-index: 100;
+  position: absolute;
+  left: 85px;
+  top: -31px;
+  background-color: #ffffff;
+  .supplier-header {
+    padding: 5px 20px;
+    font-size: 14px;
+    .icon-close {
+      position: absolute;
+      right: 20px;
+      top: 6px;
+    }
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .supplier-content {
+    position: relative;
+    > ul {
+      width: 230px;
+      overflow: auto;
+      height: 311px;
+      padding: 10px 0;
+      > li {
+        cursor: pointer;
+        padding: 0 20px;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+        color: #5b5b5b;
+        &:hover, &.active {
+          background-color: $bc;
+          .icon-disc-item {
+            background-color: $blue;
+          }
+        }
+        > span {
+          display: inline-block;
+          width: 170px; /*对宽度的定义,根据情况修改*/
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          margin-left: 10px;
+        }
+        .icon-disc-item {
+          display: inline-block;
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          width: 5px;
+          height: 5px;
+          margin-top: -3px;
+          border-radius: 50%;
+          background-color: #999999;
+        }
+        .tz-date {
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          width: 7px;
+          height: 12px;
+          right: 20px;
+          margin-top: -6px;
+          background: url(./images/icon-right-arrow.png) no-repeat;
+        }
+      }
+    }
+    .supplier-detail {
+      background-color: #ffffff;
+      border-radius: 3px;
+      box-shadow: 0 0 3px 1px #e9e9e9;
+      z-index: 101;
+      position: absolute;
+      top: 0;
+      right: -240px;
+      height: 311px;
+      padding: 10px;
+      width: 230px;
+      > ul {
+        overflow: auto;
+        margin-top: 10px;
+        height: 271px;
+        > li {
+          cursor: pointer;
+        }
+      }
+      .add-supplier {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.add-job {
+  .job-item {
+    padding: 10px 20px;
+  }
+  .select {
+    display: inline-block;
+    background: url(./images/emp-unactive.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    &.radioed {
+      background: url(./images/emp-active.png) no-repeat;
+    }
+  }
+}
+
+.update-mobile {
+  .login-user {
+    border: 1px solid #ececec;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    .icon-default {
+      display: inline-block;
+      width: 80px;
+      text-align: center;
+      line-height: 40px;
+      border-right: 1px solid #e9e9e9;
+    }
+    .login-int {
+      border: none;
+      width: 312px;
+      height: 34px;
+      outline: none;
+      font-size: 14px;
+      padding: 6px;
+      line-height: 17px;
+      -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    }
+    .code {
+      vertical-align: middle;
+      line-height: 38px;
+      border: 1px solid #e9e9e9;
+      height: 38px;
+      display: inline-block;
+      border-radius: 4px;
+      margin-left: 15px;
+      width: 120px;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+}
+
+.approval-process {
+  .contract-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 30px;
+    &.active {
+      .contract-status {
+        color: #009441;
+      }
+    }
+    .contract-status {
+      vertical-align: middle;
+      margin-left: 5px;
+      width: 172px;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #5b5b5b;
+    }
+  }
+  .contract-type {
+    width: 45px;
+    height: 45px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 6px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #e9e9e9;
+    line-height: 45px;
+    &.bc-03aaf4 {
+      background: #03aaf4;
+    }
+    &.bc-7175eb {
+      background: #7175eb;
+    }
+    &.bc-7175eb {
+      background: #7175eb;
+    }
+    &.bc-e29d21 {
+      background: #e29d21;
+    }
+    &.bc-1cbd8c {
+      background: #1cbd8c;
+    }
+  }
+  .approval-process {
+    margin-bottom: 20px;
+    > label {
+      color: #888;
+    }
+    > span {
+      color: #5b5b5b;
+    }
+  }
+  .approval-desc {
+    > label {
+      color: #888;
+    }
+    > span {
+      color: #5b5b5b;
+    }
+  }
+}
+
+.financial-item {
+  .title {
+    font-size: 14px;
+    background: #f8f8f8;
+    text-align: center;
+    line-height: 1;
+    padding: 13px 0;
+  }
+  .content {
+    font-size: 14px;
+    margin: 10px 0 10px 20px;
+    .label-block {
+      display: inline-block;
+      width: 60px;
+      text-align: right;
+    }
+  }
+}
+
+.material-plan-order {
+  .radio {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    vertical-align: middle;
+    &.active {
+      border: none;
+      background: url(./images/radio-active.png);
+    }
+  }
+}
+
+.more-data-load {
+  text-align: center;
+  color: #999;
+  margin: 10px 0;
+  cursor: pointer;
+  text-decoration: underline;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.model-contract {
+  .contract-list {
+    max-height: 556px;
+    overflow-y: auto;
+    .contract-item {
+      padding: 5px 30px;
+      &:nth-child(2n) {
+        background: #f8f8f8;
+      }
+      .contract-content {
+        //display: inline-block;
+        //width: 276px;
+        //margin-left: 5px;
+        //vertical-align: middle;
+        //overflow: hidden;
+      }
+      &.active, &:hover {
+        background: #f3fdf7;
+      }
+    }
+  }
+}

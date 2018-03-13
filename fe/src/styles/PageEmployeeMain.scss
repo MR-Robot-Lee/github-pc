@@ -1,0 +1,455 @@
+.modal-employee-del {
+  width: 400px;
+  height: 200px;
+  padding: 10px 0;
+  text-align: center;
+  .del-title {
+    margin-top: 30px;
+    font-size: 26px;
+    color: $fcx;
+  }
+  .del-content {
+    margin-top: 26px;
+    color: $blue;
+    font-size: 18px;
+  }
+  .del-footer {
+    margin-top: 35px;
+    span {
+      display: inline-block;
+      line-height: 48px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .del-confirm {
+      width: 120px;
+      height: 48px;
+      background-color: $blue;
+      color: #ffffff;
+      margin-right: 60px;
+    }
+    .del-cancel {
+      margin-left: 60px;
+      width: 118px;
+      height: 48px;
+      border: 1px solid $blue;
+      color: $blue;
+      background-color: #ffffff;
+      font-size: 16px;
+    }
+  }
+}
+
+
+
+.modal-employee-add {
+  &.modal-employee-type {
+    height: 328px;
+  }
+  &.add-or-update {
+    height: 406px;
+  }
+  &.modal-employee-select {
+    height: 496px;
+  }
+  width: 560px;
+  height: 406px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  .employee-section {
+    .border-hover:hover{
+      border-color: #999 !important;
+    }
+    .border-hover:focus{
+      border-color: #009441 !important;
+    }
+    text-align: center;
+    height: 332px;
+    &.employee-type-section {
+      height: 254px;
+    }
+    .item {
+      padding-top: 30px;
+      float: left;
+      > label {
+        display: inline-block;
+        text-align: right;
+        line-height: 30px;
+        width: 180px;
+        color: #5b5b5b;
+        float: left;
+        i {
+          display: inline-block;
+          color: #ed6214;
+          font-style: normal;
+          vertical-align: sub;
+        }
+      }
+      > input[type=text], select, textarea {
+        float: left;
+        background-color: #ffffff;
+        outline: none;
+        border: 1px solid #ddd;
+      }
+      > input[type=text] {
+        border-radius: 6px;
+        height: 28px;
+        width: 256px;
+        padding: 0 5px;
+        &.larger {
+          width: 464px;
+        }
+      }
+      textarea {
+        &.default {
+          border-radius: 6px;
+          height: 116px;
+          width: 256px;
+          resize: none;
+          padding: 5px;
+        }
+        &.larger {
+          width: 464px;
+        }
+      }
+      select {
+        width: 260px;
+        height: 30px;
+        &.larger {
+          width: 464px;
+        }
+      }
+      .no-float {
+        width: 80px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.page-employee {
+  .employee-name {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: bold;
+    color: $fcx;
+    line-height: 30px;
+  }
+  .add-type {
+    display: inline-block;
+    text-align: center;
+    margin-left: 40px;
+    border: 1px solid #bbb;
+    height: 30px;
+    width: 100px;
+    border-radius: 3px;
+    line-height: 30px;
+    cursor: pointer;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      width: 13px;
+      height: 13px;
+      margin-top: -3px;
+      background: url(./images/setting-add-pre.png) no-repeat;
+      margin-right: 5px;
+    }
+    &:hover {
+      border-color: $blue;
+      color: $blue;
+      span {
+        background: url(./images/setting-add-pre-active.png) no-repeat;
+      }
+    }
+  }
+}
+
+/*project*/
+.page-project-detail {
+  .project-name {
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    line-height: 30px;
+  }
+  .project-menu {
+    div {
+      cursor: pointer;
+      color: $fcx;
+      margin-left: 30px;
+      border-radius: 3px;
+      float: left;
+      height: 28px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      line-height: 28px;
+      padding: 0 5px;
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 13px;
+        height: 16px;
+        background: url(./images/setting-add-pre.png) no-repeat;
+        margin-right: 5px;
+      }
+      &:hover {
+        border-color: $blue;
+        color: $blue;
+        span {
+          background: url(./images/setting-add-pre-active.png) no-repeat;
+        }
+      }
+    }
+  }
+  .project-detail-table {
+    top: 92px !important;
+    .detail-list {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+  .project-menus-handler {
+    margin-left: 20px;
+    .project-manage {
+      display: inline-block;
+      padding: 11px 5px;
+      background-color: $blue;
+      color: #ffffff;
+      margin-bottom: -1px;
+      cursor: pointer;
+      &.active {
+        background-color: #ffffff;
+        border: 1px solid $blue;
+        color: $blue;
+        border-bottom-color: #ffffff;
+      }
+    }
+
+    .item {
+      cursor: pointer;
+      display: none;
+      text-align: center;
+      /*display: inline-block;*/
+      border: 1px solid #ddd;
+      height: 30px;
+      width: 100px;
+      line-height: 30px;
+      margin-left: 20px;
+      border-radius: 3px;
+      &.active {
+        display: inline-block;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 13px;
+        height: 16px;
+        background: url(./images/setting-add-pre.png) no-repeat;
+        margin-right: 5px;
+      }
+      &:hover {
+        border-color: $blue;
+        color: $blue;
+        span {
+          background: url(./images/setting-add-pre-active.png) no-repeat;
+        }
+      }
+    }
+
+  }
+  .open {
+    table {
+      .checkMenu {
+        display: inline-block;
+        vertical-align: middle;
+        width: 8px;
+        height: 14px;
+        background: url(./images/arrows.png) no-repeat;
+        margin-right: 5px;
+        &.active {
+          height: 10px;
+          width: 14px;
+          background: url(./images/arrows_hover.png) no-repeat;
+        }
+      }
+      .child-table {
+        display: none;
+        .child-cus-table {
+          width: auto;
+          height: 300px;
+          overflow-y: auto;
+        }
+      }
+    }
+  }
+}
+
+/*state*/
+.page-employee-state {
+  .employee-state-search {
+    font-size: 16px;
+    .state-confirm {
+      background-color: #ffffff;
+      border-radius: 3px;
+      height: 30px;
+      width: 60px;
+      outline: none;
+      margin-left: 20px;
+      border: 1px solid $form-border;
+    }
+    .margin-left2 {
+      margin-left: 20px;
+    }
+    .margin-left12 {
+      margin-left: 120px;
+    }
+  }
+  .echart-height {
+    height: 260px; // 325px
+    position: relative;
+    .desc {
+      display: inline-block;
+      margin-left: 40px;
+      width: 212px;
+      height: 241px;
+      border: 1px solid $form-border;
+      .item {
+        div {
+          height: 30px;
+          line-height: 30px;
+          width: 70px;
+          text-align: center;
+          float: left;
+          span {
+            display: inline-block;
+            width: 10px;
+            margin-top: 10px;
+            height: 10px;
+            &.green {
+              background-color: #18ca0f;
+            }
+            &.blue {
+              background-color: #229aee;
+            }
+            &.red {
+              background-color: #ed4e21;
+            }
+          }
+        }
+        .str, .color {
+          border-right: 1px solid $form-border;
+          &.border-bottom {
+            border-bottom: 1px solid $form-border;
+          }
+        }
+        .time {
+          &.border-bottom {
+            border-bottom: 1px solid $form-border;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*选择人员*/
+.modal-employee-select {
+  .employee-select-section {
+    height: 422px;
+    margin: 13px 22px;
+    .company {
+      float: left;
+      height: 422px;
+      width: 256px;
+      border: 1px solid $blue;
+      .company-header {
+        text-align: center;
+        line-height: 30px;
+        height: 30px;
+        color: $fcx;
+        border-bottom: 1px solid #ddd;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &.company-employee {
+        .company-str {
+          overflow-y: auto;
+          .level1 {
+            margin-left: 20px;
+            text-align: left;
+            font-size: 12px;
+            overflow-y: auto;
+            height: 386px;
+            li {
+              padding-top: 10px;
+              > a {
+                .open {
+                  display: inline-block;
+                  background: url(./images/close.png) no-repeat;
+                  width: 9px;
+                  height: 9px;
+                  cursor: pointer;
+                  &.active {
+                    background: url(./images/open.png) no-repeat;
+                  }
+                }
+                .select {
+                  display: inline-block;
+                  background: url(./images/emp-unactive.png) no-repeat;
+                  width: 14px;
+                  height: 14px;
+                  vertical-align: middle;
+                  &.radioed {
+                    background: url(./images/emp-active.png) no-repeat;
+                  }
+                }
+              }
+            }
+            .sub {
+              margin-left: 20px;
+              display: none;
+            }
+          }
+        }
+      }
+      &.employee-result {
+        border-left: none;
+        .result {
+          margin-left: 10px;
+          text-align: left;
+          font-size: 14px;
+          overflow-y: auto;
+          height: 386px;
+          li {
+            padding-top: 10px;
+            position: relative;
+            span {
+              display: inline-block;
+              background: url(./images/emp-active.png) no-repeat;
+              width: 14px;
+              height: 14px;
+              vertical-align: middle;
+            }
+            i {
+              cursor: pointer;
+              background: url(./images/emp-delete.png) no-repeat;
+              width: 12px;
+              height: 12px;
+              position: absolute;
+              right: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .employee-footer {
+    height: 60px;
+    line-height: 60px;
+  }
+}
+

@@ -1,0 +1,39 @@
+.page-contract {
+  .contract-attach-list {
+    display: inline-block;
+    margin-left: 3px;
+    .attach-item {
+      margin-top: 10px;
+      text-align: left;
+      .icon {
+        width: 30px;
+        height: 34px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        //&.icon-xls {
+        //  background-image: url(images/icon_xls.png);
+        //}
+        //&.icon-pdf {
+        //  background-image: url(images/icon_pdf.png);
+        //}
+        //&.icon-doc {
+        //  background-image: url(images/icon_doc.png);
+        //}
+        //&.icon-none {
+        //  height: 28px;
+        //  background-image: url(images/img-none.png);
+        //}
+      }
+      .detail {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: -2px;
+        a {
+          margin-top: 5px;
+          color: #229aec;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

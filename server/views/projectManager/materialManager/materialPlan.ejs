@@ -1,0 +1,47 @@
+<div id="materialPlan">
+    <div style="padding: 10px 0;position: relative;height: 50px;">
+        <div class="span-btn" style="position: relative" id="newPurchasePlan">
+            <span class="icon-create"></span>
+            <span>新建采购计划</span>
+        </div>
+        <div class="span-btn" style="position: relative;margin-left: 7px;" id="newBiddingPlan">
+            <span class="icon-create"></span>
+            <span>新建招标计划</span>
+        </div>
+        <div id="noInfoMaterialPlanTable_search" style="position: absolute; right:0;top: 50%;margin-top: -15px;">
+            <span style="margin-left: 7px;" class="span-btn background-list-gray btn-fine-adj1" id="myPlanMaterial">我的计划单</span>
+            <select style="margin-left: 7px;" class="int int-default int-small14 planType"></select>
+            <select style="margin-left: 7px;" class="int int-default int-small14 planStatus"></select>
+            <!-- <select class="int int-default int-small14">
+                 <option value="a">计划单类型</option>
+             </select>-->
+            <input style="margin-left: 7px;" type="text" placeholder="请输入关键字查找" class="int int-default int-small14 keyword" />
+            <span style="margin-left: 7px;" class="span-btn btn-fine-adj1" id="materialPlanSearch">查询</span>
+        </div>
+    </div>
+    <div id="noInfoMaterialPlanTable_main" style="margin: 0px;display: none;" class="table-content">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border " style="width: 45px">序号</th>
+                <th class="border ">计划单名称</th>
+                <th class="border ">材料单编号</th>
+                <th class="border ">计划单类型</th>
+                <th class="border ">状态</th>
+                <th class="border ">计划人</th>
+                <th class="border ">计划时间</th>
+                <th class="border " style="width: 80px">操作</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="position: absolute;display: none;z-index: 150;">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="materialPlanTable"></tbody>
+        </table>
+    </div>
+    <div class="noInfoMaterialPlanTable_page" id="page" style="text-align: center;margin: 20px 0;"></div>
+</div>
+<div class='noInfo' id='noInfoMaterialPlanTable'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的计划单，点击左上角“新建”按钮，快去创建吧！</p>
+</div>

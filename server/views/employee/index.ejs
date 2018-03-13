@@ -1,0 +1,63 @@
+<%- include('../layout/header') %>
+<div class="container">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="search-form">
+                        <span class="common-title">全部项目</span>
+                        <select class="preTypeMain"></select>
+                        <select class="preState">
+                            <option value="0">项目状态</option>
+                            <option value="1">准备</option>
+                            <option value="2">在建</option>
+                            <option value="3">完工</option>
+                        </select>
+                        <input type="text" class="keyword" placeholder="请输入关键字" />
+                        <button id="employeeSearch" class="btn">确定</button>
+                    </div>
+                    <div class="search-result">
+                        <div class="result-state">
+                            <label>今日人员动态:</label>
+                            <label>管理:</label>
+                            <span class="allDayManager"></span>
+                            <label>施工:</label>
+                            <span class="allDayWorker"></span>
+                        </div>
+                        <div class="result-state">
+                            <label>昨日人员动态:</label>
+                            <label>管理:</label>
+                            <span class="allYesterdayMan"></span>
+                            <label>施工:</label>
+                            <span class="allYesterdayWorker"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-list-warp">
+                    <div class="table-content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>项目名称</th>
+                                <th>主管领导</th>
+                                <th>项目经理</th>
+                                <th>管理人员(人)</th>
+                                <th>施工人员(人)</th>
+                                <th>项目状态</th>
+                                <th>人力状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="employees"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/employee.js"></script>
+<%- include('../layout/footer') %>

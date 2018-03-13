@@ -1,0 +1,133 @@
+<div class="modal-form" style="position: relative;padding: 15px 0; border-bottom: 1px solid #e9e9e9" id="contractDetail"
+     data-id="<%- subId %>" data-type="<%- ctrType %>">
+    <span class="cntrType" style="color: rgba(0, 162, 226, 0.94);padding-left: 20px;"></span>
+    <span class="bold-title contractName" style="margin-left: 10px;"></span>
+    <label style="margin-left: 20px">合同编号:</label>
+    <span style="" class="contractNo">XAMK-02</span>
+    <label style="margin-left: 20px">合同创建人:</label>
+    <span style="" class="cntrChargeName">无</span>
+    <div style="position: absolute;right: 0;top:50%;margin-top: -15px;font-size: 12px">
+        <label>状态 :</label>
+        <span style="margin-right: 15px;" id="cntrStatus"></span>
+        <span class="span-btn background-list-gray btn-fine-adj2" id="stopContract" style="display: none;">中止合同</span>
+        <!--<select class="int int-default int-small14" id="contractFormulation" style="display: none;">-->
+            <!--<option value="a">制定合同</option>-->
+            <!--<option value="1">编辑合同内容</option>-->
+            <!--<option value="2">总价核算</option>-->
+        <!--</select>-->
+        <div class="contract-formulation" style="display: none;" id="contractFormulation">
+            <span class="span-btn btn-fine-adj2" style="margin-left: 5px;" id="compileCntrContent">编辑合同内容</span>
+            <span class="span-btn btn-fine-adj2" style="margin-left: 5px;" id="checkTotalPrice">总价核算</span>
+        </div>
+        
+        <span class="span-btn submitApproval btn-fine-adj2" style="display: none;margin-left: 5px;">提交审批</span>
+        <!--<span class="span-btn background-list-gray btn-fine-adj2">查看审批</span>-->
+        <span class="span-btn background-list-gray btn-fine-adj2">导出</span>
+    </div>
+</div>
+<div class="modal-form" style="padding: 15px 0 0px 20px;border-bottom: 1px solid #e9e9e9;font-size: 12px">
+    <div class="item">
+        <label class="bold-title">分部名称:</label>
+        <span style="width: 200px;display: inline-block;font-size: 14px;" class="subProjName"></span>
+        <label class="bold-title">合同及款项负责人:</label>
+        <span class="int-small16 contractChargeName" style="font-size: 14px;"></span>
+    </div>
+    <div class="item">
+        <label class="bold-title">合同分类:</label>
+        <span style="width: 200px;display: inline-block;font-size: 14px" class="int-small16 contractType"></span>
+        <label class="bold-title">合同方:</label>
+        <span class="contract-person" style="font-size: 14px"></span>
+    </div>
+    <div class="item">
+        <label class="bold-title">合同方联系人:</label>
+        <span style="width: 172px;display: inline-block;font-size: 14px" class="contract-name"></span>
+        <label class="bold-title">联系电话:</label>
+        <span class="contractPhone" style="font-size: 14px"></span>
+    </div>
+</div>
+<div class="modal-form" style="padding: 15px 0;">
+    <div class="item">
+        <label class="bold-title label-block int-small8" style="color: #333333;"><i class="icon-fill-in">*</i>合同价款 :</label>
+        <!--<input class="int int-default" style="width: auto;border: none;" name="cntrPrice" placeholder="请输入合同价款" disabled /> 元-->
+        <span style="display: inline-block;" name="cntrPrice"></span><span style="margin-left: 2px;margin-top: -1px;">元</span>
+        <label style="margin-left: 20px;color: #333;" class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>是否含税 :</label>
+        <label><input type="radio" value="1" name="taxTypePage" disabled />是</label>
+        <label><input type="radio" value="2" name="taxTypePage" disabled />否</label>
+        <label style="margin-left: 20px;color: #333;" class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>结算方式 :</label>
+        <!--<select style="width: 140px;" class="int-default int" name="settlementType" disabled>-->
+            <!--<option value="a">请输入结算</option>-->
+            <!--<option value="1">固定总价</option>-->
+            <!--<option value="2">固定综合单价</option>-->
+        <!--</select>-->
+        <span style="width: 140px;display: inline-block;" name="settlementType"></span>
+    </div>
+    <div class="item">
+        <label class="bold-title label-block int-small8" style="color: #333333;"><i class="icon-fill-in">*</i>合同期限 :</label>
+        <!--自 <input style="margin: 0 5px;width: 160px;" type="date" class="int int-default int-small14" name="cntrStartTime" disabled />-->
+        自 <span style="margin: 0 5px;display: inline-block;" name="cntrStartTime"></span>
+        <!--至 <input style="margin: 0 5px;width: 160px;" type="date" class="int int-default int-small14" name="cntrEndTime" disabled />-->
+        至 <span style="margin: 0 5px;display: inline-block;" name="cntrEndTime"></span>
+        <!--<span style="margin-left: 62px;">共</span> <input style="margin: 0 5px;" type="text" class="int int-default int-small8" id="days" disabled />天-->
+        <span style="margin-left: 62px;display: inline-block;">共</span> <span style="margin: 0 5px;display: inline-block;" id="days">0</span>天
+    </div>
+    <div class="item clearfix">
+        <label class="bold-title label-block int-small8" style="float: left;color: #333;"><i class="icon-fill-in">*</i>工作内容 :</label>
+        <!--<textarea class="int" style="width: 785px;min-height: 80px;resize: none;margin-left: 4px;line-height: 1.5;"-->
+                  <!--placeholder="请输入合同内容......" name="cntrContent" disabled></textarea>-->
+        <span style="width: 785px;line-height: 1.5;margin-left: 4px;display: inline-block;" name="cntrContent">无</span>
+    </div>
+    <div class="item clearfix">
+        <label class="bold-title label-block int-small8" style="float: left;color: #333;"><i class="icon-fill-in">*</i>付款方式 :</label>
+        <!--<textarea class="int" style="width: 785px;min-height: 80px;resize: none;margin-left: 4px;line-height: 1.5;"-->
+                  <!--placeholder="请输入付款方式" name="payTypeDesc" disabled></textarea>-->
+        <span style="width: 785px;line-height: 1.5;margin-left: 4px;display: inline-block;" name="payTypeDesc">无</span>
+
+    </div>
+    <div class="item clearfix">
+        <label class="bold-title label-block int-small8" style="color: #333;">质保金 :</label>
+        <!--<input style="width: 70px;text-align: center;" type="text" class="int int-default int-small14" placeholder="填写" name="ensurePer" disabled /> %-->
+        <span style="width: 30px;text-align: center;display: inline-block;" name="ensurePer">0</span> %
+        <label class="bold-title label-block int-small8" style="color: #333333;">质保期 :</label>
+        <!--<input style="width: 70px;text-align: center;" type="text" class="int int-default int-small14" placeholder="填写" name="ensureMonth" disabled /> 月-->
+        <span style="width: 30px;text-align: center;display: inline-block;" name="ensureMonth">0</span> 个月
+    </div>
+    <div class="item clearfix">
+        <label class="bold-title label-block int-small8" style="float: left;color: #333333;"><i class="icon-fill-in">*</i>其他条款 :</label>
+        <!--<textarea class="int" style="width: 785px;min-height: 80px;resize: none;margin-left: 4px;line-height: 1.5;"-->
+                  <!--placeholder="请输入其他条款......" name="otherDesc" disabled></textarea>-->
+        <span style="width: 785px;line-height: 1.5;margin-left: 4px;display: inline-block;" name="otherDesc">无</span>
+    </div>
+    <div class="item">
+        <label class="bold-title label-block int-small8" style="float: left;margin-top: 7px;margin-bottom: 10px;color: #333;">
+            附件 :
+        </label>
+        <span style="margin-left: 5px;"></span>
+        <div id="report" style="display: inline-block;margin-left: 4px" class="contract-attach-list">
+        </div>
+    </div>
+
+    <div class="clr"></div>
+    <div class="item">
+        <label class="bold-title label-block int-small8" style="color: #333333;">核算清单 :</label>
+        <label>核算总额 :</label>
+        <span class="span-color-blue" id="budgetTotal">0</span>
+        <span class="span-color-blue">元</span>
+        <label style="margin-left: 30px">预算成本 :</label>
+        <span class="span-color-blue" id="costTotal">0</span>
+        <span class="span-color-blue">元</span>
+        <label style="margin-left: 30px">成本控制风险金额 :</label>
+        <span class="span-color-blue" id="windControl">0</span>
+        <span class="span-color-blue">元</span>
+        <div class="table-content" style="width: 790px;margin-left: 84px" id="contractTable">
+            <table>
+                <thead id="contractDetailThead"></thead>
+                <tbody id="contractDetailTable"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="width: 980px;margin: 10px 0;padding-left: 768px;">
+    <!--<span class="span-btn submitApproval" style="display: none;">提交审批</span>-->
+    <!--<span class="span-btn contractSave">保存</span>-->
+    <!--<a class="span-btn span-btn-bc confirm-active" href="/project/contract/sum/<%- id %>">取消</a>-->
+</div>

@@ -1,0 +1,46 @@
+<div class='hide'>
+    <% if(nav === 'system-index' || nav === 'contact' || nav === 'billboard'){ %>
+    <div class="directory">系统管理</div>
+    <a class="href active" style="position: relative" href="/system">
+        企业设置<span class="icon-system-nav"></span>
+    </a>
+    <% }else{ %>
+    <div class="directory">系统管理</div>
+    <a class="href" style="position: relative;color: #CCCCCC;" href="/system">
+        企业设置<span class="icon-system-nav"></span>
+    </a>
+    <% } %>
+    <% if(nav === 'organization-index'){ %>
+    <div class="icon-line"></div>
+    <a class="href active" style="position: relative" href="/system/organization">
+        组织结构<span class="icon-system-nav"></span>
+    </a>
+    <% }else { %>
+    <div class="icon-line"></div>
+    <a class="href" style="position: relative;color: #CCCCCC;" href="/system/organization">
+        组织结构<span class="icon-system-nav"></span>
+    </a>
+    <% } %>
+    <% if(nav === 'role-index' || nav === 'role-add' || nav === 'role-department'){ %>
+    <div class="icon-line"></div>
+    <a class="href active" style="position: relative" href="/system/role">
+        职务权限<span class="icon-system-nav"></span>
+    </a>
+    <% }else { %>
+    <div class="icon-line"></div>
+    <a class="href" style="position: relative;color: #CCCCCC;" href="/system/role">
+        职务权限<span class="icon-system-nav"></span>
+    </a>
+    <% } %>
+    <% if(nav === 'account-manager' || nav === 'account-info'){ %>
+    <div class="icon-line"></div>
+    <a class="href active" style="position: relative" href="/system/account/info">
+        账户管理<span class="icon-system-nav"></span>
+    </a>
+    <% }else { %>
+    <div class="icon-line"></div>
+    <a class="href" style="position: relative;color: #CCCCCC;" href="/system/account/info">
+        账户管理<span class="icon-system-nav"></span>
+    </a>
+    <% } %>
+</div>

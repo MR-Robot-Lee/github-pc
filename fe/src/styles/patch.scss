@@ -1,0 +1,812 @@
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.confirm-hover:hover {
+    color: #009441 !important;
+    text-decoration: underline;
+}
+
+.delete-hover:hover {
+    color: #de6d0b !important;
+    text-decoration: underline;
+}
+
+.current-day {
+    margin-left: 2px;
+}
+
+.input-indentation {
+    width: 41px;
+    padding: 0 1px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.btn-fine-adj2 {
+    position: relative;
+    top: -2px;
+}
+
+.btn-fine-adj1 {
+    position: relative;
+    top: -1px;
+}
+
+.confirm-active:hover {
+    color: #fff !important;
+    background-color: #009441 !important;
+}
+
+.confirm-active:active {
+    opacity: 0.85;
+}
+
+.delete-active:hover {
+    opacity: 0.85 !important;
+}
+
+input, select, textarea {
+    color: #333 !important;
+}
+
+.noInfo {
+    text-align: center;
+    padding-top: 100px;
+    color: #999999;
+}
+
+.noInfo-small {
+    text-align: center;
+    padding-top: 50px;
+    color: #999999;
+}
+
+.pro-adj {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.pro-notice {
+    background: url("./images/pro-notice.png") no-repeat;
+}
+
+.pro-temporarytasks {
+    background: url("./images/pro-temporarytasks.png") no-repeat;
+}
+
+.pro-safemanage {
+    background: url("./images/pro-safemanage.png") no-repeat;
+}
+
+.pro-systemsetting {
+    background: url("./images/pro-systemsetting.png") no-repeat;
+}
+
+.pro-quality {
+    background: url("./images/pro-quality.png") no-repeat;
+}
+
+.pro-report {
+    background: url("./images/report-log.png") no-repeat;
+}
+
+.pro-status {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.pro-completion {
+    background: url("./images/pro-completion.png") no-repeat;
+}
+
+.pro-inProgress {
+    background: url("./images/pro-inProgress.png") no-repeat;
+}
+
+.pro-lockout {
+    background: url("./images/pro-lockout.png") no-repeat;
+}
+
+.pro-not {
+    background: url("./images/pro-not.png") no-repeat;
+}
+
+.pro-warranty {
+    background: url("./images/pro-warranty.png") no-repeat;
+}
+
+
+
+
+
+.attaches {
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    vertical-align: middle;
+    margin-left: 5px;
+    background: url("./images/hasAttaches.png") no-repeat;
+}
+
+.pro-close {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    width: 17px;
+    height: 17px;
+    background: url("./images/close-modal.png") no-repeat;
+    cursor: pointer;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+    clear: both;
+}
+
+.img-hover:hover {
+    box-shadow: 2px 4px 6px 1px #bbb !important;
+}
+
+.pre-image { //图片预览
+    margin-right: 40px;
+    margin-bottom: 20px;
+    width: 190px !important;
+    height: 190px !important;
+    padding: 3px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 2px 4px 4px -1px #bbb;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-origin: content-box !important;
+    //background-position:center !important;
+}
+
+th, td {
+    height: 36px;
+}
+
+.ellipsis { //省略号
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ellipsis2 {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+//单行高亮
+.trHeightLight-hover:hover {
+    background-color: #f3fcf7 !important;
+}
+
+.trHeightLight {
+    background-color: #f3fcf7 !important;
+}
+
+//placeholder颜色
+.placeholderColor::-webkit-input-placeholder {
+    　　color: #009411;
+}
+
+.placeholderColor:-moz-placeholder {
+    　　color: #009411;
+}
+
+.placeholderColor::-moz-placeholder {
+    　　color: #009411;
+}
+
+.placeholderColor:-ms-input-placeholder {
+    　　color: #009411;
+}
+
+//排序
+.sort-active {
+    width: 80px !important;
+}
+
+//现场部分样式
+.locale-manager-list {
+    padding: 0 20px;
+    .locale-item {
+        display: flex;
+        //width: 1680px;
+        margin-top: 20px;
+        border: 1px solid #DDDDDD;
+        padding: 10px;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 0 3px 1px #e9e9e9;
+        &:hover {
+            box-shadow: 0 0 3px 3px #e9e9e9;
+        }
+        .locale-pic {
+            float: left;
+            width: 194px;
+            height: 126px;
+            flex: 0 0 auto;
+            border: 1px solid #DDDDDD;
+            margin: 3px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            font-size: 20px;
+            line-height: 124px;
+            color: #bdbebf;
+        }
+        .locale-container {
+            float: left;
+            margin-left: 10px;
+            flex: 1 1 auto;
+            .locale-title {
+                font-size: 16px;
+                line-height: 36px;
+                color: #5b5b5b;
+                span{
+                    float: right;
+                    margin-right: 20px;
+                    font-size: 12px;
+                    line-height: 36px;
+                    color: #999999;
+                }
+            }
+            .locale-content {
+                line-height: 33px;
+                padding: 2px 0px;
+                width: 100%;
+                overflow: hidden;
+                height: 70px;
+                text-indent: 2em;
+                color: #666666;
+            }
+            .locale-desc {
+                padding: 5px 0;
+                label {
+                    color: #bdbebf;
+                }
+                span {
+                    color: #888888;
+                }
+            }
+        }
+    }
+}
+
+.background-list-gray {
+    border: 1px solid $form-border;
+    background-color: #efefef;
+    color: #5b5b5b;
+    line-height: 28px;
+    &:hover {
+        border: 1px solid #009441;
+        color: #009441;
+        background: #fff;
+    }
+}
+
+//新增供应商
+.model-add-supplier {
+
+    font-size: 14px;
+    .supplier-header {
+        font-weight: bold;
+        line-height: 46px;
+        padding: 0 30px;
+        color: #333333;
+        .icon-close {
+            top: 14px;
+        }
+    }
+    .supplier-content {
+        float: left;
+        background-color: #f8f8f8;
+        .supplierDetail {
+            width: 220px;
+            height: 434px;
+            padding: 0px;
+            border-right: 1px solid #e8e8e8;
+            li {
+                height: 35px;
+                line-height: 35px;
+                border-bottom: 1px solid #e8e8e8;
+                &:hover {
+                    color: #009411;
+                }
+            }
+            .active {
+                color: #009411;
+            }
+        }
+        .add-supplier-container{
+            padding:10px 15px;
+            border-bottom: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            .add-supplier {
+                background-color: #009411;
+                display: block;
+                text-align: center;
+                border-radius: 3px;
+                cursor: pointer;
+                span {
+                    color: #ffffff;
+                    line-height: 30px;
+                    cursor: pointer;
+                }
+                &:hover {
+                    opacity: 0.85;
+                }
+            }
+        }
+    }
+    .supplier-detail {
+        float: left;
+        width: 340px;
+        padding: 10px;
+        color: #666666;
+        li {
+            line-height: 35px;
+            border-bottom: 1px solid #e8e8e8;
+            cursor: pointer;
+            &:hover {
+                background-color: #f3fcf7;
+            }
+            .supplier-content-num {
+                display: inline-block;
+                width: 48px;
+                padding-left: 10px;
+                cursor: pointer;
+            }
+            .supplier-content-name {
+                padding-left: 10px;
+                cursor: pointer;
+            }
+        }
+        .supplier-detail-header {
+            border-bottom: 1px solid #e8e8e8;
+            line-height: 35px;
+            margin-top: 5px;
+            color: #333333;
+            span {
+                font-weight: bold;
+                margin: 0 10px;
+            }
+        }
+
+    }
+    .supplier-noinfo{
+        width: 340px;
+        text-align: center;
+        margin-top: 200px;
+        color: #999;
+        float: left;
+    }
+}
+
+//预付款申请单查看列表
+.checkPayableAccount {
+    border-collapse: collapse;
+    td {
+        height: 34px;
+        line-height: 34px;
+        border: 1px solid #cccccc;
+        padding-left: 10px;
+    }
+    .td-title {
+        width: 140px;
+        text-align: center;
+        font-weight: bold;
+        padding: 0;
+    }
+    .td-content-small {
+        width: 200px;
+    }
+    input {
+        width: 100%;
+        height: 34px;
+        padding: 0px;
+        border: none;
+        outline: none;
+    }
+    tr {
+        input {
+            background-color: #fff;
+        }
+    }
+    tr:nth-child(2n-1) {
+        background: #f8f8f8;
+        input {
+            background: #f8f8f8;
+        }
+    }
+
+}
+
+/*职位描述*/
+.job-description {
+    position: absolute;
+    min-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 3px 0 #e8e8e8;
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 24px;
+    z-index: 1000;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    opacity: 1;
+    label{
+        display: inline-block;
+        width: 45px;
+        text-align: right;
+        color: #5b5b5b;
+    }
+}
+
+//进度条样式
+.progress-outer{
+    width: 110px;
+    //height: 14px;
+    //padding: 1px;
+    border: 1px solid #44b549;
+    //border-radius: 10px;
+    margin-top: 6px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.progress-inner{
+    background-color: #bee5c0;
+    height: 8px;
+    //border-radius: 5px;
+    transition-duration: 0.5s;
+}
+.attachProgress{
+    margin-top: 5px;
+}
+
+.contract-formulation{
+    display: inline-block;
+}
+
+.cancel-active{
+    pointer-events: none;
+    color: #999999 !important;
+}
+
+.bold-title-enterprise{
+    color: #5b5b5b !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+}
+
+//材料管理中新增供应商
+.add-supplier-in-meterial{
+    position: absolute;
+    top: -20px;
+    left: 214px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 1px #ddd;
+    .supplier-item{
+        width: 395px;
+        margin-bottom: 10px;
+        label{
+            width: 100px;
+            text-align: right;
+            float: left;
+            line-height: 30px;
+            margin-right: 5px;
+            color: #333333;
+        }
+        input.add-supplier-ipt{
+            float: left;
+            outline: 0;
+            padding: 0 5px;
+            height: 30px;
+            line-height: 30px;
+            font-family: Microsoft YaHei;
+            width: 290px !important;
+            letter-spacing: 1px;
+            background-color: #fff;
+            border: 1px solid #bbb;
+            border-radius: 3px;
+            &:hover{
+                border-color: #999999;
+            }
+            &:focus{
+                border-color: #009411 ;
+            }
+        }
+        textarea.add-supplier-textarea{
+            width: 290px;
+            height: 58px;
+            padding: 5px;
+            border: 1px solid #bbb ;
+            border-radius: 3px;
+            outline: none;
+            resize: none;
+            &:hover{
+                border-color: #999999;
+            }
+            &:focus{
+                border-color: #009411 ;
+            }
+        }
+        select.add-supplier-select{
+            width: 290px;
+            height: 30px;
+            line-height: 30;
+            border: 1px solid #bbb;
+            border-radius: 3px;
+            outline: none;
+            &:hover{
+                border-color: #999999;
+            }
+            &:focus{
+                border-color: #009411 ;
+            }
+        }
+        .category-ipt{
+            input{
+                width: 290px;
+                border: 1px solid #bbb;
+                border-radius: 3px;
+                &:focus{
+                    border-color: #009411 ;
+                }
+            }
+        }
+        .category-sel{
+            width: 290px;
+            ul{
+                width: 290px;
+            }
+        }
+    }
+
+    .triangle-left{
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        &.ffffff{
+            border-right: 12px solid #fff;
+        }
+        &.bebebe{
+            border-right: 12px solid #e9e9e9;
+        }
+    }
+}
+
+/*复制粘贴功能*/
+.copy-child-modal{
+    position: fixed;
+    top: 100px;
+    left: 800px;
+    width: 360px;
+    box-shadow: 0 0 3px 1px #ddd;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #ffffff;
+    .copy-child-title{
+        border-bottom: 1px solid #eeeeee;
+        line-height: 50px;
+        font-size: 14px;
+        font-weight:bold;
+        color: #333333;
+        padding:0 20px;
+        position: relative;
+        cursor: move;
+        i{
+            position: absolute;
+            top: 17px;
+            right: 20px;
+        }
+    }
+    .copy-child-content{
+        padding: 0 20px;
+        font-size: 14px;
+        color: #666666;
+        .copy-item{
+            line-height: 50px;
+            border-bottom: 1px solid #eeeeee;
+            .copy-item-num{
+                margin-right: 20px;
+                margin-left: 10px;
+            }
+            span{
+                color: #333333;
+            }
+        }
+        .paste-item{
+            .paste-item-title{
+                line-height: 38px;
+                span{
+                    color: #999;
+                }
+            }
+            ul{
+                max-height: 360px;
+                overflow: auto;
+                li{
+                    line-height: 36px;
+                    div{
+                        float: left;
+                        &.paste-item-num{
+                            width: 30px;
+                            text-align: center;
+                            margin-right: 30px;
+                            color: #333333;
+                        }
+                        &.paste-item-sysno{
+                            color: #333333;
+                        }
+                        &.paste-item-delete{
+                            float: right;
+                            width: 40px;
+                            text-align: center;
+                            color: #999;
+                            cursor: pointer;
+                        }
+                    }
+                    &:nth-child(2n){
+                        background-color: #efefef;
+                    }
+                }
+            }
+            .paste-item-totle{
+                text-align: right;
+                line-height: 30px;
+                font-size: 12px;
+                span{
+                    margin:0 5px;
+                }
+            }
+        }
+    }
+    .copy-child-footer{
+        border-top: 1px solid #eeeeee;
+        padding:0 20px;
+        height: 50px;
+        text-align: right;
+        span{
+            margin-top: 10px;
+        }
+        .span-btn-bc{
+            margin-right: 0;
+        }
+    }
+}
+/*成功提示动画*/
+.success-remind{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding:20px 30px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px 1px #cccccc;
+    animation:saveSuccess 0.2s linear 0.8s 1;
+    animation-fill-mode: forwards;
+    .remind-logo{
+        width: 30px;
+        height: 30px;
+        float: left;
+        background: url(./images/check-logo.png) no-repeat;
+    }
+    .remind-words{
+        font-size: 14px;
+        line-height: 30px;
+        margin-left: 10px;
+        float: left;
+    }
+    @keyframes saveSuccess {
+        0% {
+            display: block;
+            opacity: 1;
+        }
+        100% {
+            display: none;
+            opacity: 0;
+        }
+    }
+}
+/*斑马线*/
+.zebra{
+    background: url(./images/zebra-line.png) no-repeat;
+}
+
+.check-record-table{
+    table{
+        width: 100%;
+        max-height: 500px;
+        border-collapse: collapse;
+        thead{
+            tr{
+                background-color: #eee;
+                font-weight: 700;
+                th{
+                    font-size: 12px;
+                    border: 1px solid #d4d4d4;
+                    text-align: left;
+                    padding-left: 10px;
+                    height: 36px;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    font-size: 12px;
+                    border: 1px solid #d4d4d4;
+                    text-align: left;
+                    padding-left: 10px;
+                    height: 36px;
+                }
+                &:nth-child(2n){
+                    background-color: #f8f8f8;
+                }
+
+            }
+        }
+    }
+}
+.check-record-title{
+    .during{
+        display: inline-block;
+        vertical-align: middle;
+        width: 240px;
+        cursor: pointer;
+        line-height: 28px;
+        color: #333;
+    }
+}
+.check-worker-info{
+    width: 300px;position:absolute;z-index:11;right: 107px;top: -59px;
+    .project-title{
+        color: #333333;
+    }
+    .info-detail{
+        padding: 7px 30px;
+        .model-item{
+            line-height: 28px;
+            label{
+                color: #5b5b5b;
+            }
+            span{
+                color: #333;
+            }
+        }
+    }
+}

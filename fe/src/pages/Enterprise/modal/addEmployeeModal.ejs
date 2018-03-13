@@ -1,0 +1,66 @@
+
+<div class="model-project-common addEmployeeModal" style="width: 480px;background-color: #fff;position: absolute;left: 50%;transform: translateX(-60%);top: 20px;border: 1px solid #ccc;z-index: 99;box-shadow: 1px 1px 3px 1px #c1c1c1">
+    <div class="model-header">
+        <span class="project-title">新增人员</span>
+    </div>
+    <div class="model-section" style="padding: 20px 30px 0;">
+        <div class="modal-form">
+            <div class="item clearfix" style="padding-bottom: 20px;line-height: 1;display: none;">
+                <label class="bold-title label-block int-small11 fl" fl><i class="icon-fill-in">*</i>工号 :</label>
+                <span class="fl" style="margin-left: 5px;margin-top: 1px;" name="workerNo"></span>
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px">
+                <label style="line-height: 30px;" class="bold-title label-block int-small11 fl" fl><i class="icon-fill-in">*</i>姓名 :</label>
+                <input type="text" class="int int-default fl" placeholder="请输入人员姓名" style="width: 256px;margin-left: 3px;" name="workerName">
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px">
+                <label style="line-height: 30px;" class="bold-title label-block int-small11 fl"><i class="icon-fill-in">*</i>手机号码 :</label>
+                <input type="text" class="int int-default fl" placeholder="请输入手机号码" style="width: 256px;margin-left: 3px;" name="phone">
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px;line-height: 1;">
+                <label style="line-height: 14px;margin-top: 3px;" class="bold-title label-block int-small11 fl"><i class="icon-fill-in">*</i>性别 :</label>
+                <div class="fl" style="line-height: 14px;">
+                    <input type="radio" name="gender" class="gender-male"><span>男</span>
+                    <input type="radio" name="gender"><span>女</span>
+                </div>
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px;position: relative;">
+                <label style="line-height: 30px;" class="bold-title label-block int-small11 fl"><i class="icon-fill-in">*</i>出生年月 :</label>
+                <input style="width: 100px;margin-left: 3px;" type="text" class="int int-default fl" name="birthDay_year">
+                <span class="fl" style="line-height: 30px;margin-left: 5px;">年</span>
+                <input style="width: 100px;margin-left: 20px;" type="text" class="int int-default fl" name="birthDay_month">
+                <span class="fl" style="line-height: 30px;margin-left: 5px;">月</span>
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px">
+                <label style="line-height: 30px;" class="bold-title label-block int-small11 fl"><i class="icon-fill-in">*</i>籍贯 :</label>
+                <div class="fl" style="margin-left: 3px;" id='region'>
+                    <select style="width: 75px;margin-right: 15px" class="int int-default fl" id="s_province">
+                        <option value="">省</option>
+                    </select>
+                    <select style="width: 75px;margin-right: 15px" class="int int-default fl" id="s_city">
+                        <option value="">市</option>
+                    </select>
+                    <select style="width: 75px;" class="int int-default fl" id="s_country">
+                        <option value="">县/区</option>
+                    </select>
+                </div>
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px">
+                <label style="line-height: 30px;" class="bold-title label-block int-small11 fl"><i class="icon-fill-in">*</i>身份证号码 :</label>
+                <input type="text" class="int int-default fl" placeholder="请输入身份证号码" style="width: 256px;margin-left: 3px;" name="idNo">
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px">
+                <label style="line-height: 30px;" class="bold-title label-block int-small11 fl"><i class="icon-fill-in">*</i>工种 :</label>
+                <input type="text" class="int int-default fl" placeholder="请输入人员工种" style="width: 256px;margin-left: 3px;" name="jobName">
+            </div>
+            <div class="item clearfix" style="padding-bottom: 20px;line-height: 1;">
+                <label style="line-height: 14px;" class="bold-title label-block int-small11 fl">相关证照 :</label>
+                <div id="employeeFile" style="display: inline-block;margin: 0 0 0 6px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确认</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

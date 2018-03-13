@@ -1,0 +1,115 @@
+<!--材料计划单-->
+<div class="model-project-common material-plan-order" style="width: 860px;">
+    <div class="model-header">
+        <span class="project-title">选择材料</span>
+        <label style="font-weight: bold;margin-left: 20px;font-size: 12px">材料添加分部:</label>
+        <select class="int int-default subProject" style="margin-left:0;width: 180px;"></select>
+        <span class="icon-close"></span>
+    </div>
+    <div class="page-budget">
+        <div class="budget-menus" style="padding-left: 10px;">
+            <a class="item costBudget"
+               data-type="costBudget"
+               href="javascript:void(0)">
+                <span class="menu-line"></span>
+                成本预算
+            </a>
+            <a class="item enterprise"
+               data-type="enterprise"
+               href="javascript:void(0)">
+                <span class="menu-line"></span>
+                企业库
+            </a>
+        </div>
+        <div class="clr"></div>
+        <div id="costBudget">
+            <div class="modal-form clearfix" style="margin-top: 10px;padding-right: 10px;">
+                <div class="fr">
+                    <label class="bold-title">材料分类</label>
+                    <select class="int int-default int-small14 materialType1"></select>
+                    <select class="int int-default int-small14 materialType2">
+                        <option value="a">请选择</option>
+                    </select>
+                    <!--<label>余量查看:</label>
+                    <select class="int int-default int-small14 allowance">
+                        <option value="1">零余量</option>
+                        <option value="2" selected>非零余量</option>
+                    </select>-->
+                    <input style="width: 180px;" type="text" class="int int-default int-small14 keyword" placeholder="请输入材料名称关键字">
+                    <span class="span-btn searchModal btn-fine-adj1">查询</span>
+                </div>
+            </div>
+            <div class="table-content" style="margin:10px;height: 340px;overflow: auto;position:relative;">
+                <table>
+                    <thead id="showTitle">
+                    <tr class="small">
+                        <th style="width: 45px;" class="border"><input type="checkbox"></th>
+                        <th style="width: 45px;" class="border">序号</th>
+                        <th class="border">材料分类</th>
+                        <th class="border">材料名称</th>
+                        <th class="border">规格型号</th>
+                        <th style="width: 60px;" class="border">单位</th>
+                        <th style="width: 70px;" class="border">总数量</th>
+                        <th style="width: 80px;" class="border">可计划余量</th>
+                        <th style="width: 80px;" class="border">单价</th>
+                    </tr>
+                    </thead>
+                    <thead id="hideTitle" style="position: absolute;display: none;z-index: 200;">
+                    <tr class="small"></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="enterprise-more-data more-data-load">
+                加载更多
+            </div>
+        </div>
+        <div id="enterprise" style="position: relative;margin-top: 10px;">
+            <div class="modal-form clearfix" style="padding: 0 10px;position: relative;">
+                <div style="position: relative;" class="add-material-modal"></div>
+                <div class="span-btn fl" style="position: relative" id="newMaterial">
+                    <span class="icon-create"></span>
+                    <span>新建材料</span>
+                </div>
+                <div class="fr">
+                    <label class="bold-title">材料分类</label>
+                    <select class="int int-default int-small14 materialType1"></select>
+                    <select class="int int-default int-small14 materialType2">
+                        <option value="a">请选择</option>
+                    </select>
+                    <input type="text" class="int int-default keyword" placeholder="请输入材料名称关键字">
+                    <span class="span-btn enterpriseSearch btn-fine-adj1">查询</span>
+                </div>
+            </div>
+            <div class="table-content" style="margin: 10px;height: 340px;overflow: auto;position: relative;">
+                <table>
+                    <thead>
+                    <tr class="small" id="showTitle">
+                        <th style="width: 45px;" class="border"><input type="checkbox"></th>
+                        <th style="width: 45px;" class="border">序号</th>
+                        <th class="border">材料分类</th>
+                        <th class="border">材料名称</th>
+                        <th class="border">规格型号</th>
+                        <th style="width: 60px;" class="border">单位</th>
+                        <th class="border">均价</th>
+                        <!--<th class="border">主材</th>
+                        <th class="border">辅材</th>-->
+                    </tr>
+                    </thead>
+                    <thead id="hideTitle" style="display: none;position:absolute;
+                       top: 50px;z-index: 200">
+                    <tr class="small"></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="enterprise-more-data more-data-load">
+                加载更多
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确定</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

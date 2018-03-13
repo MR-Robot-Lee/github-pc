@@ -1,0 +1,46 @@
+<div class="modal-form" style="margin: 10px 20px;font-size: 12px" id="subpackageHistoryId" data-hid="<%- id %>">
+    <div class="bold-title"></div>
+    <div style="margin-top: 10px">
+        <span style="font-size: 14px;color: #333333;font-weight: bold" name="subletName"></span>
+    </div>
+    <div style="margin-top: 10px">
+        <label class="bold-title bold-title-enterprise">费用类别 :</label>
+        <span name="subletType" style="display: inline-block;"></span>
+    </div>
+    <div style="margin-top: 10px">
+        <label class="bold-title bold-title-enterprise">工作内容 :</label>
+        <span style="display: inline-block;width: 500px;" name="workContent"></span>
+    </div>
+    <div style="margin-top: 10px;">
+        <label class="bold-title bold-title-enterprise">计量单位 :</label>
+        <span name="unit" style="display: inline-block;"></span>
+        <label style="margin-left: 30px;" class="bold-title bold-title-enterprise">平均价格 :</label>
+        <span class="span-color-blue"
+              name="avgPrice"
+              style="display: inline-block;"></span>
+        <label style="margin-left: 30px;" class="bold-title bold-title-enterprise">合计金额 :</label>
+        <span class="span-color-blue"
+              name="totalMoney"
+              style="display: inline-block;"></span>
+    </div>
+</div>
+<div class="table-content">
+    <table>
+        <thead>
+        <tr class="small">
+            <th style="width: 45px;color: #5b5b5b;" class="border">序号</th>
+            <th style="color: #5b5b5b;" class="border">工程简称</th>
+            <th style="color: #5b5b5b;" class="border">费用所用分部</th>
+            <th style="color: #5b5b5b;" class="border">费用产生时间</th>
+            <th style="color: #5b5b5b;" class="border">负责人</th>
+            <th style="color: #5b5b5b;" class="border">数量</th>
+            <th style="color: #5b5b5b;" class="border">单价</th>
+            <th style="color: #5b5b5b;" class="border">是否含税</th>
+            <th style="color: #5b5b5b;" class="border">合作单位</th>
+            <th style="color: #5b5b5b;" class="border">费用说明</th>
+        </tr>
+        </thead>
+        <tbody id="laborHistory"></tbody>
+    </table>
+</div>
+<div id="page" style="margin: 20px 0;"></div>

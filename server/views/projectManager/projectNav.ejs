@@ -1,0 +1,63 @@
+<ul class="nav-content">
+    <% if(nav === "index"){ %>
+    <li class="active" id="allNavProject" style="display: none;">
+        <a href="/project/participate">
+            <span class="project-all"></span>
+            全部项目
+        </a>
+    </li>
+    <% }else { %>
+    <li id="allNavProject" style="display: none;">
+        <a href="/project/participate">
+            <span class="project-all"></span>
+            全部项目
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "charged"){ %>
+    <li class="active">
+        <a href="/project/charged">
+            <span class="project-participate"></span>
+            我参与的项目
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/project/charged">
+            <span class="project-participate"></span>
+            我参与的项目
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "participate"){ %>
+    <li class="active">
+        <a href="/project">
+            <span class="project-charged"></span>
+            我关注的项目
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/project">
+            <span class="project-charged"></span>
+            我关注的项目
+        </a>
+    </li>
+    <% } %>
+
+    <% if(nav === "hardware"){ %>
+    <li class="active">
+        <a href="/project/hardware">
+            <span class="project-hardware"></span>
+            智能硬件
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/project/hardware">
+            <span class="project-hardware"></span>
+            智能硬件
+        </a>
+    </li>
+    <% } %>
+</ul>

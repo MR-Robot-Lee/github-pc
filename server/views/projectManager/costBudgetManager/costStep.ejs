@@ -1,0 +1,36 @@
+<div id="costStep">
+    <div class="cost-step-page" style="height: 40px;">
+
+        <label style="margin-left: 20px;line-height: 30px;">总价:</label>
+        <span style="color:#009941" id="stepPrice">0元</span>
+        <div class="step-position">
+            <!--<a>导出</a>-->
+            <select style="margin-left: 8px;" class="int int-default int-small14" id="costStepType"></select>
+            <input style="margin-left: 8px;" class="int int-default int-small14" name='keywords' placeholder="请输入关键字查找" />
+            <span class="span-btn btn-fine-adj1" id="searchModal">查询</span>
+        </div>
+    </div>
+    <div class="table-content">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border" style="width: 100px">措施类型</th>
+                <th class="border">措施名称</th>
+                <th class="border">工作内容</th>
+                <th class="border" style="width: 60px">单位</th>
+                <th class="border" style="width: 60px">数量</th>
+                <th class="border" style="width: 60px">单价</th>
+                <th class="border" style="width: 90px">合价</th>
+                <th class="border" style="width: 110px">查看</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="display: none;position:absolute;
+                       top: 50px;z-index: 200">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="costStepTable"></tbody>
+        </table>
+    </div>
+    <div id="page" style="margin: 20px 0;"></div>
+</div>

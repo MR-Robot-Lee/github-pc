@@ -1,0 +1,105 @@
+.Page {
+  span{
+    vertical-align: middle;
+  }
+  color: #333333;
+  font-size: 14px;
+  text-align: center;
+  font-weight: normal;
+  .items {
+    display: inline-block;
+    vertical-align: middle;
+    .item {
+      width: 32px;
+      height: 32px;
+      line-height: 30px;
+      font-size: 12px;
+      background-color: #ffffff;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      border: 1px solid #dddddd;
+      margin-left: -1px;
+      i {
+        width: inherit;
+        height: inherit;
+        line-height: 30px;
+      }
+      &.active {
+        border-color: #009441 !important;
+        background-color: #009441 !important;
+        color: #ffffff !important;
+      }
+      &:hover {
+        border-color: #84b97f;
+        background-color: #84b97f;
+        color: #ffffff;
+      }
+      &.disable {
+        cursor: not-allowed;
+        border-color: #eeeeee;
+        color: #999999;
+      }
+    }
+  }
+  .Page__size {
+    display: inline-block;
+    .label {
+      display: inline-block;
+    }
+  }
+  .Page__pages {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    .ctrl {
+      border: 1px solid #dddddd;
+      height: 32px;
+      line-height: 30px;
+      padding: 0 22px;
+      display: inline-block;
+      background-color: #ffffff;
+      vertical-align: middle;
+      cursor: pointer;
+      &:hover {
+        border-color: #84b97f;
+        color: #84b97f;
+      }
+
+    }
+    .total {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 7px;
+    }
+  }
+  .Page__input {
+    display: inline-block;
+    vertical-align: middle;
+    input {
+      display: inline-block;
+      vertical-align: middle;
+      width: 50px;
+      outline: 0;
+      padding: 5px;
+      margin: 0 3px;
+      border: 1px solid #dddddd;
+    }
+    .btn-submit {
+      display: inline-block;
+      border: 1px solid #dddddd;
+      height: 32px;
+      line-height: 30px;
+      padding: 0 10px;
+      background-color: #ffffff;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 2px;
+      &:hover {
+        border-color: #84b97f;
+        background-color: #84b97f;
+        color: #ffffff;
+      }
+    }
+  }
+}

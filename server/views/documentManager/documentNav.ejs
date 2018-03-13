@@ -1,0 +1,55 @@
+<ul class="nav-content">
+    <li id="addFile">
+        <a href="javascript:void(0)">
+            <span class="communique-add"></span>
+            新建文件柜
+        </a>
+    </li>
+    <% if(nav === "document-company" || nav === 'admin-company' || nav === 'document-admin-company'){ %>
+    <li class="active">
+        <a href="/document">
+            <span class="enterprise-filecab"></span>
+            企业文件柜
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/document">
+            <span class="enterprise-filecab"></span>
+            企业文件柜
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'document-me' || nav === 'admin-me' || nav === 'document-admin-me'){ %>
+    <li class="active">
+        <a href="/document/me">
+            <span class="my-filecab"></span>
+            我的文件柜
+        </a>
+        <ul class="nav-content no-padding" id="knowledgeChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/document/me">
+            <span class="my-filecab"></span>
+            我的文件柜
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'document-manager' || nav === 'admin-manager' || nav === 'document-admin-manager'){ %>
+    <li class="active" id="documentManager">
+        <a href="/document/manager">
+            <span class="filecab-manager"></span>
+            文件柜管理
+        </a>
+        <ul class="nav-content no-padding" id="knowledgeChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li id="documentManager">
+        <a href="/document/manager">
+            <span class="filecab-manager"></span>
+            文件柜管理
+        </a>
+    </li>
+    <% } %>
+</ul>

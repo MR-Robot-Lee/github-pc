@@ -1,0 +1,57 @@
+<%- include('../../layout/projectHeader') %>
+<div class='IndexMain container-project page-contract' id="projectSchedule"
+     data-id="<%- id %>">
+    <div class='project-menu-title'><span><%- name %></span>
+        <div style="position: absolute;top: 5px;left: 25px;width: 36px;height: 36px;border-radius: 50%;box-shadow: 0px 0px 2px 1px #c1c1c1;background-color: #fff;"><img style="width: 28px;height: 25px;border-radius: 50%;margin-top: 6px;" name='projectPrincipalLogo' src="./../../../dist/images/my-apply.png" alt=""></div>
+        <div id="projectPrincipal" style="position: absolute;top: 13px;left: 70px;font-size: 14px"></div>
+    </div>
+    <div class="container-content-project page-budget">
+        <%- include('./../projectDetailManager/projectNav') %>
+        <div class="project-list">
+            <div class="budget-title" style="position: relative;">
+                合同管理
+                <% if(type === 'contract-detail'){ %>
+                <div style="position: absolute;top: 50%;margin-top: -15px;right: 20px;">
+                    <a style="font-weight: normal" href="/project/contract/sum/<%- id %>?name=<%- name %>" class="span-btn background-list-gray">返回列表</a>
+                </div>
+                <% } %>
+            </div>
+            <div class="budget-menus">
+                <% if(type === 'contract-sum' || type === 'contract-detail'){ %>
+                <a class="item active" href="/project/contract/sum/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    合同汇总
+                </a>
+                <% }else{ %>
+                <a class="item " href="/project/contract/sum/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    合同汇总
+                </a>
+                <% } %>
+                <% if(type === 'contract-resource'){ %>
+                <a class="item active" href="/project/contract/resource/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    核算资源
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/contract/resource/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    核算资源
+                </a>
+                <% } %>
+            </div>
+            <div class="project-list-wrap top-88">
+                <% if(type === 'contract-sum'){ %>
+                <%- include('./contractSum') %>
+                <% }else if(type === 'contract-resource'){ %>
+                <%- include('./contractResource') %>
+                <% }else if (type === 'contract-detail'){ %>
+                <%- include('./contractDetail') %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/project.js"></script>
+<%- include('../../layout/footer') %>

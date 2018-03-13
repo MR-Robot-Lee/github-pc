@@ -1,0 +1,61 @@
+<div class="all-knowledge-list" id="allKnowledgeList" data-id="<%- id %>">
+
+</div>
+<div style="overflow-y: hidden;padding-bottom: 10px;" class="knowledge-detail">
+    <div class="knowledge-detail-title">
+        <span class="span-btn background-list-gray" id="callbackKnowledge">返回</span>
+        <span class="span-btn background-list-gray" id="delKnowledge">删除</span>
+        <span class="icon-close" style="position: absolute;right: 20px;margin-top:6px"></span>
+    </div>
+    <div style="height: 94%;overflow-y: auto;padding-bottom: 10px;">
+        <div class="knowledge-title" name="title"></div>
+        <div class="knowledge-info">
+            <div class="info-item">
+                <label>类型 :</label>
+                <span style="margin-top: -3px;" name="type"></span>
+                <label>发布人 :</label>
+                <span style="margin-top: -3px;" name="userName"></span>
+                <label>发布时间 :</label>
+                <span style="margin-top: -3px;" name="addTime"></span>
+            </div>
+            <div class="info-item" style="padding-bottom: 8px">
+                <label>来源 :</label>
+                <span style="margin-top: -3px;" name="source"></span>
+                <label>原作者 :</label>
+                <span style="margin-top: -3px;" name="author"></span>
+                <label>浏览次数 :</label>
+                <span style="margin-top: -3px;width: 25px;" name="browseTimes"></span>
+                <span id='checkBrower'
+                      style="width: 30px;color: #009941;cursor:pointer;margin-top: -3px;">查看</span>
+                <label style="margin-left: 25px;">网址链接 :</label>
+                <span name="linkAddress" style="color:#229aee;margin-top: -3px;"></span>
+            </div>
+        </div>
+        <div class="knowledge-summary">
+            <label>寄语/摘要:</label>
+            <span name="summary"></span>
+        </div>
+        <p style="padding-top: 10px;" class="knowledge-content"></p>
+        <div class="knowledge-attach">
+            <label>附件:</label>
+            <div class="attach-list">
+                <!--<div class='attach-item'>
+                    <div class='icon icon-none'></div>
+                    <div class='detail'>
+                        <div class='filename'>发生的发生地方</div>
+                        <div class='remove'>
+                            <a>下载</a>
+                            <a>预览</a>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+</div>
+<div name="noInfoAllKnowledgeList_page" id="page" style="margin: 20px 0;display: none;"></div>
+<div class='noInfo' id='noInfoAllKnowledgeList'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

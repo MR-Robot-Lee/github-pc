@@ -1,0 +1,59 @@
+<div style="position: relative;margin: 10px 0;height: 30px;">
+    <a class="span-btn" href="/project/balance/contract/<%- id %>?name=<%- name %>">
+        <span class="icon-create"></span>
+        新建无合同结算
+    </a>
+    <div class="span-btn" id="newContract">
+        <span class="icon-create"></span>
+        新建有合同结算
+    </div>
+    <div id="noInfoBalanceTable_search" style="position: absolute;right: 0;top: 50%;margin-top: -15px;">
+        <span class="span-btn background-list-gray btn-fine-adj1" id="myBalance">我的结算单</span>
+        <select style="margin-left: 8px ;" class="int int-default int-small14 type">
+            <option value="0">全部结算类型</option>
+            <option value="1">有合同结算</option>
+            <option value="2">无合同结算</option>
+        </select>
+        <select style="margin-left: 3px;" class="int int-default int-small14 status">
+            <option value="0">全部结算状态</option>
+            <option value="9">已保存</option>
+            <option value="10">审批中</option>
+            <option value="11">已确认</option>
+            <option value="12">未通过</option>
+        </select>
+        <select style="margin-left: 3px;" class="int int-default int-small14 costStatus">
+            <option value="0">全部费用单状态</option>
+            <!--<option value="1">已保存</option>-->
+            <!--<option value="2">审批中</option>-->
+            <!--<option value="3">已通过</option>-->
+            <!--<option value="4">已驳回</option>-->
+        </select>
+
+        <input style="margin-left: 8px;" type="text" class="int int-default int-small14 keywords" placeholder="结算单名称查询">
+        <span class="span-btn btn-fine-adj1" id="searchModal">查询</span>
+    </div>
+</div>
+<div id="noInfoBalanceTable_main" class="table-content" style="display: none;">
+    <table>
+        <thead>
+        <tr class="small">
+            <th class="border" style="width: 45px">序号</th>
+            <th class="border" style="min-width: 100px;">结算单名称</th>
+            <th class="border" style="min-width: 140px;">结算单编号</th>
+            <th class="border" style="min-width: 80px">结算负责人</th>
+            <th class="border" style="width: 70px;">结算状态</th>
+            <th class="border" style="min-width: 140px">关联合同编号</th>
+            <th class="border" style="min-width: 140px">(合同)款项负责人</th>
+            <th class="border" style="min-width: 140px;">费用单编号</th>
+            <th class="border" style="min-width: 80px;">费用单状态</th>
+            <th class="border" style="width: 86px">操作</th>
+        </tr>
+        </thead>
+        <tbody id="balanceTable"></tbody>
+    </table>
+</div>
+<div name="noInfoBalanceTable_page" id="page" style="margin: 20px 0;display: none;"></div>
+<div class='noInfo' id='noInfoBalanceTable'>
+    <div class="icon-uninformed"></div>
+    <p>暂无合同结算信息，请点击左上角创建！</p>
+</div>

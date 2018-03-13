@@ -1,0 +1,87 @@
+<div class="model-project-common" style="width: 620px;">
+    <div class="model-section">
+        <div>
+            <div style="line-height: 30px;">
+                <input style="vertical-align: middle;margin-top: 0;" type="radio" name='check-statics2'>
+                <span style="color: #5b5b5b;">按打卡统计 <span style="color: #999;">( 只要有打卡记录均记为出勤人员 )</span></span>
+            </div>
+            <div style="line-height: 30px;">
+                <input class="effective-check" style="vertical-align: middle;margin-top: 0;" type="radio" name='check-statics2'>
+                <span style="color: #5b5b5b;">按有效打卡统计 <span style="color: #999;">( 每个有效时段内均有打开记录,计为出勤人员,最多设置四次有效打卡 )</span></span>
+            </div>
+        </div>
+        <div class="punch-card" style="display: none;">
+            <div style="font-weight: bold;line-height: 40px;">打卡有效时段</div>
+            <div>
+                <div class="clearfix first-time" style="display: none;">
+                    <span class="fl">考勤一次 :</span>
+                    <div class="fl">
+                        <div class="fl start-time first-start-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <span class="fl">-</span>
+                    <div class="fl">
+                        <div class="fl end-time first-end-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <div class="fl oparate">
+                        <a href="#" class='confirm-hover' data-type='add'>添加</a>
+                    </div>
+                </div>
+                <div class="clearfix second-time" style="display: none;">
+                    <span class="fl">考勤二次 :</span>
+                    <div class="fl">
+                        <div class="fl start-time second-start-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <span class="fl">-</span>
+                    <div class="fl">
+                        <div class="fl end-time second-end-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <div class="fl oparate">
+                        <a href="#" class='confirm-hover' data-type='add'>添加</a>
+                        <span>|</span>
+                        <a href="#" class='delete-hover' data-type='del'>删除</a>
+                    </div>
+                </div>
+                <div class="clearfix third-time" style="display: none;">
+                    <span class="fl">考勤三次 :</span>
+                    <div class="fl">
+                        <div class="fl start-time third-start-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <span class="fl">-</span>
+                    <div class="fl">
+                        <div class="fl end-time third-end-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <div class="fl oparate">
+                        <a href="#" class='confirm-hover' data-type='add'>添加</a>
+                        <span>|</span>
+                        <a href="#" class='delete-hover' data-type='del'>删除</a>
+                    </div>
+                </div>
+                <div class="clearfix fourth-time" style="display: none;">
+                    <span class="fl">考勤四次 :</span>
+                    <div class="fl">
+                        <div class="fl start-time fourth-start-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <span class="fl">-</span>
+                    <div class="fl">
+                        <div class="fl end-time fourth-end-time"></div>
+                        <span class="icon-clock"></span>
+                    </div>
+                    <div class="fl oparate">
+                        <a href="#" class='delete-hover' data-type='del'>删除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确认</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

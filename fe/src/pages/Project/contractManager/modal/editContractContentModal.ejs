@@ -1,0 +1,62 @@
+<div class="model-project-common" style="width: 944px">
+    <div class="modal-form" style="padding: 10px 0">
+        <div style="padding-bottom: 20px;" class="item">
+            <label class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>合同价款:</label>
+            <input class="int int-default" style="width: 120px;text-align: center;" name="cntrPrice" placeholder="系统计算" disabled/> 元
+            <label class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>是否含税:</label>
+            <label><input type="radio" value="1" name="taxType" />是</label>
+            <label style="margin-left: 4px"><input type="radio" value="2" name="taxType" />否</label>
+            <label style="margin-left: -10px;" class="bold-title label-block int-small11"><i class="icon-fill-in">*</i>结算方式:</label>
+            <select class="int-default int" name="settlementType">
+                <option value="a">请输入结算</option>
+                <option value="1">固定总价</option>
+                <option value="2">固定综合单价</option>
+            </select>
+        </div>
+        <div style="padding-bottom: 20px;" class="item">
+            <label class="bold-title label-block int-small11">
+                <i class="icon-fill-in">*</i>
+                合同期限:
+            </label>
+            自<input style="margin: 0 5px;width: 160px;" type="date" class="int-small14 int-default int" name="cntrStartTime">
+            至<input style="margin: 0 5px;width: 160px;" type="date" class="int-small14 int-default int" name="cntrEndTime">
+            共<input style="margin: 0 5px;" type="type" class="int int-small int-default daysModal">天
+        </div>
+        <div style="padding-bottom: 20px;" class="item">
+            <label class="bold-title label-block int-small11" style="float: left">
+                <i class="icon-fill-in">*</i>
+                工作内容:
+            </label>
+            <textarea style="width: 798px;height: 80px;resize: none;margin-left: 4px" class="int int-default"
+                      placeholder="请输入合同内容......" name="cntrContent"></textarea>
+        </div>
+        <div style="padding-bottom: 20px;" class="item">
+            <label class="bold-title label-block int-small11" style="float: left;"><i class="icon-fill-in">*</i>付款方式:</label>
+            <textarea class="int int-default" style="width: 798px;height: 80px;resize: none;margin-left: 4px"
+                      placeholder="请输入付款方式"
+                      name="payTypeDesc"></textarea>
+        </div>
+        <div style="padding-bottom: 20px;" class="item">
+            <label class="bold-title label-block int-small11">质保金:</label>
+            <input style="width: 70px;text-align: center;" type="text" class="int int-default int-small14" name="ensurePer" placeholder="填写">
+            <span>%</span>
+            <label class="bold-title label-block int-small11">质保期:</label>
+            <input style="width: 70px;text-align: center;" type="text" class="int int-default int-small14" name="ensureMonth" placeholder="填写">
+            <span>月</span>
+        </div>
+        <div style="padding-bottom: 20px;" class="item">
+            <label class="bold-title label-block int-small11" style="float: left"><i
+                        class="icon-fill-in">*</i>其他条款:</label>
+            <textarea class="int int-default" style="width: 798px;height: 80px;resize: none;margin-left: 4px"
+                      name="otherDesc"></textarea>
+        </div>
+        <div style="padding-bottom: 20px;" class="item">
+            <label class="bold-title label-block int-small11" style="float: left"></i>附件 :</label>
+            <div id="reportModal" style="display: inline-block;margin-left: 4px"></div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span style="margin-left: -5px;" class="span-btn confirm">确认</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

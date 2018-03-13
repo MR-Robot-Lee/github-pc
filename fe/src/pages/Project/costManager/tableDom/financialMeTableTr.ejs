@@ -1,0 +1,19 @@
+<tr class="active small">
+    <td class="border"><%- count %></td>
+    <% if(costType){%>
+    <td class="border"><%- fundRescName %> - <%- costType %></td>
+    <% }else{ %>
+    <td class="border"><%- fundRescName %></td>
+    <% } %>
+    <td class="border"><%- costName %></td>
+    <td class="border"><%- costNo %></td>
+    <td class="border"><%- addTime %></td>
+    <td class="border"><%- recObjName %></td>
+    <td class="border"><%- billMoney %></td>
+    <td class="border"><%- billStatus %></td>
+    <td class="border">
+        <a class="confirm-hover" data-type="approval">查看审批</a>
+        <div class="icon-line"></div>
+        <a class="confirm-hover" data-type="cost">费用单</a>
+    </td>
+</tr>

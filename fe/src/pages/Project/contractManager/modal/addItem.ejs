@@ -1,0 +1,55 @@
+<!--添加项-->
+<div class="model-project-common" style="width: 1064px">
+    <div class="table-content" style="padding-top: 10px">
+        <table>
+            <tbody id="updateAddItem">
+            <tr class="small">
+                <td class="border" style="width: 70px;color: #333;font-weight: bold">项目名称</td>
+                <td class="border"><input type="text" placeholder="填写" name="workName" data-warn="项目名称" /></td>
+                <td class="border" style="width: 70px;color: #333;font-weight: bold">工作内容</td>
+                <td class="border"><input type="text" placeholder="请输入工作内容" name="workContent" data-warn="工作内容" /></td>
+                <td class="border" style="width: 45px;color: #333;font-weight: bold">单位</td>
+                <td class="border" style="width: 45px;padding-left: 5px;"><input type="text" placeholder="填写" name="unit" data-warn="单位" /></td>
+                <td class="border" style="width: 60px;color: #333;font-weight: bold">工程量</td>
+                <td class="border" style="width: 70px"><input type="text" placeholder="填写" name="cntrQpy" data-warn="工程量" /></td>
+                <td class="border" style="width: 70px;color: #333;font-weight: bold">综合单价</td>
+                <td class="border" style="width: 150px"><input type="text" placeholder="系统计算" disabled name="cntrPrice" data-warn="" /></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-form" style="margin: 15px 20px;position: relative">
+        <label style="visibility: hidden" class="bold-title">工程量:</label>
+        <span style="visibility: hidden" class="span-color-blue">323</span>
+        <div style="position: absolute;right: 0;top: -5px;">
+            <!--<span class="span-btn background-list-gray sumPrice">单价计算</span>-->
+            <span class="span-btn background-list-gray addBudge">预算添加</span>
+            <span class="span-btn background-list-gray addEnterprise">企业库添加</span>
+            <span class="span-btn background-list-gray addDes">添加说明</span>
+            <span class="span-btn background-list-gray delModal">删除</span>
+        </div>
+    </div>
+    <div class="table-content" style="padding-bottom: 10px;height:374px;overflow-y: auto ">
+        <table>
+            <thead>
+            <tr class="small">
+                <th class="border" style="width: 40px;"><input type="checkbox"></th>
+                <th style="width: 90px;" class="border">分类</th>
+                <th class="border">项目名称</th>
+                <th class="border">内容/型号</th>
+                <th style="width: 60px;" class="border">单位</th>
+                <th class="border">成本单价</th>
+                <th class="border" style="width: 70px">单位用量</th>
+                <th class="border" style="width: 70px">单价调整</th>
+                <!--<th class="border" style="width: 80px">总量</th>-->
+                <th class="border" style="width: 80px">小计</th>
+            </tr>
+            </thead>
+            <tbody id="balanceContractModal"></tbody>
+        </table>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确认</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

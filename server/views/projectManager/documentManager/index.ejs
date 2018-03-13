@@ -1,0 +1,55 @@
+<%- include('../../layout/projectHeader') %>
+<div class='IndexMain container-project page-project-document ' id="projectSchedule"
+     data-id="<%- id %>">
+    <div class='project-menu-title'><span><%- name %></span>
+        <div style="position: absolute;top: 5px;left: 25px;width: 36px;height: 36px;border-radius: 50%;box-shadow: 0px 0px 2px 1px #c1c1c1;background-color: #fff;"><img style="width: 28px;height: 25px;border-radius: 50%;margin-top: 6px;" name='projectPrincipalLogo' src="./../../../dist/images/my-apply.png" alt=""></div>
+        <div id="projectPrincipal" style="position: absolute;top: 13px;left: 70px;font-size: 14px"></div>
+    </div>
+    <div class="container-content-project ">
+        <%- include('./../projectDetailManager/projectNav') %>
+        <div class="project-list">
+            <div class="project-left-nav">
+                <div style="padding: 14px 0 14px 20px;" class="document-title">
+                    <span>项目文档</span>
+                    <div style="position: absolute;top: 50%;right:20px;margin-top: -12px;">
+                        <span class="icon-enterprise-category" id="enterpriseCategory"></span>
+                        <span class="icon-enterprise-move" id="enterpriseMaterial"></span>
+                    </div>
+                </div>
+                <ul class="nav-content no-padding-border nav-content-height" id="childNav" style="display: none;height: auto;"></ul>
+                <div class='noInfo-small' id='noInfoDocument'>
+                    <div class="icon-remind"></div>
+                    <div style="margin-top: 5px;">您还没有创建分类</div>
+                    <div style="margin-top: 5px;">点击上方的 <span style="margin-top: -3px;" class="icon-enterprise-category"></span>来创建分类吧！</div>
+                </div>
+            </div>
+            <div class='project-right-content' style="height: 43px;">
+                <div class="budget-title" style="position: relative;">
+                    <span class="documentTitle"></span>
+                    <div style="position: absolute;top:-6px;right: 20px;">
+                        <span class="span-btn background-list-gray documentDownload" style="margin-right: 10px">上传</span>
+                        <input type="file"
+                               style="position: absolute;left: 0;top: 0;bottom: 0;height: 30px;width: 80px;opacity: 0"
+                               id="upload">
+                        <a class="span-btn background-list-gray downloadCom" href="javascript:window.initProjectDownload()">下载</a>
+                        <span class="span-btn background-list-gray" id="moveFile">移动文档</span>
+                        <span class="span-btn background-list-gray" id="delete">删除</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-list-wrap left">
+                <% if(type === 'project-document'){ %>
+                <%- include('./projectDocumentIndex') %>
+                <% }else if(type === 'balance-resource'){ %>
+                <%- include('./contractBalanceResource') %>
+                <% }else if (type === 'balance-contract'){ %>
+                <%- include('./noContractBalance') %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/project.js"></script>
+<%- include('../../layout/footer') %>

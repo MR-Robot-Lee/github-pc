@@ -1,0 +1,48 @@
+<ul class="nav-content">
+    <% if(nav === "knowledge-add"){ %>
+    <li class="active">
+        <a href="/knowledge/add">
+            <span class="communique-add"></span>
+            新建知识
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/knowledge/add">
+            <span class="communique-add"></span>
+            新建知识
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "knowledge-type"){ %>
+    <li class="active" id="knowledgeNavType">
+        <a href="/knowledge/type">
+            <span class="communique-process"></span>
+            知识类型
+        </a>
+    </li>
+    <% }else { %>
+    <li id="knowledgeNavType">
+        <a href="/knowledge/type">
+            <span class="communique-process"></span>
+            知识类型
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'knowledge-all' || nav === 'knowledge-detail'){ %>
+    <li class="active">
+        <a href="/knowledge">
+            <span class="all"></span>
+            全部知识
+        </a>
+        <ul class="nav-content no-padding" id="knowledgeChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/knowledge">
+            <span class="all"></span>
+            全部知识
+        </a>
+    </li>
+    <% } %>
+</ul>

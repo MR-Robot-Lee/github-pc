@@ -1,0 +1,75 @@
+<%- include('../layout/header') %>
+<div class="container">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="search-form">
+                        <span class="common-title">全部合同</span>
+                        <select>
+                            <option>工程类型</option>
+                        </select>
+                        <select>
+                            <option>合同类型</option>
+                        </select>
+                        <input type="text" placeholder="请输入关键字查找" />
+                        <button class="btn">查询</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-list-warp">
+                <div class="table-content">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th style="min-width: 65px;max-width: 65px">项目简称</th>
+                            <th style="min-width: 158px;max-width: 158px">合同名称</th>
+                            <th style="min-width: 65px;max-width: 65px">合同编号</th>
+                            <th style="min-width: 158px;max-width: 158px">合同方</th>
+                            <th style="min-width: 75px;max-width: 75px">合同方属性</th>
+                            <th style="min-width: 65px;max-width: 65px">合同分类</th>
+                            <th style="min-width: 65px;max-width: 65px">合同金额</th>
+                            <th style="min-width: 40px;max-width: 40px">负责人</th>
+                            <th style="min-width: 65px;max-width: 65px">工程状态</th>
+                            <th style="min-width: 65px;max-width: 65px">合同状态</th>
+                            <th style="min-width: 100px;max-width: 100px;">查看</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="active">
+                            <td>地铁工程</td>
+                            <td>
+                                <div style="font-size: 12px">
+                                    西安地铁六标装饰施工合同
+                                </div>
+                            </td>
+                            <td>ZASX-85</td>
+                            <td>
+                                <div style="font-size: 12px">
+                                    中铁四局集团有限公司装饰分公司
+                                </div>
+                            </td>
+                            <td>分包方</td>
+                            <td>分包合同</td>
+                            <td>40000000000.00</td>
+                            <td>李山上</td>
+                            <td>未开工</td>
+                            <td>
+                                未执行
+                            </td>
+                            <td>
+                                <a>合同文本</a>
+                                <div class="icon-line"></div>
+                                <a>审批流程</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

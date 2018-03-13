@@ -1,0 +1,77 @@
+<%- include('../../layout/projectHeader') %>
+<div class='IndexMain container-project  page-cost page-knowledge' id="projectSchedule"
+     data-id="<%- id %>">
+    <div class='project-menu-title'><span><%- name %></span>
+        <div style="position: absolute;top: 5px;left: 25px;width: 36px;height: 36px;border-radius: 50%;box-shadow: 0px 0px 2px 1px #c1c1c1;background-color: #fff;"><img style="width: 28px;height: 25px;border-radius: 50%;margin-top: 6px;" name='projectPrincipalLogo' src="./../../../dist/images/my-apply.png" alt=""></div>
+        <div id="projectPrincipal" style="position: absolute;top: 13px;left: 70px;font-size: 14px"></div>
+    </div>
+    <div class="container-content-project page-budget">
+        <%- include('./../projectDetailManager/projectNav') %>
+        <div class="project-list">
+            <div class="budget-title">项目财务</div>
+            <div class="budget-menus">
+                <% if(type === 'financial-status' || type === 'financial-report'){ %>
+                <a class="item active" id="financialStatus" href="/project/financial/status/<%- id %>?name=<%- name %>" style="display: none;">
+                    <span class="menu-line"></span>
+                    财务动态
+                </a>
+                <% }else{ %>
+                <a class="item " id="financialStatus" href="/project/financial/status/<%- id %>?name=<%- name %>" style="display: none;">
+                    <span class="menu-line"></span>
+                    财务动态
+                </a>
+                <% } %>
+                <% if(type === 'financial-cost'){ %>
+                <a class="item active" id="financialCost" href="/project/financial/cost/<%- id %>?name=<%- name %>" style="display: none;">
+                    <span class="menu-line"></span>
+                    费用汇总
+                </a>
+                <% }else{ %>
+                <a class="item" id="financialCost" href="/project/financial/cost/<%- id %>?name=<%- name %>" style="display: none;">
+                    <span class="menu-line"></span>
+                    费用汇总
+                </a>
+                <% } %>
+                <% if(type === 'financial-pay'){ %>
+                <a class="item active" href="/project/financial/pay/<%- id %>?name=<%- name %>" id="financialMenuPay" style="display: none;">
+                    <span class="menu-line"></span>
+                    应付账款
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/financial/pay/<%- id %>?name=<%- name %>" id="financialMenuPay" style="display: none;">
+                    <span class="menu-line"></span>
+                    应付账款
+                </a>
+                <% } %>
+                <% if(type === 'financial-me'){ %>
+                <a class="item active" href="/project/financial/me/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    我的财务
+                </a>
+                <% }else{ %>
+                <a class="item" href="/project/financial/me/<%- id %>?name=<%- name %>">
+                    <span class="menu-line"></span>
+                    我的财务
+                </a>
+                <% } %>
+            </div>
+            <div class="project-list-wrap top-88">
+                <% if(type === 'financial-status'){ %>
+                <%- include('./financialStatus') %>
+                <% }else if(type === 'financial-cost'){ %>
+                <%- include('./costSum') %>
+                <% }else if(type === 'financial-pay'){ %>
+                <%- include('./accountsPayable') %>
+                <% }else if(type === 'financial-me'){ %>
+                <%- include('./myBill') %>
+                <% }else if(type === 'financial-report'){ %>
+                <%- include('./caseTransformReport') %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/project.js"></script>
+<%- include('../../layout/footer') %>
+

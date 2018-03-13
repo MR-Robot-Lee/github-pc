@@ -1,0 +1,63 @@
+<%- include('../../layout/header') %>
+<div class="modal-employee-add modal-select-material">
+    <div class="employee-select-section">
+        <div class="common-header">
+            <div class="search-form">
+                <label>分部查看:</label>
+                <select>
+                    <option>石家街站FSBS分部</option>
+                </select>
+                <label>材料分类:</label>
+                <select>
+                    <option>无缝钢管</option>
+                </select>
+                <label>查看余量:</label>
+                <select>
+                    <option>全部余量</option>
+                </select>
+                <input placeholder="请输入关键字进行查找" />
+                <button class="btn">查询</button>
+            </div>
+        </div>
+        <div class="table-content material-table-height">
+            <table>
+                <thead>
+                <tr>
+                    <th class="border">选择</th>
+                    <th class="border">序号</th>
+                    <th class="border">材料编码</th>
+                    <th class="border">材料分类</th>
+                    <th class="border">材料名称</th>
+                    <th class="border">规格型号</th>
+                    <th class="border">单位</th>
+                    <th class="border">总数量</th>
+                    <th class="border">单价</th>
+                    <th class="border">合价</th>
+                    <th class="border">计划余量</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="border">
+                        <input type="checkbox" />
+                    </td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border">12</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="employee-footer">
+        <span class="select-cancel">取消</span>
+        <span class="select-confirm">确定</span>
+    </div>
+</div>

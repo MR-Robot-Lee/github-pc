@@ -1,0 +1,134 @@
+<!--结算-->
+<div class="model-project-common page-budget" style="width: 1064px">
+    <div style="padding-bottom: 20px;" class="model-section">
+        <div style="border: 1px solid #e9e9e9;
+        width: 210px;
+        height: 524px;
+        float: left">
+            <div class="modal-form"
+                 style="border-bottom: 1px solid #e9e9e9;height: 180px;overflow-y: auto;padding: 10px">
+                <label class="bold-title">工作内容说明:</label>
+                <div class="remark" style="margin-top: 10px"></div>
+            </div>
+            <div class="modal-form" style="height:343px;overflow-y: auto;padding: 10px">
+                <label class="bold-title">计算规则:</label>
+                <div class="calcRule" style="margin-top: 10px"></div>
+            </div>
+        </div>
+        <div style="height: 524px;
+        margin-left: -1px;width: 792px;
+        float: left;
+        position: relative;
+        border: 1px solid #e9e9e9">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tbody>
+                <tr style="height: 30px;border-bottom: 1px solid #e9e9e9">
+                    <td style="width: 100px;
+                    border-bottom: 1px solid #e9e9e9;
+                    font-weight: bold;
+                    border-right: 1px solid #e9e9e9;text-align: center;">项目名称
+                    </td>
+                    <td style="border-bottom: 1px solid #e9e9e9;
+                    border-right: 1px solid #e9e9e9;padding-left: 10px;" class="workName"></td>
+                    <td style="border-bottom: 1px solid #e9e9e9;
+                    width:60px;
+                    font-weight: bold;
+                    border-right: 1px solid #e9e9e9;text-align: center;">单位
+                    </td>
+                    <td style="border-bottom: 1px solid #e9e9e9;
+                    width:60px;
+                    border-right: 1px solid #e9e9e9;padding-left: 10px;" class="unit"></td>
+                </tr>
+                <tr style="height: 30px;border-bottom: 1px solid #e9e9e9">
+                    <td style="width: 100px;
+                    border-bottom: 1px solid #e9e9e9;
+                    font-weight: bold;
+                    border-right: 1px solid #e9e9e9;text-align: center;">工作内容
+                    </td>
+                    <td colspan="3" style="border-bottom: 1px solid #e9e9e9;
+                    border-right: 1px solid #e9e9e9;padding-left: 10px;" class="workContent"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="budget-menus" style="padding-left: 10px">
+                <a class="item active"
+                   data-type="sum"
+                   href="javascript:void(0)">
+                    <span class="menu-line"></span>
+                    计算公式
+                </a>
+                <a class="item"
+                   data-type="price"
+                   href="javascript:void(0)">
+                    <span class="menu-line"></span>
+                    单价组成
+                </a>
+            </div>
+            <div class="clr"></div>
+            <div class="modal-form" style="margin:20px 9px 0 9px;position: relative;">
+                <div class="sumItem">
+                    <label class="bold-title">计算式:</label>
+                    <textarea placeholder="请输入计算式(例如:3+2*(1+3)/4)" class="int"
+                              style="width:772px;height: 144px;resize: none;margin: 0 auto; "
+                              name="settleQpyFormula"></textarea>
+                    <!--<span class="span-btn background-list-gray"
+                          style="position: absolute;right: 0;margin-top: 10px;">计算</span>
+                   --> </div>
+                <div class="table-content priceItem" style="height: 346px;overflow-y: auto;display: none">
+                    <table>
+                        <thead>
+                        <tr class="small">
+                            <th class="border">序号</th>
+                            <th class=" border">分类</th>
+                            <th class=" border">项目名称</th>
+                            <th class=" border">工作内容</th>
+                            <th class="border">单位</th>
+                            <th class="border">单位含量</th>
+                            <th class="border">单价</th>
+                            <th class="border" style="width: 90px">结算单位含量</th>
+                            <th class="border" style="width: 80px;">结算单价</th>
+                        </tr>
+                        </thead>
+                        <tbody id="balanceContractModal"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="position: absolute;bottom: 0;right:0;left:0;padding: 10px;padding-right: 0;border-top: 1px solid #e9e9e9">
+                <div class="modal-form">
+                    <label class="bold-title cntrQpyModal">合同量:</label>
+                    <input style="width: 70px;" type="text" class="int int-default int-small14 cntrQpyModal" disabled placeholder="系统数据"
+                           name="cntrQpy">
+                    <label style="margin-left: 30px" class="bold-title cntrQpyModal">结算量:</label>
+                    <input style="width: 70px;" type="text" class="int int-default int-small14 cntrQpyModal" disabled placeholder="系统数据"
+                           name="settleQpyW">
+                    <label class="bold-title cntrPriceModal" style="display: none">合同单价:</label>
+                    <input type="text"
+                           style="display: none;width: 70px;"
+                           class="int int-default int-small14 cntrPriceModal"
+                           disabled placeholder="系统数据"
+                           name="cntrPrice">
+                    <label style="margin-left: 12px;display: none"
+                           class="bold-title cntrPriceModal">结算单价:</label>
+                    <input type="text" class="int int-default int-small14 cntrPriceModal"
+                           style="display: none;width: 70px;"
+                           disabled placeholder="系统数据"
+                           name="settleTotalQpy">
+                    <span style="margin-left: 130px" class="span-btn background-list-gray cntrQpyModal"
+                          id="purchaseQpy">采用合同量</span>
+                    <span style="margin-left: 119px;display: none" class="span-btn background-list-gray cntrPriceModal"
+                          id="purchasePrice">采用合同价</span>
+                    <span class="span-btn background-list-gray cntrQpyModal sumFormat">计算</span>
+                    <span style="display: none"
+                          class="span-btn background-list-gray cntrPriceModal sumPrice">计算</span>
+                    <span class="span-btn confirm">确定</span>
+                    <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+                </div>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+    <!--<div class="model-footer">-->
+        <!--<span class="span-btn confirm">确定</span>-->
+        <!--<span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>-->
+    <!--</div>-->
+</div>

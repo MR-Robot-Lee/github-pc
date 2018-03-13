@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "my-api",
+      "i": 2,
+      "script": "server/index.js",
+      "node_args": "--harmony",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

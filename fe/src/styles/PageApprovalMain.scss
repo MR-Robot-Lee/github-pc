@@ -1,0 +1,177 @@
+.page-approval {
+  .my-apply {
+    padding: 10px;
+    .my-apply-list {
+      .apply-item {
+        display: flex;
+        //min-width: 800px;
+        margin-top: 20px;
+        border-radius: 2px;
+        background-color: #fcfcfc;
+        padding: 9px 10px;
+        box-shadow: 0 0 4px 1px #cfcfcf;
+        cursor: pointer;
+        &:hover {
+          background-color: #f8f8f8;
+          box-shadow: 0 0 3px 3px #e9e9e9;
+          .delete-manager {
+            color: #d0a84c;
+            text-decoration: underline;
+          }
+        }
+        &.active {
+          border: 2px solid #4cb47a;
+          margin:18px -2px -2px -2px;
+        }
+        .delete-manager {
+          font-size: 12px;
+          cursor: pointer;
+          color: #888888;
+          margin-left: 10px;
+        }
+        .apply-status {
+          vertical-align: middle;
+          width: 52px;
+          height: 52px;
+          border:1px solid #ccc;
+          border-radius: 20px;
+          color: #ffffff;
+          line-height: 49px;
+          text-align: center;
+          box-shadow: 0 0 3px 1px #b5c6bc;
+          flex: 0 0 auto;
+          &.agree {
+            background-color: #4db892;
+          }
+          &.approvaling {
+            background-color: #4db851;
+          }
+          &.no-agree {
+            background-color: #c89321;
+          }
+          &.border-4cb951 {
+            color: #4cb951;
+            box-shadow: 0px 0px 3px 1px #b5c6b4;
+            border: 2px solid #4cb951;
+          }
+          &.border-4db992 {
+            color: #4db992;
+            box-shadow: 0px 0px 3px 1px #b5c6b4;
+            border: 2px solid #4db992;
+          }
+          &.border-c89421 {
+            color: #c89421;
+            box-shadow: 0px 0px 3px 1px #b5c6b4;
+            border: 2px solid #c89421;
+          }
+          &.border-239bef {
+            color: #239bef;
+            box-shadow: 0px 0px 3px 1px #b5c6b4;
+            border: 2px solid #239bef;
+          }
+        }
+        .apply-info {
+          margin-left: 10px;
+          vertical-align: middle;
+          //max-width: 932px;
+          //width: 100%;
+          flex: 1 1 auto;
+          height: 52px;
+          .apply-title {
+            color: #5b5b5b;
+            position: relative;
+            line-height: 28px;
+            .apply-name {
+              font-size: 14px;
+              font-weight: bold;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            .approval-people {
+
+              font-size: 12px;
+              .color-4cb951 {
+                color: #4cb951;
+              }
+              .color-4db992 {
+                color: #4db992;
+              }
+              .color-c89421 {
+                color: #c89421;
+              }
+              .color-239bef {
+                color: #239bef;
+              }
+            }
+          }
+          .apply-contents {
+            position: relative;
+            font-size: 12px;
+            color: #888888;
+            line-height: 24px;
+            .apply-content {
+              vertical-align: middle;
+              max-width: 800px; /*对宽度的定义,根据情况修改*/
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            .apply-bh {
+              width: 150px;
+              text-align: right;
+              vertical-align: middle;
+            }
+            .apply-time {
+              width: 175px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .approval-input {
+    display: inline-block;
+    border:1px solid #bbb;
+    border-radius: 3px;
+    width: 300px;
+    > span {
+      display: inline-block;
+      height: 28px;
+      border-right: 1px solid #bbbbbb;
+      color: #5b5b5b;
+      background-color: #fcfcfc;
+      padding:0 20px;
+      line-height: 28px;
+    }
+    > input {
+      border:none;
+      color: #5b5b5b;
+      background-color: #fff;
+      transform: translateY(-1px);
+    }
+  }
+  .approval-menu {
+    display: inline-block;
+    //border:1px solid #bbb;
+    border-radius: 3px;
+    margin-left: 6px;
+    background-color: #f0f0f0;
+    > span {
+      display: inline-block;
+      height: 30px;
+      border: 1px solid #bbbbbb;
+      border-radius: 3px;
+      padding:0 10px;
+      line-height: 28px;
+      color: #5b5b5b;
+      cursor: pointer;
+      &:hover{
+        background-color: #fefefe;
+        border:1px solid #009411;
+      }
+    }
+  }
+}

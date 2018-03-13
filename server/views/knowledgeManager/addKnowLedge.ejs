@@ -1,0 +1,46 @@
+<div style="border-bottom:1px solid #e9e9e9;padding:20px 20px 0 0" id="addKnowledge" data-id="<%- id %>">
+    <div class="modal-form" style="padding-left: 20px;">
+        <div class="item" style="margin-bottom: 5px">
+            <label class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>标题 : </label>
+            <input class="int int-default int-large44" type="text" name="title" placeholder="请输入" />
+        </div>
+        <div class="item" style="margin-bottom: 5px">
+            <label class="bold-title label-block int-small8">
+                <i class="icon-fill-in">*</i>类型 : </label>
+            <select class="int int-default int-large44" id="knowledgeType">
+                <option value="a">请输入</option>
+            </select>
+        </div>
+        <div class="item" style="margin-bottom: 5px">
+            <label class="bold-title label-block int-small8" style="width: 81px;"><i class="icon-fill-in">*</i>寄语/摘要 : </label>
+            <input class="int int-default int-large44" type="text" name="summary" placeholder="请输入" />
+        </div>
+        <div class="item" style="margin-bottom: 5px">
+            <label class="bold-title label-block int-small8">来源 : </label>
+            <input class="int int-default int-large44" type="text" name="source" placeholder="请输入" />
+        </div>
+        <div class="item" style="margin-bottom: 5px">
+            <label class="bold-title label-block int-small8">原作者 : </label>
+            <input class="int int-default int-large44" type="text" name="author" placeholder="请输入" />
+        </div>
+        <div class="item" style="margin-bottom: 5px">
+            <label class="bold-title label-block int-small8">链接地址 : </label>
+            <input class="int int-default int-large44" type="text" name="linkAddress" placeholder="请输入" />
+        </div>
+        <div class="item" style="margin-bottom: 5px;">
+            <label class="bold-title label-block int-small8" style="float: left;margin-top:10px;margin-left: 3px"><i
+                        class="icon-fill-in">*</i>正文内容 : </label>
+            <textarea class="int int-default int-large44"
+                      style="height: 200px;resize: none;margin-left: 3px" name="content" placeholder="请输入"></textarea>
+        </div>
+        <div class="item" style="margin-bottom: 5px">
+            <label class="bold-title label-block int-small8" style="float: left;margin-right: 6px;">附件 : </label>
+            <div id="KnowledgeFile" style="display: inline-block"></div>
+        </div>
+    </div>
+</div>
+<div style="margin: 15px 0 15px 290px;">
+    <span class="span-btn span-btn-bc confirm-active promulgate">发布</span>
+    <span class="span-btn review" style="margin: 0 10px;">预览</span>
+    <a class="span-btn span-btn-bc confirm-active" href="/knowledge">取消</a>
+</div>

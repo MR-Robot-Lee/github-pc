@@ -1,0 +1,64 @@
+<!--组织结构-->
+
+<div style="position: relative;padding: 5px 0;border-bottom: 1px solid #e9e9e9;display: none;" id="update">
+    <span class="span-btn background-list-gray" id="changeUpdate">变更设置</span>
+    <!--<span class="span-btn background-list-gray">查看审批</span>-->
+    <!--<div style="position: absolute;right: 0;top: 50%;margin-top: -6px;font-size: 12px">
+        <label for="">状态:</label>
+        <span>未提交</span>
+    </div>-->
+</div>
+<div id="addContent" style="text-align: center;margin-top: 140px">
+    <div class="icon-uninformed"></div>
+    <div style="margin-top: 10px;color: #999999;">你还没有创建组织机构，快去创建吧！</div>
+    <div id="add" style="display:none">
+        <div style="margin: 10px 0 0 10px;" class="span-btn" id="newOrganization">
+            <span class="icon-create"></span>
+            <span>新建机构</span>
+        </div>
+    </div>
+</div>
+<div class="modal-form" id="updateContent" style="width: 1050px;">
+    <div class="item" style="margin-top: 10px;font-size: 18px;" name="projDeptName"></div>
+    <div class="item">
+        <label class="bold-title">项目负责人:</label>
+        <span name="chargeName"></span>
+    </div>
+    <div class="bold-title">项目成员及职务:</div>
+    <div class="table-content item">
+        <table style="table-layout: fixed;">
+            <thead>
+            <tr class="small">
+                <th class="border">姓名</th>
+                <th class="border">项目部职务</th>
+                <th class="border">性别</th>
+                <th class="border">年龄</th>
+                <th class="border">电话</th>
+                <th class="border">系统职务</th>
+                <th class="border" style="width: 60px">职责</th>
+                <th class="border" style="width: 75px">系统任务</th>
+            </tr>
+            </thead>
+            <tbody id="employeeTable"></tbody>
+        </table>
+    </div>
+    <div class="bold-title">新增成员及职务:</div>
+    <div class="table-content">
+        <table style="table-layout: fixed;">
+            <thead>
+            <tr class="small">
+                <th class="border">姓名</th>
+                <th class="border">项目部职务</th>
+                <th class="border">性别</th>
+                <th class="border">年龄</th>
+                <th class="border">电话</th>
+                <th class="border">备注信息</th>
+                <th class="border" style="width: 60px">职责</th>
+            </tr>
+            </thead>
+            <tbody id="addPopula"></tbody>
+        </table>
+    </div>
+</div>
+
+

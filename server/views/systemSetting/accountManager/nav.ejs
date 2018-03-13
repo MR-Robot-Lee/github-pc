@@ -1,0 +1,32 @@
+<ul class="nav-content" style="width: 260px;">
+    <% if(nav === "account-info"){ %>
+    <li class="active">
+        <a style="padding-left: 50px;" href="/system/account/info" class="system">
+            <span class="account-info"></span>
+            账户信息
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system/account/info" class="system">
+            <span class="account-info"></span>
+            账户信息
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "account-manager"){ %>
+    <li class="active">
+        <a style="padding-left: 50px;" href="/system/account/manager" class="system">
+            <span class="account-manage"></span>
+            账单管理
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a style="padding-left: 50px;" href="/system/account/manager" class="system">
+            <span class="account-manage"></span>
+            账单管理
+        </a>
+    </li>
+    <% } %>
+</ul>

@@ -1,0 +1,149 @@
+<div class="model-project-common project-log-modal">
+    <div class="model-section">
+        <div class="modal-form">
+            <div class="item">
+                <label class="bold-title label-block int-small11">日期:</label>
+                <input type="date" class="int int-default int-small16" name="remarkDate" data-warn="请输入日期"/>
+                <label class="bold-title label-block int-small11">记录人:</label>
+                <input type="text" class="int int-default int-small16" disabled name="userName"/>
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">工程名称:</label>
+                <input type="text" class="int int-default int-large44" id="projName" disabled />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">
+                    <i class="icon-fill-in">*</i>
+                    <span class="label-block" style="margin-left: 10px">建设单位:</span>
+                </label>
+                <input type="text" class="int int-default int-large44"
+                       placeholder="请输入建设单位"
+                       name="buildCompany" data-warn="请输入建设单位" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">
+                    <i class="icon-fill-in">*</i>
+                    <span class="label-block" style="margin-left: 10px">施工单位:</span>
+                </label>
+                <input type="text" class="int int-default int-large44"
+                       placeholder="请输入施工单位"
+                       name="constructCompany" data-warn="请输入施工单位" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">
+                    <i class="icon-fill-in">*</i>
+                    <span class="label-block" style="margin-left: 10px">当日气候:</span>
+                </label>
+                <label>上午</label>
+                <input type="text" class="int int-default" name="weatherAM"
+                       placeholder="请输入气候"
+                       data-warn="请输入上午气候" />
+                <label>下午</label>
+                <input type="text" class="int int-default"
+                       placeholder="请输入气候"
+                       name="weatherPM" data-warn="请输入下午气候" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">
+                    <i class="icon-fill-in">*</i>
+                    <span class="label-block" style="margin-left: 10px">当日气温:</span>
+                </label>
+                <label>上午</label>
+                <input type="text" class="int int-default"
+                       placeholder="请输入气温"
+                       name="temperatureAM" data-warn="请输入上午气温" />
+                <label>下午</label>
+                <input type="text" class="int int-default"
+                       placeholder="请输入气温"
+                       name="temperaturePM" data-warn="请输入下午气温" />
+            </div>
+            <div class="table-content modal-form">
+                <table>
+                    <thead>
+                    <tr class="small">
+                        <th class="border" style="width: 140px">分部项工程名称</th>
+                        <th class="border" colspan="2">今日施工部位及内容</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="border bold-title">
+                            <input type="text" placeholder="请填写" name="subProjName1" />
+                        </td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="subProjContent1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">
+                            <input type="text" placeholder="请填写" name="subProjName2" />
+                        </td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="subProjContent2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">
+                            <input type="text" placeholder="请填写" name="subProjName3" />
+                        </td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="subProjContent3" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">人工情况</td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="laborCondition" data-warn="请输入人工情况" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">是否满足进度需求</td>
+                        <td class="border">
+                            <label><input type="radio" name="scheduleType" value="1" />是</label>
+                            <label><input type="radio" name="scheduleType" value="2" />否</label>
+                        </td>
+                        <td class="border">
+                            缺少人力:(<input type="text" style="width: 80px;" name="requireWorker" />)人
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">设备使用情况</td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="equipConditon" data-warn="请输入设备使用情况" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">材料进退场及使用情况</td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="mtrlConditon" data-warn="请输入材料情况" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">发现问题及处理</td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="happenProblem" data-warn="请输入发现的问题" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">存在问题及需要解决事情</td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="existProblem" data-warn="请输入存在问题" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bold-title">项目负责任审核及问题处理意见</td>
+                        <td class="border" colspan="2">
+                            <input type="text" placeholder="请填写" name="chargeRemark" data-warn="请输入负责人处理意见" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="item" style="text-align: right;margin-top: 20px">
+                <!--<span style="display: none;" class="span-btn change">修改</span>-->
+                <span class="span-btn confirm">确定</span>
+                <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+            </div>
+        </div>
+    </div>
+</div>

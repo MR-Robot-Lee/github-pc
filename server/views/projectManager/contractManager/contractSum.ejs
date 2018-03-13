@@ -1,0 +1,83 @@
+<div id="contractShow" style="display: none;">
+    <div id="noInfoContractSumTable_search" style="position: relative;margin: 10px 0;height: 30px;">
+        <div class="span-btn" id="addSettlementContract">
+            <span class="icon-create"></span>
+            添加结算合同
+        </div>
+        <div class="span-btn" id="addPurchaseContract">
+            <span class="icon-create"></span>
+            添加采购合同
+        </div>
+        <div style="float: right;">
+            <label>所属分部:</label>
+            <select style="margin: 0 5px;" class="int int-default int-small14 subProject">
+                <option value="a">所属分部</option>
+            </select>
+            <label>合同分类:</label>
+            <select style="margin: 0 5px;" class="int int-default int-small14 contractType">
+                <option value="0">全部</option>
+                <!--<option value="1">总包合同</option>
+                <option value="2">采购合同</option>-->
+                <option value="3">分包合同</option>
+                <option value="4">劳务合同</option>
+                <option value="5">租赁合同</option>
+                <option value="6">材料采购合同</option>
+                <option value="7">加工运输合同</option>
+            </select>
+            <label>合同状态:</label>
+            <select style="margin: 0 5px;" class="int int-default int-small14 contractStatus">
+                <option value="0" selected>全部</option>
+                <option value="1">已保存</option>
+                <option value="2">审批中</option>
+                <option value="3">已确认</option>
+                <option value="4">被驳回</option>
+                <!--<option value="5">结算中</option>-->
+                <option value="7">被终止</option>
+                <option value="11">已结算</option>
+                <!--<option value="8">已删除</option>-->
+            </select>
+            <input style="margin: 0 5px;" type="text" placeholder="合同方名称查询" class="int int-default int-small14 keyword" />
+            <span style="margin: 0 5px;" class="span-btn btn-fine-adj1" id="searchModal">查询</span>
+        </div>
+    </div>
+    <div id="noInfoContractSumTable_main" class="table-content">
+        <table>
+            <thead>
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border">合同名称</th>
+                <th class="border">合同编号</th>
+                <!--<th class="border">所属分部</th>-->
+                <th class="border">创建人</th>
+                <th class="border">负责人</th>
+                <th class="border">合同方名称</th>
+                <th class="border">合同分类</th>
+                <th class="border">审批状态</th>
+                <th class="border" style="width:80px">操作</th>
+            </tr>
+            </thead>
+            <tbody id="contractSumTable"></tbody>
+        </table>
+    </div>
+    <div name="noInfoContractSumTable_page" id="page" style="margin: 20px 0;"></div>
+</div>
+<div class='noInfo' id='noInfoContractSumTable'>
+    <div class="icon-uninformed"></div>
+    <p>您还没有合同，快去添加吧！</p>
+    <!--<div class="span-btn" id="noInfoAddSettlementContract">-->
+        <!--<span class="icon-create"></span>-->
+        <!--添加结算合同-->
+    <!--</div>-->
+    <!--<div class="span-btn" id="noInfoAddPurchaseContract">-->
+        <!--<span class="icon-create"></span>-->
+        <!--添加采购合同-->
+    <!--</div>-->
+</div>
+<!--<div id="contractHide" style="text-align: center;margin-top: 25%;display: none;">-->
+    <!--<div class="icon-uninformed"></div>-->
+    <!--<div style="margin: 10px 0;color: #5b5b5b;">您还没有合同,快去添加吧</div>-->
+    <!--<div class="span-btn addSchedule" style="margin-left: 20px">-->
+        <!--<span class="icon-create"></span>-->
+        <!--<span>添加合同</span>-->
+    <!--</div>-->
+<!--</div>-->

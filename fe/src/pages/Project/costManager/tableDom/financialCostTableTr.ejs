@@ -1,0 +1,18 @@
+<tr class="active small">
+    <td class="border"><%- count %></td>
+    <!--<td class="border"><%- subName %></td>-->
+    <% if(fundResc === 1){ %>
+    <td class="border"><%- fundRescName %> - <%- overHeadTypeName %></td>
+    <% }else{ %>
+    <td class="border"><%- fundRescName %></td>
+    <% } %>
+    <td class="border"><%- costName %></td>
+    <td class="border"><%- costNo %></td>
+    <td class="border"><%- operatorName %></td>
+    <td class="border"><%- payTime %></td>
+    <td class="border"><%- payMoney %></td>
+    <td class="border"><%- recType %></td>
+    <td class="border">
+        <a class="confirm-hover" data-type="detail">详情</a>
+    </td>
+</tr>

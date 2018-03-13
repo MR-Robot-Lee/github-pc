@@ -1,0 +1,63 @@
+<div class="model-project-common" style="width:752px">
+    <div class="model-section" style="padding-bottom: 20px;">
+        <div class="modal-form" style="padding-bottom: 10px;">
+            <div class="bold-title item" style="text-align: center;border: none;">合同信息</div>
+            <table class="checkPayableAccount" style="width: 680px;">
+                <tr>
+                    <td class="td-title">合同方名称</td>
+                    <td colspan='3'><input type="text" name="entpName" disabled></td>
+                </tr>
+                <tr>
+                    <td class="td-title" >合同编号</td>
+                    <td class="td-content-small"><input style="width: 210px;" type="text" name="cntrNo" disabled></td>
+                    <td class="td-title" style="width: 100px;">合同金额</td>
+                    <td class="td-content-small"><input style="width: 240px;" type="text" name="cntrPrice" disabled></td>
+
+                </tr>
+                <tr>
+
+                    <td class="td-title">是否含税</td>
+                    <td class="td-content-small">
+                        <input style="width: auto;height: auto;margin-left: 5px;" type="radio" name="taxType" value="1" disabled>是
+                        <input style="width: auto;height: auto;margin-left: 5px;" type="radio" name="taxType" value="2" disabled>否
+                    </td>
+                    <td class="td-title" style="width: 100px;">开户行</td>
+                    <td class="td-content-small"><input style="width: 240px;" type="text" name="openName" disabled></td>
+                </tr>
+                <tr>
+                    <td class="td-title">联系人</td>
+                    <td class="td-content-small"><input type="text" name="contactName" disabled></td>
+                    <td class="td-title" style="width: 100px;">开户名</td>
+                    <td class="td-content-small"><input style="width: 240px;" type="text" name="openBank" disabled></td>
+                </tr>
+                <tr>
+                    <td class="td-title">联系电话</td>
+                    <td class="border"><input type="text" name="entpPhone" disabled></td>
+                    <td class="td-title" style="width: 100px;">银行账号</td>
+                    <td class="border"><input style="width: 240px;" type="text" name="bankCard" disabled></td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal-form" style="padding-top: 10px;">
+            <div class="bold-title item" style="text-align: center;">
+                申请信息
+            </div>
+            <table class="checkPayableAccount">
+                <tr>
+                    <td class="td-title" >申请单名称</td>
+                    <td colspan='3'><input type="text" name="costName" disabled></td>
+                </tr>
+                <tr>
+                    <td class="td-title">本次支付金额</td>
+                    <td class="td-content-small" style="position: relative;"><span style="position: absolute;right: 10px;">元</span><input style="text-align: center;" type="text" name="billMoney" disabled></td>
+                    <td class="td-title">本次提供税票</td>
+                    <td class="td-content-small" style="position: relative;"><span style="position: absolute;right: 10px;">元</span><input style="text-align: center;" type="text" name="taxMoney" disabled></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="model-footer">
+        <!--<span class="span-btn confirm">提交审批</span>-->
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

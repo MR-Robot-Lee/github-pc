@@ -1,0 +1,129 @@
+<%- include('../layout/header') %>
+<div class="container page-project-detail page-employee-state">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="project-name">中铁四局西安地铁三号线六标项目部</div>
+                    <div class="search-result">
+                        <div class="result-state">
+                            <label>今日人员动态:</label>
+                            <label>管理:</label>
+                            <span>0人</span>
+                            <label>管理:</label>
+                            <span>0人</span>
+                        </div>
+                        <div class="result-state">
+                            <label>昨日人员动态:</label>
+                            <label>管理:</label>
+                            <span>0人</span>
+                            <label>管理:</label>
+                            <span>0人</span>
+                        </div>
+                    </div>
+                    <div class="project-menu">
+                        <div><span></span><a href="/employee">返回</a></div>
+                        <div><span></span>进入项目</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-list-warp">
+                <div class="common-header">
+                    <div class="search-form employee-state-search">
+                        <span>人力动态</span>
+                        <select class="margin-left12">
+                            <option value="a">全部人员</option>
+                            <option value="1">木工班</option>
+                            <option value="2">架子工</option>
+                            <option value="3">水电工</option>
+                        </select>
+                        <select class="margin-left2">
+                            <option value="a">全部人员</option>
+                            <option value="1">木工班</option>
+                            <option value="2">架子工</option>
+                            <option value="3">水电工</option>
+                        </select>
+                        <button class="state-confirm">确定</button>
+                    </div>
+                </div>
+                <div class="echart-height">
+                    <div id="employee-state" style="width: 471px;height: 262px;margin-left: 100px"></div>
+                </div>
+                <div class="common-header">
+                    <div class="search-form employee-state-search">
+                        <span>人力结构</span>
+                        <select class="margin-left12">
+                            <option value="a">时间筛选</option>
+                            <option value="1">木工班</option>
+                            <option value="2">架子工</option>
+                            <option value="3">水电工</option>
+                        </select>
+                        <button class="state-confirm">确定</button>
+                    </div>
+                </div>
+
+                <div class="echart-height">
+                    <div id="employee-str" style="width: 471px;height: 262px;margin-left: 100px;display: inline-block"></div>
+                    <div class="desc">
+                        <div class="item">
+                            <div class="str border-bottom">结构组成</div>
+                            <div class="color border-bottom">颜色</div>
+                            <div class="time border-bottom">总工时(h)</div>
+                        </div>
+                        <div class="item">
+                            <div class="str border-bottom">班组1</div>
+                            <div class="color border-bottom">
+                                <span class="blue"></span>
+                            </div>
+                            <div class="time border-bottom">90</div>
+                        </div>
+                        <div class="item">
+                            <div class="str border-bottom">班组1</div>
+                            <div class="color border-bottom">
+                                <span class="green"></span>
+                            </div>
+                            <div class="time border-bottom">100</div>
+                        </div>
+                        <div class="item">
+                            <div class="str border-bottom">班组1</div>
+                            <div class="color border-bottom">
+                                <span class="blue"></span>
+                            </div>
+                            <div class="time border-bottom">80</div>
+                        </div>
+                        <div class="item">
+                            <div class="str border-bottom">班组1</div>
+                            <div class="color border-bottom">
+                                <span class="green"></span>
+                            </div>
+                            <div class="time border-bottom">110</div>
+                        </div>
+                        <div class="item">
+                            <div class="str border-bottom">班组1</div>
+                            <div class="color border-bottom">
+                                <span class="red"></span>
+                            </div>
+                            <div class="time border-bottom">18</div>
+                        </div>
+                        <div class="item">
+                            <div class="str border-bottom">班组2</div>
+                            <div class="color border-bottom">
+                                <span class="blue"></span>
+                            </div>
+                            <div class="time border-bottom">90</div>
+                        </div>
+                        <div class="item">
+                            <div class="str">班组1</div>
+                            <div class="color"></div>
+                            <div class="time">57</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../layout/footer') %>

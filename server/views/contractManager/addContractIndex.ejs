@@ -1,0 +1,143 @@
+<%- include('../layout/header') %>
+<div class="container page-budget page-material page-balance">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="budget-header">
+                <div class="budget-title">
+                    添加合同
+                </div>
+                <div class="budget-menus">
+                    <% if(type === "add"){ %>
+                    <a href="/contract/add" class="item active">
+                        <span class="menu-line"></span>
+                        工程分包合同</a>
+                    <% }else{ %>
+                    <a href="/contract/add" class="item">
+                        <span class="menu-line"></span>
+                        工程分包合同</a>
+                    <% } %>
+                    <% if(type === "contract-material"){ %>
+                    <a href="contract/material" class="item active">
+                        <span class="menu-line"></span>
+                        材料供应合同
+                    </a>
+                    <% }else{ %>
+                    <a href="/contract/material" class="item">
+                        <span class="menu-line"></span>
+                        材料供应合同
+                    </a>
+                    <% } %>
+                </div>
+                <div class="clr"></div>
+            </div>
+            <% if(type === "contract-material"){ %>
+            <%- include('./contractMaterial') %>
+            <% } else if(type === "add"){ %>
+            <%- include('./contractPackage') %>
+            <% } %>
+        </div>
+        <div class="side-content">
+            <div class="model-project-common">
+                <div class="model-header">
+                    <span class="span-btn background-list-gray">添加资源</span>
+                    <span class="span-btn background-list-gray">量价综合</span>
+                    <span class="span-btn background-list-gray">新增项</span>
+                    <span class="span-btn background-list-gray">采用成本价</span>
+                    <span class="span-btn background-list-gray">增加行</span>
+                    <span class="span-btn background-list-gray">删除行</span>
+                    <div class="search-form">
+                        <a>不显示被综合项</a>
+                        <div class="icon-line"></div>
+                        <a>不显示成本项</a>
+                    </div>
+                    <span class="icon-close"></span>
+                </div>
+                <div class="model-section">
+                    <div class="table-content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="border">标记</th>
+                                <th class="border">选择</th>
+                                <th class="border">序号</th>
+                                <th class="border">费用编号</th>
+                                <th class="border">分类</th>
+                                <th class="border">项目名称</th>
+                                <th class="border">工作内容</th>
+                                <th class="border">单位</th>
+                                <th class="border">数量</th>
+                                <th class="border">单价</th>
+                                <th class="border">核算量</th>
+                                <th class="border">核算价</th>
+                                <th class="border">合价</th>
+                                <th class="border">说明</th>
+                                <th class="border">异常</th>
+                                <th class="border">备忘</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="border"></td>
+                                <td class="border">
+                                    <input type="checkbox" />
+                                </td>
+                                <td class="border">
+                                    1
+                                </td>
+                                <td class="border">
+                                    030702006001
+                                </td>
+                                <td class="border">
+                                    混泥土工
+                                </td>
+                                <td class="border">
+                                    <div style="font-size: 12px">
+                                        水泥砂浆工程
+                                    </div>
+                                </td>
+                                <td class="border">
+                                    <div style="font-size: 12px">
+                                        水泥砂浆亚光地面
+                                    </div>
+                                </td>
+                                <td class="border">平方米</td>
+                                <td class="border">82.26</td>
+                                <td class="border">
+                                    5784.65
+                                </td>
+                                <td class="border">
+                                    <input type="text" />
+                                </td>
+                                <td class="border">
+                                    <input type="text" />
+                                </td>
+                                <td class="border">
+                                    系统计算
+                                </td>
+                                <td class="border">
+                                    <a>添加</a>
+                                    <div class="icon-line"></div>
+                                    <a>详情</a>
+                                </td>
+                                <td class="border">
+                                    <input type="checkbox" />
+                                </td>
+                                <td class="border">
+                                    <input type="checkbox" />
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="model-footer">
+                    <span class="span-btn">确定</span>
+                    <span class="span-btn span-btn-bc confirm-active">取消</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="model-project-common cost-accounting-quantity">
+    <div class="model-section">
+        <div class="account-span-left btn-fine-adj1">
+            <div style="padding-bottom: 10px;" class="modal-form">
+                <label class="bold-title">清单描述:</label>
+            </div>
+            <div class="modal-form descDetail" style="font-size: 12px;line-height: 20px;white-space: pre-line"></div>
+        </div>
+        <div class="account-span-right page-budget">
+            <div class="modal-form" style="height: 50px;line-height: 50px">
+                <label class="bold-title" style="margin-left: 10px">清单量:</label>
+                <span style="color: #009941" name="originQpy"></span>
+                <label class="bold-title" style="margin-left: 10px">核算量:</label>
+                <span style="color: #009941;" name="checkQpy">0</span>
+                <label class="bold-title" style="margin-left: 10px">单位:</label>
+                <span style="color: #009941" name='unit'>米</span>
+            </div>
+            <div class="budget-menus" style="padding-left: 10px">
+                <a class="item active"
+                   data-type="material"
+                   href="javascript:void(0)">
+                    <span class="menu-line"></span>
+                    计算公式
+                </a>
+            </div>
+            <div class="clr"></div>
+            <div class="modal-form accounting-quantity-formula">
+                <label class="bold-title">计算式:</label>
+                <textarea placeholder="请输入计算式(例如:3+2*(1+3)/4)" class="accountingFormula"></textarea>
+                <span class="span-btn background-list-gray right accountingCount">计算</span>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn settleAccounts">采用结算量</span>
+        <span class="span-btn span-btn-bc confirm-active  liquidationQuantity">采用清单量</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

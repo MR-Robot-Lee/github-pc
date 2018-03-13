@@ -1,0 +1,89 @@
+<%- include('../layout/header') %>
+<div class="container">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right child-nav-left">
+        <div class="child-span-right">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="search-form">
+                         <span style="line-height: 26px;" class="common-title">
+                             <% if(type === 'index'){ %>
+                             材料库
+                             <% }else if(type === 'charge'){ %>
+                             人工费库
+                             <% }else if(type === 'step'){ %>
+                             措施费库
+                             <% }else if(type === 'subpackage'){ %>
+                             分包项库
+                             <% }else if(type === 'supplier'){ %>
+                             供应商库
+                             <% } else if(type === 'library'){ %>
+                             项目库
+                             <% } else if(type === 'hr'){ %>
+                             人力资源库
+                             <% } %>
+                         </span>
+                    </div>
+                    <div class="icon-position">
+                        <span class="icon-enterprise-category" id="enterpriseCategory"></span>
+                        <% if(type === 'index'){ %>
+                        <span class="icon-enterprise-move" id="enterpriseMaterial"></span>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-content no-padding-border nav-content-height level1" id="childNav" style="display: none;"></ul>
+            <div class='noInfo-small' id='noInfoEnterpriseList'>
+                <div class="icon-remind"></div>
+                <div style="margin-top: 5px;">您还没有创建分类</div>
+                <div style="margin-top: 5px;">点击上方的 <span style="margin-top: -3px;" class="icon-enterprise-category"></span>来创建分类吧！</div>
+            </div>
+        </div>
+        <div class="container-list">
+            <div class="container-header ">
+                <div class="common-header word">
+                    <div class="search-form">
+                        <span class="common-title" id="tableTitle">未知</span>
+                        <div style="display: none;" id="noInfoEnterprise_search" class="search-position">
+                            <span style="margin-right: 3px;position: relative;top: -1px;" class="span-btn background-list-gray" id="addEnterprise">新增</span>
+                            <span style="position: relative;top: -1px;" class="span-btn background-list-gray" id="moveEnterpriseData">数据搬移</span>
+                            <input class="int int-default small14" id="keyword" placeholder="请输入名称关键字" />
+                            <button style="line-height: 30px;" class="btn delete-active btn-fine-adj1" id="btnSearch">查询</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 12px;" class="container-list-warp">
+                <% if(type === 'index'){ %>
+                <%- include('./material/index') %>
+                <% } else if(type === 'enterprise-material-index'){ %>
+                <%- include('./material/materialDetail') %>
+                <% }else if(type === 'charge'){ %>
+                <%- include('./labourCharge/index') %>
+                <% }else if(type === 'step'){ %>
+                <%- include('./step/index') %>
+                <% } else if (type === 'subpackage') { %>
+                <%- include('./subpackage/index') %>
+                <% }else if(type === 'supplier'){ %>
+                <%- include('./supplier/index') %>
+                <% }else if(type === 'library'){ %>
+                <%- include('./library/index') %>
+                <% }else if(type === 'hr'){ %>
+                <%- include('./hr/index') %>
+                <% } %>
+                <div class="noInfo" id="noInfoEnterprise">
+                    <div class="icon-uninformed"></div>
+                    <p id="noInfoEnterpriseDesc">点击下方新增按钮添加数据！</p>
+                    <div>
+                        <span style="margin-right: 3px;position: relative;top: -1px;" class="span-btn" id="noInfoAddEnterprise"><span style="margin-right: 5px;margin-top: -4px;" class="icon-create"></span>新增</span>
+                    </div>
+                </div>
+                <div name="noInfoEnterprise_page" id="page" style="margin-top: 20px;margin-bottom:20px;display: none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/enterprise.js"></script>
+<%- include('../layout/footer') %>

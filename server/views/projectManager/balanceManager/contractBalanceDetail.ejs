@@ -1,0 +1,65 @@
+<div class="material-plan contract-detail">
+    <!--<div class="material-plan contract-detail cloak-pre">-->
+    <div class="modal-form" style="position: relative;
+                padding: 15px 20px;border-bottom: 1px solid #e9e9e9">
+        <span class="bold-title balanceName"></span>
+        <label style="font-size: 12px;margin-left: 20px">结算单编号:</label>
+        <span style="font-size: 12px" class="settleNo"></span>
+        <div style="position: absolute;right: 20px;top: 50%;margin-top: -15px">
+            <span class="span-btn background-list-gray costBalanceOrder">结算费用单</span>
+            <span class="span-btn background-list-gray">导出</span>
+            <span class="span-btn background-list-gray contract-cancel">退出</span>
+        </div>
+    </div>
+    <div class="modal-form" style="margin-top: 10px;border-bottom: 1px solid #e9e9e9;padding: 0 20px">
+        <div class="item">
+            <label class="bold-title">所属分部:</label>
+            <span style="width:200px;display: inline-block;overflow: hidden;
+            white-space: nowrap;text-overflow: ellipsis;vertical-align: middle;" class="subProjName"></span>
+            <label class="bold-title">合同编号:</label>
+            <span class="cntrNo"></span>
+        </div>
+        <div class="item">
+            <label class="bold-title">合同价款:</label>
+            <span style="width:200px;display: inline-block" class="span-color-blue cntrPrice"></span>
+            <label class="bold-title">是否含税:</label>
+            <span name="taxType"></span>
+            <label class="bold-title" style="margin-left: 100px">结算方式:</label>
+            <span class="settlementType"></span>
+        </div>
+    </div>
+    <div id="noInfoContractDetail_main" class="modal-form"
+         style="margin-top: 10px;border-bottom: 1px solid #e9e9e9;padding: 0 20px">
+        <!--<div class="modal-form cloak" style="margin-top: 10px;border-bottom: 1px solid #e9e9e9;padding: 0 20px">-->
+        <div class="item" style="position: relative">
+            <label class="bold-title">结算总价:</label>
+            <span class="span-color-blue settlePrice" style="display: inline-block"></span>
+            <span class="span-color-blue">元</span>
+            <div style="right: 0;position: absolute;top: 50%;margin-top: -15px;">
+                <!-- <label class="bold-title">异常项:</label>
+                 <span class="span-color-blue" style="width:80px;display: inline-block"></span>-->
+                <!--<label class="bold-title">备忘:</label>-->
+                <!--<span class="span-color-blue" style="width:80px;display: inline-block"></span>-->
+                <span class="span-btn background-list-gray addItem">增项</span>
+            </div>
+        </div>
+        <div class="table-content" style="margin-bottom: 10px">
+            <table>
+                <thead id="contractDetailThead"></thead>
+                <tbody id="contractDetail"></tbody>
+            </table>
+        </div>
+
+    </div>
+    <div id="noInfoContractDetail_footer" class="" style="text-align: right;margin: 10px 20px 10px 0;">
+        <!--<div class="cloak" style="text-align: right;margin: 20px 20px 20px 0;">-->
+        <span class="span-btn delete-active approvalData">提交审批</span>
+        <!--<span class="span-btn contract-save">保存</span>-->
+        <span class="span-btn confirm-active span-btn-bc contract-cancel">取消</span>
+    </div>
+    <div class='noInfo' id='noInfoContractDetail'>
+        <div class="icon-uninformed"></div>
+        <p>没有符合条件的信息！</p>
+        <span class="span-btn addItem"><span class="icon-create"></span> 增项</span>
+    </div>
+</div>

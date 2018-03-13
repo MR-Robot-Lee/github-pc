@@ -1,0 +1,50 @@
+<%- include('../../layout/header') %>
+<div class="modal-employee-add modal-add-material">
+    <div class="employee-select-section">
+        <div class="common-header">
+            <div class="search-form">
+                <label>材料分类:</label>
+                <select>
+                    <option>无缝钢管</option>
+                </select>
+                <label>材料名称:</label>
+                <select>
+                    <option>40角钢</option>
+                </select>
+                <input placeholder="请输入关键字" />
+                <button class="btn">查询</button>
+            </div>
+        </div>
+        <div class="table-content material-table-height">
+            <table>
+                <thead>
+                <tr>
+                    <th class="border">选择</th>
+                    <th class="border">序号</th>
+                    <th class="border">材料编码</th>
+                    <th class="border">材料分类</th>
+                    <th class="border">材料名称</th>
+                    <th class="border">规格型号</th>
+                    <th class="border">单位</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="border"><input type="checkbox" /></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                    <td class="border"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="employee-footer">
+        <span class="select-cancel">辅材费添加</span>
+        <span class="select-confirm">预算外添加</span>
+        <span class="select-cancel">取消</span>
+    </div>
+</div>

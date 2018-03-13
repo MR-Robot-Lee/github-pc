@@ -1,0 +1,42 @@
+<div id="materialPlan">
+    <div class="modal-form" style="position: relative;padding-top: 10px;text-align: right;">
+        <span class="span-btn background-list-gray showAllowance btn-fine-adj1" data-type="1">显示零余量</span>
+        <span class="span-btn  showAllowance btn-fine-adj1" data-type="2">显示非零余量</span>
+        <label style="margin-left: 4px;" class="bold-title">分部查看:</label>
+        <select class="int int-default int-small14 subProject">
+            <option value="a">请选择分部</option>
+        </select>
+        <!--<div style="position: absolute;top: 50%;margin-top: -15px;right: 0">-->
+
+        <input style="margin-left: 8px;" type="text" class="int int-default int-small14 keyword"
+               placeholder="请输入关键字查找" />
+        <span class="span-btn searchModal btn-fine-adj1">查询</span>
+        <!--</div>-->
+    </div>
+    <div id="noInfoPlanSummaryTable_main" style="display: none;" class="table-content">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <th class="border">分部名称</th>
+                <th class="border">材料名称</th>
+                <th class="border">规格型号</th>
+                <th style="width:80px" class="border">单位</th>
+                <th style="width:80px" class="border">入库总量</th>
+                <th class="border" style="width:80px">库存量</th>
+                <th class="border stockBorder" style="width:60px;">操作</th>
+                <th class="border" style="width: 125px">查看</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="position: absolute;display: none;z-index: 150;">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="planSummaryTable"></tbody>
+        </table>
+    </div>
+    <div name="noInfoPlanSummaryTable_page" id="page" style="margin: 20px 0;display: none;"></div>
+</div>
+<div class='noInfo' id='noInfoPlanSummaryTable'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

@@ -1,0 +1,58 @@
+<!--新建机构-->
+<div class="model-project-common" style="width: 662px">
+    <div class="modal-form" style="margin: 10px 20px;position: relative;">
+        <div class="item">
+            <label class="bold-title">项目部名称:</label>
+            <input type="text" class="int int-default int-middle26" placeholder="请输入..." name="projDeptName">
+        </div>
+        <!--<div class="item">-->
+            <!--<label class="bold-title">项目负责人:</label>-->
+            <!--<div class="int int-default int-middle26" style="color: #999;display:inline-block;font-size: 12px;"-->
+                 <!--id="chargeName">请选择...-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="item">
+            <label class="bold-title">项目成员及职务:</label>
+            <span class="span-btn background-list-gray" id="selectEmployee">选择人员</span>
+        </div>
+        <div class="table-content" style="margin: 0;padding-bottom: 10px;height: 180px;overflow-y: auto;z-index: 50;">
+            <table>
+                <thead>
+                <tr class="small">
+                    <th class="border">姓名</th>
+                    <th class="border">项目职务</th>
+                    <th class="border">性别</th>
+                    <th class="border">年龄</th>
+                    <th class="border">电话</th>
+                    <th class="border">操作</th>
+                </tr>
+                </thead>
+                <tbody id="insetEmployee"></tbody>
+            </table>
+        </div>
+        <div style="margin-top: 10px;" class="item">
+            <label class="bold-title">新增成员及职务:</label>
+            <span class="span-btn background-list-gray" style="cursor: pointer;z-index: 40" id="addEmployee">添加人员</span>
+        </div>
+        <div class="table-content" style="padding-bottom: 10px;height: 180px;overflow-y: auto">
+            <table>
+                <thead>
+                <tr class="small">
+                    <th class="border">姓名</th>
+                    <th class="border">项目职务</th>
+                    <th class="border">性别</th>
+                    <th class="border">年龄</th>
+                    <th class="border">电话</th>
+                    <th class="border" style="width: 80px">操作</th>
+                </tr>
+                </thead>
+                <tbody id="outsetEmployee"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="model-footer">
+        <!--<span class="span-btn confirm">提交审批</span>-->
+        <span class="span-btn span-btn-bc confirm-active save">保存</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

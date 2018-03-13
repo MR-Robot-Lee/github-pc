@@ -1,0 +1,54 @@
+<%- include('../layout/header') %>
+<div class="container">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="search-form">
+                        <span class="common-title">已发快报</span>
+                        <label style="margin-left: 20px;">快报类型 :</label>
+                        <select class="ReportSelect">
+                            <option value="0">请选择</option>
+                        </select>
+                        <input style="padding-left: 5px;" type="text" class="reportedKeyWord btn-fine-adj1" placeholder="请输入关键字" />
+                        <button class="btn" id="reportedConfirm">查询</button>
+                    </div>
+                    <div class="search-result reported">
+                        <div class="item active margin-left" style="background: #f0f0f0;color: #5b5b5b;border: 1px solid #bebebe">全部</div>
+                        <div class="item" data-id="1">今日</div>
+                        <div class="item" data-id="2">本周</div>
+                        <div class="item" data-id="3">本月</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-list-warp">
+                <div class="table-content" id="noInfoReported_main" style="margin: 0;;padding: 0 20px;">
+                    <!--<table>-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th style="padding-left: 20px;border-top: none ">栏目名称</th>-->
+                            <!--<th style="border-top: none ">部门</th>-->
+                            <!--<th style="border-top: none ">标题</th>-->
+                            <!--<th style="border-top: none ">附件</th>-->
+                            <!--<th style="border-top: none ">发稿时间</th>-->
+                            <!--<th style="border-top: none ">其他</th>-->
+                            <!--<th style="border-top: none ">操作</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody id="reported"></tbody>-->
+                    <!--</table>-->
+                </div>
+                <div id="page" name="noInfoReported_page" style="margin:20px 0;display: none;"></div>
+                <div class='noInfo' id='noInfoReported'>
+                    <div class="icon-uninformed"></div>
+                    <p>没有符合条件的信息！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src="/dist/report.js"></script>
+<%- include('../layout/footer') %>

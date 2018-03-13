@@ -1,0 +1,83 @@
+<%- include('../layout/header') %>
+<div class="container page-project-detail">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <div class="project-name">中铁四局西安地铁三号线六标项目部</div>
+                    <div class="search-result">
+                        <div class="result-state">
+                            <label>今日人员动态:</label>
+                            <label>管理:</label>
+                            <span>0人</span>
+                            <label>管理:</label>
+                            <span>0人</span>
+                        </div>
+                        <div class="result-state">
+                            <label>昨日人员动态:</label>
+                            <label>管理:</label>
+                            <span>0人</span>
+                            <label>管理:</label>
+                            <span>0人</span>
+                        </div>
+                    </div>
+                    <div class="project-menu">
+                        <div class="callback"><span></span>返回</div>
+                        <!--<div><span></span>进入项目</div>-->
+                    </div>
+                </div>
+                <div class="project-menus-handler" id="menus">
+                    <div class="project-manage active" data-id="manager" data-no="<%= proNo %>"
+                         data-pro="<%= proDepNo %>"
+                         id="openManager">
+                        管理人员
+                        <span>(16)</span>
+                    </div>
+                    <div class="project-manage" data-id="worker" id="handlerWorker">
+                        施工人员
+                        <span>(99)</span>
+                    </div>
+                    <div class="item manager" id="addNewEmployee">
+                        <span></span>添加新人
+                        <div class="clr"></div>
+                    </div>
+                    <div class="item manager" id="selectEmployee">
+                        <span></span>
+                        选择人员
+                    </div>
+                    <div class="item worker">
+                        <span></span>
+                        <a href="/employee/state">人员动态</a>
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="container-list-warp project-detail-table">
+                <div class="detail-list manager table-content">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>项目部职务</th>
+                            <th>联系方式</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="projectManagerEmp" class="sort"></tbody>
+                    </table>
+                </div>
+                <div class="detail-list open worker table-content">
+                    <table>
+                        <tbody id="workerGroup"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../layout/footer') %>

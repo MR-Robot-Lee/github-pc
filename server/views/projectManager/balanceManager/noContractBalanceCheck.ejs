@@ -1,0 +1,71 @@
+<div class="modal-form" style="padding: 15px 0;border-bottom: 1px solid #e9e9e9;">
+    <span style="font-weight: bold;padding-left: 5px;" class="bold-title">无合同结算单查看</span>
+</div>
+<div class="modal-form" style="padding: 20px 0;border-bottom: 1px solid #e9e9e9" id="newNoContract"
+     data-id="<%- cid %>" data-level="<%- level %>">
+    <div style="margin-bottom: 15px">
+        <label style="color: #333333;" class="bold-title label-block int-small11">所属分部 :</label>
+        <span id="subProjId"></span>
+    </div>
+    <div style="margin-bottom: 15px">
+        <label style="color: #333" class="bold-title label-block int-small11">结算单命名 :</label>
+        <span name="settleName" style="display: inline-block;width: 200px;"></span>
+        <label style="color: #333" class="bold-title label-block int-small11">款项负责人 :</label>
+        <span class="settUserNo"></span>
+    </div>
+    <div style="margin-bottom: 15px">
+        <label style="color: #333" class="bold-title label-block int-small11">合作方 :</label>
+        <span class="supplierType" style="display: inline-block;width: 200px;"></span>
+        <label style="color: #333" class="bold-title label-block int-small11">合作负责人 :</label>
+        <span name="settUserName" style="display: inline-block;width: 200px;"></span>
+    </div>
+    <div style="margin-bottom: 15px">
+        <label style="color: #333" class="bold-title label-block int-small11">合同分类 :</label>
+        <span name="cntrType" style="display: inline-block;width: 200px;"></span>
+        <label style="color: #333" class="bold-title label-block int-small11">结算方式 :</label>
+        <span name="settlementType"></span>
+    </div>
+    <div style="margin-bottom: 15px">
+        <label style="color: #333" class="bold-title label-block int-small11">约定价格 :</label>
+        <span name="cntrPrice" style="display: inline-block;width: 200px;"></span>
+        <label style="color: #333" class="bold-title label-block int-small11">是否含税 :</label>
+        <label for=""><input type="radio" value="1" name="taxType" disabled>是</label>
+        <label for=""><input type="radio" value="2" name="taxType" disabled>否</label>
+    </div>
+    <div style="margin-bottom: 15px">
+        <label style="color: #333" class="bold-title label-block int-small11">合作期限 :</label>
+        <input style="margin: 0 7px;width: 160px;display: none;" type="date" class="int int-default int-small14" name="cntrStartTime" />
+        <span style="color: #5b5b5b;">自</span> <span style="margin: 0 7px;width: 80px;display: inline-block;" name="cntrStartTime-check"></span>
+        <input style="margin: 0 7px;width: 160px;display: none;" type="date" class="int int-default int-small14" name="cntrEndTime" />
+        <span style="color: #5b5b5b;">至</span> <span style="margin: 0 7px;width: 100px;display: inline-block;" name="cntrEndTime-check"></span>
+        <span style="color: #5b5b5b;">共</span><input style="border: none;width: 40px;height: 25px;text-align: center;" type="text" class="int int-small int-default days" disabled>天
+    </div>
+    <div style="margin-bottom: 15px">
+        <label style="color: #333" class="bold-title label-block int-small11">付款方式 :</label>
+        <span style="width: 740px;display: inline-block;" name="payTypeDesc"></span>
+    </div>
+    <div style="margin-bottom: 15px">
+        <label style="color: #333" class="bold-title label-block int-small11">质保金 :</label>
+        <span name="ensurePer"></span> %
+        <label style="width: 80px;" class="bold-title label-block int-small11">期限 :</label>
+        <span name="ensureMonth"></span> 个月
+    </div>
+    <div style="margin-bottom: 15px">
+        <label class="bold-title label-block int-small11" style="float: left;color: #333;">工作内容 :</label>
+        <span style="margin-left: 4px;width: 740px;display: inline-block;" name="cntrContent"></span>
+    </div>
+    <div style="margin-bottom: 15px">
+        <label class="bold-title label-block int-small11" style="float: left;color: #333;">其他条款 :</label>
+        <span style="margin-left: 4px;width: 740px;display: inline-block;" name="otherDesc"></span>
+
+    </div>
+    <div>
+        <label class="bold-title label-block int-small11 " style="float: left;color: #333;">附件 :</label>
+        <div id="reportModal" style="display: inline-block;margin-left: 4px"></div>
+    </div>
+    <div class="clr"></div>
+</div>
+<div style="width: 980px;text-align: right;margin: 20px 0">
+    <span class="span-btn save">保存</span>
+    <a class="span-btn span-btn-bc confirm-active" href="/project/balance/index/<%- id %>?name=<%- name %>">取消</a>
+</div>

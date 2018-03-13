@@ -1,0 +1,43 @@
+<%- include('../layout/header') %>
+<div class="container page-employee page-knowledge">
+    <div class="span-left">
+        <%- include('./projectNav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header">
+                    <% if(type === "bids-add"){ %>
+                    <div class="employee-name">新建招标</div>
+                    <a style="position: absolute;left: 10px;top: 9px;display: none;" class="span-btn background-list-gray btn-fine-adj1 back-to-list" href="javascript:;" data-type="back">返回</a>
+                    <a style="position: absolute;left: 90px;top: 9px;display: none;" class="span-btn background-list-gray btn-fine-adj1 " href="javascript:;" data-type="submit">发布</a>
+                    <% }else if(type === "bids-all"){ %>
+                    <div style="position: relative;" class="employee-name">招标公告</div>
+                    <a style="position: absolute;left: 830px;top: 9px;display: none;" class="span-btn background-list-gray btn-fine-adj1 back-to-list" href="javascript:;">返回</a>
+                    <% }else if(type === "bids-notice"){ %>
+                    <div class="employee-name">中标公示</div>
+                    <a style="position: absolute;left: 830px;top: 9px;display: none;" class="span-btn background-list-gray btn-fine-adj1 back-to-list" href="javascript:;">返回</a>
+                    <% } else if(type === 'bids-setting'){ %>
+                    <div class="employee-name">设置条件</div>
+                    <div style="line-height: 28px;" class="add-type">
+                        <span></span>添加条件
+                    </div>
+                    <% } %>
+                </div>
+                <div class="container-list-warp">
+                    <% if(type === 'bids-add'){ %>
+                    <%- include('./addBids') %>
+                    <% }else if(type === 'bids-all'){ %>
+                    <%- include('./allBids') %>
+                    <% }else if (type === 'bids-notice') { %>
+                    <%- include('./bidsNotice') %>
+                    <% } else if (type === 'bids-setting') { %>
+                    <%- include('./bidsSetting') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dist/bids.js"></script>
+<%- include('../layout/footer') %>

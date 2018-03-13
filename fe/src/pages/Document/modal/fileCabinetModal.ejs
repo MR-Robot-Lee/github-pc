@@ -1,0 +1,62 @@
+<div class="model-project-common">
+    <div style="padding-top: 20px;padding-bottom: 20px;" class="model-section">
+        <div class="modal-form">
+            <div class="item" style="margin-bottom: 10px;">
+                <label class="bold-title">
+                    <i class="icon-fill-in">*</i>
+                    文件柜类型:
+                </label>
+                <select class="int int-default int-middle32 fileCabinetType" style="width: 406px;">
+                    <option value="a">请选择</option>
+                    <option value="1">企业文件柜</option>
+                    <option value="2">个人文件柜</option>
+                </select>
+            </div>
+            <div class="item" style="margin-bottom: 10px;">
+                <label class="bold-title">
+                    <i class="icon-fill-in">*</i>
+                    文件柜名称:
+                </label>
+                <input class="int int-default int-middle32 fileName" placeholder="请输入新建文件柜名称" style="width: 406px;"/>
+            </div>
+            <div class="item">
+                <label class="bold-title" style="float: left">
+                    <i class="icon-fill-in">*</i>
+                    文件柜权限:
+                </label>
+                <div style="display: inline-block;width: 406px;
+                margin-left: 3px;
+                height: 420px;border: 1px solid #bbb;padding: 10px 5px">
+                    <span class="span-btn background-list-gray"
+                          style="font-size: 12px;color:#5b5b5b;"
+                          id="allEmployee">全部人员</span>
+                    <span class="span-btn background-list-gray"
+                          style="font-size: 12px;color:#5b5b5b;"
+                          id="selectEmployee">选择人员</span>
+                    <div class="table-content" style="margin: 10px 0 0 0;height:32px;">
+                        <table>
+                            <thead>
+                            <tr class="small">
+                                <th width="101px">姓名</th>
+                                <th >管理</th>
+                                <th >读写</th>
+                                <th >只读</th>
+                                <th style="padding-right: 16px">操作</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="table-content" style="margin: 0;height:334px;overflow: auto">
+                        <table>
+                            <tbody id="fileCabinetTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确认</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

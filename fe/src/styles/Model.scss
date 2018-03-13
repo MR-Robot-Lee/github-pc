@@ -1,0 +1,57 @@
+.model-wrap {
+}
+
+.model-inner {
+  z-index: 999;
+  width: 0;
+  height: 0;
+  transition: background-color ease-in 100ms;
+  overflow: hidden;
+  zoom: 1;
+  text-align: center;
+  &.show {
+    width: auto;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .Model {
+      visibility: visible;
+      transform: scale(1);
+    }
+  }
+  .Model {
+    text-align: left;
+    background-color: #ffffff;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    display: inline-block;
+    transform: scale(0.1);
+    visibility: hidden;
+    transition: transform 200ms;
+    behavior: url(/dist/lib/htc/PIE.htc);
+    .Model__header {
+      .title {
+        padding: 15px 30px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      i{
+        position: absolute;
+        right: 30px;
+        margin-top: 1px;
+        display: none;
+      }
+      border-bottom: 1px solid #eeeeee;
+    }
+    /*.Model__body {
+      padding: 20px 30px;
+    }*/
+  }
+}

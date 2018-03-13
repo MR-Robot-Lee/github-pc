@@ -1,0 +1,78 @@
+<div class="model-project-common" style="width:360px;">
+    <div class="financial-item">
+        <div class="title">阿筑对公帐号信息</div>
+        <div class="content">
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">账户信息:</label>
+                <span name="acctName"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">开&nbsp;户&nbsp;行:</label>
+                <span name="openBank"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">银行帐号:</label>
+                <span name="bankNo"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">联&nbsp;系&nbsp;人:</label>
+                <span name="contactName"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">联系电话:</label>
+                <span name="mobile"></span>
+            </div>
+        </div>
+    </div>
+    <div class="financial-item">
+        <div class="title">订单信息</div>
+        <div class="content">
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">订单编号:</label>
+                <span name="orderNo"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">用户名称:</label>
+                <span name="etpName"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">企业电话:</label>
+                <span name="etpTel"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">联&nbsp;系&nbsp;&nbsp;人:</label>
+                <span name="userName"></span>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">联系电话:</label>
+                <span name="mobilephone"></span>
+            </div>
+        </div>
+    </div>
+    <div class="financial-item">
+        <div class="title">付款信息</div>
+        <div class="content">
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">付&nbsp;款&nbsp;方:</label>
+                <input style="width: 240px;" type="text" class="int int-default" placeholder="请输入付款方" name="payName">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">付款帐号:</label>
+                <input style="width: 240px;" type="text" class="int int-default" placeholder="请输入付款账号" name="payBankNo">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">实付金额:</label>
+                <input style="width: 240px;" type="text" class="int int-default" placeholder="请输入实收金额" name="payBankMoney" disabled>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label class="label-block">付款方式:</label>
+                <label for="yh"><input type="radio" id="yh" name="payType" value="1">银行转账</label>
+                <label for="other"><input type="radio" id="other" name="payType" value="2">其它</label>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm" style="margin-right: 10px;">确定</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>返回</span>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<%- include('../layout/header') %>
+<div class="DashbordIndex">
+    <div class="dashbord-left">
+        <div class="user-center">
+            <div class="user-header">
+                <img />
+            </div>
+            <div class="user-info">
+                <div class="user-name"></div>
+                <div class="deptName"
+                     style="width: 145px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"></div>
+                <div style="display: inline-block;" class="postName"></div>
+            </div>
+        </div>
+        <div class="dashbord-nav">
+            <ul>
+                <% if(type === 'dashbord-remind'){ %>
+                <li style="padding: 0;" class="active"><a style="padding: 12px 0;display: block;" href="/dashbord/remind">
+                        <span class="project-main remind active"></span>
+                        <span style="position: relative;">工作提醒<span class='job-remind-num'></span></span>
+                    </a></li>
+                <% }else{ %>
+                <li style="padding: 0;"><a style="padding: 12px 0;display: block;" href="/dashbord/remind">
+                        <span class="project-main remind"></span>
+                        <span style="position: relative;"> 工作提醒<span class='job-remind-num'></span></span>
+                    </a></li>
+                <% } %>
+                <% if(type === 'dashbord-organization'){ %>
+                <li style="padding: 0;" class="active"><a style="padding: 12px 0;display: block;" href="/dashbord/organization">
+                        <span class="project-main instrument active"></span>
+                        <span>组织机构</span>
+                    </a></li>
+                <% }else{ %>
+                <li style="padding: 0;"><a style="padding: 12px 0;display: block;" href="/dashbord/organization">
+                        <span class="project-main instrument"></span>
+                        <span>组织机构</span>
+                    </a></li>
+                <% } %>
+                <% if(type === 'dashbord-financial'){ %>
+                <li style="padding: 0;" class="active"><a style="padding: 12px 0;display: block;" href="/dashbord/financial">
+                        <span class="project-main financial active"></span>
+                        <span>项目财务</span>
+                    </a></li>
+                <% }else { %>
+                <li style="padding: 0;"><a style="padding: 12px 0;display: block;" href="/dashbord/financial">
+                        <span class="project-main financial"></span>
+                        <span>项目财务</span>
+                    </a></li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="dashbordCalendar calendar">
+            <div class="calendar_title">
+                <i class="icon-left menu" data-type="sub"></i>
+                <span class="calendar-show"></span>
+                <i class="icon-right menu" data-type="add"></i>
+            </div>
+            <div class="week" id="weekTitle"></div>
+            <div class="weeks" id="weeks"></div>
+        </div>
+    </div>
+    <% if(type === 'dashbord-index'){ %>
+    <%- include('./dashbordIndex') %>
+    <% }else if(type === 'dashbord-remind'){ %>
+    <%- include('./jobAlert') %>
+    <% }else if(type === 'dashbord-setting'){ %>
+    <%- include('./personalSetting') %>
+    <% }else if(type === 'dashbord-organization'){ %>
+    <%- include('./organization') %>
+    <% } else if (type === 'dashbord-financial') { %>
+    <%- include('./projectFinance') %>
+    <% }else if(type === 'dashbord-calendar'){ %>
+    <%- include('./calendar') %>
+    <% } %>
+</div>
+<script type="text/javascript" src="/dist/lib/jquery.vm-carousel.js"></script>
+<script type="text/javascript" src="/dist/lib/modernizr.js"></script>
+<script type="text/javascript" src="/dist/dashbord.js"></script>
+<%- include('../layout/footer') %>
+

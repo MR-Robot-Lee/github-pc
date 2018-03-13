@@ -1,0 +1,71 @@
+<div id="costBudget">
+    <div class="cost-budget-page" style="position: relative;">
+        <a id="copyChild" href="javascript:void(0)" style="color: #333;">复制</a>
+        <div class="icon-line" style="margin: 0 5px;"></div>
+        <a id="addChild" href="javascript:void(0)" style="color: #333;">添加子目</a>
+        <div class="icon-line" style="margin: 0 5px;"></div>
+        <a style="color: #333333" id="budgetUpdate" class="confirm-hover">修改</a>
+        <div class="icon-line" style="margin: 0 5px;"></div>
+        <a style="color: #333333" class="delete delete-hover" id="budgetDel">删除</a>
+        <div class="icon-line" style="margin: 0 5px;"></div>
+        <a class="confirm-hover" id="budgetExcel" style="color: #333;">导出</a>
+        <div class="icon-line" style="margin: 0 5px;"></div>
+       <!-- <a class="confirm-hover" id="budgetSave" style="color: #333;">保存</a>
+        <div class="icon-line" style="margin: 0 5px;"></div>-->
+        <div style="display: inline-block;position: relative;cursor: pointer;">
+            <a class="confirm-hover" style="color: #333;" id="budgetImport">导入预算</a>
+            <input  type="file"
+                   style="position: absolute;right: 0;width: 54px;opacity: 0;cursor: pointer!important;">
+        </div>
+
+    </div>
+    <div class="modal-form" style="font-size: 12px">
+        <label>工程直接费 :</label>
+        <span class="span-color-blue" name="budTotalMoney">0.00元</span>
+        <label style="margin-left: 20px;">材料费 :</label>
+        <span class="span-color-blue" name="budMtrlPrice">0.00元</span>
+        <label style="margin-left: 20px;">辅材费 :</label>
+        <span class="span-color-blue" name="budSecMtrlPrice">0.00元</span>
+        <label style="margin-left: 20px;">人工费 :</label>
+        <span class="span-color-blue" name="budLaborPrice">0.00元</span>
+        <label style="margin-left: 20px;">措施费 :</label>
+        <span class="span-color-blue" name="budMeasurePrice">0.00元</span>
+        <label style="margin-left: 20px;">分包费 :</label>
+        <span class="span-color-blue" name="budSubletPrice">0.00元</span>
+        <label style="margin-left: 20px;">异常项 :</label>
+        <span style="color: #de6d0b;" name="excpCount">0.00项</span>
+    </div>
+    <div class="table-content">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border" style="width: 45px;">
+                    <input type="checkbox">
+                </th>
+                <th class="border" style="width: 45px;">编号</th>
+                <th class="border" style="width: 162px">项目名称</th>
+                <th class="border" style="width: 60px">单位</th>
+                <th class="border" style="width: 60px">工程量</th>
+                <th class="border" style="width: 70px">综合单价</th>
+                <th class="border">合价</th>
+                <th class="border" style="  width: 60px">核算量</th>
+                <th class="border" style="width: 95px">单位成本分析</th>
+                <th class="border">材料费</th>
+                <th class="border">辅材费</th>
+                <th class="border">人工费</th>
+                <th class="border">措施费</th>
+                <th class="border">分包费</th>
+                <th class="border" style="width: 70px">异常备忘</th>
+                <th class="border">子目编号</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle"
+                   style="display: none;position:absolute;
+                       top: 50px;z-index: 200">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="costBudgetTable"></tbody>
+        </table>
+    </div>
+    <div id="page" style="margin: 20px 0;"></div>
+</div>

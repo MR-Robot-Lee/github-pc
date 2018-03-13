@@ -1,0 +1,49 @@
+<%- include('../../layout/header') %>
+<div class="IndexMain">
+    <%- include('../systemHeader') %>
+    <div class="container margin-58">
+        <div class="span-left width26">
+            <%- include('./nav') %>
+        </div>
+        <div class="span-right margin-left" style="margin-left: 280px;">
+            <div class="container-list">
+                <div class="common-header">
+                    <div class="search-form">
+                        <span class="span-btn background-list-gray addEmployee">新增员工</span>
+                        <!--<span class="span-btn background-list-gray exportEmployee">批量导入</span>-->
+                        <select class="int int-default int-small14 operateType">
+                            <option value="1">显示启用员工</option>
+                            <option value="2">显示停用员工</option>
+                        </select>
+                        <input type="text" class="keywords" placeholder="请输入关键字" />
+                        <button class="btn" id="btnSearch">确定</button>
+                        <button class='btn' id='sortOrganizationTable'>排序</button>
+                    </div>
+                </div>
+                <div class="container-list-warp">
+                    <div class="table-content" style="margin: 0;">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>部门</th>
+                                <th>职务</th>
+                                <th>年龄</th>
+                                <th>手机</th>
+                                <th style="width: 80px">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="organizationTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='model-wrap'></div>
+</div>
+<script type="text/javascript" src="/dist/system.js"></script>
+<%- include('../../layout/footer') %>
+

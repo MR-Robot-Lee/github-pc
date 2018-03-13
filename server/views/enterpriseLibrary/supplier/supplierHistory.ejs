@@ -1,0 +1,42 @@
+<div class="modal-form" style="margin: 10px 20px;font-size: 12px" id="supplierHistoryId" data-hid="<%- id %>">
+    <div class="bold-title entpName"></div>
+    <div style="margin-top: 10px;">
+        <span style="font-size: 14px;color: #333333;font-weight: bold" name="entpName"></span>
+    </div>
+    <div style="margin-top: 10px">
+        <label class="bold-title bold-title-enterprise">供应商类别 :</label>
+        <span name="entpTypeName" style="display: inline-block;"></span>
+    </div>
+    <div style="margin-top: 10px">
+        <label class="bold-title bold-title-enterprise">经营范围 :</label>
+        <span style="display: inline-block;width: 500px;" name="businessScope"></span>
+    </div>
+    <div style="margin-top: 10px;">
+        <label class="bold-title bold-title-enterprise">合计金额 :</label>
+        <span class="span-color-blue"
+              name="totalMoney"
+              style="display: inline-block;"></span>
+    </div>
+</div>
+<div class="table-content">
+    <table>
+        <thead>
+        <tr class="small">
+            <th style="color: #5b5b5b;" class="border">序号</th>
+            <th style="color: #5b5b5b;" class="border">工程简称</th>
+            <th style="color: #5b5b5b;" class="border">费用所用分部</th>
+            <th style="color: #5b5b5b;" class="border">费用产生时间</th>
+            <th style="color: #5b5b5b;" class="border">负责人</th>
+            <th style="color: #5b5b5b;" class="border">分类</th>
+            <th style="color: #5b5b5b;" class="border">项目/材料名称</th>
+            <th style="color: #5b5b5b;" class="border">规格/内容</th>
+            <th style="color: #5b5b5b;" class="border">单位</th>
+            <th style="color: #5b5b5b;" class="border">数量</th>
+            <th style="color: #5b5b5b;" class="border">单价</th>
+            <th style="color: #5b5b5b;" class="border">合价</th>
+        </tr>
+        </thead>
+        <tbody id="supplierHistory"></tbody>
+    </table>
+</div>
+<div id="page" style="margin: 20px 0;"></div>

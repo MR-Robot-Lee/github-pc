@@ -1,0 +1,219 @@
+.PageLoginMain {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-width: 1280px;
+  .login-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    height: 80px;
+    position: relative;
+    .register-btn {
+      position: absolute;
+      right: 200px;
+      color: #fff;
+      border-radius: 3px;
+      padding: 8px 15px;
+      top: 40px;
+      margin-top: -18px;
+      background: #10b356;
+      &:hover {
+        background: rgba(16, 179, 86, .85)
+      }
+    }
+    .logo-ori {
+      position: absolute;
+      top: 50%;
+      margin-top: -23px;
+      left: 300px;
+      .logo {
+        display: inline-block;
+        height: 46px;
+        width: 50px;
+        text-align: center;
+        line-height: 40px;
+        background: url(./images/logo.png) no-repeat;
+        vertical-align: middle;
+      }
+      .logo-name {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 24px;
+        color: #5b5b5b;
+      }
+    }
+  }
+  .login-content {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 81px;
+    bottom: 0;
+    overflow-y: auto;
+    .login-des {
+      height: 102px;
+      line-height: 102px;
+      font-size: 24px;
+      color: #5b5b5b;
+    }
+    .login-user, .login-pwd {
+      margin: 0 auto;
+      width: 400px;
+      border: 1px solid #ddd;
+      background-color: #ffffff;
+      border-radius: 4px;
+      position: relative;
+      .login-icon {
+        position: absolute;
+        background: url(./images/icon-user.png) no-repeat;
+        width: 24px;
+        height: 24px;
+        left: 20px;
+        margin-top: -12px;
+        top: 25px;
+        display: inline-block;
+        &.pwd {
+          background: url(./images/icon-pwd.png) no-repeat;
+        }
+      }
+      .login-int {
+        margin-left: 20px;
+        width: 300px;
+        line-height: 48px;
+        border: none;
+        outline: none;
+        -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+      }
+    }
+    .login-pwd {
+      margin-top: 10px;
+    }
+    .login-reset {
+      width: 400px;
+      margin: 20px auto;
+      text-align: left;
+      position: relative;
+      .reset-pwd {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+      }
+      a:active {
+        color: #10b356;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+    .login-btn {
+      margin: 0 auto 20px auto;
+      background-color: #10b356;
+      color: #ffffff;
+      height: 50px;
+      width: 400px;
+      text-align: center;
+      border-radius: 4px;
+      line-height: 50px;
+      font-size: 18px;
+      cursor: pointer;
+      display: block;
+      &.margin-top {
+        margin-top: 20px;
+      }
+      &:hover {
+        background: rgba(16, 179, 86, .9);
+      }
+    }
+  }
+  .password-content {
+    .icon-default {
+      height: 46px;
+      line-height: 46px;
+      padding-right: 20px;
+      display: inline-block;
+      border-right: 1px solid #ddd;
+    }
+    .verification-code {
+      width: 400px;
+      margin: 10px auto;
+      input {
+        width: 262px;
+        height: 48px;
+        border: 1px solid #ddd;
+        background-color: #ffffff;
+        border-radius: 4px;
+        margin-right: 12px;
+        padding: 0 5px;
+        outline: none;
+      }
+      span {
+        background-color: #ffffff;
+        color: #5b5b5b;
+        border: 1px solid #ddd;
+        display: inline-block;
+        height: 48px;
+        line-height: 48px;
+        vertical-align: middle;
+        padding: 0 18px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+  .register-content {
+    overflow-y: auto;
+    .register-label {
+      font-size: 16px;
+      color: #5b5b5b;
+      width: 80px;
+      display: inline-block;
+      text-align: right;
+    }
+    .register-int {
+      padding: 0 5px 0 10px;
+      width: 400px;
+      height: 48px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #ffffff;
+      outline: none;
+    }
+    .register-item {
+      margin-bottom: 10px;
+    }
+    .register-btn-submit {
+      background-color: #10b356;
+      color: #ffffff;
+      height: 50px;
+      width: 400px;
+      text-align: center;
+      border-radius: 4px;
+      line-height: 50px;
+      font-size: 18px;
+      display: inline-block;
+      margin-bottom: 20px;
+      &:hover {
+        background: rgba(16, 179, 86, .9);
+      }
+    }
+    .register-iphone {
+      display: inline-block;
+      line-height: 47px;
+      width: 130px;
+      background: #10b356;
+      //border: 1px solid #10b356;
+      color: #fff;
+      vertical-align: middle;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

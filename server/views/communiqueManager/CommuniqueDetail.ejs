@@ -1,0 +1,56 @@
+<div id="communiqueDetail" data-id="<%- id %>" data-type="<%- Type %>" class="knowledge-detail active zc">
+    <div style="border-top: none" class="knowledge-title"></div>
+    <div class="knowledge-info">
+        <div class="info-item">
+            <label>公告栏目 :</label>
+            <span name="type" style="width: 60px;margin-top: -4px;"></span>
+            <label>发布人 :</label>
+            <span name="userName" style="width: 60px;margin-top: -4px;"></span>
+            <label>发布时间 :</label>
+            <span name="addTime" style="margin-top: -4px;"></span>
+        </div>
+        <div class="info-item" style="padding-bottom: 8px">
+            <label>评论次数 :</label>
+            <span name="source" style="width: 60px;margin-top: -4px;"></span>
+            <label>接收人 :</label>
+            <span name="author" style="width: 60px;margin-top: -4px;">全体员工</span>
+            <label>浏览次数 :</label>
+            <span name="browseTimes" style="width: 60px;margin-top: -4px;"></span>
+            <span id='checkBrower'
+                  style="width: 40px;color: #009941;cursor:pointer;margin-top: -4px;">查看</span>
+        </div>
+    </div>
+    <div class="clr"></div>
+    <p style="padding: 10px 0;" class="knowledge-content"></p>
+    <div class="knowledge-attach"
+         style="border-bottom:1px solid #e9e9e9;margin-bottom:10px;padding-bottom: 10px">
+        <label>附件:</label>
+        <div class="attach-list"></div>
+        <div class="clr"></div>
+    </div>
+    <div class="communique-comment" style="margin-left: 20px">
+        <label style="line-height: 28px;">评论</label>
+        <input type="text" class="int int-default modalCommentModal" style="width: 100%" />
+        <span class="span-btn" style="margin-top: 10px;margin-left: 0;" id="modalComment">发表评论</span>
+    </div>
+    <div class="communique-new-comment">
+        <div class="modal-form" style="margin-top: 20px">
+            <label class="bold-title">最新评论</label>
+        </div>
+        <div class="comments-list">
+
+            <div class="comment-item">
+                <div class="user-header-img"></div>
+                <div class="user-info">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span class="comment-time">2016/12/21</span>
+                    </div>
+                    <div class="comment-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div id="materialPlan">
+    <div id="noInfoFinancialSum_search" class="modal-form" style="padding-top: 10px;text-align: right;">
+        <label style="margin-left: 10px;" class="bold-title">合同编号:</label>
+        <input style="" type="text" class="int int-default int-small14 cntrNo"
+               placeholder="请输入合同编号" />
+        <!--<label style="margin-left: 10px;" class="bold-title">材料计划单号:</label>-->
+        <!--<input style="" type="text" class="int int-default int-small14 mtrlPlanNo"-->
+               <!--placeholder="请输入材料计划单号" />-->
+        <label style="margin-left: 10px;" class="bold-title">分部查看:</label>
+        <select style="width:140px" class="int int-default" id="subProject">
+            <option value="0">全部</option>
+        </select>
+        <label style="margin-left: 10px;" class="bold-title">费用来源:</label>
+        <select class="int int-default int-small14 from">
+            <option value="0">全部</option>
+            <option value="1">报销款申请</option>
+            <option value="2">预付款申请</option>
+            <option value="3">实付款申请</option>
+            <option value="4">材料应付款</option>
+            <option value="5">结算应付款</option>
+        </select>
+        <!--<label class="bold-title">费用总额:</label>
+        <span class="span-color-blue">32232</span>
+        <label class="bold-title">合计金额:</label>
+        <span class="span-color-blue">32232</span>-->
+        <input style="margin: 0 5px;" type="text" class="int int-default int-small14 keywords"
+               placeholder="收款单位(人)查询" />
+        <span class="span-btn btn-fine-adj1" id="modalSearch">查询</span>
+    </div>
+    <div id="noInfoFinancialSum_main" class="table-content" style="display: none;">
+        <table>
+            <thead id="showTitle">
+            <tr class="small">
+                <th class="border" style="width: 45px">序号</th>
+                <!--<th class="border">分部名称</th>-->
+                <th class="border">费用来源</th>
+                <th class="border">费用单名称</th>
+                <th class="border">费用单号</th>
+                <th class="border">申请人</th>
+                <th class="border">付款时间</th>
+                <th class="border">实付金额</th>
+                <th class="border">收款单位(人)</th>
+                <th class="border" style="width: 60px">查看</th>
+            </tr>
+            </thead>
+            <thead id="hideTitle" style="position: absolute;display: none;z-index: 150;">
+            <tr class="small"></tr>
+            </thead>
+            <tbody id="financialSum"></tbody>
+        </table>
+    </div>
+    <div name='noInfoFinancialSum_page' id="page" style="margin: 20px 0;display: none;"></div>
+</div>
+<div class='noInfo' id='noInfoFinancialSum'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

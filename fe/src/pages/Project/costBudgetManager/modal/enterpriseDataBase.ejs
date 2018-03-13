@@ -1,0 +1,77 @@
+<div class="model-project-common cost-enterprise-data-base">
+    <div class="page-budget">
+        <div class="budget-menus">
+            <a class="item"
+               id="materialEnterpriseModal"
+               href="javascript:void(0)"
+               data-type="material">
+                <span class="menu-line"></span>
+                材料库
+            </a>
+            <a class="item"
+               id="laborEnterpriseModal"
+               data-type="labor"
+               href="javascript:void(0)">
+                <span class="menu-line"></span>
+                人工费库
+            </a>
+            <a class="item"
+               id="stepEnterpriseModal"
+               data-type="step"
+               href="javascript:void(0)">
+                <span class="menu-line"></span>
+                措施库
+            </a>
+            <a class="item"
+               id="subpackageEnterpriseModal"
+               data-type="subpackage"
+               href="javascript:void(0)">
+                <span class="menu-line"></span>
+                分包项库
+            </a>
+            <a class="item"
+               id="supplierEnterpriseModal"
+               data-type="supplier"
+               href="javascript:void(0)">
+                <span class="menu-line"></span>
+                供应商库
+            </a>
+        </div>
+        <div class="clr"></div>
+        <div class="enterprise-data-base-content">
+            <div class="modal-data-base-nav" style="padding-bottom: 10px;z-index: 1000;">
+
+                <div style="padding: 10px;">
+                    <div class="span-btn" id="addEnterpriseContent" style="position: relative;text-align: center;width: auto;display: block;">
+                        <span class="icon-create"></span>
+                        <span class="enterpriseName">新增材料</span>
+                    </div>
+                </div>
+
+                <ul id="modalEnterpriseNav">
+                </ul>
+            </div>
+
+            <div class="enterprise-list">
+                <div class="table-content" style="margin: 10px 10px 0 0;height: 420px;overflow: auto;position: relative;">
+                    <table>
+                        <thead id="showTitle">
+                        <tr class='small' id="modalEnterpriseThead"></tr>
+                        </thead>
+                        <thead id="hideTitle" style="position: absolute;z-index: 200;display: none;">
+                        <tr class="small"></tr>
+                        </thead>
+                        <tbody id="modalEnterpriseList"></tbody>
+                    </table>
+                </div>
+                <div class="more-data more-data-load">
+                    加载更多
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确定</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>

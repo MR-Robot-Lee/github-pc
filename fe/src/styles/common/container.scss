@@ -1,0 +1,551 @@
+.container {
+    bottom: 0;
+    font-size: 12px;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    width: 100%;
+    position: absolute;
+    &.margin-58 {
+        top: 58px;
+    }
+    .span-left, .child-span-right {
+        background: #ffffff;
+        height: 100%;
+        left: 10px;
+        min-height: 200px;
+        overflow: hidden;
+        position: absolute;
+        width: 180px;
+        &.width26 {
+            width: 260px;
+        }
+        .nav-content {
+            overflow: auto;
+            background-color: #ffffff;
+            padding: 15px 0;
+            list-style: none;
+            border-right: 1px solid #e9e9e9;
+            height: 100%;
+            &.no-border {
+                border: none;
+            }
+            &.nav-none {
+                display: none;
+            }
+            &.no-padding-border {
+                border-right: none;
+                padding: 0;
+                a {
+                    font-size: 14px;
+                    color: $fcxx;
+                }
+            }
+            &.level1 {
+                > li {
+                    &:hover {
+                        > a {
+                            .small14 {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+            &.level2 {
+                > li {
+                    &:hover {
+                        > a {
+                            .small14 {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+            &.no-padding {
+                border-right: none;
+                padding: 0;
+                > li {
+                    border-top: 1px solid $box-border;
+                    border-bottom: none;
+                }
+                a {
+                    font-size: 12px;
+                    padding-left: 36px;
+                }
+            }
+            > li {
+                text-align: left;
+                border-bottom: 1px solid $box-border;
+                span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 17px;
+                    height: 17px;
+                    margin-top: -2px;
+                    &.add {
+                        background: url(./images/add-pre.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.communique-add {
+                        background: url(./images/comminute-add.png);
+                        margin-right: 5px;
+                    }
+                    &.communique-process {
+                        background: url(./images/comminute-approess.png);
+                        margin-right: 5px;
+                    }
+                    &.bids-all {
+                        background: url(./images/bids-all.png);
+                        margin-right: 5px;
+                    }
+                    &.bids-notice {
+                        background: url(./images/bids-notice.png);
+                        margin-right: 5px;
+                    }
+                    &.communique-all {
+                        background: url(./images/comminute-all.png);
+                        margin-right: 5px;
+                    }
+                    &.all {
+                        background: url(./images/all-pre.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.setting {
+                        background: url(./images/setting-pre.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.reported {
+                        background: url(./images/report-send.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.unreported {
+                        background: url(./images/report-no.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.report-type {
+                        background: url(./images/report-type.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.contract-add {
+                        background: url(./images/contract-add.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.contract-all {
+                        background: url(./images/contract-all.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.contract-setting {
+                        background: url(./images/contract-setting.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.project-all {
+                        background: url(./images/project-all.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.project-participate {
+                        background: url(./images/project-participate.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.project-charged {
+                        background: url(./images/project-charged.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.project-hardware {
+                        background: url(./images/project-hardware.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.project-delete {
+                        background: url(./images/project-delete.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise-material {
+                        background: url(./images/enterprise-material.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise-person {
+                        background: url(./images/enterprise-person.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise-step {
+                        background: url(./images/enterprise-step.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise-package {
+                        background: url(./images/enterprise-package.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise-supplier {
+                        background: url(./images/enterprise-supplier.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise-project {
+                        background: url(./images/enterprise-project.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise {
+                        background: url(./images/enterprise.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.arrow {
+                        background: url(./images/arrows.png) no-repeat;
+                        width: 8px;
+                        height: 14px;
+                        margin-right: 5px;
+                    }
+                    &.pro-contacts {
+                        background: url(./images/pro-contacts.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.pro-company {
+                        background: url(./images/pro-company.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.pro-publicity {
+                        background: url(./images/pro-publicity.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.my-approve {
+                        background: url(./images/my-approve.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.my-application {
+                        background: url(./images/my-application.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.copy-to-me {
+                        background: url(./images/copy-to-me.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.approve-manager {
+                        background: url(./images/approve-manager.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.concern-projects {
+                        background: url(./images/concern-projects.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.enterprise-filecab {
+                        background: url(./images/enterprise-filecab.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.my-filecab {
+                        background: url(./images/my-filecab.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.filecab-manager {
+                        background: url(./images/filecab-manager.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.compile-department {
+                        background: url(./images/compile-department.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.add-duty {
+                        background: url(./images/add-duty.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.jurisdiction {
+                        background: url(./images/jurisdiction.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.job-list {
+                        background: url(./images/job-list.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.account-info {
+                        background: url(./images/account-info.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                    &.account-manage {
+                        background: url(./images/account-manage.png) no-repeat;
+                        margin-right: 5px;
+                    }
+                }
+                > a {
+                    font-size: 14px;
+                    text-decoration: none;
+                    color: $fcx;
+                    height: 42px;
+                    width: 100%;
+                    padding-left: 10px;
+                    line-height: 42px;
+                    display: inline-block;
+                    position: relative;
+                    &.system {
+                        color: #5b5b5b;
+                    }
+                }
+                &.selected {
+                    margin-right: -2px;
+                }
+                &.active {
+                    .arrow {
+                        height: 8px;
+                        width: 14px;
+                        background: url(./images/arrows_hover.png) no-repeat;
+                    }
+                }
+                &.active, &:hover {
+                    > a {
+                        background-color: $bc;
+                        color: $blue;
+                        &.system {
+                            background-color: #ececec;
+                            color: #333;
+                        }
+                    }
+                    span {
+                        &.add {
+                            background: url(./images/add-pre-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.all {
+                            background: url(./images/all-pre-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.communique-add {
+                            background: url(./images/comminute-add-active.png);
+                            margin-right: 5px;
+                        }
+                        &.communique-process {
+                            background: url(./images/comminute-approess-active.png);
+                            margin-right: 5px;
+                        }
+                        &.communique-all {
+                            background: url(./images/comminute-all-active.png);
+                            margin-right: 5px;
+                        }
+                        &.bids-all {
+                            background: url(./images/bids-all-active.png);
+                            margin-right: 5px;
+                        }
+                        &.bids-notice {
+                            background: url(./images/bids-notice-active.png);
+                            margin-right: 5px;
+                        }
+                        &.setting {
+                            background: url(./images/setting-pre-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.reported {
+                            background: url(./images/report-send-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.unreported {
+                            background: url(./images/report-no-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.report-type {
+                            background: url(./images/report-type-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.contract-add {
+                            background: url(./images/contract-add-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.contract-all {
+                            background: url(./images/contract-all-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.contract-setting {
+                            background: url(./images/contract-setting-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.project-all {
+                            background: url(./images/project-all-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.project-participate {
+                            background: url(./images/project-participate-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.project-charged {
+                            background: url(./images/project-charged-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.project-hardware {
+                            background: url(./images/project-hardware-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.project-delete {
+                            background: url(./images/project-delete-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise-material {
+                            background: url(./images/enterprise-material-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise-person {
+                            background: url(./images/enterprise-person-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise-step {
+                            background: url(./images/enterprise-step-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise-package {
+                            background: url(./images/enterprise-package-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise-supplier {
+                            background: url(./images/enterprise-supplier-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise-project {
+                            background: url(./images/enterprise-project-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise {
+                            background: url(./images/enterprise-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.icon-enterprise-one-add {
+                            background: url(./images/enterprise-add-type-active.png) no-repeat;
+                        }
+                        &.icon-enterprise-one-edit {
+                            background: url(./images/enterprise-one-edit-active.png) no-repeat;
+                        }
+                        &.icon-enterprise-one-delete {
+                            background: url(./images/enterprise-one-delete-active.png) no-repeat;
+                        }
+                        &.pro-contacts {
+                            background: url(./images/pro-contacts-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.pro-company {
+                            background: url(./images/pro-company-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.pro-publicity {
+                            background: url(./images/pro-publicity-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.my-approve {
+                            background: url(./images/my-approve-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.my-application {
+                            background: url(./images/my-application-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.copy-to-me {
+                            background: url(./images/copy-to-me-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.approve-manager {
+                            background: url(./images/approve-manager-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.concern-projects {
+                            background: url(./images/concern-projects-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.enterprise-filecab {
+                            background: url(./images/enterprise-filecab-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.my-filecab {
+                            background: url(./images/my-filecab-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.filecab-manager {
+                            background: url(./images/filecab-manager-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.compile-department {
+                            background: url(./images/compile-department-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.add-duty {
+                            background: url(./images/add-duty-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.jurisdiction {
+                            background: url(./images/jurisdiction-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.job-list {
+                            background: url(./images/job-list-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.account-info {
+                            background: url(./images/account-info-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                        &.account-manage {
+                            background: url(./images/account-manage-active.png) no-repeat;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .span-right {
+        overflow: hidden;
+        background: #ffffff;
+        margin-left: 200px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        &.margin-58 {
+            top: 58px;
+        }
+        &.child-nav-left {
+            left: 240px;
+        }
+        &.margin-left {
+            margin-left: 280px;
+        }
+        &.span-right-near {
+            margin-left: 190px;
+        }
+        .container-list {
+            background-color: #ffffff;
+            font-size: 14px;
+            &.margin-left18 {
+                margin-left: 240px;
+            }
+            .container-header {
+                width: 100%;
+            }
+            .container-list-warp {
+                overflow: auto;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                top: 48px;
+                width: 100%;
+                &.top90 {
+                    top: 90px;
+                }
+            }
+        }
+    }
+    .child-span-right {
+        font-size: 14px;
+        position: fixed;
+        width: 240px;
+        left: 201px;
+        bottom: 0;
+        top: 0;
+        box-shadow: 1px 1px 4px #ccc;
+        .container-header {
+            position: relative;
+            width: 100%;
+            border-bottom: 1px solid $box-border;
+        }
+        .nav-content-height {
+            position: absolute;
+            top: 47px;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            height: initial;
+        }
+    }
+}

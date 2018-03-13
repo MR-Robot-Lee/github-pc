@@ -1,0 +1,13 @@
+.page-document {
+  .document-menus {
+    margin: 10px 0 0 20px;
+    position: relative;
+    input[type=file] {
+      position: absolute;
+      left: 258px;
+      height: 30px;
+      width: 38px;
+      opacity: 0;
+    }
+  }
+}

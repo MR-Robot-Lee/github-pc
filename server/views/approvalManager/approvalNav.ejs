@@ -1,0 +1,96 @@
+<ul class="nav-content">
+    <% if(nav === "approval-add"){ %>
+    <li class="active">
+        <a href="/approval/add">
+            <span class="project-all"></span>
+            新建申请
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/approval/add">
+            <span class="communique-add"></span>
+            新建申请
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "approval-apply"){ %>
+    <li class="active">
+        <a href="/approval">
+            <span class="my-application"></span>
+            <label class="myApply">我的申请</label>
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/approval">
+            <span class="my-application"></span>
+            <label class="myApply">我的申请</label>
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'approval-me'){ %>
+    <li class="active">
+        <a href="/approval/me/approval">
+            <span class="my-approve"></span>
+            <label class="myApproval">我的审批</label>
+        </a>
+        <ul class="nav-content no-padding" id="communiqueChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/approval/me/approval">
+            <span class="my-approve"></span>
+            <label class="myApproval">我的审批</label>
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'approval-copy'){ %>
+    <li class="active">
+        <a href="/approval/me/copy">
+            <span class="copy-to-me"></span>
+            抄送给我的
+        </a>
+        <ul class="nav-content no-padding" id="communiqueChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/approval/me/copy">
+            <span class="copy-to-me"></span>
+            抄送给我的
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'approval-manager' || nav === 'approval-manager-detail'){ %>
+    <li class="active" id="approvalManager">
+        <a href="/approval/manager">
+            <span class="approve-manager"></span>
+            审批管理
+        </a>
+        <ul class="nav-content no-padding" id="communiqueChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li id="approvalManager">
+        <a href="/approval/manager">
+            <span class="approve-manager"></span>
+            审批管理
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === 'approval-setting' || nav === 'approval-type' || nav === 'approval-setting-add'){ %>
+    <li class="active" id="approvalType">
+        <a href="/approval/setting/type">
+            <span class="communique-process"></span>
+            流程设置
+        </a>
+        <ul class="nav-content no-padding" id="communiqueChildNav"></ul>
+    </li>
+    <% }else { %>
+    <li id="approvalType">
+        <a href="/approval/setting/type">
+            <span class="communique-process"></span>
+            流程设置
+        </a>
+    </li>
+    <% } %>
+</ul>

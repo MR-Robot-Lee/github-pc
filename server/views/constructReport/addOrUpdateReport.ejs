@@ -1,0 +1,74 @@
+<%- include('../layout/header') %>
+<div class="container">
+    <div class="span-left">
+        <%- include('./nav') %>
+    </div>
+    <div class="span-right">
+        <div class="container-list">
+            <div class="container-header">
+                <div class="common-header word">
+                    <div class="search-form">
+                        <span class="common-title"><%= title %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container-list-warp">
+                <div style="margin-left: 20px;width: 940px;height: 800px;" class="modal-employee-add report-add">
+                    <div class="modal-form">
+                        <div class="item" style="margin-top: 30px;">
+                            <label class=" label-block" style="color: #5b5b5b;width:120px;"><i
+                                        class="icon-fill-in">*</i>栏目分类:</label>
+                            <select class="int int-default sectionType" style="width: 250px;">
+                                <option value="0">请选择</option>
+                            </select>
+                        </div>
+                        <div class="item" style="margin-top: 10px;">
+                            <label class=" label-block int-small8" style="color: #5b5b5b;width:120px;"><i
+                                        class="icon-fill-in">*</i>所属项目部:</label>
+                            <select class="int int-default projectDepartment" style="width: 500px;">
+                                <option value="0">请选择</option>
+                            </select>
+                        </div>
+                        <div class="item" style="margin-top: 10px;">
+                            <label class=" label-block int-small8" style="color: #5b5b5b;width:120px;"><i
+                                        class="icon-fill-in">*</i>标题:</label>
+                            <input class="int int-default title" type="text" style="width: 500px;"
+                                   placeholder="请输入标题,不超过36个字符数">
+                        </div>
+                        <div class="item" style="margin-top: 10px;">
+                            <label class=" label-block int-small8" style="color: #5b5b5b;width:120px;"><i
+                                        class="icon-fill-in">*</i>快报内容:</label>
+                            <textarea class="int int-default content"
+                                      style="width: 500px;height: 304px;display: inline-block;vertical-align: top;"
+                                      placeholder="请输入快报内容,不超过3000个字符数"></textarea>
+                        </div>
+                        <div class="item" style="margin-top: 10px;">
+                            <label class=" label-block int-small8" style="color: #5b5b5b;width:120px;">
+                                <!--<i class="icon-fill-in">*</i>-->
+                                添加图片:
+                            </label>
+                            <div class="reportImage"
+                                 style="display: inline-block;width: 800px;vertical-align: top;height: 170px;overflow-y: auto;"></div>
+                        </div>
+
+                        <div class="clr"></div>
+                        <!--<div class="item" style="margin-left: 123px;">-->
+                        <!--<label><input type="checkbox" checked disabled>允许评论</label>-->
+                        <!--<label><input type="checkbox" checked disabled>允许下载</label>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="employee-footer report-footer"
+                         style="padding-top: 20px;text-align: left;padding-left: 320px;border-top: 1px solid  #eee;width: 1500px;margin-left: -20px;">
+                        <span class="span-btn span-btn-bc confirm-active add-save" data-id="2">保存</span>
+                        <span class="span-btn span-btn-bc confirm-active add-update-release" data-id="1">发布</span>
+                        <span class="span-btn" id="saveUpdateReport" data-id="<%= id %>"
+                              data-ietm="<%= data %>">预览</span>
+                        <span class="span-btn span-btn-bc confirm-active report-cancel">取消</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src="/dist/report.js"></script>
+<%- include('../layout/footer') %>

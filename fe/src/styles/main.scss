@@ -1,0 +1,77 @@
+html {
+  height: 100%;
+  overflow-y: auto;
+}
+
+body {
+  overflow-y: hidden;
+  height: 100%;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei", SimSun, '\5b8b\4f53', sans-serif;
+  font-size: 12px;
+  z-index: 1;
+  * {
+    box-sizing: border-box;
+  }
+  ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #666666;
+  }
+  .clr {
+    clear: both;
+  }
+}
+
+.vmc-arrow-left:after, .arrow-left-modal {
+  background: url(./images/left-arrow.png) no-repeat;
+  width: 13px;
+  height: 30px;
+}
+
+.vmc-arrow-right:after, .arrow-right-modal {
+  background: url(./images/right-arrow.png) no-repeat;
+  width: 13px;
+  height: 30px;
+}
+
+@import "color.scss";
+@import "PageIndexMain";
+@import "PageNotFound";
+@import "Model";
+@import "Page";
+@import "UploadImage";
+@import "UploadAttach";
+@import "common/container.scss";
+@import "common/table";
+@import "search-form.scss";
+@import "PageEmployeeMain.scss";
+@import "PageReportMain.scss";
+@import "PageProjectMain";
+@import "icon.scss";
+@import "Tree.scss";
+@import "ModelProjectMain.scss";
+@import "ProgressBar.scss";
+@import "buttons.scss";
+@import "input.scss";
+@import "media.scss";
+@import "ModelForm.scss";
+@import "PageMainProjectForm.scss";
+@import "PageKnowledgeMain.scss";
+@import "PageDocumentMain.scss";
+@import "PageApprovalMain.scss";
+@import "PageDashbordIndexMain.scss";
+@import "PageContractDetailMain.scss";
+@import "PageLoginMain.scss";
+@import "CompanyIndexMain.scss";
+@import "PageAttentionMain.scss";
+@import "PageAccountMain.scss";
+@import "PageBidsMain.scss";
+@import "Select.scss";
+@import "patch.scss";

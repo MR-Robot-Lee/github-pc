@@ -1,0 +1,88 @@
+<div class="clearfix" style="padding: 10px 20px 0 10px;min-width: 1450px">
+    <div style="float: left;padding: 5px 20px 5px 0">
+        <label>流程类型:</label>
+        <select class="int int-default int-small14" id="processType"></select>
+    </div>
+    <div style="float: left;padding: 5px 20px 5px 0">
+        <label>项目名称:</label>
+        <select style="width: 140px;" class="int int-default" id="projId"></select>
+    </div>
+    <div style="float: left;padding: 5px 20px 5px 0">
+        <label>流程状态:</label>
+        <select class="int int-default int-small14" id="processStatus">
+            <option value="0">全部</option>
+            <option value="1">审批中</option>
+            <option value="2">同意</option>
+            <option value="3">不同意</option>
+        </select>
+    </div>
+    <div style="float: left;padding: 5px 20px 5px 0">
+        <label>日期:</label>
+        <input style="width: 160px;" type="date" class="int int-default int-small14" name="startTime">
+        <span>~</span>
+        <input style="width: 160px;" type="date" class="int int-default int-small14" name="endTime">
+    </div>
+    <div style="float: left;padding: 5px 20px 5px 0">
+        <label style="width: 60px;display: inline-block;">申 请 人 :</label>
+        <select class="int int-default int-small14" id="applyUserNo"></select>
+    </div>
+    <div style="float: left;padding: 5px 20px 5px 0">
+        <span style="line-height: 30px;" class="span-btn" id="searchModal">查询</span>
+    </div>
+</div>
+<div style="margin-top: 50px;" class="container-list-warp">
+
+    <div class="my-apply" id="myApply">
+        <div class="modal-form" style="margin: 0 20px;">
+
+        </div>
+        <div class="clr"></div>
+        <div id="noInfoApprovalManager_main" class="my-apply-list" style="display: none;"></div>
+    </div>
+    <div style="top: 108px;" class="knowledge-detail">
+        <div class="knowledge-detail-title" style="border-bottom: 1px solid #e9e9e9">
+            <span class="span-btn background-list-gray" id="delKnowledge">导出</span>
+            <span id="approveDetailClose" class="icon-close" style="position: absolute;right: 20px;margin-top:6px"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>审批结果:</label>
+            <span name="apprStatus"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label style="width: 60px;display: inline-block;">申 请 人 :</label>
+            <span name="applyUserName"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>申请时间:</label>
+            <span name="applyTime"></span>
+        </div>
+        <div class="knowledge-detail-item clearfix">
+            <label style="float: left;">申请内容:</label>
+            <div name="applyContent" style="white-space: pre-line;float: left;margin-left: 3px;"></div>
+        </div>
+        <div class="knowledge-attach" style="border-bottom:1px solid #ececec;padding-bottom: 10px">
+            <label>附件:</label>
+            <div class="attach-list"></div>
+            <div class="clr"></div>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>审批流程:</label>
+            <span name="apprUserName"></span>
+        </div>
+        <div class="knowledge-detail-item">
+            <label>流程说明:</label>
+            <span name="remark"></span>
+        </div>
+        <div class="knowledge-detail-item" style="border-top: 1px solid #ececec">
+            <div class="modal-form" style="margin: 10px 0;display: none; " id="projectShow">
+                <span style="color: #999999;">审批进度 : </span><span class="bold-title" name="projectName"></span>
+            </div>
+            <div class="approval-process"></div>
+        </div>
+    </div>
+    <div name="noInfoApprovalManager_page" id="page" style="margin:20px 0;display: none;"></div>
+</div>
+<div class='noInfo' id='noInfoApprovalManager'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>

@@ -1,0 +1,49 @@
+<div class="modal-form" style="border-bottom: 1px solid #ddd;" id="processSettingAdd" data-id="<%- id %>">
+    <div style="padding: 8px 20px;">
+        <a style="color:#5b5b5b" class="span-btn background-list-gray" href="/approval/setting"><span
+                    style="font-family:宋体;font-weight: bold;"><</span> 返回</a>
+    </div>
+</div>
+<div class="modal-form" style="border-bottom: 1px solid #ddd;margin: 20px 0;padding-bottom: 15px;">
+    <div style="padding: 8px 0;" class="item">
+        <label class="label-block int-small11"><i class="icon-fill-in">*</i>流程类型 :</label>
+        <select class="int int-default" style="width: 400px;margin-left: 3px;color: #333333" id="processType"></select>
+    </div>
+    <div style="padding: 8px 0" class="item">
+        <label class="label-block int-small11"><i class="icon-fill-in">*</i>流程名称 :</label>
+        <input type="text" name="tmplName" class="int int-default" placeholder="请输入流程名称"
+               style="width: 400px;margin-left: 3px;color: #333333">
+    </div>
+    <div style="padding: 8px 0" class="item">
+        <label class="label-block int-small11" style="float: left;"><i class="icon-fill-in">*</i>流程说明 :</label>
+        <textarea class="int int-default" style="width: 400px;height: 80px;resize: none;margin-left: 7px;color: #333333;"
+                  placeholder="请输入流程说明" name="remark"></textarea>
+    </div>
+    <div style="padding: 8px 0" class="item">
+        <label class="label-block int-small11"><i class="icon-fill-in">*</i>流程审批 :</label>
+        <div style="display: inline-block;margin-left: 3px;"><span class="span-color-blue" id="addLevel"
+                                                                   style="cursor: pointer"><span
+                        style="margin-right: 2px;" class="icon-add-content"></span>添加级别</span></div>
+        <div id="levelContent"></div>
+    </div>
+    <div style="padding: 8px 0" class="item" id="selectData">
+        <label class="label-block int-small11">抄送 :</label>
+        <div style="display:inline-block;">
+            <input style="width: 300px;" type="text" class="int int-default" placeholder="请输入抄职务"
+                   disabled id="carbonCopyJob">
+            <span style="margin-left: 5px;border-bottom-right-radius:0px;border-top-right-radius:0px;"
+                  class="span-btn background-list-gray btn-fine-adj1" data-type="employee">选择人员</span>
+            <span style="margin-left: -11px;border-bottom-left-radius:0px;border-top-left-radius:0px;"
+                  class="span-btn background-list-gray btn-fine-adj1" data-type="job">选择职务</span>
+            <span class="delete-hover deleteJob" style="cursor: pointer;color: #5b5b5b;">清除</span>
+        </div>
+        <!--<div style="margin-left: 113px;margin-top: 10px;">-->
+        <!--&lt;!&ndash;<input type="text" class="int int-default" placeholder="请输入抄人" disabled id="carbonCopyPerson">&ndash;&gt;-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div style="margin: 20px 0;text-align: left;padding-left: 467px;">
+    <span class="span-btn confirm">保存</span>
+    <a style="margin-left: 5px;" class="span-btn span-btn-bc confirm-active" href="/approval/setting">取消</a>
+</div>

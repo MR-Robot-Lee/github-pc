@@ -1,0 +1,15 @@
+<div class="project-list-wrap top-88" id="subId" data-id="<%- subId %>">
+    <% if(type === 'budget'){ %>
+    <%- include('./costBudget') %>
+    <% }else if(type === 'quantity') { %>
+    <%- include('./costQuantity') %>
+    <% }else if(type === 'material'){ %>
+    <%- include('./costMaterial') %>
+    <% }else if(type === 'workerCount'){ %>
+    <%- include('./costWorkerCount') %>
+    <% }else if(type === 'step'){ %>
+    <%- include('./costStep') %>
+    <% } else if(type === 'subpackage'){ %>
+    <%- include('./costSubpackage') %>
+    <% } %>
+</div>

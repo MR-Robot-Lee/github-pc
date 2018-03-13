@@ -1,0 +1,37 @@
+<ul class="nav-content">
+    <li id="addProject">
+        <a href="#">
+            <span class="add"></span>添加项目部
+        </a>
+    </li>
+    <% if(nav === "all" || nav === "detail"){ %>
+    <li class="active">
+        <a href="/employee">
+            <span class="all"></span>
+            全部项目
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/employee">
+            <span class="all"></span>
+            全部项目
+        </a>
+    </li>
+    <% } %>
+    <% if(nav === "setting"){ %>
+    <li class="active">
+        <a href="/employee/setting">
+            <span class="setting"></span>
+            类型设置
+        </a>
+    </li>
+    <% }else { %>
+    <li>
+        <a href="/employee/setting">
+            <span class="setting"></span>
+            类型设置
+        </a>
+    </li>
+    <% } %>
+</ul>

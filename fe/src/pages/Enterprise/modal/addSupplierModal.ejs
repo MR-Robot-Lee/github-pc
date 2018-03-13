@@ -1,0 +1,78 @@
+<div class="model-project-common enterprise-add-model">
+    <div class="model-header">
+        <span class="project-title">新增</span>
+        <span class="icon-close"></span>
+    </div>
+    <div class="model-section">
+        <div class="modal-form">
+            <div class="item">
+                <label class="bold-title label-block int-small11">单位名称:</label>
+                <input type="text" class="int int-default int-middle256" name="entpName" data-caveat="单位名称"
+                       placeholder="请输入单位名称" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">管理员:</label>
+                <input type="text" class="int int-default int-middle256" name="contactName" data-caveat="联系人"
+                       placeholder="请输入联系人" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">绑定手机:</label>
+                <input type="text" class="int int-default int-middle256" name="phone" data-caveat="电话"
+                       placeholder="请输入电话" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11" style="float: left">经营范围:</label>
+                <textarea class="int int-default int-middle256"
+                          style="height: 58px;margin-left: 4px;resize:none" name="businessScope"
+                          data-caveat="单位名称" placeholder="请输入单位名称"></textarea>
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">所在省市:</label>
+                <select style="width: 120px;" class="int int-default" name="province">
+                    <option value="">省</option>
+                </select>
+                <select style="width: 120px;margin-left: 13px;" class="int int-default" name="city">
+                    <option value="">市</option>
+                </select>
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11" style="float: left">详细地址:</label>
+                <textarea class="int int-default int-middle256"
+                          style="height: 58px;margin-left: 4px;resize:none" name="address" data-caveat="详细地址"
+                          placeholder="请输入详细地址"></textarea>
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">税务类型:</label>
+                <select class="int int-default int-middle256" name="taxType">
+                    <option value="a">请选择</option>
+                    <option value="1">小规模</option>
+                    <option value="2">一般纳税人</option>
+                    <option value="3">个体</option>
+                </select>
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">开户名:</label>
+                <input type="text" class="int int-default int-middle256" name="openName" data-caveat="开户名"
+                       placeholder="请输入开户名" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">开户行:</label>
+                <input type="text" class="int int-default int-middle256" name="openBank" data-caveat="开户行"
+                       placeholder="请输入开户行" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11">账号:</label>
+                <input type="text" class="int int-default int-middle256" name="bankCard" data-caveat="账号"
+                       placeholder="请输入帐号" />
+            </div>
+            <div class="item">
+                <label class="bold-title label-block int-small11" style="float: left;">附件:</label>
+                <div id="addSupplierAttach" style="display: inline-block;margin-left: 6px;font-size: 14px"></div>
+            </div>
+        </div>
+    </div>
+    <div class="model-footer">
+        <span class="span-btn confirm">确定</span>
+        <span class="span-btn span-btn-bc confirm-active" data-model-close>取消</span>
+    </div>
+</div>
