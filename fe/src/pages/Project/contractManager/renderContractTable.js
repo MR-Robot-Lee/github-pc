@@ -30,9 +30,15 @@ exports.renderSumContractTable = function (list, page) {
         } else {
             oper = '<a class="confirm-hover" data-type="detail">详情</a>';
         }
+        var associated;
+        if(item.associated === 1){
+            associated = '';
+        } else {
+            associated = '<i class="icon-associated"></i>';
+        }
         var dom = $('<tr style="cursor: pointer " class="small trHeightLight-hover">\
                   <td class="border">' + count + '</td>\
-                  <td class="border">' + item.cntrName + '</td>\
+                  <td class="border">' + item.cntrName + associated + '</td>\
                   <td class="border">' + item.cntrNo + '</td>\
                   <td class="border">' + item.addUserName + '</td>\
                   <td class="border">' + item.cntrChargeName + '</td>\

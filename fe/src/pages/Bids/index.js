@@ -16,8 +16,6 @@ module.exports = {
             initEvent.initAllBidsEvent();
             initBidsFunc.getBidsListFunc(null, page);
             initBidsFunc.getAllProjectFunc();
-
-
         } else if(type === 'bids-notice'){//中标公示
             var page = new Page($('#page'), {
                 pageSize: [10, 20, 30], // 设置每页显示条数按钮
@@ -25,9 +23,6 @@ module.exports = {
             })
             initEvent.initBidsNoticeEvent();
             initBidsFunc.getAllProjectFunc();
-
-
-
         } else if(type === 'bids-setting'){//设置条件
             initBidsFunc._getInfoModalListFunc();
             initEvent.initBidsSettingEvent();
