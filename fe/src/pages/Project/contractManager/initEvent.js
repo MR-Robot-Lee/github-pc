@@ -695,7 +695,7 @@ function initInsideModalEvent(modal) {
         var childs = $(this).find('option:selected').data('item');
         var parents = modal.$body.find('.materialType2').html('');
         childs = childs || [];
-        $('<option value="a">请选择材料分类</option>').appendTo(parents);
+        $('<option value="0">全部</option>').appendTo(parents);
         for (var i = 0, length = childs.length; i < length; i++) {
             var item = childs[i];
             var dom = $('<option></option>');

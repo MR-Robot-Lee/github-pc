@@ -593,7 +593,7 @@ exports.renderSelectMaterialModal = function (list, modal, subProjId) {
 exports.renderContractSelectMaterialModalSelectType = function (modal, list) {
     var materialType1 = modal.$body.find('.materialType1').html('');
     list = list || [];
-    $('<option value="a">请选择材料分类</option>').appendTo(materialType1);
+    $('<option value="0">全部</option>').appendTo(materialType1);
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];
         var dom = $('<option></option>');

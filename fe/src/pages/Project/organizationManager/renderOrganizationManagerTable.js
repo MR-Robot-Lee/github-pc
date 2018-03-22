@@ -101,17 +101,21 @@ exports.renderOrganizeStruEmployeeTable = function (list, data) {
     var parents = $('#employeeTable').html('');
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];
+        console.log(item);
         var sex = item.sex === 1 ? '男' : '女';
         var projPosName = item.projPosName || '暂无';
+        var status = '';
+        if(item.status === 2){
+            status = '<span style="color: #fff;padding: 2px 8px;background-color: #df5454;margin-left: 5px;border-radius: 3px ">停用</span>';
+        }
         var dom = $('<tr class="small">\
-      <td class="border">' + item.userName + '</td>\
+      <td class="border">' + item.userName + status + '</td>\
       <td class="border">' + projPosName + '</td>\
       <td class="border">' + sex + '</td>\
       <td class="border">' + item.age + '</td>\
       <td class="border">' + item.phone + '</td>\
       <td class="border job-desc">' + item.postName + '</td>\
-      <td class="border" style="position: relative"><a class="edit-a" data-type="check">查看</a></td>\
-      <td class="border"><a class="edit-a" data-type="replace">替换</a></td>\
+      <td class="border" style="position: relative"><a class="edit-a" data-type="check">查看</a><span style="margin: 0 5px;">|</span><a class="edit-a" data-type="replace">任务转移</a></td>\
       </tr>');
         for (var j = 0; j < data.data.length; j++) {
             if (data.data[j].postName == item.postName) {

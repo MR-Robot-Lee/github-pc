@@ -1082,7 +1082,7 @@ function initInsideModalEvent(modal) {
         var childs = $(this).find('option:selected').data('item');
         var parents = modal.$body.find('.materialType2').html('');
         childs = childs || [];
-        $('<option value="a">请选择材料分类</option>').appendTo(parents);
+        $('<option value="0">全部</option>').appendTo(parents);
         for (var i = 0, length = childs.length; i < length; i++) {
             var item = childs[i];
             var dom = $('<option></option>');
@@ -1289,7 +1289,7 @@ function initInsideModalEvent(modal) {
                                 var childs = $('.materialType1').eq(1).find('option:selected').data('item');
                                 var parents = $('.materialType2').eq(1).html('');
                                 childs = childs || [];
-                                $('<option value="a">请选择材料分类</option>').appendTo(parents);
+                                $('<option value="0">全部</option>').appendTo(parents);
                                 for (var i = 0, length = childs.length; i < length; i++) {
                                     var _dom = $('<option></option>');
                                     _dom.text(childs[i].mtrlTypeName);

@@ -527,6 +527,9 @@ exports.initOrganizationInEvent = function (parents) {
                 checkTask.find('.system-task-prch').html(data.prch);
                 checkTask.find('.system-task-check').html(data.check);
                 checkTask.find('.system-task-payable').html(data.payable);
+                checkTask.find('.system-task-cntrSave').html(data.cntrSave);
+                checkTask.find('.system-task-mtrlPlanSave').html(data.mtrlPlanSave);
+                checkTask.find('.system-task-settleSave').html(data.settleSave);
             });
             checkTask.click(function (e) {
                 common.stopPropagation(e);
