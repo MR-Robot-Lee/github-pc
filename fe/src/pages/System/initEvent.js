@@ -943,15 +943,15 @@ exports.initAccountInfoEvent = function () {
 function priceFindByCount(count) {
     count = parseInt(count);
     if (count === 10) {
-        return 10 * 499;
+        return 10 * 699;
     } else if (10 < count && count <= 30) {
-        return count * 439;
+        return count * 619;
     } else if (30 < count && count <= 60) {
-        return count * 389;
+        return count * 549;
     } else if (60 < count && count <= 100) {
-        return count * 339;
+        return count * 479;
     } else if (count > 100) {
-        return count * 299;
+        return count * 419;
     }
 }
 
@@ -998,6 +998,11 @@ function initAccountChaseModalEvent(modal) {
     modal.$body.find('[name=modal-limit]').text(limitTime);
     modal.$body.find('.modal-left').click(function (e) {
         common.stopPropagation(e);
+        if($(this).parents('.page-account-index').children('div').length === 3){//子div元素为3个时，类型为追加账号
+            var type = 2;
+        } else {
+            var type = 3;
+        }
         var count = modal.$body.find('.count').text();
         if (isNaN(count)) {
             return alert('请输入正确的数字');
@@ -1007,11 +1012,16 @@ function initAccountChaseModalEvent(modal) {
             --count;
             modal.$body.find('.count').text(count);
         }
-        systemFunc.postAccountPayableFunc({count: count, type: 3}, function (data) {
+        systemFunc.postAccountPayableFunc({count: count, type: type}, function (data) {
             modal.$body.find('.price').text(data.price)
         });
     });
     modal.$body.find('.modal-right').click(function (e) {
+        if($(this).parents('.page-account-index').children('div').length === 3){//子div元素为3个时，类型为追加账号
+            var type = 2;
+        } else {
+            var type = 3;
+        }
         common.stopPropagation(e);
         var count = modal.$body.find('.count').text();
         if (isNaN(count)) {
@@ -1022,7 +1032,7 @@ function initAccountChaseModalEvent(modal) {
             count++;
             modal.$body.find('.count').text(count);
         }
-        systemFunc.postAccountPayableFunc({count: count, type: 2}, function (data) {
+        systemFunc.postAccountPayableFunc({count: count, type: type}, function (data) {
             modal.$body.find('.price').text(data.price)
         });
     });

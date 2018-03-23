@@ -303,7 +303,7 @@ exports.renderPurchaseAccountInfo = function (list) {
             dom = $('<tr class="small">\
         <td class="border">' + item.accCount + '</td>\
         <td class="border">' + item.price + '</td>\
-        <td class="border" rowspan="' + list.length + '"><div style="margin-top:10px;">存储:500MB/人/年</div><br>\
+        <td class="border" rowspan="' + list.length + '"><div style="margin-top:10px;">存储: 1GB/人/年</div><br>\
         <div>免费:提供一对一系统搭建咨询服务</div><br><div>免费:参加系统管理员培训课程</div><br><div>免费:提供企业库设计咨询服务</div><br>\
         <div style="margin-bottom:10px;">免费:成功注册后提供3天免费试用期</div></td>\
         </tr>')
@@ -349,7 +349,7 @@ exports.renderAccountCompanyInfo = function (obj) {
     $('[name=allowSize]').text('(共' + totalGB + 'GB,已用' + useGB + 'GB,可用' + last.toFixed(5) + 'GB)');
     $('[name=count]').text(10);
     $('[name=limit]').text('一年');
-    $('[name=money]').text(10 * 499);
+    $('[name=money]').text(10 * 699);
 };
 
 
