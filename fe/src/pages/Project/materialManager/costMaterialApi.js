@@ -480,3 +480,9 @@ exports.getWorkers = function (data) {
     data = data || {};
     return request.get('/customer/attend/getWorkers', {qs: data});
 }
+
+exports.postAddOrder = function(data){
+    data.projId = $('#projectSchedule').data('id');
+    return request.get('/customer/mtrlOrder/addOrder', {body: data});
+
+}

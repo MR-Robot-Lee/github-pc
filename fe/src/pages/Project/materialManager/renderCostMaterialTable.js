@@ -192,8 +192,8 @@ exports.renderMaterialPurchaseOrderTable = function (list, parents) {
             entprName: item.entprName,
             prchTotalMoney: item.prchTotalMoney
         }));
-        dom.find('[type=checkbox]').prop('checked', item.prchTaxType === 1);
-        dom.find('[type=checkbox]').click(function (e) {
+        dom.find('[type=checkbox].pruchCheckbox').prop('checked', item.prchTaxType === 1);
+        dom.find('[type=checkbox].pruchCheckbox').click(function (e) {
             return false;
         });
         if (item.prchPriceExcpId || item.prchQpyExcpId) {
@@ -1366,7 +1366,7 @@ exports.renderAddTeamTable = function (list, modal, parent) {
     initEvent.initAddTeamEvent(modal, parent);
 }
 
-exports.renderAddWorkerTable = function(list, modal, parent){
+exports.renderAddWorkerTable = function (list, modal, parent) {
     list = list || [];
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
@@ -1391,3 +1391,23 @@ exports.renderAddWorkerTable = function(list, modal, parent){
     initEvent.initAddWorkerEvent(modal, parent);
 }
 
+exports.renderCreateOrderTable = function (list, modal) {
+    console.log(list);
+    for (var i = 0; i < list.length; i++) {
+        var item = list[i];
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border">' + item.mtrlName + '</td>' +
+            '<td class="border">' + item.specBrand + '</td>' +
+            '<td class="border">' + item.unit + '</td>' +
+            '<td class="border"></td>' +
+            '<td class="border"><input type="text" data-type="count"></td>' +
+            '<td class="border"><input type="text" data-type="remark"></td>' +
+            '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
+            '</tr>');
+        dom.data('item',item);
+        dom.appendTo(modal.$body.find('tbody'));
+    }
+    initEvent.initCreateOrderEvent(modal);
+
+}

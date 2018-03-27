@@ -184,6 +184,7 @@ function initSupplierListEvent(parents, that, type) {
         } else {
             if (that.bindData) {
                 that.bindData.data('item', item);
+                that.$container.data('item', item);
                 that.$container.text(item.entpName);
             } else {
                 that.$container.data('item', item);
@@ -240,10 +241,10 @@ function renderSupplierList(list, parents, that, cid, type) {
         for (var i = 0; i < list.length; i++) {
             var item = list[i];
             var dom = $('<li id="c_' + item.id + '">\
-      <i class="icon-disc-item"></i>\
-      <span class="supplier-content-num">' + (1 + i) + '</span>\
-      <span class="supplier-content-name" style="padding-left: 5px;">' + item.entpName + '</span>\
-      </li>');
+        <i class="icon-disc-item"></i>\
+         <span class="supplier-content-num">' + (1 + i) + '</span>\
+         <span class="supplier-content-name" style="padding-left: 5px;">' + item.entpName + '</span>\
+        </li>');
             if (item.id === cid) {
                 dom.addClass('active');
             }

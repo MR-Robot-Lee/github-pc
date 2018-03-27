@@ -3,10 +3,13 @@ var initMaterialManger = require('./initMaterialManager');
 var delModal = require('./modal/deleteModal.ejs');
 var compareSupplierModal = require('./modal/compareSupplierModal.ejs');
 var compareBranchModal = require('./modal/compareBranchModal.ejs');
+var renderCostMaterialTable = require('./renderCostMaterialTable');
 
 var updatePurchaseNameModal = require('./modal/updatePurchaseNameModal.ejs');
 var Modal = require('../../../components/Model');
 var mentionPlanModal = require('./modal/mentionPlanModal.ejs');
+var createOrderModal = require('./modal/createOrderModal.ejs');
+var manageOrderModal = require('./modal/manageOrderModal.ejs');
 var purchaseEditModal = require('./modal/purchaseEditModal.ejs');
 var checkAndAcceptModal = require('./modal/checkAndAcceptModal.ejs');
 var deleteModal = require('./modal/deleteModal.ejs');
@@ -316,6 +319,7 @@ exports.initMaterialPlanEvent = function () {
                     $('.mentionPlan').hide()
                 }
             } else if (type === 'purchase-order') {//采购
+                console.log(1111);
                 $type = 2;
                 $(materialPurchaseOrder()).appendTo(parents);
                 initMaterialManger.initMaterialDetailById(item.id, type);
@@ -346,6 +350,7 @@ exports.initMaterialPlanEvent = function () {
                 initMaterialManger.getMaterialPlanCostFindByPlanIdFunc(item.id);
                 initCostOrderList(parents, item);
             }
+            console.log(type);
             if (type === 'cost-order') {
                 initMaterialManger.initGetCostMaterialList({mtrlPlanId: item.id}, parents);
             } else {
@@ -568,7 +573,33 @@ function initMaterialPlanDetail(parents) {
  * @param item 单个材料计划
  */
 function initPurchaseDetail(parents, item) {
-    var purchaseOrder = $("#purchaseOrder");
+    var createOrder = $("#createOrder");//生成订单
+    var manageOrder = $("#manageOrder");//管理订单
+    var purchaseOrder = $("#purchaseOrder");//采购编辑
+    createOrder.click(function(e){
+        console.log('生成订单');
+        common.stopPropagation(e);
+        var createModal = Modal('生成订单', createOrderModal());
+        createModal.show();
+        createModal.showClose();
+        var list = [];
+        $("input.choose").each(function(){
+            if($(this).prop('checked')){
+                list.push($(this).parents('tr').data('item'));
+            }
+        })
+        renderCostMaterialTable.renderCreateOrderTable(list, createModal);
+
+    })
+    manageOrder.click(function(e){
+        console.log('管理订单');
+        common.stopPropagation(e);
+        // var manageModal = Modal('管理订单', manageOrderModal());
+        // manageModal.show();
+        // manageModal.showClose();
+        new addSupplier($(this), $(this), {}, 'bid');
+        $('.model-add-supplier').css({'left': '225px', 'top': '30%'});
+    })
     if (!purchaseOrder.data('flag')) {
         purchaseOrder.data('flag', true);
         parents.find('.cancel').click(function (e) {
@@ -2386,5 +2417,47 @@ exports.initAddWorkerEvent = function (modal, parent) {
     });
 }
 
+exports.initCreateOrderEvent = function(modal){
+    modal.$body.find('.chooseSup').click(function(e){
+        common.stopPropagation(e);
+        new addSupplier( $('.checkedSup'),  $('body'), {});
+        $('.model-add-supplier').css({'left': '30%', 'top': '20%','z-index': 10000});
+    })
+    modal.$body.find('.confirm').click(function(e){
+        common.stopPropagation(e);
+        // console.log(modal.$body.find('.checkedSup').data('item'));
+        if(!modal.$body.find('.checkedSup').html()){
+            return alert('请选择供应商');
+        }
+        // modal.$body.find('tr').each(function(){
+        //     console.log($(this).data('item'));
+        // })
+        var data = {};
+        data.entpId = modal.$body.find('.checkedSup').data('item').id;
+        data.acctType = modal.$body.find('select').val();
+        data.addMtrlOrderDetailList = [];
+        modal.$body.find('tr').each(function(){
+            var _data = {};
+            console.log($(this).data('item'));
+            _data.mtrlId = $(this).data('item').mtrlId;
+            _data.mtrlPlanDetailId = $(this).data('item').id;
+            _data.orderQpy = $(this).data('item').orderQpy;
+            data.addMtrlOrderDetailList.push(_data);
+        })
+        console.log(data);
+        // costMaterialApi.postAddOrder(data).then(function(res){
+        //     if(res.code === 1){
+        //         modal.$body.find('.span-btn-bc').click();
+        //     }
+        // })
+    })
+    modal.$body.find('input').change(function(){
+        if($(this).data('type') === 'count'){
+            $(this).parents('tr').data('item').orderQpy = $(this).val();
+        } else if($(this).data('type') === 'remark'){
+            $(this).parents('tr').data('item').remark = $(this).val();
+        }
+    })
+}
 
 
