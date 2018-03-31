@@ -9,12 +9,15 @@ var updatePurchaseNameModal = require('./modal/updatePurchaseNameModal.ejs');
 var Modal = require('../../../components/Model');
 var mentionPlanModal = require('./modal/mentionPlanModal.ejs');
 var createOrderModal = require('./modal/createOrderModal.ejs');
+var waitingOrderModal = require('./modal/waitingOrderModal.ejs');
+var rejectOrderModal = require('./modal/rejectOrderModal.ejs');
+var checkingOrderModal = require('./modal/checkingOrderModal.ejs');
+var checkedOrderModal = require('./modal/checkedOrderModal.ejs');
 var manageOrderModal = require('./modal/manageOrderModal.ejs');
 var purchaseEditModal = require('./modal/purchaseEditModal.ejs');
 var checkAndAcceptModal = require('./modal/checkAndAcceptModal.ejs');
 var deleteModal = require('./modal/deleteModal.ejs');
 var initMaterialManager = require('./initMaterialManager');
-
 
 var materialPlanOrderList = require('./table/materialPlanOrderList.ejs');
 var materialPurchaseOrder = require('./table/materialPurchaseOrder.ejs');
@@ -560,7 +563,7 @@ function initMaterialPlanDetail(parents) {
     })
     parents.find('[name=planCount]').keyup(function (e) {
         var num = $(this).val();
-        if (isNaN(num*1)) {
+        if (isNaN(num * 1)) {
             alert('请输入数字');
             $(this).val(num.slice(0, -1));
         }
@@ -576,29 +579,32 @@ function initPurchaseDetail(parents, item) {
     var createOrder = $("#createOrder");//生成订单
     var manageOrder = $("#manageOrder");//管理订单
     var purchaseOrder = $("#purchaseOrder");//采购编辑
-    createOrder.click(function(e){
-        console.log('生成订单');
+    createOrder.click(function (e) {
         common.stopPropagation(e);
         var createModal = Modal('生成订单', createOrderModal());
         createModal.show();
         createModal.showClose();
         var list = [];
-        $("input.choose").each(function(){
-            if($(this).prop('checked')){
+        $("input.choose").each(function () {
+            if ($(this).prop('checked')) {
                 list.push($(this).parents('tr').data('item'));
             }
         })
-        renderCostMaterialTable.renderCreateOrderTable(list, createModal);
+        renderCostMaterialTable.renderCreateOrderTable(list, createModal, item.id);
 
     })
-    manageOrder.click(function(e){
-        console.log('管理订单');
+    manageOrder.click(function (e) {
         common.stopPropagation(e);
-        // var manageModal = Modal('管理订单', manageOrderModal());
-        // manageModal.show();
-        // manageModal.showClose();
-        new addSupplier($(this), $(this), {}, 'bid');
-        $('.model-add-supplier').css({'left': '225px', 'top': '30%'});
+        var manageModal = Modal('管理订单', manageOrderModal());
+        manageModal.show();
+        manageModal.showClose();
+        costMaterialApi.getOrder(item.id).then(function (res) {
+            if (res.code === 1) {
+                console.log(res);
+                var list = res.data || [];
+            }
+            renderCostMaterialTable.renderOrderTable(list, manageModal);
+        })
     })
     if (!purchaseOrder.data('flag')) {
         purchaseOrder.data('flag', true);
@@ -945,7 +951,7 @@ function initMentionPlanModalEvent(modal, item) {
                 if (name === 'planCount') {
                     val = Number(val);
                 }
-                if(isNaN(val)){
+                if (isNaN(val)) {
                     return alert('请输入数字');
                 }
                 data[name] = val;
@@ -2417,26 +2423,23 @@ exports.initAddWorkerEvent = function (modal, parent) {
     });
 }
 
-exports.initCreateOrderEvent = function(modal){
-    modal.$body.find('.chooseSup').click(function(e){
+exports.initCreateOrderEvent = function (modal, id) {
+    modal.$body.find('.chooseSup').click(function (e) {
         common.stopPropagation(e);
-        new addSupplier( $('.checkedSup'),  $('body'), {});
-        $('.model-add-supplier').css({'left': '30%', 'top': '20%','z-index': 10000});
+        new addSupplier($('.checkedSup'), $('body'), {});
+        $('.model-add-supplier').css({'left': '30%', 'top': '20%', 'z-index': 10000});
     })
-    modal.$body.find('.confirm').click(function(e){
+    modal.$body.find('.confirm').click(function (e) {
         common.stopPropagation(e);
-        // console.log(modal.$body.find('.checkedSup').data('item'));
-        if(!modal.$body.find('.checkedSup').html()){
+        if (!modal.$body.find('.checkedSup').html()) {
             return alert('请选择供应商');
         }
-        // modal.$body.find('tr').each(function(){
-        //     console.log($(this).data('item'));
-        // })
         var data = {};
         data.entpId = modal.$body.find('.checkedSup').data('item').id;
         data.acctType = modal.$body.find('select').val();
         data.addMtrlOrderDetailList = [];
-        modal.$body.find('tr').each(function(){
+        data.mtrlPlanId = id;
+        modal.$body.find('tbody tr').each(function () {
             var _data = {};
             console.log($(this).data('item'));
             _data.mtrlId = $(this).data('item').mtrlId;
@@ -2444,19 +2447,127 @@ exports.initCreateOrderEvent = function(modal){
             _data.orderQpy = $(this).data('item').orderQpy;
             data.addMtrlOrderDetailList.push(_data);
         })
-        console.log(data);
-        // costMaterialApi.postAddOrder(data).then(function(res){
-        //     if(res.code === 1){
-        //         modal.$body.find('.span-btn-bc').click();
-        //     }
-        // })
+        costMaterialApi.postAddOrder(data).then(function (res) {
+            if (res.code === 1) {
+                modal.$body.find('.span-btn-bc').click();
+            }
+        })
     })
-    modal.$body.find('input').change(function(){
-        if($(this).data('type') === 'count'){
+    modal.$body.find('input').change(function () {
+        if ($(this).data('type') === 'count') {
             $(this).parents('tr').data('item').orderQpy = $(this).val();
-        } else if($(this).data('type') === 'remark'){
+        } else if ($(this).data('type') === 'remark') {
             $(this).parents('tr').data('item').remark = $(this).val();
         }
+    })
+}
+
+exports.initOrderEvent = function (modal) {
+    modal.$body.find('a').click(function (e) {
+        common.stopPropagation(e);
+        var item = $(this).parents('tr').data('item');
+        // console.log(item);
+        if ($(this).data('type') === 'manage') {
+            costMaterialApi.getOrderInfo(item.id).then(function(res){
+                if(res.code === 1){
+                    console.log(res);
+                    var data = res.data || {};
+                    if (item.orderStatus === 1) {//未报价
+                        var _modal = waitingOrderModal();
+                    } else if (item.orderStatus === 2) {//待审核
+                        var _modal = checkingOrderModal();
+                    } else if (item.orderStatus === 3) {//已审核
+                        var _modal = checkedOrderModal();
+                    } else if (item.orderStatus === 4) {//已拒绝
+                        var _modal = rejectOrderModal();
+                    }
+                    var manageOrder = Modal('订单 : ' + item.orderNo, _modal);
+                    manageOrder.show();
+                    manageOrder.showClose();
+                    renderCostMaterialTable.renderManageOrderTable(manageOrder, data, item.id);
+                }
+            })
+
+        } else if ($(this).data('type') === 'del') {
+            costMaterialApi.putOrderStatus(item.id, 5).then(function(res){
+                if(res.code === 1){
+                    $(this).parents('tr').nextAll('tr').find('td:first-child').each(function(){
+                        $(this).html($(this).html()/1 - 1);
+                    });
+                    $(this).parents('tr').remove();
+                }
+            })
+        }
+    })
+}
+
+exports.initPutOrderEvent = function(modal, item){
+    modal.$body.find('.confirm').click(function(e){
+        common.stopPropagation(e);
+        var data = {};
+        data.entpId = item.entpId;
+        data.acctType = modal.$body.find('select').val();
+        data.addMtrlOrderDetailList = [];
+        data.mtrlPlanId = item.mtrlPlanId;
+        modal.$body.find('tbody tr').each(function () {
+            var _data = {};
+            _data.mtrlId = $(this).data('item').mtrlId;
+            _data.mtrlPlanDetailId = $(this).data('item').mtrlPlanDetailId;
+            _data.orderQpy = $(this).data('item').orderQpy;
+            data.addMtrlOrderDetailList.push(_data);
+        })
+        costMaterialApi.putOrder(data, item.id).then(function (res) {
+            if (res.code === 1) {
+                modal.$body.find('.span-btn-bc').click();
+            }
+        })
+    })
+    modal.$body.find('input').change(function () {
+        if ($(this).data('type') === 'count') {
+            $(this).parents('tr').data('item').orderQpy = $(this).val();
+        } else if ($(this).data('type') === 'remark') {
+            $(this).parents('tr').data('item').remark = $(this).val();
+        }
+    })
+}
+
+exports.initCheckingOrderEvent = function(modal, data, id){
+    modal.$body.find('#refresh').off('click');
+    modal.$body.find('#refresh').on('click', function(){
+        costMaterialApi.getOrderInfo(id).then(function(res){
+            if(res.code === 1){
+                var _data = res.data || {};
+                renderCostMaterialTable.renderManageOrderTable(modal, _data, id);
+            }
+        })
+    })
+    modal.$body.find('a').off('click');
+    modal.$body.find('a').on('click', function(){
+        var item = $(this).parents('tr').data('item');
+        var that = this;
+        if($(this).data('type') === 'check'){
+
+        } else if($(this).data('type') === 'reject'){
+            costMaterialApi.putOrderDetail(id, item.id, 3).then(function(res){
+                if(res.code === 1){
+                    $(that).parents('td').html('已拒绝')
+                }
+            });
+        } else if($(this).data('type') === 'deal'){
+            costMaterialApi.putOrderDetail(id, item.id, 2).then(function(res){
+                if(res.code === 1){
+                    $(that).parents('td').html('已成交')
+                }
+            });
+        }
+    })
+    modal.$body.find('.confirm').off('click');
+    modal.$body.find('.confirm').on('click', function(){
+        costMaterialApi.putOrderStatus(id, 3).then(function(res){
+            if(res.code === 1){
+                modal.$body.find('.span-btn-bc').click();
+            }
+        })
     })
 }
 

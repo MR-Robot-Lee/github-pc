@@ -1391,8 +1391,8 @@ exports.renderAddWorkerTable = function (list, modal, parent) {
     initEvent.initAddWorkerEvent(modal, parent);
 }
 
-exports.renderCreateOrderTable = function (list, modal) {
-    console.log(list);
+exports.renderCreateOrderTable = function (list, modal, id) {
+    modal.$body.find('tbody').html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
         var dom = $('<tr class="small">' +
@@ -1400,14 +1400,195 @@ exports.renderCreateOrderTable = function (list, modal) {
             '<td class="border">' + item.mtrlName + '</td>' +
             '<td class="border">' + item.specBrand + '</td>' +
             '<td class="border">' + item.unit + '</td>' +
-            '<td class="border"></td>' +
+            '<td class="border">' + item.planQpy + '</td>' +
             '<td class="border"><input type="text" data-type="count"></td>' +
-            '<td class="border"><input type="text" data-type="remark"></td>' +
+            '<td class="border">' + item.remark + '</td>' +
             '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
             '</tr>');
-        dom.data('item',item);
+        dom.data('item', item);
         dom.appendTo(modal.$body.find('tbody'));
     }
-    initEvent.initCreateOrderEvent(modal);
+    initEvent.initCreateOrderEvent(modal, id);
+}
 
+exports.renderOrderTable = function (list, modal) {
+    modal.$body.find('tbody').html('');
+    for (var i = 0; i < list.length; i++) {
+        var item = list[i];
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border">' + item.orderNo + '</td>' +
+            '<td class="border">' + item.entpName + '</td>' +
+            '<td class="border">' + moment(item.addTime).format('YYYY/MM/DD') + '</td>' +
+            '<td class="border">' + getOrderStatus(item.orderStatus) + '</td>' +
+            '<td class="border">' +
+            '<a href="javascritp:;" class="confirm-hover" data-type="manage">管理</a>' +
+            '<span style="margin: 0 5px;">|</span>' +
+            '<a href="javascript:;" class="delete-hover" data-type="del">删除</a>' +
+            '</td>' +
+            '</tr>');
+        dom.data('item', item);
+        dom.appendTo(modal.$body.find('tbody'));
+    }
+    initEvent.initOrderEvent(modal);
+}
+
+function getOrderStatus(type) {
+    type = parseInt(type);
+    switch (type) {
+        case 1:
+            return '未报价';
+        case 2:
+            return '待审核';
+        case 3:
+            return '已审核';
+        case 4:
+            return '已拒绝';
+    }
+}
+
+function getAcctType(type) {
+    type = parseInt(type);
+    switch (type) {
+        case 1:
+            return '实付无预付款';
+        case 2:
+            return '应付';
+        case 3:
+            return '实付有预付款';
+    }
+}
+
+exports.renderManageOrderTable = function (modal, data, id) {
+    var list = data.detailVOList || [];
+    if (data.orderStatus === 1) {//未报价
+        modal.$body.find('.entpName').html(data.entpName);
+        modal.$body.find('.contactName').html(data.contactName);
+        modal.$body.find('.phone').html(data.phone);
+        modal.$body.find('select').val(data.acctType);
+        var mtrlStatus = $('<div style="position: absolute;top: 15px;right: 70px;font-weight: bold;">订单状态 : ' + getOrderStatus(data.orderStatus) + '</div>');
+        modal.$body.append(mtrlStatus);
+        for (var i = 0; i < list.length; i++) {
+            var item = list[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.mtrlName + '</td>' +
+                '<td class="border">' + item.specBrand + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.planQpy + '</td>' +
+                '<td class="border"><input type="text" data-type="count" value=' + item.orderQpy + '></td>' +
+                '<td class="border">' + item.remark + '</td>' +
+                '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
+                '</tr>');
+            dom.data('item', item);
+            dom.appendTo(modal.$body.find('tbody'));
+        }
+        initEvent.initPutOrderEvent(modal, data);
+    } else if (data.orderStatus === 2) {//待审核
+        modal.$body.find('.entpName').html(data.entpName);
+        modal.$body.find('.contactName').html(data.contactName);
+        modal.$body.find('.phone').html(data.phone);
+        modal.$body.find('.acctType').html(getAcctType(data.acctType));
+        modal.$body.find('.orderMoney').html(data.orderMoney + '元');
+        if (modal.$body.find('.orderStatus').length === 0) {
+            var mtrlStatus = $('<div class="orderStatus" style="position: absolute;top: 15px;right: 70px;font-weight: bold;">订单状态 : ' + getOrderStatus(data.orderStatus) + '</div>');
+            modal.$body.append(mtrlStatus);
+        }
+        modal.$body.find('tbody').html('');
+        var dealMoney = 0;
+        for (var i = 0; i < list.length; i++) {
+            var item = list[i];
+            var taxType = item.taxType === 1 ? 'checked' : '';
+            var status = '';
+            if(item.status === 1){
+                status = '<a href="javascript:;" class="delete-hover" data-type="reject">拒绝</a><span style="margin: 0 5px;">|</span><a href="javascript:;" class="confirm-hover" data-type="deal">成交</a>'
+            } else if(item.status === 2){
+                status = '已成交';
+            } else if(item.status === 3){
+                status = '已拒绝';
+            }
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.mtrlName + '</td>' +
+                '<td class="border">' + item.specBrand + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.planQpy + '</td>' +
+                '<td class="border">' + item.orderQpy + '</td>' +
+                '<td class="border">' + item.orderPrice + '</td>' +
+                '<td class="border">' + (item.orderQpy * item.orderPrice) + '</td>' +
+                '<td class="border">' + item.mtrlPlace + '</td>' +
+                '<td class="border"><input type="checkbox" disabled ' + taxType + '></td>' +
+                '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+                '<td class="border">' + status + '</td>' +
+                '</tr>');
+            dealMoney = +item.orderQpy * item.orderPrice;
+            dom.data('item', item);
+            dom.appendTo(modal.$body.find('tbody'));
+        }
+        modal.$body.find('.dealMoney').html(dealMoney + '元');
+        initEvent.initCheckingOrderEvent(modal, data, id);
+    } else if (data.orderStatus === 3) {//已审批
+        modal.$body.find('.entpName').html(data.entpName);
+        modal.$body.find('.contactName').html(data.contactName);
+        modal.$body.find('.phone').html(data.phone);
+        modal.$body.find('.acctType').html(getAcctType(data.acctType));
+        modal.$body.find('.orderMoney').html(data.orderMoney + '元');
+        if (modal.$body.find('.orderStatus').length === 0) {
+            var mtrlStatus = $('<div class="orderStatus" style="position: absolute;top: 15px;right: 70px;font-weight: bold;">订单状态 : ' + getOrderStatus(data.orderStatus) + '</div>');
+            modal.$body.append(mtrlStatus);
+        }
+        modal.$body.find('tbody').html('');
+        var dealMoney = 0;
+        for (var i = 0; i < list.length; i++) {
+            var item = list[i];
+            var taxType = item.taxType === 1 ? 'checked' : '';
+            var status = '';
+            if(item.status === 1){
+                status = '<a href="javascript:;" class="delete-hover" data-type="reject">拒绝</a><span style="margin: 0 5px;">|</span><a href="javascript:;" class="confirm-hover" data-type="deal">成交</a>'
+            } else if(item.status === 2){
+                status = '已成交';
+            } else if(item.status === 3){
+                status = '已拒绝';
+            }
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.mtrlName + '</td>' +
+                '<td class="border">' + item.specBrand + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.planQpy + '</td>' +
+                '<td class="border">' + item.orderQpy + '</td>' +
+                '<td class="border">' + item.orderPrice + '</td>' +
+                '<td class="border">' + (item.orderQpy * item.orderPrice) + '</td>' +
+                '<td class="border">' + item.mtrlPlace + '</td>' +
+                '<td class="border"><input type="checkbox" disabled ' + taxType + '></td>' +
+                '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+                '<td class="border">' + status + '</td>' +
+                '</tr>');
+            dealMoney = +item.orderQpy * item.orderPrice;
+            dom.data('item', item);
+            dom.appendTo(modal.$body.find('tbody'));
+        }
+        modal.$body.find('.dealMoney').html(dealMoney + '元');
+    } else if (data.orderStatus === 4) {//已拒绝
+        modal.$body.find('.entpName').html(data.entpName);
+        modal.$body.find('.contactName').html(data.contactName);
+        modal.$body.find('.phone').html(data.phone);
+        modal.$body.find('.acctType').html(getAcctType(data.acctType));
+        var mtrlStatus = $('<div style="position: absolute;top: 15px;right: 70px;font-weight: bold;">订单状态 : ' + getOrderStatus(data.orderStatus) + '</div>');
+        modal.$body.append(mtrlStatus);
+        for (var i = 0; i < list.length; i++) {
+            var item = list[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.mtrlName + '</td>' +
+                '<td class="border">' + item.specBrand + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.planQpy + '</td>' +
+                '<td class="border"><input type="text" data-type="count" value=' + item.orderQpy + '></td>' +
+                '<td class="border">' + item.remark + '</td>' +
+                '</tr>');
+            dom.data('item', item);
+            dom.appendTo(modal.$body.find('tbody'));
+        }
+    }
 }

@@ -481,8 +481,46 @@ exports.getWorkers = function (data) {
     return request.get('/customer/attend/getWorkers', {qs: data});
 }
 
-exports.postAddOrder = function(data){
+/*
+* 生成订单
+* */
+exports.postAddOrder = function (data) {
     data.projId = $('#projectSchedule').data('id');
-    return request.get('/customer/mtrlOrder/addOrder', {body: data});
+    return request.post('/customer/mtrlOrder/addOrder', {body: data});
+}
 
+/*
+* 查看某一材料计划单下的订单
+* */
+exports.getOrder = function (id) {
+    return request.get('/customer/mtrlOrder/mtrlPlan/' + id);
+}
+
+/*
+* 查看某一订单信息
+* */
+exports.getOrderInfo = function (id) {
+    return request.get('/customer/mtrlOrder/order/' + id);
+}
+
+/*
+* 修改订单
+* */
+exports.putOrder = function (data, id) {
+    data.projId = $('#projectSchedule').data('id');
+    return request.put('/customer/mtrlOrder/updOrder/' + id, {body: data});
+}
+
+/*
+* 修改订单某一详情的状态
+* */
+exports.putOrderDetail = function (mtrlOrderId, id, type) {
+    return request.put('/customer/mtrlOrder/orderDetail/' + mtrlOrderId + '/' + id + '/' + type);
+}
+
+/*
+* 修改订单状态
+* */
+exports.putOrderStatus = function (id, type) {
+    return request.put('/customer/mtrlOrder/order/' + id + '/' + type);
 }
