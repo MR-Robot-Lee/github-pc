@@ -1210,6 +1210,7 @@ function initInsideModalEvent(modal) {
     });
     modal.$body.find('#newMaterial').click(function (e) {
         var that = this;
+        console.log('lalala');
         common.stopPropagation(e);
         $('.material-manager-modal').remove();
         addMaterial = $(addMaterialModal());
@@ -1217,8 +1218,9 @@ function initInsideModalEvent(modal) {
         var categoryIpt = addMaterial.find('.category-ipt');//类别输入框(一级)
         var typeSel = addMaterial.find('.type-sel');//类型选择框(二级)
         var typeIpt = addMaterial.find('.type-ipt');//类型输入框(二级)
+        categorySel.find('ul').css({'maxHeight':'400px'});
         /*添加一级下拉菜单*/
-        $(this).next('.fr').find('.materialType1 option').each(function (index, ele) {
+        $(this).next('.fl').find('.materialType1 option').each(function (index, ele) {
             if (index > 0) {
                 var dom = $('<li>' + $(ele).html() + '</li>');
                 dom.data('item', $(ele).val());
@@ -1228,7 +1230,7 @@ function initInsideModalEvent(modal) {
                 costBudgetManagerEventModal._typeListEvent('material', dom, addMaterial, 'Cntr');
             }
         })
-        addMaterial.css({'left': '132px', 'top': '-30px'});
+        addMaterial.css({'left': '847px', 'top': '-30px'});
         addMaterial.appendTo($('.add-material-modal'));
         /*初始化菜单交互事件*/
         costBudgetManagerEventModal._materialShift(categorySel, categoryIpt, 'materialType');
