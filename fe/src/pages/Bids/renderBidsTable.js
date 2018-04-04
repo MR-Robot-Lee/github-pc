@@ -238,13 +238,13 @@ exports.renderBidsList = function (list) {
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
         var dom = $('<div class="clearfix bid-item">' +
-            '<div class="bid-item-type fl">劳务</div>' +
+            '<div class="bid-item-type fl">' + getBidType(item.bidType) + '</div>' +
             '<div class="bid-item-con fl">' +
-            '<div class="bid-item-con_top">吊顶施工劳务队伍招标</div>' +
+            '<div class="bid-item-con_top">' + item.bidTitle + '</div>' +
             '<div class="bid-item-con_bottom">' +
-            '<span>招标编号 :</span>' +
+            '<span>招标编号 : </span>' +
             '<span>' + item.bidNo + '</span>' +
-            '<span>西安车辆段装修工程</span>' +
+            '<span style="margin-left: 20px;">' + item.projectName + '</span>' +
             '</div>' +
             '</div>' +
             '<div class="bid-item-status fl">状态 : <span>' + getBidStatus(item.bidStatus) + '</span></div>' +
@@ -260,6 +260,22 @@ exports.renderBidsList = function (list) {
         dom.appendTo(parent);
     }
     initEvent.initBidItemEvent(parent);
+}
+
+function getBidType(type) {
+    type = parseInt(type);
+    switch (type) {
+        case 1:
+            return '材料';
+        case 2:
+            return '人工';
+        case 3:
+            return '措施';
+        case 4:
+            return '分包';
+        case 5:
+            return '企业';
+    }
 }
 
 function getBidStatus(type) {
@@ -289,16 +305,14 @@ function getBidStatus(type) {
 /*
 * 投标单位列表
 * */
-exports.renderBidInviteList = function (data) {
+exports.renderBidInviteList = function (data, id) {
     if (data) {
         var list = data.bidInviteVOList;
     }
-    list.length = 3;
     var parent = $('.con-container').html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
         console.log(item);
-        // var biddingMoney = item.biddingMoney || '';
         var dom = $('<div class="bid-company-item" style="position: relative;">' +
             '<div style="line-height: 34px;font-weight: bold;color: #333333;">' + item.entpName + '</div>' +
             '<div><label>投标总价 : </label> <span>123456.78</span></div>' +

@@ -187,7 +187,7 @@ exports.initAddBidsEvent = function () {
         $('#bidList').find('tr').each(function () {
             var _data = {};
             console.log($(this).data('item'));
-            _data.objEnumType = $("#bidType").val();
+            _data.objEnumType = $("#bidType").val()*1 + 1;
             _data.objId = $(this).data('item').id;
             _data.objQpy = $(this).data('item').count / 1;
             if (!_data.objQpy) {
@@ -344,14 +344,16 @@ function delItem(modal, that, type) {
 function checkBidType(type) {
     type = parseInt(type);
     switch (type) {
-        case 2:
+        case 1:
             return 'material';
-        case 3:
+        case 2:
             return 'labor';
-        case 4:
+        case 3:
             return 'step';
-        case 5:
+        case 4:
             return 'subpackage';
+        case 5:
+            return 'supplier';
     }
 }
 

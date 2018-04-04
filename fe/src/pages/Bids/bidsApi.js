@@ -3,8 +3,8 @@ var request = require('../../helper/request');
  * 招标状态修改
  * @returns {Request}
  */
-exports.putBidsStatus = function putBidsStatus() {
-    return request.put('/customer/bid/bid');
+exports.putBidsStatus = function putBidsStatus(id, type) {
+    return request.put('/customer/bid/bid/' + id + '/' + type);
 };
 /**
  * 招标信息添加
@@ -69,4 +69,12 @@ exports.delInfoModal = function delInfoModal(id) {
 exports.putInfoModal = function putInfoModal(id, data) {
     data = data || {};
     return request.put('/customer/bid/bidRequire/' + id, {body: data});
+};
+
+/**
+ * 选定中标
+ * @returns {Request}
+ */
+exports.putWinBid = function putWinBid(id, entpId) {
+    return request.put('/customer/bid/winBid/' + id + '/' + entpId);
 };

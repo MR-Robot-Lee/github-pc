@@ -1395,14 +1395,16 @@ exports.renderCreateOrderTable = function (list, modal, id) {
     modal.$body.find('tbody').html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
+        var remark = item.remark || '';
+        var planQpy = item.planQpy || '';
         var dom = $('<tr class="small">' +
             '<td class="border">' + (i + 1) + '</td>' +
             '<td class="border">' + item.mtrlName + '</td>' +
             '<td class="border">' + item.specBrand + '</td>' +
             '<td class="border">' + item.unit + '</td>' +
-            '<td class="border">' + item.planQpy + '</td>' +
+            '<td class="border">' + planQpy + '</td>' +
             '<td class="border"><input type="text" data-type="count"></td>' +
-            '<td class="border">' + item.remark + '</td>' +
+            '<td class="border">' + remark + '</td>' +
             '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
             '</tr>');
         dom.data('item', item);
@@ -1444,6 +1446,8 @@ function getOrderStatus(type) {
             return '已审核';
         case 4:
             return '已拒绝';
+        case 5:
+            return '已删除';
     }
 }
 

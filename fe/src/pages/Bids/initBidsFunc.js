@@ -152,6 +152,6 @@ exports.putBidsInfoFunc = function(data){
 exports.getBidInfoFunc = function(id){
     bidsApi.getBidInfo(id).then(function(res){
         var data = res.data || {};
-        renderBidsTable.renderBidInviteList(data);
+        renderBidsTable.renderBidInviteList(data, id);
     });
 }
