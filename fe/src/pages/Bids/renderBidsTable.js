@@ -15,7 +15,6 @@ exports.renderInfoListTable = function (list) {
     var parent = $('#bidRequireList').html('');
     var user = JSON.parse(localStorage.getItem('user'));
     var addUserName = user.employee.userName;
-    console.log(list);
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
         var dom = $('<tr class="trHeightLight-hover">' +
@@ -223,8 +222,7 @@ function renderBidListTable(allArr, type) {
 /*
 * 招标列表
 * */
-exports.renderBidsList = function (list) {
-    console.log(list);
+exports.renderBidsList = function (list, page) {
     if (list.length > 0) {
         $("[name=noInfoBidsList_main]").show();
         $("[name=noInfoBidsList_page]").show();
@@ -237,6 +235,12 @@ exports.renderBidsList = function (list) {
     var parent = $(".all-bids").html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
+        var oper = '';
+        if (item.bidStatus === 2) {
+            oper = '<a href="javascript:;" class="delete-hover" data-type="recall">撤回</a>';
+        } else {
+            oper = '<a href="javascript:;" class="delete-hover" data-type="del">删除</a>';
+        }
         var dom = $('<div class="clearfix bid-item">' +
             '<div class="bid-item-type fl">' + getBidType(item.bidType) + '</div>' +
             '<div class="bid-item-con fl">' +
@@ -248,18 +252,12 @@ exports.renderBidsList = function (list) {
             '</div>' +
             '</div>' +
             '<div class="bid-item-status fl">状态 : <span>' + getBidStatus(item.bidStatus) + '</span></div>' +
-            '<div class="bid-item-oparete fr">' +
-            '<a href="javascript:;" class="delete-hover" data-type="edit">编辑</a>' +
-            '<span style="margin: 0 5px;color: #666;">|</span>' +
-            '<a href="javascript:;" class="delete-hover" data-type="recall">撤回</a>' +
-            '<span style="margin: 0 5px;color: #666;">|</span>' +
-            '<a href="javascript:;" class="delete-hover" data-type="del">删除</a>' +
-            '</div>' +
+            '<div class="bid-item-oparete fr">' + oper + '</div>' +
             '</div>');
         dom.data('item', item);
         dom.appendTo(parent);
     }
-    initEvent.initBidItemEvent(parent);
+    initEvent.initBidItemEvent(parent, page);
 }
 
 function getBidType(type) {
@@ -282,23 +280,17 @@ function getBidStatus(type) {
     type = parseInt(type);
     switch (type) {
         case 1:
-            return '已保存';
+            return '待发布';
         case 2:
             return '招标中';
         case 3:
             return '已截止';
         case 4:
             return '流标';
-        case 5:
-            return '评审中';
-        case 6:
-            return '审批中';
         case 7:
-            return '审批完成';
+            return '已评标';
         case 8:
-            return '被驳回';
-        case 9:
-            return '已删除';
+            return '被撤回';
     }
 }
 
@@ -312,7 +304,6 @@ exports.renderBidInviteList = function (data, id) {
     var parent = $('.con-container').html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
-        console.log(item);
         var dom = $('<div class="bid-company-item" style="position: relative;">' +
             '<div style="line-height: 34px;font-weight: bold;color: #333333;">' + item.entpName + '</div>' +
             '<div><label>投标总价 : </label> <span>123456.78</span></div>' +
@@ -327,4 +318,51 @@ exports.renderBidInviteList = function (data, id) {
         dom.appendTo(parent);
     }
     initEvent.initWinzheBidEvent();
+}
+
+/*
+* 招标公告详情中表格
+* @param bidRequireList 招标要求
+* @param bidInviteVOList 招标清单
+* @param bidDetailVOList 投标邀请
+* */
+exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDetailVOList) {
+    $('#bidRequireSettingPrev').html('');
+    $('#bidListPrev').html('');
+    $('#bidInvitationPrev').html('');
+    for (var i = 0; i < bidRequireList.length; i++) {
+        var item = bidRequireList[i];
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border">' + item.requireDesc + '</td>' +
+            '</tr>');
+        dom.appendTo($('#bidRequireSettingPrev'));
+    }
+    for (var i = 0; i < bidDetailVOList.length; i++) {
+        var item = bidDetailVOList[i];
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border">' + item.objEnumType + '</td>' +
+            '<td class="border">' + item.objName + '</td>' +
+            '<td class="border">' + item.objContent + '</td>' +
+            '<td class="border">' + item.unit + '</td>' +
+            '<td class="border">' + item.objQpy + '</td>' +
+            '<td class="border">' + (item.remark || '') + '</td>' +
+            '</tr>');
+        dom.appendTo($('#bidListPrev'));
+    }
+    for (var i = 0; i < bidInviteVOList.length; i++) {
+        var item = bidInviteVOList[i];
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border">' + item.entpType + '</td>' +
+            '<td class="border">' + item.entpName + '</td>' +
+            '<td class="border">' + item.contactName + '</td>' +
+            '<td class="border">' + item.phone + '</td>' +
+            '<td class="border"></td>' +
+            '<td class="border"></td>' +
+            '<td class="border"></td>' +
+            '</tr>');
+        dom.appendTo($('#bidInvitationPrev'));
+    }
 }

@@ -13,7 +13,7 @@ module.exports = {
                 pageSize: [10, 20, 30], // 设置每页显示条数按钮
                 size: 10, // 默认每页显示多少条
             })
-            initEvent.initAllBidsEvent();
+            initEvent.initAllBidsEvent(page);
             initBidsFunc.getBidsListFunc(null, page);
             initBidsFunc.getAllProjectFunc();
         } else if(type === 'bids-notice'){//中标公示

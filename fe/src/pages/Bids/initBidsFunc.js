@@ -11,6 +11,7 @@ exports.getAllProjectFunc = function () {
     getAllProject.getAllProject(data).then(function (res) {
         var data = res.data.data;
         var parent = $('#allProject');
+        console.log(parent);
         for (var i = 0; i < data.length; i++) {
             var dom = $('<option value=' + data[i].id + '>' + data[i].projectName + '</option>');
             dom.data('item', data[i]);
@@ -79,7 +80,6 @@ exports.putInfoModalFunc = function (id, data, modal) {
 exports.postBidsInfoFunc = function (data) {
     bidsApi.postBidsInfo(data).then(function (res) {
         if (res.code === 1) {
-            console.log('ok');
             window.location.href = '/bids';
         }
     })
@@ -97,17 +97,17 @@ exports.getBidsListFunc = function(data, page){
         var total = res.data ? res.data.total : 0;
         page.update({pageNo: pageNo, pageSize: pageSize, total: total});
         page.change(function (_data) {
-            var bidType = $("#allProject").val();
-            var projId = $("#allProject").val();
-            var bidStatus = $("#allProject").val();
-            var keywords = $('.bidStatus').val();
+            var bidType = $("[name=bidType]").val();
+            var projId = $("[name=allProject]").val();
+            var bidStatus = $("[name=bidStatus]").val();
+            var keywords = $('.keywords').val();
             _data.bidType = bidType;
             _data.projId = projId;
             _data.bidStatus = bidStatus;
             _data.keywords = keywords;
             that.getBidsListFunc(_data, page);
         });
-        renderBidsTable.renderBidsList(list);
+        renderBidsTable.renderBidsList(list, page);
     })
 }
 
@@ -133,7 +133,7 @@ exports.getBidsListFunc = function(data, page){
             _data.keywords = keywords;
             that.getBidsListFunc(_data, page);
         });
-        renderBidsTable.renderBidsList(list);
+        renderBidsTable.renderBidsList(list, page);
     })
 }
 
