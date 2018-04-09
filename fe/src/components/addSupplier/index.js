@@ -5,6 +5,7 @@ var addSupplierContentModal = require('../../pages/Enterprise/modal/addSupplierM
 var common = require('../../pages/Common');
 var UploadAttach = require('../../components/UploadAttach');
 var costBudgetManagerEventModal = require('../../pages/Project/costBudgetManager/modal/initEventModal');
+var bidEvent = require('../../pages/Bids/initEvent');
 
 
 function addSupplier(container, bindData, data, type) {
@@ -162,7 +163,6 @@ function initSupplierListEvent(parents, that, type) {
         common.stopPropagation(e);
         var item = $(this).data('item');
         if (type === 'bid') {//在招标平台中
-            console.log(item);
             var tbody = $('#bidInvitation');
             var order = tbody.find('tr').length;
             var dom = $('<tr class="small">' +
@@ -174,13 +174,13 @@ function initSupplierListEvent(parents, that, type) {
                 '<td class="border">' + item.taxType + '</td>' +
                 '<td class="border">' + (order + 1) + '</td>' +
                 '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
-                '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
                 '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
                 '</tr>');
             dom.data('item', item);
             dom.appendTo(tbody);
             tbody.parents('table').show();
             $('.sup-count').html(order + 1);
+            bidEvent.initBidsInvitationEvent();
         } else {
             if (that.bindData) {
                 that.bindData.data('item', item);

@@ -1,3 +1,4 @@
+<!--列表展示页-->
 <div class="bid-item-list">
     <div style="display: inline-block;vertical-align: middle;margin-top: 20px;padding-left: 10px;">
         <label style="margin-left:10px;">类型名称 :</label>
@@ -32,7 +33,7 @@
     <div name="noInfoBidsList_main" class="all-bids" style="padding: 0 15px;">
     </div>
 </div>
-
+<!--详情页-->
 <div class="bid-item-detail" style="display: none;">
     <div class="detail-contain" style="border: none ;">
         <div class="clearfix detail-top">
@@ -129,8 +130,8 @@
         </div>
     </div>
 </div>
-
-<div style="display: none;">
+<!--评标页-->
+<div class="choose-the-bid" style="display: none;">
     <div class="detail-contain">
         <div class="clearfix detail-top">
             <div class="fl detail-title">中铁一局办公楼装修劳务招标公告</div>
@@ -176,7 +177,7 @@
     <div class="icon-uninformed"></div>
     <p>没有符合条件的信息！</p>
 </div>
-
+<!--编辑页-->
 <div class="bid-add-container" style="display: none;">
     <div style="border-bottom:1px solid #e9e9e9;padding:20px 20px 0 0;" id="" data-id="<%- id %>">
         <div class="modal-form" style="padding-left: 20px;">
@@ -276,7 +277,6 @@
                             <th class="border">税务类型</th>
                             <th class="border">营业执照</th>
                             <th class="border">业务范围</th>
-                            <th class="border">系统评分</th>
                             <th class="border">操作</th>
                         </tr>
                         </thead>
@@ -299,5 +299,102 @@
         <span class="span-btn span-btn-bc confirm-active submit" data-type="save">保存</span>
         <span class="span-btn review submit" style="margin: 0 10px;" data-type="preview">预览</span>
         <span class="span-btn span-btn-bc confirm-active submit" data-type="submit">发布</span>
+    </div>
+</div>
+<!--预览页-->
+<div class="bid-preview ">
+    <div class="detail-contain" style="border: none;">
+        <div class="clearfix detail-top">
+            <div class="fl detail-title"></div>
+            <div class="fl bid-status">状态 : <span></span></div>
+        </div>
+        <div class="clearfix detail-info">
+            <div class="fl"><label>招标编号 : </label><span></span></div>
+            <div class="fl"><label>创建人 : </label><span></span></div>
+            <div class="fl"><label>发布人 : </label><span></span></div>
+        </div>
+        <div class="detail-content" style="padding-top: 15px;">
+            <div class="clearfix" style="margin-bottom: 10px;">
+                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span class="bid-type"></span></div>
+                <div class="fl"><label>项目名称 : </label><span class="bid-projname"></span></div>
+            </div>
+            <div style="margin-bottom: 10px;"><label>截止时间 : </label><span class="endtime"></span></div>
+            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标内容 : </label><div class="fl bid-content" style="margin-left: 5px;width: 900px;">
+                </div></div>
+            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">添加图片 : </label><div style="width: 700px;margin-left: 5px;" class="fl images clearfix"></div></div>
+            <div class="clearfix" style="margin-bottom: 10px;">
+                <div class="fl">
+                    <label>招标要求 :</label>
+                </div>
+                <div class="table-content fl" style="width: 900px;margin-left: 5px;">
+                    <table>
+                        <thead>
+                        <tr class="small">
+                            <th class="border" style="width: 45px;">序号</th>
+                            <th class="border">内容</th>
+                        </tr>
+                        </thead>
+                        <tbody id="bidRequireSettingPrev">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clearfix" style="margin-bottom: 10px;">
+                <div class="fl">
+                    <label>招标清单 :</label>
+                </div>
+                <div class="table-content fl" style="width: 900px;margin-left: 5px;">
+                    <table>
+                        <thead>
+                        <tr class="small">
+                            <th class="border" style="width: 45px;">序号</th>
+                            <th class="border">项目分类</th>
+                            <th class="border">项目名称</th>
+                            <th class="border">工作内容</th>
+                            <th class="border">单位</th>
+                            <th class="border">数量</th>
+                            <th class="border">说明</th>
+                        </tr>
+                        </thead>
+                        <tbody id="bidListPrev">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clearfix" style="margin-bottom: 10px;">
+                <div class="fl">
+                    <label>投标邀请 :</label>
+                </div>
+                <div class="fl" style="margin-left: 5px;margin-bottom: 5px;">
+                    <label>已邀请投标单位 :</label>
+                    <span>0</span>
+                </div>
+                <div class="table-content" style="width: 900px;margin-left: 69px;margin-bottom: 10px;">
+                    <table>
+                        <thead>
+                        <tr class="small">
+                            <th class="border" style="width: 45px;">序号</th>
+                            <th class="border">单位类别</th>
+                            <th class="border">单位名称</th>
+                            <th class="border">管理员</th>
+                            <th class="border">绑定手机</th>
+                            <th class="border">税务类型</th>
+                            <th class="border">营业执照</th>
+                            <th class="border">业务范围</th>
+                        </tr>
+                        </thead>
+                        <tbody id="bidInvitationPrev">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clearfix">
+                <label class="fl" style="margin-left: 30px;">设置 : </label>
+                <div class="fl">
+                    <input type="checkbox" disabled checked>
+                    <span>平台所有人可见</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

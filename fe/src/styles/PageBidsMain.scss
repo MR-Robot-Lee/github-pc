@@ -38,103 +38,102 @@
     }
 }
 
-.bid-item-detail {
-    .detail-contain {
-        padding-left: 20px;
+.detail-contain {
+    padding-left: 20px;
+    border-bottom: 1px solid #e9e9e9;
+    .detail-top {
+        line-height: 60px;
         border-bottom: 1px solid #e9e9e9;
-        .detail-top {
-            line-height: 60px;
-            border-bottom: 1px solid #e9e9e9;
-            .detail-title {
-                width: 800px;
-                font-size: 16px;
-                font-weight: bold;
-                color: #5b5b5b;
-            }
-            .bid-status {
-                font-weight: normal;
-                font-size: 14px;
-                color: #999;
-                span {
-                    color: #666666;
-                }
-            }
+        .detail-title {
+            width: 800px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #5b5b5b;
         }
-        .detail-info {
-            line-height: 50px;
-            border-bottom: 1px solid #e9e9e9;
-            color: #999999;
-            div {
-                margin-right: 40px;
-                span {
-                    color: #666666;
-                }
-            }
-        }
-        .detail-content {
-            label {
-                color: #999;
-            }
+        .bid-status {
+            font-weight: normal;
+            font-size: 14px;
+            color: #999;
             span {
                 color: #666666;
             }
-            .con-top {
-                line-height: 40px;
-                color: #999999;
-                div {
-                    margin-right: 40px;
-                }
-                span {
-                    color: #666;
-                }
-            }
-            .con-container {
-                width: 900px;
-                max-height: 540px;
-                overflow: auto;
-                .bid-company-item {
-                    width: 260px;
-                    padding: 10px 30px;
-                    border: 1px solid #e8e8e8;
-                    box-shadow: 1px 1px 3px 1px #e5e5e5;
-                    border-radius: 5px;
-                    color: #666666;
-                    line-height: 24px;
-                    margin: 0 20px 20px 0;
-                    float: left;
-                    label {
-                        display: inline-block;
-                        width: 65px;
-                        text-align: right;
-                    }
-                    span {
-                        color: #333333;
-                    }
-                    .win-bid {
-                        display: block;
-                        width: 68px;
-                        height: 30px;
-                        line-height: 30px;
-                        background-color: #999;
-                        color: #fff;
-                        border-radius: 3px;
-                        text-align: center;
-                        margin: 34px auto 10px !important;
-                        cursor: pointer;
-                    }
-                    .span-btn {
-                        background-color: #009411;
-                        &:hover {
-                            opacity: 0.8;
-                        }
-                    }
-                }
-            } 
         }
     }
-    .detail-footer {
-        padding: 20px 0 0 400px;
+    .detail-info {
+        line-height: 50px;
+        border-bottom: 1px solid #e9e9e9;
+        color: #999999;
+        div {
+            margin-right: 40px;
+            span {
+                color: #666666;
+            }
+        }
     }
+    .detail-content {
+        label {
+            color: #999;
+        }
+        span {
+            color: #666666;
+        }
+        .con-top {
+            line-height: 40px;
+            color: #999999;
+            div {
+                margin-right: 40px;
+            }
+            span {
+                color: #666;
+            }
+        }
+        .con-container {
+            width: 900px;
+            max-height: 540px;
+            overflow: auto;
+            .bid-company-item {
+                width: 260px;
+                padding: 10px 30px;
+                border: 1px solid #e8e8e8;
+                box-shadow: 1px 1px 3px 1px #e5e5e5;
+                border-radius: 5px;
+                color: #666666;
+                line-height: 24px;
+                margin: 0 20px 20px 0;
+                float: left;
+                label {
+                    display: inline-block;
+                    width: 65px;
+                    text-align: right;
+                }
+                span {
+                    color: #333333;
+                }
+                .win-bid {
+                    display: block;
+                    width: 68px;
+                    height: 30px;
+                    line-height: 30px;
+                    background-color: #999;
+                    color: #fff;
+                    border-radius: 3px;
+                    text-align: center;
+                    margin: 34px auto 10px !important;
+                    cursor: pointer;
+                }
+                .span-btn {
+                    background-color: #009411;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.detail-footer {
+    padding: 20px 0 0 400px;
 }
 
 .win-the-bid {

@@ -59,7 +59,8 @@ exports.renderBidsRequireTable = function (list, modal, old) {
         })
     }
 }
-exports.renderBidsRequireList = function (list) {
+exports.renderBidsRequireList = _renderBidsRequireList
+function _renderBidsRequireList(list) {
     list = list || [];
     var parent = $("#bidRequireSetting").html('');
     if (list.length > 0) {
@@ -104,13 +105,13 @@ exports.renderBidList = function (arr, type) {
     }
     renderBidListTable(allArr, type);
 }
-exports._renderBidListTable = renderBidListTable;
 
+exports._renderBidListTable = renderBidListTable;
 function renderBidListTable(allArr, type) {
     var thead = $('#bidList').parents('table').find('thead').html('');
     var tbody = $('#bidList');
     //渲染表头
-    if (allArr.length > 0) {
+    if (allArr.length) {
         $('#bidList').parents('table').show();
     } else {
         $('#bidList').parents('table').hide();
@@ -220,6 +221,35 @@ function renderBidListTable(allArr, type) {
 }
 
 /*
+* 投标邀请
+* */
+exports.renderBidsInvitationTable = function(arr){
+    if(arr.length){
+        $('#bidInvitation').parents('table').show()
+    } else {
+        $('#bidInvitation').parents('table').hide()
+    }
+    var parent = $('#bidInvitation').html('');
+    for (var i = 0; i < arr.length; i++) {
+        var item = arr[i];
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border">' + item.businessScope + '</td>' +
+            '<td class="border">' + item.entpName + '</td>' +
+            '<td class="border">' + item.contactName + '</td>' +
+            '<td class="border">' + item.phone + '</td>' +
+            '<td class="border">' + item.taxType + '</td>' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+            '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
+            '</tr>');
+        dom.data('item', item);
+        dom.appendTo(parent);
+    }
+    initEvent.initBidsInvitationEvent();
+}
+
+/*
 * 招标列表
 * */
 exports.renderBidsList = function (list, page) {
@@ -326,7 +356,8 @@ exports.renderBidInviteList = function (data, id) {
 * @param bidInviteVOList 招标清单
 * @param bidDetailVOList 投标邀请
 * */
-exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDetailVOList) {
+exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDetailVOList, type) {
+    console.log(type);
     $('#bidRequireSettingPrev').html('');
     $('#bidListPrev').html('');
     $('#bidInvitationPrev').html('');
@@ -338,18 +369,54 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
             '</tr>');
         dom.appendTo($('#bidRequireSettingPrev'));
     }
-    for (var i = 0; i < bidDetailVOList.length; i++) {
-        var item = bidDetailVOList[i];
-        var dom = $('<tr class="small">' +
-            '<td class="border">' + (i + 1) + '</td>' +
-            '<td class="border">' + item.objEnumType + '</td>' +
-            '<td class="border">' + item.objName + '</td>' +
-            '<td class="border">' + item.objContent + '</td>' +
-            '<td class="border">' + item.unit + '</td>' +
-            '<td class="border">' + item.objQpy + '</td>' +
-            '<td class="border">' + (item.remark || '') + '</td>' +
-            '</tr>');
-        dom.appendTo($('#bidListPrev'));
+    if(type === 1){
+        var thead = '<tr class="small">' +
+            '<th class="border" style="width: 50px;">序号</th>' +
+            '<th class="border">材料名称</th>' +
+            '<th class="border">规格型号</th>' +
+            '<th class="border">单位</th>' +
+            '<th class="border">均价</th>' +
+            '<th class="border" style="width: 50px;">数量</th>' +
+            '<th class="border">说明</th>' +
+            '</tr>'
+        $('#bidListPrev').parents('table').find('thead').html(thead)
+        for (var i = 0; i < bidDetailVOList.length; i++) {
+            var item = bidDetailVOList[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.objEnumType + '</td>' +
+                '<td class="border">' + item.objName + '</td>' +
+                '<td class="border">' + item.objContent + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.objQpy + '</td>' +
+                '<td class="border">' + (item.remark || '') + '</td>' +
+                '</tr>');
+            dom.appendTo($('#bidListPrev'));
+        }
+    } else {
+        var thead = '<tr class="small">' +
+            '<th class="border" style="width: 50px;">序号</th>' +
+            '<th class="border">费用名称</th>' +
+            '<th class="border">工作内容</th>' +
+            '<th class="border">单位</th>' +
+            '<th class="border">均价</th>' +
+            '<th class="border" style="width: 50px;">数量</th>' +
+            '<th class="border">说明</th>' +
+            '</tr>'
+        $('#bidListPrev').parents('table').find('thead').html(thead)
+        for (var i = 0; i < bidDetailVOList.length; i++) {
+            var item = bidDetailVOList[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.objEnumType + '</td>' +
+                '<td class="border">' + item.objName + '</td>' +
+                '<td class="border">' + item.objContent + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.objQpy + '</td>' +
+                '<td class="border">' + (item.remark || '') + '</td>' +
+                '</tr>');
+            dom.appendTo($('#bidListPrev'));
+        }
     }
     for (var i = 0; i < bidInviteVOList.length; i++) {
         var item = bidInviteVOList[i];
@@ -365,4 +432,40 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
             '</tr>');
         dom.appendTo($('#bidInvitationPrev'));
     }
+}
+
+/*
+* 招标公告编辑中表格
+* @param bidRequireList 招标要求
+* @param bidInviteVOList 招标清单
+* @param bidDetailVOList 投标邀请
+* */
+exports.renderBidEditTable = function (bidRequireList, bidInviteVOList, bidDetailVOList, type) {
+    console.log(type);
+    // 招标要求
+    _renderBidsRequireList(bidRequireList)
+    // 招标清单
+    renderBidListTable(bidDetailVOList, type)
+    // 投标邀请
+    for (var i = 0; i < bidInviteVOList.length; i++) {
+        var item = bidInviteVOList[i];
+        var tbody = $('#bidInvitation');
+        var order = tbody.find('tr').length;
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (order + 1) + '</td>' +
+            '<td class="border">' + item.businessScope + '</td>' +
+            '<td class="border">' + item.entpName + '</td>' +
+            '<td class="border">' + item.contactName + '</td>' +
+            '<td class="border">' + item.phone + '</td>' +
+            '<td class="border">' + item.taxType + '</td>' +
+            '<td class="border">' + (order + 1) + '</td>' +
+            '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+            '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
+            '</tr>');
+        dom.data('item', item);
+        dom.appendTo(tbody);
+        tbody.parents('table').show();
+        $('.sup-count').html(order + 1);
+    }
+    initEvent.initBidsInvitationEvent();
 }

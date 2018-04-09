@@ -89,6 +89,12 @@ UploadImage.prototype.reset = function () {
     this.$uploadBox.data('src', null);
 };
 
+/*
+* 数据回填时可调用该方法
+* @param url
+* @param remark （允许为空）
+* @param data 图片的完整数据
+* */
 UploadImage.prototype.appendImage = function (url, remark, data) {
     var img = $(TempDisplay({
         src: window.API_PATH + '/customer' + url,
