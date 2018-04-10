@@ -5,13 +5,11 @@ var getAllProject = require('../Project/project/projectApi');
 /*
 * 获取全部招标项目
 * */
-exports.getAllProjectFunc = function () {
+exports.getAllProjectFunc = function (parent) {
     var data = {};
     data.pageSize = 10000;
     getAllProject.getAllProject(data).then(function (res) {
         var data = res.data.data;
-        var parent = $('#allProject');
-        console.log(parent);
         for (var i = 0; i < data.length; i++) {
             var dom = $('<option value=' + data[i].id + '>' + data[i].projectName + '</option>');
             dom.data('item', data[i]);
@@ -114,35 +112,39 @@ exports.getBidsListFunc = function(data, page){
 /*
 * 查看中标列表
 * */
-exports.getBidsListFunc = function(data, page){
-    var that = this;
-    bidsApi.getBidsList(data).then(function (res) {
-        var list = res.data ? res.data.data : [];
-        var pageNo = res.data ? res.data.pageNo : 10;
-        var pageSize = res.data ? res.data.pageSize : 1;
-        var total = res.data ? res.data.total : 0;
-        page.update({pageNo: pageNo, pageSize: pageSize, total: total});
-        page.change(function (_data) {
-            var bidType = $("#allProject").val();
-            var projId = $("#allProject").val();
-            var bidStatus = $("#allProject").val();
-            var keywords = $('.bidStatus').val();
-            _data.bidType = bidType;
-            _data.projId = projId;
-            _data.bidStatus = bidStatus;
-            _data.keywords = keywords;
-            that.getBidsListFunc(_data, page);
-        });
-        renderBidsTable.renderBidsList(list, page);
-    })
-}
+// exports.getBidsListFunc = function(data, page){
+//     var that = this;
+//     bidsApi.getBidsList(data).then(function (res) {
+//         var list = res.data ? res.data.data : [];
+//         var pageNo = res.data ? res.data.pageNo : 10;
+//         var pageSize = res.data ? res.data.pageSize : 1;
+//         var total = res.data ? res.data.total : 0;
+//         page.update({pageNo: pageNo, pageSize: pageSize, total: total});
+//         page.change(function (_data) {
+//             var bidType = $("#allProject").val();
+//             var projId = $("#allProject").val();
+//             var bidStatus = $("#allProject").val();
+//             var keywords = $('.bidStatus').val();
+//             _data.bidType = bidType;
+//             _data.projId = projId;
+//             _data.bidStatus = bidStatus;
+//             _data.keywords = keywords;
+//             that.getBidsListFunc(_data, page);
+//         });
+//         renderBidsTable.renderBidsList(list, page);
+//     })
+// }
 
 /*
 * 招标状态修改
 * */
-exports.putBidsInfoFunc = function(data){
-    bidsApi.putBidsInfo(data).then(function(){
-
+exports.putBidsInfoFunc = function(data, type){
+    bidsApi.putBidsInfo(data).then(function(res){
+        if(type === 'save'){ // 修改已有招标并重新保存
+            window.location.href = '/bids';
+        } else {
+            window.location.href = '/bids';
+        }
     });
 }
 
@@ -153,5 +155,15 @@ exports.getBidInfoFunc = function(id){
     bidsApi.getBidInfo(id).then(function(res){
         var data = res.data || {};
         renderBidsTable.renderBidInviteList(data, id);
+    });
+}
+
+/*
+* 查看某一供应商对某一招标的投标信息
+* */
+exports.getBidingInfoFunc = function(data, modal){
+    bidsApi.getBidingInfo(data).then(function(res){
+        var data = res.data || {};
+        renderBidsTable.renderBidingInfoList(data, modal);
     });
 }

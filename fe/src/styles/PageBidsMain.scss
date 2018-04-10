@@ -91,9 +91,10 @@
             width: 900px;
             max-height: 540px;
             overflow: auto;
+            padding-left: 5px;
             .bid-company-item {
                 width: 260px;
-                padding: 10px 30px;
+                padding: 30px 30px 10px;
                 border: 1px solid #e8e8e8;
                 box-shadow: 1px 1px 3px 1px #e5e5e5;
                 border-radius: 5px;
@@ -118,7 +119,7 @@
                     color: #fff;
                     border-radius: 3px;
                     text-align: center;
-                    margin: 34px auto 10px !important;
+                    margin: 15px auto 10px !important;
                     cursor: pointer;
                 }
                 .span-btn {
@@ -141,4 +142,74 @@
     width: 56px;
     height: 56px;
     background: url(./images/win-the-bid.png);
+}
+
+.quote-the-bid{
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    width: 78px;
+    height: 34px;
+    background: url(./images/quote-the-bid-icon.png);
+}
+
+.reject-the-bid{
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    width: 78px;
+    height: 34px;
+    background: url(./images/reject-the-bid-icon.png);
+}
+
+.noquote-the-bid{
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    width: 78px;
+    height: 34px;
+    background: url(./images/noquote-the-bid-icon.png);
+}
+
+.companyinfo-container{
+    width: 500px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+    padding: 10px 0 ;
+    &>div{
+        padding: 5px 30px;
+    }
+    &>div:nth-child(2n){
+        background-color: #efefef;
+    }
+    label{
+        width: 70px;
+        color: #999;
+        margin-right: 5px;
+        text-align: right;
+    }
+}
+
+.bidslist-container{
+    padding: 10px 30px;
+    font-size: 14px;
+    line-height: 24px;
+    .table-content{
+        margin: 0;
+        max-height: 400px;
+        width: 800px;
+        padding: 10px 0;
+    }
+    .supplier-name{
+        color: #333333;
+        font-weight:bold;
+    }
+    label{
+        color: #666;
+    }
+    span{
+        margin-right: 20px;
+        color: #333;
+    }
 }

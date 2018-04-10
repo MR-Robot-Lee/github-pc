@@ -797,9 +797,8 @@ function initInsideModalEvent(modal) {
         var categoryIpt = addMaterial.find('.category-ipt');//类别输入框(一级)
         var typeSel = addMaterial.find('.type-sel');//类型选择框(二级)
         var typeIpt = addMaterial.find('.type-ipt');//类型输入框(二级)
-
         /*添加一级下拉菜单*/
-        $(this).next('.fr').find('.materialType1 option').each(function (index, ele) {
+        $(this).parents('.modal-form').find('.materialType1 option').each(function (index, ele) {
             if (index > 0) {
                 var dom = $('<li>' + $(ele).html() + '</li>');
                 dom.data('item', $(ele).val());
@@ -809,7 +808,7 @@ function initInsideModalEvent(modal) {
                 costBudgetManagerEventModal._typeListEvent('material', dom, addMaterial, 'Cntr');
             }
         })
-        addMaterial.css({'left': '132px', 'top': '-30px'});
+        addMaterial.css({'left': '848px', 'top': '-30px'}).find('.category-sel ul').css('height','400px');
         addMaterial.appendTo($('.add-material-modal'));
         /*初始化菜单交互事件*/
         costBudgetManagerEventModal._materialShift(categorySel, categoryIpt, 'materialType');
@@ -839,13 +838,11 @@ function initInsideModalEvent(modal) {
             } else {
                 data.mtrlCategory = Number($('.material-category').data('item'));
             }
-            ;
             if (typeIpt.find('input').val()) {
                 data.mtrlType = '';
             } else {
                 data.mtrlType = $('.material-type').data('item').id;
             }
-            ;
             data.mtrlTypeName = mtrlTypeName;
             data.mtrlCategoryName = mtrlCategoryName;
             data.mtrlName = addMaterial.find('[name=mtrlName]').val();

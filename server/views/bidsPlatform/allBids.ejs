@@ -17,15 +17,12 @@
         <label style="margin-left:10px;">状态名称 :</label>
         <select class="int int-default int-small14" name="bidStatus" style="width: 200px;">
             <option value="">全部状态</option>
-            <option value="1">已保存</option>
+            <option value="1">待发布</option>
             <option value="2">招标中</option>
             <option value="3">已截止</option>
             <option value="4">流标</option>
-            <option value="5">评审中</option>
-            <option value="6">审批中</option>
-            <option value="7">审批完成</option>
-            <option value="8">被驳回</option>
-            <option value="9">已删除</option>
+            <option value="7">已评标</option>
+            <option value="8">被撤回</option>
         </select>
         <input style="padding-left: 5px;margin-left: 10px;" type="text" class="int int-default keywords" placeholder="请输入关键字">
         <span style="margin-top: -4px;line-height: 30px;margin-left: 7px;" class="span-btn" id="searchModal">查询</span>
@@ -99,7 +96,7 @@
                 </div>
                 <div class="fl" style="margin-left: 5px;margin-bottom: 5px;">
                     <label>已邀请投标单位 :</label>
-                    <span>0</span>
+                    <span class="sup-count">0</span>
                 </div>
                 <div class="table-content" style="width: 900px;margin-left: 69px;margin-bottom: 10px;">
                     <table>
@@ -120,13 +117,13 @@
                     </table>
                 </div>
             </div>
-            <div class="clearfix">
-                <label class="fl" style="margin-left: 30px;">设置 : </label>
-                <div class="fl">
-                    <input type="checkbox" disabled checked>
-                    <span>平台所有人可见</span>
-                </div>
-            </div>
+            <!--<div class="clearfix">-->
+                <!--<label class="fl" style="margin-left: 30px;">设置 : </label>-->
+                <!--<div class="fl">-->
+                    <!--<input type="checkbox" disabled checked>-->
+                    <!--<span>平台所有人可见</span>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -138,8 +135,8 @@
             <div class="fl bid-status">状态 : <span>已确认</span></div>
         </div>
         <div class="clearfix detail-info">
-            <div class="fl">阅读 : <span>126</span></div>
-            <div class="fl">转发 : <span>126</span></div>
+            <div class="fl">招标编号 : <span>126</span></div>
+            <div class="fl">发布人 : <span>126</span></div>
             <div class="fl">点赞 : <span>126</span></div>
             <div class="fl">邀请 : <span>126</span></div>
             <div class="fl">投标 : <span>126</span></div>
@@ -166,10 +163,10 @@
             </div>
         </div>
     </div>
-    <div class="detail-footer">
-        <a class="span-btn span-btn-bc confirm-active failure" href="javascript:;">不满足需求，重新招标</a>
-        <a class="span-btn span-btn-bc confirm-active back-to-list" href="javascript:;">取消</a>
-        <a class="span-btn confirm-active submitBid" href="javascript:;">已确定中标单位，提交审批</a>
+    <div class="detail-footer" style="padding-left: 750px">
+        <a class="span-btn span-btn-bc confirm-active failure" href="javascript:;">流标</a>
+        <a class="span-btn span-btn-bc confirm-active cancel-bid" href="javascript:;">取消</a>
+        <a class="span-btn confirm-active submitBid" href="javascript:;">定标</a>
     </div>
 </div>
 <div name="noInfoBidsList_page" id="page" style="margin: 20px 0;"></div>
@@ -285,116 +282,20 @@
                     </table>
                 </div>
             </div>
-            <div class="item clearfix" style="margin-bottom: 5px;line-height: 30px;">
-                <label class="bold-title label-block int-small8 fl" style="vertical-align: middle;line-height: 30px;"><i
-                            class="icon-fill-in">*</i>设置 : </label>
-                <!--<a style="" class="span-btn background-list-gray btn-fine-adj1" href='javascript:;'>设置</a>-->
-                <input type="radio" name="visible"><span>平台所有人可见</span>
-                <input type="radio" name="visible"><span>仅被邀请方可见</span>
-            </div>
+            <!--<div class="item clearfix" style="margin-bottom: 5px;line-height: 30px;">-->
+                <!--<label class="bold-title label-block int-small8 fl" style="vertical-align: middle;line-height: 30px;"><i-->
+                            <!--class="icon-fill-in">*</i>设置 : </label>-->
+                <!--&lt;!&ndash;<a style="" class="span-btn background-list-gray btn-fine-adj1" href='javascript:;'>设置</a>&ndash;&gt;-->
+                <!--<input type="radio" name="visible"><span>平台所有人可见</span>-->
+                <!--<input type="radio" name="visible"><span>仅被邀请方可见</span>-->
+            <!--</div>-->
         </div>
     </div>
-    <div style="margin: 15px 0 15px 570px;">
-        <a class="span-btn span-btn-bc confirm-active" href="/bids">取消</a>
+    <div style="margin: 15px 0 15px 750px;">
+        <span class="span-btn span-btn-bc confirm-active cancel-edit">取消</span>
         <span class="span-btn span-btn-bc confirm-active submit" data-type="save">保存</span>
-        <span class="span-btn review submit" style="margin: 0 10px;" data-type="preview">预览</span>
+        <!--<span class="span-btn review submit" style="margin: 0 10px;" data-type="preview">预览</span>-->
         <span class="span-btn span-btn-bc confirm-active submit" data-type="submit">发布</span>
     </div>
 </div>
-<!--预览页-->
-<div class="bid-preview ">
-    <div class="detail-contain" style="border: none;">
-        <div class="clearfix detail-top">
-            <div class="fl detail-title"></div>
-            <div class="fl bid-status">状态 : <span></span></div>
-        </div>
-        <div class="clearfix detail-info">
-            <div class="fl"><label>招标编号 : </label><span></span></div>
-            <div class="fl"><label>创建人 : </label><span></span></div>
-            <div class="fl"><label>发布人 : </label><span></span></div>
-        </div>
-        <div class="detail-content" style="padding-top: 15px;">
-            <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span class="bid-type"></span></div>
-                <div class="fl"><label>项目名称 : </label><span class="bid-projname"></span></div>
-            </div>
-            <div style="margin-bottom: 10px;"><label>截止时间 : </label><span class="endtime"></span></div>
-            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标内容 : </label><div class="fl bid-content" style="margin-left: 5px;width: 900px;">
-                </div></div>
-            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">添加图片 : </label><div style="width: 700px;margin-left: 5px;" class="fl images clearfix"></div></div>
-            <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl">
-                    <label>招标要求 :</label>
-                </div>
-                <div class="table-content fl" style="width: 900px;margin-left: 5px;">
-                    <table>
-                        <thead>
-                        <tr class="small">
-                            <th class="border" style="width: 45px;">序号</th>
-                            <th class="border">内容</th>
-                        </tr>
-                        </thead>
-                        <tbody id="bidRequireSettingPrev">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl">
-                    <label>招标清单 :</label>
-                </div>
-                <div class="table-content fl" style="width: 900px;margin-left: 5px;">
-                    <table>
-                        <thead>
-                        <tr class="small">
-                            <th class="border" style="width: 45px;">序号</th>
-                            <th class="border">项目分类</th>
-                            <th class="border">项目名称</th>
-                            <th class="border">工作内容</th>
-                            <th class="border">单位</th>
-                            <th class="border">数量</th>
-                            <th class="border">说明</th>
-                        </tr>
-                        </thead>
-                        <tbody id="bidListPrev">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl">
-                    <label>投标邀请 :</label>
-                </div>
-                <div class="fl" style="margin-left: 5px;margin-bottom: 5px;">
-                    <label>已邀请投标单位 :</label>
-                    <span>0</span>
-                </div>
-                <div class="table-content" style="width: 900px;margin-left: 69px;margin-bottom: 10px;">
-                    <table>
-                        <thead>
-                        <tr class="small">
-                            <th class="border" style="width: 45px;">序号</th>
-                            <th class="border">单位类别</th>
-                            <th class="border">单位名称</th>
-                            <th class="border">管理员</th>
-                            <th class="border">绑定手机</th>
-                            <th class="border">税务类型</th>
-                            <th class="border">营业执照</th>
-                            <th class="border">业务范围</th>
-                        </tr>
-                        </thead>
-                        <tbody id="bidInvitationPrev">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="clearfix">
-                <label class="fl" style="margin-left: 30px;">设置 : </label>
-                <div class="fl">
-                    <input type="checkbox" disabled checked>
-                    <span>平台所有人可见</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+

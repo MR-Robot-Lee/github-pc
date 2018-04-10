@@ -60,6 +60,7 @@ exports.renderBidsRequireTable = function (list, modal, old) {
     }
 }
 exports.renderBidsRequireList = _renderBidsRequireList
+
 function _renderBidsRequireList(list) {
     list = list || [];
     var parent = $("#bidRequireSetting").html('');
@@ -107,6 +108,7 @@ exports.renderBidList = function (arr, type) {
 }
 
 exports._renderBidListTable = renderBidListTable;
+
 function renderBidListTable(allArr, type) {
     var thead = $('#bidList').parents('table').find('thead').html('');
     var tbody = $('#bidList');
@@ -140,7 +142,7 @@ function renderBidListTable(allArr, type) {
             '</tr>');
     }
     //渲染表单内容
-    if (type === 'material') {
+    if (type === 'material' && allArr[0].mtrlName) {
         tbody.html('');
         for (var i = 0; i < allArr.length; i++) {
             var item = allArr[i];
@@ -159,7 +161,7 @@ function renderBidListTable(allArr, type) {
             dom.data('item', item);
             tbody.append(dom);
         }
-    } else if (type === 'labor') {
+    } else if (type === 'labor' && allArr[0].laborName) {
         tbody.html('');
         for (var i = 0; i < allArr.length; i++) {
             var item = allArr[i];
@@ -178,7 +180,7 @@ function renderBidListTable(allArr, type) {
             dom.data('item', item);
             tbody.append(dom);
         }
-    } else if (type === 'step') {
+    } else if (type === 'step' && allArr[0].measureName) {
         tbody.html('');
         for (var i = 0; i < allArr.length; i++) {
             var item = allArr[i];
@@ -197,7 +199,7 @@ function renderBidListTable(allArr, type) {
             dom.data('item', item);
             tbody.append(dom);
         }
-    } else if (type === 'subpackage') {
+    } else if (type === 'subpackage' && allArr[0].subletName) {
         tbody.html('');
         for (var i = 0; i < allArr.length; i++) {
             var item = allArr[i];
@@ -216,6 +218,25 @@ function renderBidListTable(allArr, type) {
             dom.data('item', item);
             tbody.append(dom);
         }
+    } else {
+        tbody.html('');
+        for (var i = 0; i < allArr.length; i++) {
+            var item = allArr[i];
+            var count = item.objQpy || '';
+            var remark = item.remark || '';
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.objName + '</td>' +
+                '<td class="border">' + item.workContent + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.bidPrice + '</td>' +
+                '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + count + '></td>' +
+                '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + remark + '></td>' +
+                '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
+                '</tr>');
+            dom.data('item', item);
+            tbody.append(dom);
+        }
     }
     initEvent.initBidsListEvent(type);
 }
@@ -223,8 +244,8 @@ function renderBidListTable(allArr, type) {
 /*
 * 投标邀请
 * */
-exports.renderBidsInvitationTable = function(arr){
-    if(arr.length){
+exports.renderBidsInvitationTable = function (arr) {
+    if (arr.length) {
         $('#bidInvitation').parents('table').show()
     } else {
         $('#bidInvitation').parents('table').hide()
@@ -265,14 +286,26 @@ exports.renderBidsList = function (list, page) {
     var parent = $(".all-bids").html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
-        var oper = '';
+        var oper = '<a href="javascript:;" class="delete-hover" data-type="del">删除</a>';
         if (item.bidStatus === 2) {
+        }
+        var bgc = '';
+        if (item.bidStatus === 1) { // 待发布
+            bgc = '#f8b62a';
+        } else if (item.bidStatus === 2) { // 招标中
+            bgc = '#4bd851';
             oper = '<a href="javascript:;" class="delete-hover" data-type="recall">撤回</a>';
-        } else {
-            oper = '<a href="javascript:;" class="delete-hover" data-type="del">删除</a>';
+        } else if (item.bidStatus === 3) { // 已截止
+            bgc = '#f77260';
+        } else if (item.bidStatus === 8) { // 被撤回
+            bgc = '#c89321';
+        } else if (item.bidStatus === 4) { // 流标
+            bgc = '#999999';
+        } else if (item.bidStatus === 7) { // 已评标
+            bgc = '#4db892';
         }
         var dom = $('<div class="clearfix bid-item">' +
-            '<div class="bid-item-type fl">' + getBidType(item.bidType) + '</div>' +
+            '<div class="bid-item-type fl" style="background-color: ' + bgc + '">' + getBidType(item.bidType) + '</div>' +
             '<div class="bid-item-con fl">' +
             '<div class="bid-item-con_top">' + item.bidTitle + '</div>' +
             '<div class="bid-item-con_bottom">' +
@@ -334,20 +367,30 @@ exports.renderBidInviteList = function (data, id) {
     var parent = $('.con-container').html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
+        var bidStatusIcon = '';
+        var winbid = '<div style="visibility: hidden" class="win-bid span-btn">中标</div>';
+        if (item.status === 4) { // 已报价
+            bidStatusIcon = '<div class="quote-the-bid"></div>';
+            winbid = '<div class="win-bid span-btn">中标</div>';
+        } else if (item.status === 3) { // 已拒绝
+            bidStatusIcon = '<div class="reject-the-bid"></div>';
+        } else if (item.status === 1) { // 未报价
+            bidStatusIcon = '<div class="noquote-the-bid"></div>';
+        }
         var dom = $('<div class="bid-company-item" style="position: relative;">' +
             '<div style="line-height: 34px;font-weight: bold;color: #333333;">' + item.entpName + '</div>' +
             '<div><label>投标总价 : </label> <span>123456.78</span></div>' +
             '<div><label>管理员 : </label> <span>' + item.contactName + '</span></div>' +
-            '<div><label>联系电话 : </label> <span>' + item.phone + '</span></div>' +
-            '<div><label>税务类型 : </label> <span>一般纳税人</span></div>' +
-            '<div><label>营业执照 : </label> <a href="javascript:;" class="confirm-hover">查看执照</a></div>' +
-            '<div class="win-bid span-btn">中标</div>' +
+            '<div><label>企业信息 : </label> <a href="javascript:;" class="confirm-hover" data-type="info">查看</a></div>' +
+            '<div><label>投标清单 : </label> <a href="javascript:;" class="confirm-hover" data-type="check">查看</a></div>' +
+            winbid +
             '<span class="win-the-bid" style="top: 0;right: 0;display: none;"></span>' +
+            bidStatusIcon +
             '</div>');
         dom.data('item', item);
         dom.appendTo(parent);
     }
-    initEvent.initWinzheBidEvent();
+    initEvent.initWinzheBidEvent(id);
 }
 
 /*
@@ -357,7 +400,6 @@ exports.renderBidInviteList = function (data, id) {
 * @param bidDetailVOList 投标邀请
 * */
 exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDetailVOList, type) {
-    console.log(type);
     $('#bidRequireSettingPrev').html('');
     $('#bidListPrev').html('');
     $('#bidInvitationPrev').html('');
@@ -369,7 +411,7 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
             '</tr>');
         dom.appendTo($('#bidRequireSettingPrev'));
     }
-    if(type === 1){
+    if (type === 1) {
         var thead = '<tr class="small">' +
             '<th class="border" style="width: 50px;">序号</th>' +
             '<th class="border">材料名称</th>' +
@@ -441,12 +483,12 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
 * @param bidDetailVOList 投标邀请
 * */
 exports.renderBidEditTable = function (bidRequireList, bidInviteVOList, bidDetailVOList, type) {
-    console.log(type);
     // 招标要求
     _renderBidsRequireList(bidRequireList)
     // 招标清单
     renderBidListTable(bidDetailVOList, type)
     // 投标邀请
+    $('#bidInvitation').html('');
     for (var i = 0; i < bidInviteVOList.length; i++) {
         var item = bidInviteVOList[i];
         var tbody = $('#bidInvitation');
@@ -468,4 +510,47 @@ exports.renderBidEditTable = function (bidRequireList, bidInviteVOList, bidDetai
         $('.sup-count').html(order + 1);
     }
     initEvent.initBidsInvitationEvent();
+}
+
+/*
+* 评标/企业信息
+* */
+exports.renderCompanyInfoTable = function (data, modal) {
+    modal.$body.find('.entpName').html(data.entpName);
+    modal.$body.find('.contactName').html(data.contactName);
+    modal.$body.find('.phone').html(data.phone);
+    modal.$body.find('.businessScope').html(data.businessScope);
+    modal.$body.find('.region').html(data.provinceName + data.cityName);
+    modal.$body.find('.address').html(data.address);
+    modal.$body.find('.taxType').html(data.taxType);
+    modal.$body.find('.openName').html(data.openName);
+    modal.$body.find('.openBank').html(data.openBank);
+    modal.$body.find('.bankCard').html(data.bankCard);
+}
+
+/*
+* 评标/投标清单
+* */
+exports.renderBidingInfoList = function (data, modal) {
+    console.log(data);
+    var list = data.biddingList || [];
+    modal.$body.find('tbody').html('');
+    modal.$body.find('.entpName').html(data.entp.entpName);
+    modal.$body.find('.biddingMoney').html(data.entp.biddingMoney);
+    modal.$body.find('.contactName').html(data.entp.contactName);
+    modal.$body.find('.phone').html(data.entp.phone);
+    for (var i = 0; i < list.length; i++) {
+        var item = list[i];
+        var dom = $('<tr class="small">' +
+            '<td class="border">' + (i + 1) + '</td>' +
+            '<td class="border">' + item.objName + '</td>' +
+            '<td class="border">' + item.objContent + '</td>' +
+            '<td class="border">' + item.unit + '</td>' +
+            '<td class="border">' + (item.objQpy || '') + '</td>' +
+            '<td class="border"><a class="confirm-hover" href="javascript:;">查看</a></td>' +
+            '<td class="border">' + item.biddingPrice + '</td>' +
+            '</tr>');
+        dom.data('item', item);
+        dom.appendTo(modal.$body.find('tbody'))
+    }
 }

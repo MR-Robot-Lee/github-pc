@@ -3,8 +3,8 @@ var request = require('../../helper/request');
  * 招标状态修改
  * @returns {Request}
  */
-exports.putBidsStatus = function putBidsStatus(id, type) {
-    return request.put('/customer/bid/bid/' + id + '/' + type);
+exports.putBidsStatus = function putBidsStatus(id, status) {
+    return request.put('/customer/bid/bid/' + id + '/' + status);
 };
 /**
  * 招标信息添加
@@ -28,7 +28,7 @@ exports.getBidInfo = function getBidInfo(id) {
  */
 exports.putBidsInfo = function putBidsInfo(data) {
     data = data || {};
-    return request.put('/customer/bid/bidBean/' + data.id + '/' + data.bidStatus);
+    return request.put('/customer/bid/bidBean/' + data.id, {body: data});
 };
 /**
  * 查看招标列表
@@ -77,4 +77,12 @@ exports.putInfoModal = function putInfoModal(id, data) {
  */
 exports.putWinBid = function putWinBid(id, entpId) {
     return request.put('/customer/bid/winBid/' + id + '/' + entpId);
+};
+
+/**
+ * 查看某一供应商对某一招标的投标信息
+ * @returns {Request}
+ */
+exports.getBidingInfo = function getBidingInfo(data) {
+    return request.get('/customer/bid/bidding',{qs: data});
 };
