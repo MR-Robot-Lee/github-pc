@@ -171,8 +171,7 @@ function initSupplierListEvent(parents, that, type) {
                 '<td class="border">' + item.entpName + '</td>' +
                 '<td class="border">' + item.contactName + '</td>' +
                 '<td class="border">' + item.phone + '</td>' +
-                '<td class="border">' + item.taxType + '</td>' +
-                '<td class="border">' + (order + 1) + '</td>' +
+                '<td class="border">' + getTaxType(item.taxType) + '</td>' +
                 '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
                 '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
                 '</tr>');
@@ -193,6 +192,18 @@ function initSupplierListEvent(parents, that, type) {
             that.bindData.find('.model-add-supplier').remove();
         }
     });
+}
+
+function getTaxType(type) {
+    type = parseInt(type);
+    switch (type) {
+        case 1:
+            return '小规模';
+        case 2:
+            return '一般纳税人';
+        case 3:
+            return '个体';
+    }
 }
 
 /**

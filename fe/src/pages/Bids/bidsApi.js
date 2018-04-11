@@ -41,6 +41,17 @@ exports.getBidsList = function getBidsList(data) {
     return request.get('/customer/bid/bidList', {qs: data});
 };
 /**
+ * 查看中标列表
+ * @returns {Request}
+ */
+exports.getBidsNoticeList = function getBidsNoticeList(data) {
+    data = data || {};
+    data.pageNo = data.pageNo || 1;
+    data.pageSize = data.pageSize || 10;
+    data.bidStatus = 7
+    return request.get('/customer/bid/bidList', {qs: data});
+};
+/**
  * 查看信息模板列表
  * @returns {Request}
  */

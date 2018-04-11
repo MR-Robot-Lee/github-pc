@@ -71,6 +71,7 @@ UploadAttach.prototype.TempAttach = function (file, operType, _attachName, _atta
     || attachType === 'dwg' || attachType === 'DWG'
     || attachType === 'video' || attachType === 'VIDEO'
     || attachType === 'docx' || attachType === 'DOCX'
+        || attachType === 'apk'
     || attachType === 'DOC' || attachType === 'doc' ? attachType : 'none';
     if (type == 'none') {
         return alert('不支持上传该类型附件');

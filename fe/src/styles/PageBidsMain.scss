@@ -11,7 +11,7 @@
     .bid-item-type {
         width: 52px;
         height: 52px;
-        background-color: #009411;
+        background-color: #4db892;
         color: #FFFFFF;
         line-height: 52px;
         text-align: center;
@@ -45,7 +45,7 @@
         line-height: 60px;
         border-bottom: 1px solid #e9e9e9;
         .detail-title {
-            width: 800px;
+            width: 880px;
             font-size: 16px;
             font-weight: bold;
             color: #5b5b5b;
@@ -92,6 +92,7 @@
             max-height: 540px;
             overflow: auto;
             padding-left: 5px;
+            padding-top: 20px;
             .bid-company-item {
                 width: 260px;
                 padding: 30px 30px 10px;

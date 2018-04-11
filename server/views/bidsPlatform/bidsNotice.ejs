@@ -1,7 +1,7 @@
-<div class="bid-item-list">
+<div class="bidnotice-item-container">
     <div style="display: inline-block;vertical-align: middle;margin-top: 20px;padding-left: 10px;">
         <label style="margin-left:10px;">类型名称 :</label>
-        <select class="int int-default int-small14" id="bidType">
+        <select class="int int-default int-small14" name="bidType">
             <option value="">全部类型</option>
             <option value="1">材料</option>
             <option value="2">人工</option>
@@ -10,64 +10,43 @@
             <option value="5">企业服务</option>
         </select>
         <label style="margin-left:10px;">项目名称 :</label>
-        <select class="int int-default int-small14" id="allProject" style="width: 200px;">
-            <option value="0">全部项目</option>
+        <select class="int int-default int-small14" name="allProject" style="width: 200px;">
+            <option value="">全部项目</option>
         </select>
-        <label style="margin-left:10px;">状态名称 :</label>
-        <select class="int int-default int-small14" id="bidStatus" style="width: 200px;">
-            <option value="">全部状态</option>
-            <option value="1">待发布</option>
-            <option value="2">招标中</option>
-            <option value="3">已截止</option>
-            <option value="4">流标</option>
-            <option value="7">已评标</option>
-            <option value="8">被撤回</option>
-        </select>
-        <input style="padding-left: 5px;margin-left: 10px;" type="text" class=" int int-default" placeholder="请输入关键字">
+        <input style="padding-left: 5px;margin-left: 10px;" type="text" class=" int int-default keywords" placeholder="请输入关键字">
         <span style="margin-top: -4px;line-height: 30px;margin-left: 7px;" class="span-btn" id="searchModal">查询</span>
     </div>
-    <div style="padding: 0 15px;">
-        <div class="clearfix bid-item">
-            <div class="bid-item-type fl">劳务</div>
-            <div class="bid-item-con fl">
-                <div class="bid-item-con_top">吊顶施工劳务队伍招标</div>
-                <div class="bid-item-con_bottom">
-                    <span>招标编号 :</span> <span>XXXXX-XXX-XX</span>
-                    <span>西安车辆段装修工程</span>
-                </div>
-            </div>
-            <div class="bid-item-status fl">
-                状态 : <span>已确认</span>
-            </div>
-            <div class="bid-item-oparete fr">
-                <a href="javascript:;" class="delete-hover">删除</a>
-            </div>
-        </div>
+    <div name='noInfoBidNoticeList_main' class="bidnotice-item-list" style="padding: 0 15px;">
     </div>
 </div>
-<div class="bid-item-detail" style="display: none;">
+<div name="noInfoBidNoticeList_page" id="page" style="margin: 20px 0;display: none;"></div>
+<div class='noInfo' id='noInfoBidNoticeList'>
+    <div class="icon-uninformed"></div>
+    <p>没有符合条件的信息！</p>
+</div>
+
+<div class="bidnotice-item-detail" style="display: none;">
     <div class="detail-contain" style="border: none ;">
         <div class="clearfix detail-top">
-            <div class="fl detail-title">中铁一局办公楼装修劳务招标公告</div>
-            <div class="fl bid-status">状态 : <span>已确认</span></div>
+            <div class="fl detail-title"></div>
         </div>
         <div class="clearfix detail-info">
-            <div class="fl"><label>招标编号 : </label><span>ASDQWFRE</span></div>
+            <div class="fl"><label>招标编号 : </label><span class="bidNo"></span></div>
             <div class="fl"><label>提交审批 : </label><span>李山上 2018/01/01</span></div>
             <div class="fl"><label>审批通过 : </label><span>2018/01/01 12:00</span></div>
         </div>
         <div class="detail-content" style="padding-top: 15px;">
             <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span>劳务招标</span></div>
-                <div class="fl"><label>项目名称 : </label><span>西安团队建筑装饰有限公司</span></div>
+                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span class="bidType"></span></div>
+                <div class="fl"><label>项目名称 : </label><span class="projectName"></span></div>
             </div>
-            <div style="margin-bottom: 10px;"><label>中标单位 : </label><span>西安团队建筑装饰有限公司</span></div>
-            <div style="margin-bottom: 10px;"><label>投标总价 : </label><span>18000.00</span></div>
+            <div style="margin-bottom: 10px;"><label>中标单位 : </label><span class="entpName"></span></div>
+            <div style="margin-bottom: 10px;"><label>投标总价 : </label><span class="biddingMoney"></span>元</div>
             <div class="clearfix" style="margin-bottom: 10px;">
                 <div class="fl">
                     <label>招标要求 :</label>
                 </div>
-                <div class="table-content fl" style="width: 800px;">
+                <div class="table-content fl" style="width: 800px;margin: 0 0 0 5px;">
                     <table>
                         <thead>
                         <tr class="small">
@@ -75,24 +54,7 @@
                             <th class="border">内容</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td class="border">1</td>
-                            <td class="border">一般纳税人</td>
-                        </tr>
-                        <tr>
-                            <td class="border">1</td>
-                            <td class="border">一般纳税人</td>
-                        </tr>
-                        <tr>
-                            <td class="border">1</td>
-                            <td class="border">一般纳税人</td>
-                        </tr>
-                        <tr>
-                            <td class="border">1</td>
-                            <td class="border">一般纳税人</td>
-                        </tr>
-                        </tbody>
+                        <tbody id="bidRequireList"></tbody>
                     </table>
                 </div>
             </div>
@@ -100,37 +62,31 @@
                 <div class="fl">
                     <label>招标清单 :</label>
                 </div>
-                <div class="table-content fl" style="width: 800px;">
+                <div class="table-content fl" style="width: 800px;margin: 0 0 0 5px;">
                     <table>
                         <thead>
                         <tr class="small">
                             <th class="border" style="width: 45px;">序号</th>
-                            <th class="border">内容</th>
+                            <th class="border">项目分类</th>
+                            <th class="border">项目名称</th>
+                            <th class="border">工作内容</th>
+                            <th class="border">单位</th>
+                            <th class="border">数量</th>
+                            <th class="border">说明</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td class="border">1</td>
-                            <td class="border">一般纳税人</td>
-                        </tr>
-
-                        </tbody>
+                        <tbody id="bidDetailVOList"></tbody>
                     </table>
                 </div>
             </div>
-            <div class="clearfix">
-                <label class="fl" style="margin-left: 30px;">设置 : </label>
-                <div class="fl">
-                    <input type="checkbox" disabled checked>
-                    <span>平台所有人可见</span>
-                </div>
-            </div>
+            <!--<div class="clearfix">-->
+                <!--<label class="fl" style="margin-left: 30px;">设置 : </label>-->
+                <!--<div class="fl">-->
+                    <!--<input type="checkbox" disabled checked>-->
+                    <!--<span>平台所有人可见</span>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
 
-<div name="noInfoAllKnowledgeList_page" id="page" style="margin: 20px 0;display: none;"></div>
-<div class='noInfo' id='noInfoAllKnowledgeList'>
-    <div class="icon-uninformed"></div>
-    <p>没有符合条件的信息！</p>
-</div>

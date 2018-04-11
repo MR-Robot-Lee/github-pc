@@ -39,8 +39,10 @@
         </div>
         <div class="clearfix detail-info">
             <div class="fl"><label>招标编号 : </label><span class='bidNo'></span></div>
-            <div class="fl"><label>创建人 : </label><span></span></div>
             <div class="fl"><label>发布人 : </label><span></span></div>
+            <div class="fl"><label>邀请 : </label><span class="invittion-count"></span></div>
+            <div class="fl"><label>投标 : </label><span class="bidding-count"></span></div>
+            <div class="fl"><label>拒绝 : </label><span class="reject-count"></span></div>
         </div>
         <div class="detail-content" style="padding-top: 15px;">
             <div class="clearfix" style="margin-bottom: 10px;">
@@ -55,7 +57,7 @@
                 <div class="fl">
                     <label>招标要求 :</label>
                 </div>
-                <div class="table-content fl" style="width: 900px;margin-left: 5px;">
+                <div class="table-content fl" style="width: 900px;margin-left: 5px;max-height: 181px;overflow: auto;">
                     <table>
                         <thead>
                         <tr class="small">
@@ -72,7 +74,7 @@
                 <div class="fl">
                     <label>招标清单 :</label>
                 </div>
-                <div class="table-content fl" style="width: 900px;margin-left: 5px;">
+                <div class="table-content fl" style="width: 900px;margin-left: 5px;max-height: 181px;overflow: auto;">
                     <table>
                         <thead>
                         <tr class="small">
@@ -94,27 +96,28 @@
                 <div class="fl">
                     <label>投标邀请 :</label>
                 </div>
-                <div class="fl" style="margin-left: 5px;margin-bottom: 5px;">
-                    <label>已邀请投标单位 :</label>
-                    <span class="sup-count">0</span>
-                </div>
-                <div class="table-content" style="width: 900px;margin-left: 69px;margin-bottom: 10px;">
-                    <table>
-                        <thead>
-                        <tr class="small">
-                            <th class="border" style="width: 45px;">序号</th>
-                            <th class="border">单位类别</th>
-                            <th class="border">单位名称</th>
-                            <th class="border">管理员</th>
-                            <th class="border">绑定手机</th>
-                            <th class="border">税务类型</th>
-                            <th class="border">营业执照</th>
-                            <th class="border">业务范围</th>
-                        </tr>
-                        </thead>
-                        <tbody id="bidInvitationPrev">
-                        </tbody>
-                    </table>
+                <div class="fl">
+                    <div style="margin-left: 5px;margin-bottom: 5px;">
+                        <label>已邀请投标单位 :</label>
+                        <span class="sup-count">0</span>
+                    </div>
+                    <div class="table-content fl" style="width: 900px;margin-left: 5px;margin-bottom: 10px;max-height: 181px;overflow: auto;">
+                        <table>
+                            <thead>
+                            <tr class="small">
+                                <th class="border" style="width: 45px;">序号</th>
+                                <th class="border">单位类别</th>
+                                <th class="border">单位名称</th>
+                                <th class="border">管理员</th>
+                                <th class="border">绑定手机</th>
+                                <th class="border">税务类型</th>
+                                <th class="border">业务范围</th>
+                            </tr>
+                            </thead>
+                            <tbody id="bidInvitationPrev">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!--<div class="clearfix">-->
@@ -131,36 +134,36 @@
 <div class="choose-the-bid" style="display: none;">
     <div class="detail-contain">
         <div class="clearfix detail-top">
-            <div class="fl detail-title">中铁一局办公楼装修劳务招标公告</div>
-            <div class="fl bid-status">状态 : <span>已确认</span></div>
+            <div class="fl detail-title"></div>
+            <div class="fl bid-status">状态 : <span></span></div>
         </div>
         <div class="clearfix detail-info">
-            <div class="fl">招标编号 : <span>126</span></div>
-            <div class="fl">发布人 : <span>126</span></div>
-            <div class="fl">点赞 : <span>126</span></div>
-            <div class="fl">邀请 : <span>126</span></div>
-            <div class="fl">投标 : <span>126</span></div>
+            <div class="fl"><label>招标编号 : </label><span class='bidNo'></span></div>
+            <div class="fl"><label>发布人 : </label><span></span></div>
+            <div class="fl"><label>邀请 : </label><span class="invittion-count"></span></div>
+            <div class="fl"><label>投标 : </label><span class="bidding-count"></span></div>
+            <div class="fl"><label>拒绝 : </label><span class="reject-count"></span></div>
         </div>
         <div class="detail-content">
-            <div class="clearfix con-top">
-                <div class="fl">投标单位 : <span>5</span></div>
-                <div class="fl">中标单位 : <span>西安团队建筑装饰有限公司</span></div>
-            </div>
+            <!--<div class="clearfix con-top">-->
+                <!--<div class="fl">投标单位 : <span>5</span></div>-->
+                <!--<div class="fl">中标单位 : <span>西安团队建筑装饰有限公司</span></div>-->
+            <!--</div>-->
             <div class="con-container clearfix">
             </div>
-            <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl">谁可以看见 : </div>
-                <div class="fl">
-                    <input type="radio" name="">
-                    <span>所有人可见</span>
-                    <input type="radio" name="">
-                    <span>仅投标方可见</span>
-                    <input type="radio" name="">
-                    <span>仅中标方可见</span>
-                    <input type="radio" name="">
-                    <span>全部不可见</span>
-                </div>
-            </div>
+            <!--<div class="clearfix" style="margin-bottom: 10px;">-->
+                <!--<div class="fl">谁可以看见 : </div>-->
+                <!--<div class="fl">-->
+                    <!--<input type="radio" name="">-->
+                    <!--<span>所有人可见</span>-->
+                    <!--<input type="radio" name="">-->
+                    <!--<span>仅投标方可见</span>-->
+                    <!--<input type="radio" name="">-->
+                    <!--<span>仅中标方可见</span>-->
+                    <!--<input type="radio" name="">-->
+                    <!--<span>全部不可见</span>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
     <div class="detail-footer" style="padding-left: 750px">
@@ -272,7 +275,6 @@
                             <th class="border">管理员</th>
                             <th class="border">绑定手机</th>
                             <th class="border">税务类型</th>
-                            <th class="border">营业执照</th>
                             <th class="border">业务范围</th>
                             <th class="border">操作</th>
                         </tr>
