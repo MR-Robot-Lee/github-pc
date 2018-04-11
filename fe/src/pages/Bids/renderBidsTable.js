@@ -84,6 +84,7 @@ function _renderBidsRequireList(list) {
 
 /*
 * 招标清单
+* @param arr 勾选的新数组
 * */
 exports.renderBidList = function (arr, type) {
     var tbody = $('#bidList');
@@ -104,6 +105,7 @@ exports.renderBidList = function (arr, type) {
             allArr.push(newArr[i]);
         }
     }
+    console.log(allArr);
     renderBidListTable(allArr, type);
 }
 
@@ -112,8 +114,9 @@ exports._renderBidListTable = renderBidListTable;
 function renderBidListTable(allArr, type) {
     var thead = $('#bidList').parents('table').find('thead').html('');
     var tbody = $('#bidList');
-    console.log(allArr);
+    tbody.html('');
     //渲染表头
+    console.log(allArr);
     if (!allArr.length) {
         $('#bidList').parents('table').hide();
     } else {
@@ -142,96 +145,22 @@ function renderBidListTable(allArr, type) {
                 '</tr>');
         }
         //渲染表单内容
-        if (type === 'material' && allArr[0].mtrlName) {
-            tbody.html('');
-            for (var i = 0; i < allArr.length; i++) {
-                var item = allArr[i];
-                var dom = $('<tr class="small">' +
-                    '<td class="border">' + (i + 1) + '</td>' +
-                    '<td class="border">' + item.mtrlName + '</td>' +
-                    '<td class="border">' + item.specBrand + '</td>' +
-                    '<td class="border">' + item.unit + '</td>' +
-                    '<td class="border">' + item.avgPrice + '</td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + (item.objQpy || '') + '></td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '') + '></td>' +
-                    '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
-                    '</tr>');
-                dom.data('item', item);
-                tbody.append(dom);
-            }
-        } else if (type === 'labor' && allArr[0].laborName) {
-            tbody.html('');
-            for (var i = 0; i < allArr.length; i++) {
-                var item = allArr[i];
-                var dom = $('<tr class="small">' +
-                    '<td class="border">' + (i + 1) + '</td>' +
-                    '<td class="border">' + item.laborName + '</td>' +
-                    '<td class="border">' + item.workContent + '</td>' +
-                    '<td class="border">' + item.unit + '</td>' +
-                    '<td class="border">' + item.avgPrice + '</td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + (item.objQpy || '') + '></td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '') + '></td>' +
-                    '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
-                    '</tr>');
-                dom.data('item', item);
-                tbody.append(dom);
-            }
-        } else if (type === 'step' && allArr[0].measureName) {
-            tbody.html('');
-            for (var i = 0; i < allArr.length; i++) {
-                var item = allArr[i];
-                var dom = $('<tr class="small">' +
-                    '<td class="border">' + (i + 1) + '</td>' +
-                    '<td class="border">' + item.measureName + '</td>' +
-                    '<td class="border">' + item.workContent + '</td>' +
-                    '<td class="border">' + item.unit + '</td>' +
-                    '<td class="border">' + item.avgPrice + '</td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + (item.objQpy || '') + '></td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '') + '></td>' +
-                    '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
-                    '</tr>');
-                dom.data('item', item);
-                tbody.append(dom);
-            }
-        } else if (type === 'subpackage' && allArr[0].subletName) {
-            tbody.html('');
-            for (var i = 0; i < allArr.length; i++) {
-                var item = allArr[i];
-                var dom = $('<tr class="small">' +
-                    '<td class="border">' + (i + 1) + '</td>' +
-                    '<td class="border">' + item.subletName + '</td>' +
-                    '<td class="border">' + item.workContent + '</td>' +
-                    '<td class="border">' + item.unit + '</td>' +
-                    '<td class="border">' + item.avgPrice + '</td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + (item.objQpy || '') + '></td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '') + '></td>' +
-                    '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
-                    '</tr>');
-                dom.data('item', item);
-                tbody.append(dom);
-            }
-        } else {
-            console.log('没进来');
-            tbody.html('');
-            for (var i = 0; i < allArr.length; i++) {
-                var item = allArr[i];
-                var dom = $('<tr class="small">' +
-                    '<td class="border">' + (i + 1) + '</td>' +
-                    '<td class="border">' + item.objName + '</td>' +
-                    '<td class="border">' + item.objContent + '</td>' +
-                    '<td class="border">' + item.unit + '</td>' +
-                    '<td class="border">' + item.bidPrice + '</td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + (item.objQpy || '') + '></td>' +
-                    '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '') + '></td>' +
-                    '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
-                    '</tr>');
-                dom.data('item', item);
-                tbody.append(dom);
-            }
+        for (var i = 0; i < allArr.length; i++) {
+            var item = allArr[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + (item.mtrlName || item.laborName || item.measureName || item.subletName || item.objName) + '</td>' +
+                '<td class="border">' + (item.specBrand || item.workContent || item.objContent) + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + ((item.avgPrice || item.avgPrice === 0) ? item.avgPrice : item.bidPrice) + '</td>' +
+                '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + (item.objQpy || '') + '></td>' +
+                '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '') + '></td>' +
+                '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
+                '</tr>');
+            dom.data('item', item);
+            tbody.append(dom);
         }
     }
-
-
     initEvent.initBidsListEvent(type);
 }
 
@@ -452,7 +381,6 @@ exports.renderBidsList = function (list, page) {
 * 中标列表
 * */
 exports.renderBidsNoticeList = function (list, page) {
-    console.log(list);
     list = list || [];
     if (list.length) {
         $('[name=noInfoBidNoticeList_main]').show();
@@ -545,7 +473,7 @@ exports.renderBidInviteList = function (data, id) {
         }
         var dom = $('<div class="bid-company-item" style="position: relative;">' +
             '<div style="line-height: 34px;font-weight: bold;color: #333333;">' + item.entpName + '</div>' +
-            '<div><label>投标总价 : </label> <span>123456.78</span></div>' +
+            '<div><label>投标总价 : </label> <span class="biddingMoney">' + (item.biddingMoney || 0) + '</span></div>' +
             '<div><label>管理员 : </label> <span>' + item.contactName + '</span></div>' +
             '<div><label>企业信息 : </label> <a href="javascript:;" style="cursor: pointer;color: #009411;text-decoration: underline" data-type="info">查看</a></div>' +
             '<div><label>投标清单 : </label> <a href="javascript:;" style="cursor: pointer;color: #009411;text-decoration: underline" data-type="check">查看</a></div>' +
@@ -699,7 +627,6 @@ exports.renderCompanyInfoTable = function (data, modal) {
 * 评标/投标清单
 * */
 exports.renderBidingInfoList = function (data, modal) {
-    console.log(data);
     var list = data.biddingList || [];
     modal.$body.find('tbody').html('');
     modal.$body.find('.entpName').html(data.entp.entpName);

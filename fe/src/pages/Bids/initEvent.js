@@ -186,14 +186,13 @@ function _initAddBidsEvent(attachList, id) {
         data.requireList = requireList;
         data.addBidDetailList = addBidDetailList;
         data.entpList = entpList;
-        if(!data.requireList.length){
+        if (!data.requireList.length) {
             return alert('请选择招标要求')
         }
-        console.log(data.bidType);
-        if(!data.addBidDetailList.length && data.bidType != 5){
+        if (!data.addBidDetailList.length && data.bidType != 5) {
             return alert('请编辑招标清单')
         }
-        if(!data.entpList.length){
+        if (!data.entpList.length) {
             return alert('请选择供应商')
         }
 
@@ -259,7 +258,8 @@ exports.initBidsRequireEvent = function () {
 * 招标清单中的删除与输入事件
 * */
 exports.initBidsListEvent = function (type) {
-    $('#bidList').find('a').click(function () {
+    $('#bidList').off('click', 'a');
+    $('#bidList').on('click', 'a', function () {
         var that = this;
         var arr = delItem($('#bidList'), that);
         renderBidsTable._renderBidListTable(arr, type);
@@ -277,10 +277,10 @@ exports.initBidsInvitationEvent = function () {
     $('#bidInvitation').off('click', 'a');
     $('#bidInvitation').on('click', 'a', function () {
         var that = this;
-        if($(this).data('type') === 'del'){
+        if ($(this).data('type') === 'del') {
             var arr = delItem($('#bidInvitation'), that, 'invite');
             renderBidsTable.renderBidsInvitationTable(arr);
-        } else if($(this).data('type') === 'check'){
+        } else if ($(this).data('type') === 'check') {
 
         }
     });
@@ -367,14 +367,15 @@ exports.initBidItemEvent = function (parent, page) {
             _data = res.data || {};
             $('.detail-title').html(_data.bidTitle);
             $('.bid-status span').html(getBidStatus(_data.bidStatus));
+            $('.publishUserName').html(_data.publishUserName);
             $('.bidNo').html(_data.bidNo);
             var invitionCount = _data.bidInviteVOList.length; // 邀请数量
             var biddingCount = 0; // 投标数量
             var rejectCount = 0; // 拒绝数量
-            for(var i = 0; i < _data.bidInviteVOList.length; i++){
-                if(_data.bidInviteVOList[i].status === 4 || _data.bidInviteVOList[i].status === 5){
+            for (var i = 0; i < _data.bidInviteVOList.length; i++) {
+                if (_data.bidInviteVOList[i].status === 4 || _data.bidInviteVOList[i].status === 5) {
                     biddingCount += 1;
-                } else if(_data.bidInviteVOList[i].status === 3){
+                } else if (_data.bidInviteVOList[i].status === 3) {
                     rejectCount += 1;
                 }
             }
@@ -415,7 +416,6 @@ exports.initBidItemEvent = function (parent, page) {
         $('.check-bid').hide();
     });
     $('.edit-bid').click(function (e) {//编辑
-        console.log('编辑');
         common.stopPropagation(e);
         $('.employee-name').html('招标编辑');
         $('.cancel-edit').off('click').on('click', function () {
@@ -435,7 +435,6 @@ exports.initBidItemEvent = function (parent, page) {
         _initAddBidsEvent(_data.attachList, _data.id);
         initBidsFunc.getAllProjectFunc($('#allProject'));
         // 数据回填
-        console.log(_data.projId);
         if (_data.projId) {
             var timer = setInterval(function () {
                 if ($('#allProject option').length > 1) {
@@ -467,7 +466,6 @@ exports.initBidItemEvent = function (parent, page) {
         $('.back-to-list').hide();
         $('.check-bid').hide();
         chooseBids(_data.id);
-        console.log(_data.bidStatus);
         if (_data.bidStatus !== 2) { // 非招标中状态隐藏 流标 和 定标
             $('a.failure').hide();
             $('a.submitBid').hide();
@@ -681,8 +679,6 @@ exports.initBidsNoticeItemEvent = function (page) {
                     break;
                 }
             }
-            console.log(data);
-            console.log(_data);
             $('.detail-title').html(data.bidTitle);
             $('.bidNo').html(data.bidNo);
             $('.bidType').html(getBidType(data.bidType));
