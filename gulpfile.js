@@ -223,7 +223,7 @@ gulp.task('enterprise', function () {
         .pipe(connect.reload());
 });
 /**
- * 企业库
+ * 招标平台
  */
 gulp.task('bids', function () {
     return gulp.src('fe/src/bids.js')

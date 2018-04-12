@@ -329,9 +329,13 @@ exports.initMaterialPlanEvent = function () {
                 initPurchaseDetail(parents, item);
                 if (userNo === item.prchUserNo) {
                     $('#purchaseOrder').show();
+                    $('#createOrder').show();
+                    $('#manageOrder').show();
                     $('.checkAccept').show()
                 } else {
                     $('#purchaseOrder').hide();
+                    $('#createOrder').hide();
+                    $('#manageOrder').hide();
                     $('.checkAccept').hide();
                 }
             } else if (type === 'check-order') {// 点收单
@@ -581,29 +585,33 @@ function initPurchaseDetail(parents, item) {
     var purchaseOrder = $("#purchaseOrder");//采购编辑
     createOrder.click(function (e) {
         common.stopPropagation(e);
-        var createModal = Modal('生成订单', createOrderModal());
-        createModal.show();
-        createModal.showClose();
         var list = [];
         $("input.choose").each(function () {
             if ($(this).prop('checked')) {
                 list.push($(this).parents('tr').data('item'));
             }
         })
-        renderCostMaterialTable.renderCreateOrderTable(list, createModal, item.id);
-
+        if(list.length){
+            var createModal = Modal('生成订单', createOrderModal());
+            createModal.show();
+            createModal.showClose();
+            renderCostMaterialTable.renderCreateOrderTable(list, createModal, item.id);
+        } else {
+            return alert('请选择生成订单的材料')
+        }
     })
     manageOrder.click(function (e) {
         common.stopPropagation(e);
-        var manageModal = Modal('管理订单', manageOrderModal());
-        manageModal.show();
-        manageModal.showClose();
         costMaterialApi.getOrder(item.id).then(function (res) {
             if (res.code === 1) {
-                console.log(res);
                 var list = res.data || [];
+                var manageModal = Modal('管理订单', manageOrderModal());
+                manageModal.show();
+                manageModal.showClose();
+                renderCostMaterialTable.renderOrderTable(list, manageModal);
+            } else if(res.code === 7){
+                return alert('暂无订单')
             }
-            renderCostMaterialTable.renderOrderTable(list, manageModal);
         })
     })
     if (!purchaseOrder.data('flag')) {
@@ -2467,8 +2475,8 @@ exports.initCreateOrderEvent = function (modal, id) {
 exports.initOrderEvent = function (modal) {
     modal.$body.find('a').click(function (e) {
         common.stopPropagation(e);
+        var that = this;
         var item = $(this).parents('tr').data('item');
-        // console.log(item);
         if ($(this).data('type') === 'manage') {
             costMaterialApi.getOrderInfo(item.id).then(function(res){
                 if(res.code === 1){
@@ -2491,13 +2499,20 @@ exports.initOrderEvent = function (modal) {
             })
 
         } else if ($(this).data('type') === 'del') {
-            costMaterialApi.putOrderStatus(item.id, 5).then(function(res){
-                if(res.code === 1){
-                    $(this).parents('tr').nextAll('tr').find('td:first-child').each(function(){
-                        $(this).html($(this).html()/1 - 1);
-                    });
-                    $(this).parents('tr').remove();
-                }
+            var deleteModal = Modal('提示', delModal());
+            deleteModal.show();
+            deleteModal.showClose();
+            deleteModal.$body.find('.confirm').click(function(){
+                costMaterialApi.putOrderStatus(item.id, 5).then(function(res){
+                    console.log('删除了');
+                    if(res.code === 1){
+                        $(that).parents('tr').nextAll('tr').find('td:first-child').each(function(){
+                            $(that).html($(that).html()/1 - 1);
+                        });
+                        $(that).parents('tr').remove();
+                    }
+                })
+                deleteModal.$body.find('.span-btn-bc').click();
             })
         }
     })
