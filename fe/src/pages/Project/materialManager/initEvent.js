@@ -585,19 +585,23 @@ function initPurchaseDetail(parents, item) {
     var purchaseOrder = $("#purchaseOrder");//采购编辑
     createOrder.click(function (e) {
         common.stopPropagation(e);
-        var list = [];
-        $("input.choose").each(function () {
-            if ($(this).prop('checked')) {
-                list.push($(this).parents('tr').data('item'));
+        if($('[name=approval]').html() === '待采购'){
+            var list = [];
+            $("input.choose").each(function () {
+                if ($(this).prop('checked')) {
+                    list.push($(this).parents('tr').data('item'));
+                }
+            })
+            if(list.length){
+                var createModal = Modal('生成订单', createOrderModal());
+                createModal.show();
+                createModal.showClose();
+                renderCostMaterialTable.renderCreateOrderTable(list, createModal, item.id);
+            } else {
+                return alert('请选择生成订单的材料')
             }
-        })
-        if(list.length){
-            var createModal = Modal('生成订单', createOrderModal());
-            createModal.show();
-            createModal.showClose();
-            renderCostMaterialTable.renderCreateOrderTable(list, createModal, item.id);
         } else {
-            return alert('请选择生成订单的材料')
+            return alert('非待采购状态不可操作')
         }
     })
     manageOrder.click(function (e) {
@@ -630,14 +634,18 @@ function initPurchaseDetail(parents, item) {
         });
         $('.checkAccept').click(function (e) {
             common.stopPropagation(e);
-            var remindPurchase = Modal('提示', remindModal());
-            remindPurchase.$body.find('.remind-text').html('确定已完成全部采购编辑？');
-            remindPurchase.show();
-            remindPurchase.showClose();
-            remindPurchase.$body.find('.confirm').click(function () {
-                remindPurchase.hide();
-                initMaterialManger.initPostCheckAndAccept({status: 1, mtrlPlanId: item.id}, remindPurchase);
-            })
+            if($(".modal-form [name=checkUserName]").val()){
+                var remindPurchase = Modal('提示', remindModal());
+                remindPurchase.$body.find('.remind-text').html('确定已完成全部采购编辑？');
+                remindPurchase.show();
+                remindPurchase.showClose();
+                remindPurchase.$body.find('.confirm').click(function () {
+                    remindPurchase.hide();
+                    initMaterialManger.initPostCheckAndAccept({status: 1, mtrlPlanId: item.id}, remindPurchase);
+                })
+            } else {
+                return alert('没有点收人')
+            }
         })
     }
 }
@@ -2460,6 +2468,7 @@ exports.initCreateOrderEvent = function (modal, id) {
         costMaterialApi.postAddOrder(data).then(function (res) {
             if (res.code === 1) {
                 modal.$body.find('.span-btn-bc').click();
+                $(".material-plan .budget-menus a.active").click();
             }
         })
     })
@@ -2588,4 +2597,10 @@ exports.initCheckingOrderEvent = function(modal, data, id){
     })
 }
 
+/*
+* 查看说明弹窗
+* */
+function showRemarkModal(modal, data){
+
+}
 

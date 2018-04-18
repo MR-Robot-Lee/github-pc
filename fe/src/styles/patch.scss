@@ -810,3 +810,14 @@ th, td {
         }
     }
 }
+
+.refresh-icon{
+    display: inline-block;
+    width: 50px;
+    height: 18px;
+    background: url(./images/refresh-icon.png) no-repeat;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+}
