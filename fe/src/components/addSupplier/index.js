@@ -161,8 +161,9 @@ function initSupplierListEvent(parents, that, type) {
     });
     parents.find('li').click(function (e) {
         common.stopPropagation(e);
+        var that = this;
         var item = $(this).data('item');
-        if (type === 'bid') {//在招标平台中
+        if (type === 'bid') { // 在招标平台中
             var tbody = $('#bidInvitation');
             var order = tbody.find('tr').length;
             var dom = $('<tr class="small">' +
@@ -176,9 +177,18 @@ function initSupplierListEvent(parents, that, type) {
                 '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
                 '</tr>');
             dom.data('item', item);
-            dom.appendTo(tbody);
-            tbody.parents('table').show();
-            $('.sup-count').html(order + 1);
+            var flag = true;
+            tbody.find('tr').each(function(){
+                if($(this).data('item').id === $(that).data('item').id){
+                    flag = false;
+                    return alert('已添加该供应商')
+                }
+            })
+            if(flag){
+                dom.appendTo(tbody);
+                tbody.parents('table').show();
+                $('.sup-count').html(order + 1);
+            }
             bidEvent.initBidsInvitationEvent();
         } else {
             if (that.bindData) {

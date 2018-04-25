@@ -4,7 +4,7 @@
             <div class="item" style="margin-bottom: 5px">
                 <label class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>招标类型 : </label>
                 <select class="int int-default int-large44" id="bidType" style="width: 260px;">
-                    <option value="">全部类型</option>
+                    <option value="">请选择</option>
                     <option value="1">材料</option>
                     <option value="2">人工</option>
                     <option value="3">措施</option>
@@ -20,7 +20,7 @@
             <div class="item" style="margin-bottom: 5px">
                 <label class="bold-title label-block int-small8" style="width: 81px;">招标项目 : </label>
                 <select class="int int-default int-large44" id="allProject" style="width: 260px;max-height: 500px;">
-                    <option value="">全部项目</option>
+                    <option value="">请选择</option>
                 </select>
             </div>
             <div class="item clearfix" style="margin-bottom: 5px;position: relative;">
@@ -51,8 +51,8 @@
                 <label class="bold-title label-block int-small8 fl" style="vertical-align: middle;line-height: 30px;"><i
                             class="icon-fill-in">*</i>招标要求 : </label>
                 <a class="span-btn background-list-gray btn-fine-adj1" href='javascript:;' name="bidRequireSetting">设置</a>
-                <div class="table-content" style="width: 900px;margin: 10px 0 0 85px;max-height: 181px;overflow: auto;">
-                    <table style="display: none;max-height: 180px;overflow: auto;">
+                <div class="table-content" style="width: 900px;margin:0 0 0 85px;max-height: 181px;overflow: auto;">
+                    <table style="display: none;max-height: 180px;overflow: auto;margin-top: 10px;">
                         <thead>
                         <tr class="small">
                             <th class="border" style="width: 50px;">序号</th>
@@ -68,8 +68,8 @@
                 <label class="bold-title label-block int-small8 fl" style="vertical-align: middle;line-height: 30px;"><i
                             class="icon-fill-in">*</i>招标清单 : </label>
                 <a style="" class="span-btn background-list-gray btn-fine-adj1" href='javascript:;' name="bidList">编辑</a>
-                <div class="table-content" style="width: 900px;margin: 10px 0 0 85px;max-height: 181px;overflow: auto;">
-                    <table style="display: none;">
+                <div class="table-content" style="width: 900px;margin: 0 0 0 85px;max-height: 181px;overflow: auto;">
+                    <table style="display: none;margin-top: 10px;">
                         <thead>
                         <tr class="small">
                             <th class="border" style="width: 45px;">序号</th>
@@ -92,8 +92,8 @@
                 <a style="" class="span-btn background-list-gray btn-fine-adj1" href='javascript:;' name="checkSupplier">选择供应商</a>
                 <span>已邀请投标单位: <span class="sup-count">0</span></span>
                 <div class="supplierList"></div>
-                <div class="table-content" style="width: 900px;margin: 10px 0 0 85px;max-height: 181px;overflow: auto;">
-                    <table style="display: none;">
+                <div class="table-content" style="width: 900px;margin: 0 0 0 85px;max-height: 181px;overflow: auto;">
+                    <table style="display: none;margin-top: 10px;">
                         <thead>
                         <tr class="small">
                             <th class="border" style="width: 45px;">序号</th>
@@ -135,9 +135,9 @@
             <!--<div class="fl bid-status">状态 : <span></span></div>-->
         </div>
         <div class="clearfix detail-info">
-            <div class="fl"><label>招标编号 : </label><span></span></div>
-            <div class="fl"><label>创建人 : </label><span></span></div>
-            <div class="fl"><label>发布人 : </label><span></span></div>
+            <!--<div class="fl"><label>招标编号 : </label><span></span></div>-->
+            <div class="fl"><label>招标负责人 : </label><span class="publishUserName"></span></div>
+            <div class="fl"><label>创建时间  : </label><span class="publishTime"></span></div>
         </div>
         <div class="detail-content" style="padding-top: 15px;">
             <div class="clearfix" style="margin-bottom: 10px;">
@@ -145,8 +145,8 @@
                 <div class="fl"><label>项目名称 : </label><span class="bid-projname"></span></div>
             </div>
             <div style="margin-bottom: 10px;"><label>截止时间 : </label><span class="endtime"></span></div>
-            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标内容 : </label><div class="fl bid-content" style="margin-left: 5px;width: 900px;">
-                </div></div>
+            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标规模 : </label><div class="fl bid-scale" style="margin-left: 5px;width: 900px;"></div></div>
+            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标内容 : </label><div class="fl bid-content" style="margin-left: 5px;width: 900px;"></div></div>
             <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">添加图片 : </label><div style="width: 700px;margin-left: 5px;" class="fl images clearfix"></div></div>
             <div class="clearfix" style="margin-bottom: 10px;">
                 <div class="fl">
@@ -213,13 +213,13 @@
                     </table>
                 </div>
             </div>
-            <div class="clearfix">
-                <label class="fl" style="margin-left: 30px;">设置 : </label>
-                <div class="fl">
-                    <input type="checkbox" disabled checked>
-                    <span>平台所有人可见</span>
-                </div>
-            </div>
+            <!--<div class="clearfix">-->
+                <!--<label class="fl" style="margin-left: 30px;">设置 : </label>-->
+                <!--<div class="fl">-->
+                    <!--<input type="checkbox" disabled checked>-->
+                    <!--<span>平台所有人可见</span>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </div>

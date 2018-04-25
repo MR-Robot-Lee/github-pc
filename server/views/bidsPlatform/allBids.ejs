@@ -3,7 +3,7 @@
     <div style="display: inline-block;vertical-align: middle;margin-top: 20px;padding-left: 10px;">
         <label style="margin-left:10px;">类型名称 :</label>
         <select class="int int-default int-small14" name="bidType">
-            <option value="">全部类型</option>
+            <option value="">请选择</option>
             <option value="1">材料</option>
             <option value="2">人工</option>
             <option value="3">措施</option>
@@ -12,7 +12,7 @@
         </select>
         <label style="margin-left:10px;">项目名称 :</label>
         <select class="int int-default int-small14" name="allProject" style="width: 200px;">
-            <option value="">全部项目</option>
+            <option value="">请选择</option>
         </select>
         <label style="margin-left:10px;">状态名称 :</label>
         <select class="int int-default int-small14" name="bidStatus" style="width: 200px;">
@@ -35,25 +35,26 @@
     <div class="detail-contain" style="border: none ;">
         <div class="clearfix detail-top">
             <div class="fl detail-title"></div>
-            <div class="fl bid-status">状态 : <span></span></div>
+            <div class="fl bid-status">状态 : <span style="color: #5b5b5b;"></span></div>
         </div>
         <div class="clearfix detail-info">
-            <div class="fl"><label>招标编号 : </label><span class='bidNo'></span></div>
-            <div class="fl"><label>发布人 : </label><span class="publishUserName"></span></div>
-            <div class="fl"><label>邀请 : </label><span class="invittion-count"></span></div>
-            <div class="fl"><label>投标 : </label><span class="bidding-count"></span></div>
-            <div class="fl"><label>拒绝 : </label><span class="reject-count"></span></div>
+            <div class="fl"><label>招标编号 : </label><span style="color: #5b5b5b;" class='bidNo'></span></div>
+            <div class="fl"><label>招标负责人 : </label><span style="color: #5b5b5b;" class="publishUserName"></span></div>
+            <div class="fl"><label>发布时间 : </label><span style="color: #5b5b5b;" class="publishTime"></span></div>
+            <div class="fl"><label>邀请 : </label><span style="color: #5b5b5b;" class="invittion-count"></span></div>
+            <div class="fl"><label>投标 : </label><span style="color: #5b5b5b;" class="bidding-count"></span></div>
+            <div class="fl"><label>拒绝 : </label><span style="color: #5b5b5b;" class="reject-count"></span></div>
         </div>
         <div class="detail-content" style="padding-top: 15px;">
             <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span class="bid-type"></span></div>
-                <div class="fl"><label>项目名称 : </label><span class="bid-projname"></span></div>
+                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span style="color: #5b5b5b;" class="bid-type"></span></div>
+                <div class="fl"><label>项目名称 : </label><span style="color: #5b5b5b;" class="bid-projname"></span></div>
             </div>
             <div style="margin-bottom: 10px;"><label>截止时间 : </label><span class="endtime"></span></div>
-            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标内容 : </label><div class="fl bid-content" style="margin-left: 5px;width: 900px;">
-                </div></div>
+            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标规模 : </label><div class="fl bid-scale" style="margin-left: 5px;width: 900px;color: #5b5b5b;"></div></div>
+            <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">招标内容 : </label><div class="fl bid-content" style="margin-left: 5px;width: 900px;color: #5b5b5b;"></div></div>
             <div class="clearfix" style="margin-bottom: 10px;"><label class="fl">添加图片 : </label><div style="width: 700px;margin-left: 5px;" class="fl images clearfix"></div></div>
-            <div class="clearfix" style="margin-bottom: 10px;">
+            <div class="clearfix" style="margin-bottom: 20px;">
                 <div class="fl">
                     <label>招标要求 :</label>
                 </div>
@@ -70,7 +71,7 @@
                     </table>
                 </div>
             </div>
-            <div class="clearfix" style="margin-bottom: 10px;">
+            <div class="clearfix" style="margin-bottom: 20px;">
                 <div class="fl">
                     <label>招标清单 :</label>
                 </div>
@@ -92,7 +93,7 @@
                     </table>
                 </div>
             </div>
-            <div class="clearfix" style="margin-bottom: 10px;">
+            <div class="clearfix" style="margin-bottom: 20px;">
                 <div class="fl">
                     <label>投标邀请 :</label>
                 </div>
@@ -139,7 +140,8 @@
         </div>
         <div class="clearfix detail-info">
             <div class="fl"><label>招标编号 : </label><span class='bidNo'></span></div>
-            <div class="fl"><label>发布人 : </label><span class="publishUserName"></span></div>
+            <div class="fl"><label>招标负责人 : </label><span class="publishUserName"></span></div>
+            <div class="fl"><label>投标截止时间 : </label><span class="endTime"></span></div>
             <div class="fl"><label>邀请 : </label><span class="invittion-count"></span></div>
             <div class="fl"><label>投标 : </label><span class="bidding-count"></span></div>
             <div class="fl"><label>拒绝 : </label><span class="reject-count"></span></div>
@@ -166,10 +168,10 @@
             <!--</div>-->
         </div>
     </div>
-    <div class="detail-footer" style="padding-left: 750px">
+    <div class="detail-footer" style="padding-left: 744px">
+        <a class="span-btn confirm-active submitBid" href="javascript:;">定标</a>
         <a class="span-btn span-btn-bc confirm-active failure" href="javascript:;">流标</a>
         <a class="span-btn span-btn-bc confirm-active cancel-bid" href="javascript:;">取消</a>
-        <a class="span-btn confirm-active submitBid" href="javascript:;">定标</a>
     </div>
 </div>
 <div name="noInfoBidsList_page" id="page" style="margin: 20px 0;"></div>
@@ -184,7 +186,7 @@
             <div class="item" style="margin-bottom: 5px">
                 <label class="bold-title label-block int-small8"><i class="icon-fill-in">*</i>招标类型 : </label>
                 <select class="int int-default int-large44" id="bidType" style="width: 260px;">
-                    <option value="">全部类型</option>
+                    <option value="">请选择</option>
                     <option value="1">材料</option>
                     <option value="2">人工</option>
                     <option value="3">措施</option>
@@ -200,7 +202,7 @@
             <div class="item" style="margin-bottom: 5px">
                 <label class="bold-title label-block int-small8" style="width: 81px;">招标项目 : </label>
                 <select class="int int-default int-large44" id="allProject" style="width: 260px;max-height: 500px;">
-                    <option value="">全部项目</option>
+                    <option value="">请选择</option>
                 </select>
             </div>
             <div class="item clearfix" style="margin-bottom: 5px;position: relative;">
@@ -208,6 +210,13 @@
                             class="icon-fill-in">*</i>截止时间 : </label>
                 <div class="int int-default int-large44 fl" style="vertical-align: middle;margin-left: 5px;width: 260px;cursor: pointer;line-height: 28px;color: #333333;" id="bidDeadline"></div>
                 <span class="icon-enterprise-calendar" style="position: absolute;top: 6px;left: 320px;"></span>
+            </div>
+            <div class="item" style="margin-bottom: 5px;">
+                <label class="bold-title label-block int-small8" style="float: left;margin-top:10px;"><i
+                            class="icon-fill-in">*</i>招标规模 : </label>
+                <textarea class="int int-default int-large44"
+                          style="resize: none;margin-left: 5px;width: 510px;height: 70px;" name="bidScale"
+                          placeholder="请输入招标规模"></textarea>
             </div>
             <div class="item" style="margin-bottom: 5px;">
                 <label class="bold-title label-block int-small8" style="float: left;margin-top:10px;"><i
@@ -224,8 +233,8 @@
                 <label class="bold-title label-block int-small8 fl" style="vertical-align: middle;line-height: 30px;"><i
                             class="icon-fill-in">*</i>招标要求 : </label>
                 <a class="span-btn background-list-gray btn-fine-adj1" href='javascript:;' name="bidRequireSetting">设置</a>
-                <div class="table-content" style="width: 900px;margin: 10px 0 0 85px;max-height: 181px;overflow: auto;">
-                    <table style="display: none;max-height: 180px;overflow: auto;">
+                <div class="table-content" style="width: 900px;margin: 0 0 0 85px;max-height: 181px;overflow: auto;">
+                    <table style="display: none;max-height: 180px;overflow: auto;margin-top: 10px;">
                         <thead>
                         <tr class="small">
                             <th class="border" style="width: 50px;">序号</th>
@@ -241,8 +250,8 @@
                 <label class="bold-title label-block int-small8 fl" style="vertical-align: middle;line-height: 30px;"><i
                             class="icon-fill-in">*</i>招标清单 : </label>
                 <a style="" class="span-btn background-list-gray btn-fine-adj1" href='javascript:;' name="bidList">编辑</a>
-                <div class="table-content" style="width: 900px;margin: 10px 0 0 85px;max-height: 181px;overflow: auto;">
-                    <table style="display: none;">
+                <div class="table-content" style="width: 900px;margin: 0 0 0 85px;max-height: 181px;overflow: auto;">
+                    <table style="display: none;margin-top: 10px;">
                         <thead>
                         <tr class="small">
                             <th class="border" style="width: 45px;">序号</th>
@@ -265,8 +274,8 @@
                 <a style="" class="span-btn background-list-gray btn-fine-adj1" href='javascript:;' name="checkSupplier">选择供应商</a>
                 <span>已邀请投标单位: <span class="sup-count">0</span></span>
                 <div class="supplierList"></div>
-                <div class="table-content" style="width: 900px;margin: 10px 0 0 85px;max-height: 181px;overflow: auto;">
-                    <table style="display: none;">
+                <div class="table-content" style="width: 900px;margin: 0 0 0 85px;max-height: 181px;overflow: auto;">
+                    <table style="display: none;margin-top: 10px;">
                         <thead>
                         <tr class="small">
                             <th class="border" style="width: 45px;">序号</th>

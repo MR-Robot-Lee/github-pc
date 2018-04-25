@@ -2,7 +2,7 @@
     <div style="display: inline-block;vertical-align: middle;margin-top: 20px;padding-left: 10px;">
         <label style="margin-left:10px;">类型名称 :</label>
         <select class="int int-default int-small14" name="bidType">
-            <option value="">全部类型</option>
+            <option value="">请选择</option>
             <option value="1">材料</option>
             <option value="2">人工</option>
             <option value="3">措施</option>
@@ -11,7 +11,7 @@
         </select>
         <label style="margin-left:10px;">项目名称 :</label>
         <select class="int int-default int-small14" name="allProject" style="width: 200px;">
-            <option value="">全部项目</option>
+            <option value="">请选择</option>
         </select>
         <input style="padding-left: 5px;margin-left: 10px;" type="text" class=" int int-default keywords" placeholder="请输入关键字">
         <span style="margin-top: -4px;line-height: 30px;margin-left: 7px;" class="span-btn" id="searchModal">查询</span>
@@ -31,18 +31,18 @@
             <div class="fl detail-title"></div>
         </div>
         <div class="clearfix detail-info">
-            <div class="fl"><label>招标编号 : </label><span class="bidNo"></span></div>
-            <div class="fl"><label>提交审批 : </label><span>李山上 2018/01/01</span></div>
-            <div class="fl"><label>审批通过 : </label><span>2018/01/01 12:00</span></div>
+            <div class="fl"><label>招标编号 : </label><span style="color: #5b5b5b;" class="bidNo"></span></div>
+            <div class="fl"><label>定标人 : </label><span style="color: #5b5b5b;" class='winBidUserName'></span></div>
+            <div class="fl"><label>定标时间 : </label><span style="color: #5b5b5b;" class='winBidTime'></span></div>
         </div>
         <div class="detail-content" style="padding-top: 15px;">
             <div class="clearfix" style="margin-bottom: 10px;">
-                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span class="bidType"></span></div>
-                <div class="fl"><label>项目名称 : </label><span class="projectName"></span></div>
+                <div class="fl" style="margin-right: 40px;"><label>招标类型 : </label><span style="color: #5b5b5b;" class="bidType"></span></div>
+                <div class="fl"><label>项目名称 : </label><span style="color: #5b5b5b;" class="projectName"></span></div>
             </div>
-            <div style="margin-bottom: 10px;"><label>中标单位 : </label><span class="entpName"></span></div>
-            <div style="margin-bottom: 10px;"><label>投标总价 : </label><span class="biddingMoney"></span>元</div>
-            <div class="clearfix" style="margin-bottom: 10px;">
+            <div style="margin-bottom: 10px;"><label>中标单位 : </label><span style="color: #5b5b5b;" class="entpName"></span></div>
+            <div style="margin-bottom: 10px;"><label>投标总价 : </label><span style="color: #5b5b5b;" class="biddingMoney"></span>元</div>
+            <div class="clearfix" style="margin-bottom: 20px;">
                 <div class="fl">
                     <label>招标要求 :</label>
                 </div>
@@ -58,7 +58,7 @@
                     </table>
                 </div>
             </div>
-            <div class="clearfix" style="margin-bottom: 10px;">
+            <div class="clearfix" style="margin-bottom: 20px;">
                 <div class="fl">
                     <label>招标清单 :</label>
                 </div>

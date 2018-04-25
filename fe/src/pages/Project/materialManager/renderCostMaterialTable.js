@@ -1404,7 +1404,7 @@ exports.renderCreateOrderTable = function (list, modal, id) {
             '<td class="border">' + item.unit + '</td>' +
             '<td class="border">' + (item.planCount || '') + '</td>' +
             '<td class="border"><input type="text" data-type="count"></td>' +
-            '<td class="border"><a href="javascript:;" class="confirm-hover">查看</a></td>' +
+            '<td class="border">' + (item.planRemark || '') + '</td>' +
             '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
             '</tr>');
         dom.data('item', item);
@@ -1455,11 +1455,11 @@ function getAcctType(type) {
     type = parseInt(type);
     switch (type) {
         case 1:
-            return '实付无预付款';
+            return '实付款(无合同)';
         case 2:
-            return '应付';
+            return '应付账款';
         case 3:
-            return '实付有预付款';
+            return '实付款(有合同)';
     }
 }
 
@@ -1481,7 +1481,7 @@ exports.renderManageOrderTable = function (modal, data, id) {
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border">' + item.planQpy + '</td>' +
                 '<td class="border"><input type="text" data-type="count" value=' + item.orderQpy + '></td>' +
-                '<td class="border">' + item.remark + '</td>' +
+                '<td class="border">' + (item.remark || '') + '</td>' +
                 '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
                 '</tr>');
             dom.data('item', item);
@@ -1504,11 +1504,11 @@ exports.renderManageOrderTable = function (modal, data, id) {
             var item = list[i];
             var taxType = item.taxType === 1 ? 'checked' : '';
             var status = '';
-            if(item.status === 1){
+            if (item.status === 1) {
                 status = '<a href="javascript:;" class="delete-hover" data-type="reject">拒绝</a><span style="margin: 0 5px;">|</span><a href="javascript:;" class="confirm-hover" data-type="deal">成交</a>'
-            } else if(item.status === 2){
+            } else if (item.status === 2) {
                 status = '已成交';
-            } else if(item.status === 3){
+            } else if (item.status === 3) {
                 status = '已拒绝';
             }
             var dom = $('<tr class="small">' +
@@ -1522,16 +1522,19 @@ exports.renderManageOrderTable = function (modal, data, id) {
                 '<td class="border">' + (item.orderQpy * item.orderPrice) + '</td>' +
                 '<td class="border">' + item.mtrlPlace + '</td>' +
                 '<td class="border"><input type="checkbox" disabled ' + taxType + '></td>' +
-                '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+                '<td class="border">' + (item.remark || '') + '</td>' +
                 '<td class="border">' + status + '</td>' +
                 '</tr>');
-            dealMoney = +item.orderQpy * item.orderPrice;
+            if (item.status === 2) {
+                dealMoney += (item.orderQpy * item.orderPrice);
+                console.log(dealMoney);
+            }
             dom.data('item', item);
             dom.appendTo(modal.$body.find('tbody'));
         }
         modal.$body.find('.dealMoney').html(dealMoney + '元');
         initEvent.initCheckingOrderEvent(modal, data, id);
-    } else if (data.orderStatus === 3) {//已审批
+    } else if (data.orderStatus === 3) {//已审核
         modal.$body.find('.entpName').html(data.entpName);
         modal.$body.find('.contactName').html(data.contactName);
         modal.$body.find('.phone').html(data.phone);
@@ -1547,11 +1550,11 @@ exports.renderManageOrderTable = function (modal, data, id) {
             var item = list[i];
             var taxType = item.taxType === 1 ? 'checked' : '';
             var status = '';
-            if(item.status === 1){
+            if (item.status === 1) {
                 status = '<a href="javascript:;" class="delete-hover" data-type="reject">拒绝</a><span style="margin: 0 5px;">|</span><a href="javascript:;" class="confirm-hover" data-type="deal">成交</a>'
-            } else if(item.status === 2){
+            } else if (item.status === 2) {
                 status = '已成交';
-            } else if(item.status === 3){
+            } else if (item.status === 3) {
                 status = '已拒绝';
             }
             var dom = $('<tr class="small">' +
@@ -1565,10 +1568,13 @@ exports.renderManageOrderTable = function (modal, data, id) {
                 '<td class="border">' + (item.orderQpy * item.orderPrice) + '</td>' +
                 '<td class="border">' + item.mtrlPlace + '</td>' +
                 '<td class="border"><input type="checkbox" disabled ' + taxType + '></td>' +
-                '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+                '<td class="border">' + (item.remark || '') + '</td>' +
                 '<td class="border">' + status + '</td>' +
                 '</tr>');
-            dealMoney = +item.orderQpy * item.orderPrice;
+            console.log(item.orderQpy * item.orderPrice);
+            if (item.status === 2) {
+                dealMoney += (item.orderQpy * item.orderPrice);
+            }
             dom.data('item', item);
             dom.appendTo(modal.$body.find('tbody'));
         }

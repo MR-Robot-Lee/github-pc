@@ -25,7 +25,8 @@ exports.initAddBidsEvent = _initAddBidsEvent;
 function _initAddBidsEvent(attachList, id) {
     //截止时间
     laydate.render({
-        elem: "#bidDeadline"
+        elem: "#bidDeadline",
+        type: 'datetime'
     });
 
     //附件
@@ -66,6 +67,9 @@ function _initAddBidsEvent(attachList, id) {
         common.stopPropagation(e);
         if (!$('#bidType').val()) {
             return alert('请先选择招标类型');
+        }
+        if ($('#bidType').val() == 5) {
+            return alert('此招标类型不可编辑清单');
         }
         var type = checkBidType($('#bidType').val());
         var enterpriseModal = Modal('企业库数据', enterpriseDataBase());
@@ -146,6 +150,11 @@ function _initAddBidsEvent(attachList, id) {
         } else {
             return alert('请选择截止时间');
         }
+        if ($("[name=bidScale]").val()) { // 招标内容
+            data.bidScale = $("[name=bidScale]").val();
+        } else {
+            return alert('请填写招标规模');
+        }
         if ($("[name=bidContent]").val()) { // 招标内容
             data.bidContent = $("[name=bidContent]").val();
         } else {
@@ -211,7 +220,6 @@ function _initAddBidsEvent(attachList, id) {
             } else { // 新建招标并发布
                 initBidsFunc.postBidsInfoFunc(data);
             }
-
         } else if ($(this).data('type') === 'preview') {//预览
             data._requireList = [];
             data._entpList = [];
@@ -351,7 +359,7 @@ exports.initBidItemEvent = function (parent, page) {
             $('.edit-bid').show();
             $('.submit-bid').show();
         } else if ($(this).data('item').bidStatus === 2) {//招标中
-            $('.check-bid').show();
+
         } else if ($(this).data('item').bidStatus === 3) {//已截止
             $('.check-bid').show();
         } else if ($(this).data('item').bidStatus === 4) {//流标
@@ -368,6 +376,8 @@ exports.initBidItemEvent = function (parent, page) {
             $('.detail-title').html(_data.bidTitle);
             $('.bid-status span').html(getBidStatus(_data.bidStatus));
             $('.publishUserName').html(_data.publishUserName);
+            $('.publishTime').html(moment(_data.publishTime).format('YYYY/MM/DD hh:mm'));
+            $('.endTime').html(moment(_data.endTime).format('YYYY/MM/DD hh:mm'));
             $('.bidNo').html(_data.bidNo);
             var invitionCount = _data.bidInviteVOList.length; // 邀请数量
             var biddingCount = 0; // 投标数量
@@ -385,6 +395,7 @@ exports.initBidItemEvent = function (parent, page) {
             $('.bid-type').html(getBidType(_data.bidType));
             $('.bid-projname').html(_data.projectName || '');
             $('.endtime').html(new Date(_data.endTime).Format("yyyy-MM-dd"));
+            $('.bid-scale').html(_data.bidScale);
             $('.bid-content').html(_data.bidContent);
             $('.images').html('');
             for (var i = 0; i < _data.attachList.length; i++) {
@@ -446,6 +457,7 @@ exports.initBidItemEvent = function (parent, page) {
         $('#bidType').val(_data.bidType);
         $('[name=bidTitle]').val(_data.bidTitle);
         $('#bidDeadline').html(new Date(_data.endTime).Format("yyyy-MM-dd"));
+        $('[name=bidScale]').val(_data.bidScale);
         $('[name=bidContent]').val(_data.bidContent);
         var bidRequireList = _data.bidRequireList;
         var bidInviteVOList = _data.bidInviteVOList;
@@ -463,15 +475,15 @@ exports.initBidItemEvent = function (parent, page) {
         $('.employee-name').html('评标')
         $('.bid-item-detail').hide();
         $('.choose-the-bid').show();
-        $('.back-to-list').hide();
+        // $('.back-to-list').hide();
         $('.check-bid').hide();
         chooseBids(_data.id);
         if (_data.bidStatus !== 2) { // 非招标中状态隐藏 流标 和 定标
-            $('a.failure').hide();
-            $('a.submitBid').hide();
+            $('a.failure').css('visibility','hidden');
+            $('a.submitBid').css('visibility','hidden');
         } else {
-            $('a.failure').show();
-            $('a.submitBid').show();
+            $('a.failure').css('visibility','visible');
+            $('a.submitBid').css('visibility','visible');
         }
         $('.cancel-bid').off('click').on('click', function () {
             $('.employee-name').html('招标详情')
@@ -679,12 +691,15 @@ exports.initBidsNoticeItemEvent = function (page) {
                     break;
                 }
             }
+            console.log(111);
             $('.detail-title').html(data.bidTitle);
             $('.bidNo').html(data.bidNo);
             $('.bidType').html(getBidType(data.bidType));
             $('.projectName').html(data.projectName || '无');
             $('.entpName').html(_data.entpName);
             $('.biddingMoney').html(_data.biddingMoney);
+            $('.winBidUserName').html(_data.winBidUserName);
+            $('.winBidTime').html(moment(_data.winBidTime).format('YYYY/MM/DD hh:mm'));
             renderBidsTable.renderBidNoticeList(data.bidRequireList, data.bidDetailVOList, data.bidType)
         })
     })

@@ -27,6 +27,7 @@
         }
         .bid-item-con_bottom {
             color: #5b5b5b;
+            font-size: 12px;
         }
     }
     .bid-item-status {
@@ -181,15 +182,16 @@
     &>div{
         padding: 5px 30px;
     }
-    &>div:nth-child(2n){
-        background-color: #efefef;
-    }
     label{
         width: 70px;
         color: #999;
         margin-right: 5px;
         text-align: right;
     }
+}
+
+.businessScope{
+    width: 350px;
 }
 
 .bidslist-container{

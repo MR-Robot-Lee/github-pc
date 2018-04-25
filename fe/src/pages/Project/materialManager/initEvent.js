@@ -634,6 +634,16 @@ function initPurchaseDetail(parents, item) {
         });
         $('.checkAccept').click(function (e) {
             common.stopPropagation(e);
+            var flag = false;
+            $('.materialManagerOrder tbody tr').each(function(){
+                console.log($(this).data());
+                if($(this).data('item').entprName){
+                    flag = true;
+                }
+            })
+            if(!flag){
+                return alert('没有采购不可提交点收')
+            }
             if($(".modal-form [name=checkUserName]").val()){
                 var remindPurchase = Modal('提示', remindModal());
                 remindPurchase.$body.find('.remind-text').html('确定已完成全部采购编辑？');
@@ -2452,6 +2462,9 @@ exports.initCreateOrderEvent = function (modal, id) {
         if (!modal.$body.find('.checkedSup').html()) {
             return alert('请选择供应商');
         }
+        if(!modal.$body.find('select').val()) {
+            return alert('请选择记账款项');
+        }
         var data = {};
         data.entpId = modal.$body.find('.checkedSup').data('item').id;
         data.acctType = modal.$body.find('select').val();
@@ -2478,6 +2491,13 @@ exports.initCreateOrderEvent = function (modal, id) {
         } else if ($(this).data('type') === 'remark') {
             $(this).parents('tr').data('item').remark = $(this).val();
         }
+    })
+    modal.$body.find('a').click(function(){
+        $(this).parents('tr').nextAll('tr').each(function(){
+            var num = $(this).find('td:first-child').html();
+            $(this).find('td:first-child').html(num/1 - 1);
+        })
+        $(this).parents('tr').remove();
     })
 }
 
@@ -2576,13 +2596,13 @@ exports.initCheckingOrderEvent = function(modal, data, id){
         } else if($(this).data('type') === 'reject'){
             costMaterialApi.putOrderDetail(id, item.id, 3).then(function(res){
                 if(res.code === 1){
-                    $(that).parents('td').html('已拒绝')
+                    $('#refresh').click()
                 }
             });
         } else if($(this).data('type') === 'deal'){
             costMaterialApi.putOrderDetail(id, item.id, 2).then(function(res){
                 if(res.code === 1){
-                    $(that).parents('td').html('已成交')
+                    $('#refresh').click()
                 }
             });
         }

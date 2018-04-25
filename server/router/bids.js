@@ -25,7 +25,7 @@ router.get('/notice', (req, res) => res.render('bidsPlatform/index', {
 }));
 
 /**
- * 设置
+ * 条件设置
  */
 router.get('/setting', (req, res) => res.render('bidsPlatform/index', {
     appName: 'bids', nav: 'bids-setting', type: 'bids-setting'
