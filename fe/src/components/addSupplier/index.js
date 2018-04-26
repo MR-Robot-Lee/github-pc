@@ -161,7 +161,7 @@ function initSupplierListEvent(parents, that, type) {
     });
     parents.find('li').click(function (e) {
         common.stopPropagation(e);
-        var that = this;
+        var _that = this;
         var item = $(this).data('item');
         if (type === 'bid') { // 在招标平台中
             var tbody = $('#bidInvitation');
@@ -179,7 +179,7 @@ function initSupplierListEvent(parents, that, type) {
             dom.data('item', item);
             var flag = true;
             tbody.find('tr').each(function(){
-                if($(this).data('item').id === $(that).data('item').id){
+                if($(this).data('item').id === $(_that).data('item').id){
                     flag = false;
                     return alert('已添加该供应商')
                 }
