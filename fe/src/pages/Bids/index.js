@@ -32,7 +32,8 @@ module.exports = {
         var user = window.localStorage.getItem('user');
         user = user ? JSON.parse(user) : {permission: {}};
         var bid2 = user.permission['bid:add'];
-        if(!bid2){
+        var bid3 = user.permission['bid:*'];
+        if(!bid2 || !bid3){
             $('#addBid').hide();
             $('#bidSetting').hide();
         }

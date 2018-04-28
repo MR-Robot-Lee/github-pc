@@ -156,13 +156,15 @@ function showOrHideSystem() {
     user = user ? JSON.parse(user) : {permission: {}};
     console.log(user);
     var sys = user.permission['sys:*'];
-    var bid = user.permission['bid:get'];
+    var bid1 = user.permission['bid:get'];
+    var bid2 = user.permission['bid:add'];
+    var bid3 = user.permission['bid:*'];
     if (sys) {
         $('#system').show();
     } else {
         $('#system').hide();
     }
-    if (bid) {
+    if (bid1 || bid2 || bid3) {
         $('#bids').show();
     } else {
         $('#bids').hide();
