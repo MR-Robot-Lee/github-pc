@@ -37,7 +37,6 @@ exports.renderMaterialPlanTable = function (list) {
                   <td class="border">' + count + '</td>\
                   <td class="border">' + item.mtrlPlanName + '</td>\
                   <td class="border">' + item.mtrlPlanNo + '</td>\
-                  <td class="border">' + parsePlanType(item.planType) + '</td>\
                   <td class="border">' + parsePlanStatus(item.planType, item.planStatus) + '</td>\
                   <td class="border">' + item.planUserName + '</td>\
                   <td class="border">' + moment(item.planTime).format('YYYY/MM/DD') + '</td>\

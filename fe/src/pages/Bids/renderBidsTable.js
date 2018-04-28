@@ -304,6 +304,11 @@ exports.prevNewBid = function (data) {
             dom.appendTo($('#bidListPrev'));
         }
     }
+    if(data._addBidDetailList.length){
+        $('.bidListPrev-container').show();
+    } else {
+        $('.bidListPrev-container').hide();
+    }
     /* 投标邀请 */
     for (var i = 0; i < data._entpList.length; i++) {
         var item = data._entpList[i];
@@ -475,7 +480,7 @@ exports.renderBidInviteList = function (data, id) {
         var winthebid = '<span class="win-the-bid" style="top: 0;right: 0;display: none;"></span>';
         if (item.status === 4) { // 已报价
             bidStatusIcon = '<div class="quote-the-bid"></div>';
-            if (data.bidStatus === 2) {
+            if (data.bidStatus === 3) {
                 winbid = '<div class="win-bid span-btn">中标</div>';
             }
         } else if (item.status === 5) { // 已中标
@@ -660,30 +665,38 @@ exports.renderBidingInfoList = function (data, modal) {
     modal.$body.find('.biddingMoney').html(data.entp.biddingMoney);
     modal.$body.find('.contactName').html(data.entp.contactName);
     modal.$body.find('.phone').html(data.entp.phone);
-    for (var i = 0; i < list.length; i++) {
-        var item = list[i];
-        var dom = $('<tr class="small">' +
-            '<td class="border">' + (i + 1) + '</td>' +
-            '<td class="border">' + item.objName + '</td>' +
-            '<td class="border">' + item.objContent + '</td>' +
-            '<td class="border">' + item.unit + '</td>' +
-            '<td class="border">' + (item.objQpy || '') + '</td>' +
-            '<td class="border">' + (item.remark || '') + '</td>' +
-            '<td class="border">' + item.biddingPrice + '</td>' +
-            '</tr>');
-        dom.data('item', item);
-        dom.appendTo(modal.$body.find('tbody'))
+    if(list.length){
+        modal.$body.find('.table-content').show();
+        modal.$body.find('.bid-remark-container').hide();
+        for (var i = 0; i < list.length; i++) {
+            var item = list[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.objName + '</td>' +
+                '<td class="border">' + item.objContent + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + (item.objQpy || '') + '</td>' +
+                '<td class="border">' + (item.remark || '') + '</td>' +
+                '<td class="border">' + item.biddingPrice + '</td>' +
+                '</tr>');
+            dom.data('item', item);
+            dom.appendTo(modal.$body.find('tbody'))
+        }
+    } else {
+        modal.$body.find('.table-content').hide();
+        modal.$body.find('.bid-remark-container').show();
+        modal.$body.find('.bid-remark').html(data.biddingRemark);
     }
 }
 
 /*
 * 中标详情
 * */
-exports.renderBidNoticeList = function (bidRequireList, bidDetailVOList, type) {
+exports.renderBidNoticeList = function (data) {
     $("#bidRequireList").html('');
     $('#bidDetailVOList').html('');
-    for (var i = 0; i < bidRequireList.length; i++) {
-        var item = bidRequireList[i];
+    for (var i = 0; i < data.bidRequireList.length; i++) {
+        var item = data.bidRequireList[i];
         var dom = $('<tr class="small">' +
             '<td class="border">' + (i + 1) + '</td>' +
             '<td class="border">' + item.requireDesc + '</td>' +
@@ -692,36 +705,44 @@ exports.renderBidNoticeList = function (bidRequireList, bidDetailVOList, type) {
         dom.appendTo($("#bidRequireList"));
     }
     $("#bidDetailVOList").parents('table').find('thead').html('');
-    if (type === '1') {
-        $("#bidDetailVOList").parents('table').find('thead').append('<tr class="small">' +
-            '<th class="border" style="width: 45px;">序号</th>' +
-            '<th class="border">材料名称</th>' +
-            '<th class="border">规格型号</th>' +
-            '<th class="border">单位</th>' +
-            '<th class="border" style="width: 50px;">数量</th>' +
-            '<th class="border">说明</th>' +
-            '</tr>');
-    } else {
-        $("#bidDetailVOList").parents('table').find('thead').append('<tr class="small">' +
-            '<th class="border" style="width: 45px;">序号</th>' +
-            '<th class="border">费用名称</th>' +
-            '<th class="border">工作内容</th>' +
-            '<th class="border">单位</th>' +
-            '<th class="border" style="width: 50px;">数量</th>' +
-            '<th class="border">说明</th>' +
-            '</tr>');
-    }
-    for (var i = 0; i < bidDetailVOList.length; i++) {
-        var item = bidDetailVOList[i];
-        var dom = $('<tr class="small">' +
-            '<td class="border">' + (i + 1) + '</td>' +
-            '<td class="border">' + item.objName + '</td>' +
-            '<td class="border">' + item.objContent + '</td>' +
-            '<td class="border">' + item.unit + '</td>' +
-            '<td class="border">' + (item.objQpy || '') + '</td>' +
-            '<td class="border">' + (item.remark || '') + '</td>' +
-            '</tr>');
-        dom.data('item', item);
-        $('#bidDetailVOList').append(dom);
+    if(data.bidDetailVOList.length){ // 非企业服务
+        $('.bidDetailVOList-container').show();
+        $('.bid-remark-container').hide();
+        if (data.bidType === '1') {
+            $("#bidDetailVOList").parents('table').find('thead').append('<tr class="small">' +
+                '<th class="border" style="width: 45px;">序号</th>' +
+                '<th class="border">材料名称</th>' +
+                '<th class="border">规格型号</th>' +
+                '<th class="border">单位</th>' +
+                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border">说明</th>' +
+                '</tr>');
+        } else {
+            $("#bidDetailVOList").parents('table').find('thead').append('<tr class="small">' +
+                '<th class="border" style="width: 45px;">序号</th>' +
+                '<th class="border">费用名称</th>' +
+                '<th class="border">工作内容</th>' +
+                '<th class="border">单位</th>' +
+                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border">说明</th>' +
+                '</tr>');
+        }
+        for (var i = 0; i < data.bidDetailVOList.length; i++) {
+            var item = data.bidDetailVOList[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.objName + '</td>' +
+                '<td class="border">' + item.objContent + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + (item.objQpy || '') + '</td>' +
+                '<td class="border">' + (item.remark || '') + '</td>' +
+                '</tr>');
+            dom.data('item', item);
+            $('#bidDetailVOList').append(dom);
+        }
+    } else { // 类型为企业服务
+        $('.bidDetailVOList-container').hide();
+        $('.bid-remark-container').show();
+        $('.bid-remark').html(data.biddingRemark);
     }
 }

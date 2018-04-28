@@ -338,9 +338,9 @@ exports.initEnterpriseSettingEvent = function () {
             var etpLogo = $('[name=etpLogo]').attr('src');
             var etpType = $('[name=entpType]').val();
             var etpPerLevel = '';
-            $('.etpPerLevel input').each(function(){
-                if($(this).prop('checked') === true){
-                    etpPerLevel += $(this).val()+';';
+            $('.etpPerLevel input').each(function () {
+                if ($(this).prop('checked') === true) {
+                    etpPerLevel += $(this).val() + ';';
                 }
             })
             var etpProvince = $('[name=etpProvince] option:selected').text();
@@ -540,6 +540,13 @@ exports.initOrganizationStructureTableEvent = function (parents) {
             delModal.show();
             var status = item.status === 1 ? '停用' : '启用';
             delModal.$body.find('.enterprise-remind').html('确定' + status + '<span class="span-color-blue">' + item.userName + '</span>使用么');
+            if (item.status === 1) {
+                delModal.$body.find('#materialEnterpriseModal span:last-child').html('停用原因')
+                delModal.$body.find('textarea').attr('placeholder','请输入停用原因');
+            } else if (item.status === 2) {
+                delModal.$body.find('#materialEnterpriseModal span:last-child').html('启用原因')
+                delModal.$body.find('textarea').attr('placeholder','请输入启用原因');
+            }
             initOrganizationDelModalEvent(delModal, item);
             initOrganizationDelModalDom(delModal, item);
         }
@@ -998,7 +1005,7 @@ function initAccountChaseModalEvent(modal) {
     modal.$body.find('[name=modal-limit]').text(limitTime);
     modal.$body.find('.modal-left').click(function (e) {
         common.stopPropagation(e);
-        if($(this).parents('.page-account-index').children('div').length === 3){//子div元素为3个时，类型为追加账号
+        if ($(this).parents('.page-account-index').children('div').length === 3) {//子div元素为3个时，类型为追加账号
             var type = 2;
         } else {
             var type = 3;
@@ -1017,7 +1024,7 @@ function initAccountChaseModalEvent(modal) {
         });
     });
     modal.$body.find('.modal-right').click(function (e) {
-        if($(this).parents('.page-account-index').children('div').length === 3){//子div元素为3个时，类型为追加账号
+        if ($(this).parents('.page-account-index').children('div').length === 3) {//子div元素为3个时，类型为追加账号
             var type = 2;
         } else {
             var type = 3;

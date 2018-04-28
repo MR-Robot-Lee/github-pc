@@ -1,13 +1,13 @@
 <ul class="nav-content">
     <% if(nav === "bids-add"){ %>
-    <li class="active">
+    <li id="addBid" class="active">
         <a href="/bids/add">
             <span class="communique-add"></span>
             新建招标
         </a>
     </li>
     <% }else { %>
-    <li>
+    <li id="addBid">
         <a href="/bids/add">
             <span class="communique-add"></span>
             新建招标
@@ -46,7 +46,7 @@
     </li>
     <% } %>
     <% if(nav === 'bids-setting'){ %>
-    <li class="active">
+    <li id="bidSetting" class="active">
         <a href="/bids/setting">
             <span class="communique-process"></span>
             条件设置
@@ -54,7 +54,7 @@
         <ul class="nav-content no-padding"></ul>
     </li>
     <% }else { %>
-    <li>
+    <li id="bidSetting">
         <a href="/bids/setting">
             <span class="communique-process"></span>
             条件设置

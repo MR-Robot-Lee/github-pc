@@ -175,20 +175,6 @@ exports.initBalanceEvent = function (page) {
     var searchModal = $('#searchModal');
     if (searchModal.length > 0 && !searchModal.data('flag')) {
         searchModal.data('flag', true);
-
-        $('.status').change(function () {
-            if ($(this).val() == 11) {
-                var select = '<option value="1">费用待提交</option>' +
-                    '<option value="5">费用待生成</option>' +
-                    '<option value="2">审批中</option>' +
-                    '<option value="3">已通过</option>' +
-                    '<option value="4">已驳回</option>'
-                $('.costStatus').append(select);
-            } else {
-                $('.costStatus').html('<option value="0">全部费用单状态</option>');
-            }
-        })
-
         searchModal.click(function (e) {
             common.stopPropagation(e);
             var status = $('.status').val();

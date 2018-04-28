@@ -173,6 +173,7 @@ exports.renderCheckRecordTable = function (list) {
 * 人员管理 个人信息
 * */
 exports.renderWorkerInfoTable = function (item) {
+    console.log(item);
     var parent = $('.check-worker-info');
     var status = item.status === 1 ? '考勤中' : '离线';
     var sex = item.sex === 1 ? '男' : '女';
@@ -183,7 +184,7 @@ exports.renderWorkerInfoTable = function (item) {
     parent.find('span[name=phone]').html(item.phone);
     parent.find('span[name=sex]').html(sex);
     parent.find('span[name=birthday]').html(item.birthday);
-    parent.find('span[name=region]').html(item.region);
+    parent.find('span[name=region]').html(item.provinceName + item.provinceName + item.districtName);
     parent.find('span[name=idNo]').html(item.idNo);
     parent.find('span[name=jobName]').html(item.jobName);
     var attach = new UploadAttach($('[name=photograph]'));

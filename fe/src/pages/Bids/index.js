@@ -28,5 +28,13 @@ module.exports = {
             initBidsFunc._getInfoModalListFunc();
             initEvent.initBidsSettingEvent();
         }
+
+        var user = window.localStorage.getItem('user');
+        user = user ? JSON.parse(user) : {permission: {}};
+        var bid2 = user.permission['bid:add'];
+        if(!bid2){
+            $('#addBid').hide();
+            $('#bidSetting').hide();
+        }
     }
 }
