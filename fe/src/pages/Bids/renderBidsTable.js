@@ -639,19 +639,23 @@ exports.renderCompanyInfoTable = function (data, modal) {
     modal.$body.find('.openBank').html(data.openBank);
     modal.$body.find('.bankCard').html(data.bankCard);
     modal.$body.find('.attachesList')
-    console.log(data.attachList);
-    for (var i = 0; i < data.attachList.length; i++) {
-        console.log(data.attachList[i].attachUrl);
-        var attachUrl = '';
-        if (data.attachList[i].attachUrl.indexOf("uploadWechat/wechat") === -1) {
-            attachUrl = window.API_PATH + '/customer' + data.attachList[i].attachUrl;
-        } else {
-            attachUrl = window.API_PATH + data.attachList[i].attachUrl;
+    // console.log(data.attachList);
+    if(!data.attachList) {
+        modal.$body.find('.attachesList').text('无');
+    }else{
+        for (var i = 0; i < data.attachList.length; i++) {
+            console.log(data.attachList[i].attachUrl);
+            var attachUrl = '';
+            if (data.attachList[i].attachUrl.indexOf("uploadWechat/wechat") === -1) {
+                attachUrl = window.API_PATH + '/customer' + data.attachList[i].attachUrl;
+            } else {
+                attachUrl = window.API_PATH + data.attachList[i].attachUrl;
+            }
+            var dom = $('<div class="fl" style="width: 110px;height: 90px;padding: 3px;border: 1px solid #e5e5e5;margin: 0 10px 10px 0;">' +
+                '<div style="width: 102px;height: 82px;background-size: contain;background-repeat: no-repeat;background-image: url(' + attachUrl + ')"></div>' +
+                '</div>');
+            dom.appendTo(modal.$body.find('.attachesList'))
         }
-        var dom = $('<div class="fl" style="width: 110px;height: 90px;padding: 3px;border: 1px solid #e5e5e5;margin: 0 10px 10px 0;">' +
-            '<div style="width: 102px;height: 82px;background-size: contain;background-repeat: no-repeat;background-image: url(' + attachUrl + ')"></div>' +
-            '</div>');
-        dom.appendTo(modal.$body.find('.attachesList'))
     }
 }
 

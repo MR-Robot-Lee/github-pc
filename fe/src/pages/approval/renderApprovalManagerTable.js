@@ -199,6 +199,7 @@ exports.renderProjectSelect = function (list) {
 };
 
 exports.renderMyApplyTable = function (list) {
+    // console.log(list);
     list = list || [];
     if (list.length > 0) {
         $('#noInfoMyApplyTable_main').show();
@@ -218,7 +219,7 @@ exports.renderMyApplyTable = function (list) {
         if (item.apprStatus === 1) {
             apprName = '当前审批人:';
             apprStatusClass = 'approvaling';
-            apprStatusName = '审批中'
+            apprStatusName = "审批中";
         }
         if (item.apprStatus === 2) {
             apprName = '审批人:';
@@ -278,26 +279,26 @@ exports.renderMyApprovalTable = function (list, page) {
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];
         var apprStatusClass = '';
-        var apprStatusName = '';
+        var apprStatusName = item.applyUserName;
         var apprColor = '';
         if (item.apprStatus === 1) {
             apprStatusClass = 'border-4cb951';
-            apprStatusName = '审批中';
+            // apprStatusName = item.applyUserName;
             apprColor = 'color-4cb951';
         }
         if (item.apprStatus === 2) {
-            apprStatusClass = 'border-4db992';
-            apprStatusName = '同意';
+            apprStatusClass = 'border-41bfb8';
+            // apprStatusName = '同意';
             apprColor = 'color-4db992';
         }
         if (item.apprStatus === 3) {
             apprStatusClass = 'border-c89421';
-            apprStatusName = '不同意';
+            // apprStatusName = '不同意';
             apprColor = 'color-c89421';
         }
         if (item.apprStatus === 4) {
             apprStatusClass = 'border-239bef';
-            apprStatusName = '未处理';
+            // apprStatusName = '未处理';
             apprColor = 'color-239bef';
         }
         var applyName = item.projectName ? item.tmplName + " - " + item.projectName : item.tmplName;
