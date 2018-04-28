@@ -33,7 +33,7 @@ module.exports = {
         user = user ? JSON.parse(user) : {permission: {}};
         var bid2 = user.permission['bid:add'];
         var bid3 = user.permission['bid:*'];
-        if(!bid2 || !bid3){
+        if(!bid2 && !bid3){
             $('#addBid').hide();
             $('#bidSetting').hide();
         }
