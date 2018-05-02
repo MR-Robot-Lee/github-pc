@@ -365,6 +365,8 @@ th, td {
         }
     }
     .supplier-detail {
+        max-height: 485px;
+        overflow: auto;
         float: left;
         width: 340px;
         padding: 10px;

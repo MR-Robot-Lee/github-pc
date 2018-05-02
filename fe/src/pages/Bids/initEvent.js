@@ -267,7 +267,8 @@ exports.initBidsRequireEvent = function () {
 * */
 exports.initBidsListEvent = function (type) {
     $('#bidList').off('click', 'a');
-    $('#bidList').on('click', 'a', function () {
+    $('#bidList').on('click', 'a', function (e) {
+        common.stopPropagation(e);
         var that = this;
         var arr = delItem($('#bidList'), that);
         renderBidsTable._renderBidListTable(arr, type);
@@ -283,15 +284,42 @@ exports.initBidsListEvent = function (type) {
 * */
 exports.initBidsInvitationEvent = function () {
     $('#bidInvitation').off('click', 'a');
-    $('#bidInvitation').on('click', 'a', function () {
+    $('#bidInvitation').on('click', 'a', function (e) {
+        common.stopPropagation(e);
         var that = this;
+        var item = $(this).parents('tr').data('item');
         if ($(this).data('type') === 'del') {
             var arr = delItem($('#bidInvitation'), that, 'invite');
             renderBidsTable.renderBidsInvitationTable(arr);
         } else if ($(this).data('type') === 'check') {
-
+            $('.businessScope-modal').remove();
+            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;height: 100px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+                '<div>' + item.businessScope + '</div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 20px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '</div>');
+            dom.appendTo($(this).parents('td'))
         }
     });
+    $('#bidInvitationPrev').off('click', 'a');
+    $('#bidInvitationPrev').on('click', 'a', function (e) {
+        common.stopPropagation(e);
+        var that = this;
+        var item = $(this).parents('tr').data('item');
+        if ($(this).data('type') === 'del') {
+            var arr = delItem($('#bidInvitationPrev'), that, 'invite');
+            renderBidsTable.renderBidsInvitationTable(arr);
+        } else if ($(this).data('type') === 'check') {
+            $('.businessScope-modal').remove();
+            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;height: 100px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+                '<div>' + item.businessScope + '</div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 20px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '</div>');
+            dom.appendTo($(this).parents('td'))
+        }
+    });
+    $('body').click(function () {
+        $('.businessScope-modal').remove();
+    })
 }
 
 function delItem(modal, that, type) {
@@ -374,9 +402,9 @@ exports.initBidItemEvent = function (parent, page) {
             $('.edit-bid').show();
             $('.submit-bid').show();
         }
-        if(!bid3){
+        if (!bid3) {
             $('.check-bid').hide();
-            if(!bid2){
+            if (!bid2) {
                 $('.edit-bid').hide();
                 $('.submit-bid').hide();
             }
@@ -386,8 +414,12 @@ exports.initBidItemEvent = function (parent, page) {
             _data = res.data || {};
             $('.detail-title').html(_data.bidTitle);
             $('.bid-status span').html(getBidStatus(_data.bidStatus));
-            $('.publishUserName').html(_data.publishUserName);
-            $('.publishTime').html(moment(_data.publishTime).format('YYYY/MM/DD hh:mm'));
+            $('.publishUserName').html(_data.addUserName);
+            if(_data.publishTime){
+                $('.publishTime').html(moment(_data.publishTime).format('YYYY/MM/DD hh:mm'));
+            } else {
+                $('.publishTime').html('暂未发布')
+            }
             $('.endTime').html(moment(_data.endTime).format('YYYY/MM/DD hh:mm'));
             $('.bidNo').html(_data.bidNo);
             var invitionCount = _data.bidInviteVOList.length; // 邀请数量
@@ -410,7 +442,7 @@ exports.initBidItemEvent = function (parent, page) {
             $('.bid-content').html(_data.bidContent);
             $('.images').html('');
             $('.winBidUserName').html(_data.winBidUserName || '无');
-            if(_data.winBidTime){
+            if (_data.winBidTime) {
                 $('.winBidTime').html(moment(_data.winBidTime).format('YYYY/MM/DD hh:mm'));
             }
             for (var i = 0; i < _data.attachList.length; i++) {
@@ -496,11 +528,11 @@ exports.initBidItemEvent = function (parent, page) {
         $('.check-bid').hide();
         chooseBids(_data.id);
         if (_data.bidStatus !== 3) { // 非已截止状态隐藏 流标 和 定标
-            $('a.failure').css('visibility','hidden');
-            $('a.submitBid').css('visibility','hidden');
+            $('a.failure').css('visibility', 'hidden');
+            $('a.submitBid').css('visibility', 'hidden');
         } else {
-            $('a.failure').css('visibility','visible');
-            $('a.submitBid').css('visibility','visible');
+            $('a.failure').css('visibility', 'visible');
+            $('a.submitBid').css('visibility', 'visible');
         }
         $('.cancel-bid').off('click').on('click', function () {
             $('.employee-name').html('招标详情')
@@ -708,7 +740,6 @@ exports.initBidsNoticeItemEvent = function (page) {
                     break;
                 }
             }
-            console.log(111);
             $('.detail-title').html(data.bidTitle);
             $('.bidNo').html(data.bidNo);
             $('.bidType').html(getBidType(data.bidType));

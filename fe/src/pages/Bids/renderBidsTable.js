@@ -124,9 +124,9 @@ function renderBidListTable(allArr, type) {
         if (type === 'material') {
             thead.append('<tr class="small">' +
                 '<th class="border" style="width: 50px;">序号</th>' +
-                '<th class="border">材料名称</th>' +
-                '<th class="border">规格型号</th>' +
-                '<th class="border">单位</th>' +
+                '<th class="border" style="width: 150px;">材料名称</th>' +
+                '<th class="border" style="width: 150px;">规格型号</th>' +
+                '<th class="border" style="width: 50px;">单位</th>' +
                 '<th class="border" style="width: 50px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '<th class="border" style="width: 50px;">操作</th>' +
@@ -134,9 +134,9 @@ function renderBidListTable(allArr, type) {
         } else if (type === 'labor' || type === 'step' || type === 'subpackage') {
             thead.append('<tr class="small">' +
                 '<th class="border" style="width: 50px;">序号</th>' +
-                '<th class="border">费用名称</th>' +
-                '<th class="border">工作内容</th>' +
-                '<th class="border">单位</th>' +
+                '<th class="border" style="width: 150px;">费用名称</th>' +
+                '<th class="border" style="width: 150px;">工作内容</th>' +
+                '<th class="border" style="width: 50px;">单位</th>' +
                 '<th class="border" style="width: 50px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '<th class="border" style="width: 50px;">操作</th>' +
@@ -151,7 +151,7 @@ function renderBidListTable(allArr, type) {
                 '<td class="border">' + (item.specBrand || item.workContent || item.objContent) + '</td>' +
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border"><input type="text" placeholder="填写" data-type="count" value=' + (item.objQpy || '') + '></td>' +
-                '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '') + '></td>' +
+                '<td class="border"><input type="text" placeholder="填写" data-type="remark" value=' + (item.remark || '无') + '></td>' +
                 '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
                 '</tr>');
             dom.data('item', item);
@@ -175,12 +175,12 @@ exports.renderBidsInvitationTable = function (arr) {
         var item = arr[i];
         var dom = $('<tr class="small">' +
             '<td class="border">' + (i + 1) + '</td>' +
-            '<td class="border">' + item.businessScope + '</td>' +
+            '<td class="border">' + item.entpTypeName + '</td>' +
             '<td class="border">' + item.entpName + '</td>' +
             '<td class="border">' + item.contactName + '</td>' +
             '<td class="border">' + item.phone + '</td>' +
             '<td class="border">' + getTaxType(item.taxType) + '</td>' +
-            '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+            '<td class="border" style="position: relative;"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
             '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
             '</tr>');
         dom.data('item', item);
@@ -235,18 +235,18 @@ exports.prevNewBid = function (data) {
     if (data.bidType == 1) {
         $('#bidListPrev').parents('table').find('thead').append('<tr class="small">' +
             '<th class="border" style="width: 50px;">序号</th>' +
-            '<th class="border">材料名称</th>' +
-            '<th class="border">规格型号</th>' +
-            '<th class="border">单位</th>' +
+            '<th class="border" style="width: 150px;">材料名称</th>' +
+            '<th class="border" style="width: 150px;">规格型号</th>' +
+            '<th class="border" style="width: 50px;">单位</th>' +
             '<th class="border" style="width: 50px;">数量</th>' +
             '<th class="border">说明</th>' +
             '</tr>');
     } else if (data.bidType == 2 || data.bidType == 3 || data.bidType == 4) {
         $('#bidListPrev').parents('table').find('thead').append('<tr class="small">' +
             '<th class="border" style="width: 50px;">序号</th>' +
-            '<th class="border">费用名称</th>' +
-            '<th class="border">工作内容</th>' +
-            '<th class="border">单位</th>' +
+            '<th class="border" style="width: 150px;">费用名称</th>' +
+            '<th class="border" style="width: 150px;">工作内容</th>' +
+            '<th class="border" style="width: 50px;">单位</th>' +
             '<th class="border" style="width: 50px;">数量</th>' +
             '<th class="border">说明</th>' +
             '</tr>');
@@ -260,7 +260,7 @@ exports.prevNewBid = function (data) {
                 '<td class="border">' + item.specBrand + '</td>' +
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border">' + (item.count || '') + '</td>' +
-                '<td class="border">' + (item.remark || '') + '</td>' +
+                '<td class="border">' + (item.remark || '无') + '</td>' +
                 '</tr>');
             dom.appendTo($('#bidListPrev'));
         }
@@ -273,7 +273,7 @@ exports.prevNewBid = function (data) {
                 '<td class="border">' + item.workContent + '</td>' +
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border">' + (item.count || '') + '</td>' +
-                '<td class="border">' + (item.remark || '') + '</td>' +
+                '<td class="border">' + (item.remark || '无') + '</td>' +
                 '</tr>');
             dom.appendTo($('#bidListPrev'));
         }
@@ -286,7 +286,7 @@ exports.prevNewBid = function (data) {
                 '<td class="border">' + item.workContent + '</td>' +
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border">' + (item.count || '') + '</td>' +
-                '<td class="border">' + (item.remark || '') + '</td>' +
+                '<td class="border">' + (item.remark || '无') + '</td>' +
                 '</tr>');
             dom.appendTo($('#bidListPrev'));
         }
@@ -299,7 +299,7 @@ exports.prevNewBid = function (data) {
                 '<td class="border">' + item.workContent + '</td>' +
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border">' + (item.count || '') + '</td>' +
-                '<td class="border">' + (item.remark || '') + '</td>' +
+                '<td class="border">' + (item.remark || '无') + '</td>' +
                 '</tr>');
             dom.appendTo($('#bidListPrev'));
         }
@@ -315,16 +315,17 @@ exports.prevNewBid = function (data) {
         console.log(item);
         var dom = $('<tr class="small">' +
             '<td class="border">' + (i + 1) + '</td>' +
-            '<td class="border">' + item.businessScope + '</td>' +
+            '<td class="border">' + item.entpTypeName + '</td>' +
             '<td class="border">' + item.entpName + '</td>' +
             '<td class="border">' + item.contactName + '</td>' +
             '<td class="border">' + item.phone + '</td>' +
             '<td class="border">' + getTaxType(item.taxType) + '</td>' +
-            '<td class="border">暂无</td>' +
+            '<td class="border" style="position: relative;"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
             '</tr>');
         dom.data('item', item);
         dom.appendTo($('#bidInvitationPrev'));
     }
+    initEvent.initBidsInvitationEvent();
 }
 
 /*
@@ -527,38 +528,43 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
         dom.appendTo($('#bidRequireSettingPrev'));
     }
     /* 招标清单 */
-    if (type === 1) {
-        var thead = '<tr class="small">' +
-            '<th class="border" style="width: 50px;">序号</th>' +
-            '<th class="border">材料名称</th>' +
-            '<th class="border">规格型号</th>' +
-            '<th class="border">单位</th>' +
-            '<th class="border" style="width: 50px;">数量</th>' +
-            '<th class="border">说明</th>' +
-            '</tr>'
+    if(bidDetailVOList.length){
+        $('.bidListPrev-container').show()
+        if (type === 1) {
+            var thead = '<tr class="small">' +
+                '<th class="border" style="width: 50px;">序号</th>' +
+                '<th class="border" style="width: 150px;">材料名称</th>' +
+                '<th class="border" style="width: 150px;">规格型号</th>' +
+                '<th class="border" style="width: 50px;">单位</th>' +
+                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border">说明</th>' +
+                '</tr>'
 
+        } else {
+            var thead = '<tr class="small">' +
+                '<th class="border" style="width: 50px;">序号</th>' +
+                '<th class="border" style="width: 150px;">费用名称</th>' +
+                '<th class="border" style="width: 150px;">工作内容</th>' +
+                '<th class="border" style="width: 50px;">单位</th>' +
+                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border">说明</th>' +
+                '</tr>'
+        }
+        $('#bidListPrev').parents('table').find('thead').html(thead)
+        for (var i = 0; i < bidDetailVOList.length; i++) {
+            var item = bidDetailVOList[i];
+            var dom = $('<tr class="small">' +
+                '<td class="border">' + (i + 1) + '</td>' +
+                '<td class="border">' + item.objName + '</td>' +
+                '<td class="border">' + item.objTypeName + '</td>' +
+                '<td class="border">' + item.unit + '</td>' +
+                '<td class="border">' + item.objQpy + '</td>' +
+                '<td class="border">' + (item.remark || '无') + '</td>' +
+                '</tr>');
+            dom.appendTo($('#bidListPrev'));
+        }
     } else {
-        var thead = '<tr class="small">' +
-            '<th class="border" style="width: 50px;">序号</th>' +
-            '<th class="border">费用名称</th>' +
-            '<th class="border">工作内容</th>' +
-            '<th class="border">单位</th>' +
-            '<th class="border" style="width: 50px;">数量</th>' +
-            '<th class="border">说明</th>' +
-            '</tr>'
-    }
-    $('#bidListPrev').parents('table').find('thead').html(thead)
-    for (var i = 0; i < bidDetailVOList.length; i++) {
-        var item = bidDetailVOList[i];
-        var dom = $('<tr class="small">' +
-            '<td class="border">' + (i + 1) + '</td>' +
-            '<td class="border">' + item.objName + '</td>' +
-            '<td class="border">' + item.objTypeName + '</td>' +
-            '<td class="border">' + item.unit + '</td>' +
-            '<td class="border">' + item.objQpy + '</td>' +
-            '<td class="border">' + (item.remark || '') + '</td>' +
-            '</tr>');
-        dom.appendTo($('#bidListPrev'));
+        $('.bidListPrev-container').hide()
     }
     /* 投标邀请 */
     $('.sup-count').html(bidInviteVOList.length)
@@ -613,7 +619,7 @@ exports.renderBidEditTable = function (bidRequireList, bidInviteVOList, bidDetai
             '<td class="border">' + item.contactName + '</td>' +
             '<td class="border">' + item.phone + '</td>' +
             '<td class="border">' + getTaxType(item.taxType) + '</td>' +
-            '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+            '<td class="border" style="position: relative;"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
             '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
             '</tr>');
         dom.data('item', item);
@@ -651,8 +657,8 @@ exports.renderCompanyInfoTable = function (data, modal) {
             } else {
                 attachUrl = window.API_PATH + data.attachList[i].attachUrl;
             }
-            var dom = $('<div class="fl" style="width: 110px;height: 90px;padding: 3px;border: 1px solid #e5e5e5;margin: 0 10px 10px 0;">' +
-                '<div style="width: 102px;height: 82px;background-size: contain;background-repeat: no-repeat;background-image: url(' + attachUrl + ')"></div>' +
+            var dom = $('<div class="fl" style="width: 110px;height: 90px;padding: 3px;border: 1px solid #e5e5e5;margin: 0 10px 10px 0;border-radius: 3px;cursor: pointer;">' +
+                '<a target="_blank" href='+attachUrl+' style="display: block;width: 102px;height: 82px;background-size: cover;background-repeat: no-repeat;background-image: url(' + attachUrl + ')"></a>' +
                 '</div>');
             dom.appendTo(modal.$body.find('.attachesList'))
         }
@@ -680,7 +686,7 @@ exports.renderBidingInfoList = function (data, modal) {
                 '<td class="border">' + item.objContent + '</td>' +
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border">' + (item.objQpy || '') + '</td>' +
-                '<td class="border">' + (item.remark || '') + '</td>' +
+                '<td class="border">' + (item.remark || '无') + '</td>' +
                 '<td class="border">' + item.biddingPrice + '</td>' +
                 '</tr>');
             dom.data('item', item);
@@ -715,18 +721,18 @@ exports.renderBidNoticeList = function (data) {
         if (data.bidType === '1') {
             $("#bidDetailVOList").parents('table').find('thead').append('<tr class="small">' +
                 '<th class="border" style="width: 45px;">序号</th>' +
-                '<th class="border">材料名称</th>' +
-                '<th class="border">规格型号</th>' +
-                '<th class="border">单位</th>' +
+                '<th class="border" style="width: 150px;">材料名称</th>' +
+                '<th class="border" style="width: 150px;">规格型号</th>' +
+                '<th class="border" style="width: 50px;">单位</th>' +
                 '<th class="border" style="width: 50px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '</tr>');
         } else {
             $("#bidDetailVOList").parents('table').find('thead').append('<tr class="small">' +
                 '<th class="border" style="width: 45px;">序号</th>' +
-                '<th class="border">费用名称</th>' +
-                '<th class="border">工作内容</th>' +
-                '<th class="border">单位</th>' +
+                '<th class="border" style="width: 150px;">费用名称</th>' +
+                '<th class="border" style="width: 150px;">工作内容</th>' +
+                '<th class="border" style="width: 50px;">单位</th>' +
                 '<th class="border" style="width: 50px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '</tr>');
@@ -739,7 +745,7 @@ exports.renderBidNoticeList = function (data) {
                 '<td class="border">' + item.objContent + '</td>' +
                 '<td class="border">' + item.unit + '</td>' +
                 '<td class="border">' + (item.objQpy || '') + '</td>' +
-                '<td class="border">' + (item.remark || '') + '</td>' +
+                '<td class="border">' + (item.remark || '无') + '</td>' +
                 '</tr>');
             dom.data('item', item);
             $('#bidDetailVOList').append(dom);

@@ -168,12 +168,12 @@ function initSupplierListEvent(parents, that, type) {
             var order = tbody.find('tr').length;
             var dom = $('<tr class="small">' +
                 '<td class="border">' + (order + 1) + '</td>' +
-                '<td class="border">' + item.businessScope + '</td>' +
+                '<td class="border">' + item.entpTypeName + '</td>' +
                 '<td class="border">' + item.entpName + '</td>' +
                 '<td class="border">' + item.contactName + '</td>' +
                 '<td class="border">' + item.phone + '</td>' +
                 '<td class="border">' + getTaxType(item.taxType) + '</td>' +
-                '<td class="border"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
+                '<td class="border" style="position: relative;"><a href="javascript:;" class="confirm-hover" data-type="check">查看</a></td>' +
                 '<td class="border"><a href="javascript:;" class="delete-hover" data-type="del">删除</a></td>' +
                 '</tr>');
             dom.data('item', item);
