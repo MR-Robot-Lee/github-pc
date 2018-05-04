@@ -1066,8 +1066,10 @@ exports.renderCheckSummaryModalTable = function (list, modal, $item) {
  * @param list
  * @param modal
  */
-exports.renderCheckPurchaseModalTable = function (list, modal) {
+exports.renderCheckPurchaseModalTable = function (list, modal, item) {
+    console.log(item);
     list = list || [];
+    modal.$body.find('.mtrlName').html(item.mtrlName);
     var parents = modal.$body.find('tbody').html('');
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];

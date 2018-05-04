@@ -31,19 +31,22 @@ exports.renderApprovalProcessSettingTable = function (list) {
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];
         var count = i + 1;
-        var dom = $('<tr class="trHeightLight-hover">\
+        var dom = $('<tr class="trHeightLight-hover" style="cursor: pointer;">\
                   <td style="padding-left: 20px">' + count + '</td>\
                   <td>' + item.tmplTypeName + '</td>\
                   <td>' + item.tmplName + '</td>\
                   <td>' + item.remark + '</td>\
-                  <td style="position: relative">\
-                   <a class="confirm-hover" data-type="check">查看</a>\
-                   <div class="icon-line"></div>\
-                   <a class="confirm-hover" data-type="edit">编辑</a>\
-                   <div class="icon-line"></div>\
-                   <a class="delete-hover" data-type="delete">删除</a>\
+                  <td class="clearfix" style="position: relative">\
+                   <a class="delete-hover close-temp fl" data-type="close">关闭</a>\
+                   <a style="display: none;" class="confirm-hover open-temp fl" data-type="open">开启</a>\
+                   <div class="icon-line fl" style="margin: 0 5px"></div>\
+                   <a class="delete-hover fl" data-type="delete">删除</a>\
                   </td>\
                  </tr>');
+        // if(item.on_off === 2){
+        //     dom.find('.close-temp').hide();
+        //     dom.find('.open-temp').show();
+        // }
         dom.data('item', item);
         dom.appendTo(parents);
     }

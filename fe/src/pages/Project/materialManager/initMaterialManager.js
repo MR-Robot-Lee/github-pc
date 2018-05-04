@@ -766,10 +766,10 @@ exports.checkSummaryListModal = function (data, modal, item) {
  * @param data
  * @param modal
  */
-exports.checkPurchaseListModal = function (data, modal) {
+exports.checkPurchaseListModal = function (data, modal, item) {
     costMaterialApi.getPurchaseInfo(data).then(function (res) {
         var list = res.data ? res.data.data : [];
-        renderCostMaterialTable.renderCheckPurchaseModalTable(list, modal);
+        renderCostMaterialTable.renderCheckPurchaseModalTable(list, modal, item);
     })
 };
 /**

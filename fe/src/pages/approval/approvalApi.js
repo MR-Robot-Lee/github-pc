@@ -179,3 +179,11 @@ exports.getAllUserList = function () {
 exports.getRemindCount = function () {
   return request.get('/customer/approve/remind');
 };
+/**
+ * 关闭/开启审批模板
+ * @returns {Request}
+ */
+exports.putApprTemp = function (data) {
+    data = data || {};
+    return request.put('/customer/approve/switchApprTemp/', { body: data });
+};

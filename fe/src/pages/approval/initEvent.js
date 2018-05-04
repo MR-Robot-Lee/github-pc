@@ -7,6 +7,7 @@ var addEmployee = require('../../components/addEmployee');
 var addJobModal = require('./modal/addJobModal.ejs');
 var UploadAttach = require('../../components/UploadAttach');
 var approalHandler = require('./modal/approalHandler.ejs');
+var approvalApi = require('./approvalApi');
 
 var approvalManagerFunc = require('./approvalManagerFunc');
 
@@ -328,28 +329,36 @@ exports.initProjectJobListDomEvent = function (parents, level) {
 };
 
 exports.initApprovalProcessSettingTableEvent = function (parents) {
+    parents.find('tr').click(function () {
+        window.location.href = '/approval/setting/add?id=' + $(this).data('item').id;
+    })
     parents.find('a').click(function (e) {
         common.stopPropagation(e);
         var type = $(this).data('type');
         var item = $(this).parents('tr').data('item');
         if (type === 'edit') {
-            window.location.href = '/approval/setting/add?id=' + item.id;
+
         } else if (type === 'delete') {
             var delModal = Model('提示', deleteModal());
             delModal.showClose();
             delModal.show();
             initDeleteProcessSettingModal(delModal, item);
-        } else {
-            var td = $(this).parents('td');
-            td.find('.modal-arrow-left').remove();
-            var checkData = $(settingProcessModal());
-            checkData.appendTo(td);
-            checkData.find('.icon-close').click(function (e) {
-                common.stopPropagation(e);
-                td.find('.modal-arrow-left').remove();
-            });
-            $('[name=tmplTypeName]').text(item.tmplTypeName);
-            approvalManagerFunc.getTempFindByIdDetailFunc(item.id);
+        } else if (type === 'check') {
+
+        } else if (type === 'open') {
+            approvalApi.putApprTemp({switchType: 1, tempId: item.id}).then(function (res) {
+                if (res.code === 1) {
+                    $(this).hide();
+                    $(this).parents('tr').find('.close-temp').show();
+                }
+            })
+        } else if (type === 'close') {
+            approvalApi.putApprTemp({switchType: 2, tempId: item.id}).then(function (res) {
+                if (res.code === 1) {
+                    $(this).hide();
+                    $(this).parents('tr').find('.open-temp').show();
+                }
+            })
         }
     })
 };
@@ -507,21 +516,21 @@ exports.initMyApplyTableEvent = function (parents, page) {
     $('.knowledge-detail').removeClass('active');
     $('.my-apply-list .apply-item').removeClass('active');
     /*申请栏与申请内容宽度恢复*/
-    $('#myApply').css('width','auto');
-    $('#page').css('width','auto');
-    $('.apply-content').css('width',1000);
+    $('#myApply').css('width', 'auto');
+    $('#page').css('width', 'auto');
+    $('.apply-content').css('width', 1000);
     parents.find('.apply-item').click(function (e) {
         common.stopPropagation(e);
         /*申请栏的宽度自适应*/
         var autoWidth = $(window).width() - 1010;
         autoWidth = autoWidth < 500 ? 500 : autoWidth;
-        $('#myApply').css('width',autoWidth);
-        $('#page').css('width',autoWidth);
+        $('#myApply').css('width', autoWidth);
+        $('#page').css('width', autoWidth);
         /*申请内容的宽度 和 标题的宽度 自适应*/
         var _autoWidth = $('.apply-item').width() - 260;
         _autoWidth = _autoWidth < 200 ? 200 : _autoWidth;
-        $('.apply-content').css('width',_autoWidth);
-        $('.apply-name').css('width',_autoWidth);
+        $('.apply-content').css('width', _autoWidth);
+        $('.apply-name').css('width', _autoWidth);
         parents.find('.apply-item').removeClass('active');
         $(this).addClass('active');
         var item = $(this).data('item');
@@ -531,9 +540,9 @@ exports.initMyApplyTableEvent = function (parents, page) {
             $('.knowledge-detail').removeClass('active');
             $('.my-apply-list .apply-item').removeClass('active');
             /*申请栏与申请内容宽度恢复*/
-            $('#myApply').css('width','auto');
-            $('#page').css('width','auto');
-            $('.apply-content').css('width',1000);
+            $('#myApply').css('width', 'auto');
+            $('#page').css('width', 'auto');
+            $('.apply-content').css('width', 1000);
         });
         approvalManagerFunc.getApplyContentAndProcessFunc({id: item.id, tmplId: item.tmplId}, page);
     })
@@ -681,9 +690,9 @@ exports.initApprovalManagerTableEvent = function (parents, page) {
     $('.knowledge-detail').removeClass('active');
     $('.my-apply-list .apply-item').removeClass('active');
     /*申请栏与申请内容宽度恢复*/
-    $('#myApply').css('width','auto');
-    $('#page').css('width','auto');
-    $('.apply-content').css('width',1000);
+    $('#myApply').css('width', 'auto');
+    $('#page').css('width', 'auto');
+    $('.apply-content').css('width', 1000);
     parents.find('.apply-item').click(function (e) {
         common.stopPropagation(e);
         var item = $(this).data('item');
@@ -691,12 +700,12 @@ exports.initApprovalManagerTableEvent = function (parents, page) {
         /*申请栏的宽度自适应*/
         var autoWidth = $(window).width() - 1010;
         autoWidth = autoWidth < 500 ? 500 : autoWidth;
-        $('#myApply').css('width',autoWidth);
-        $('#page').css('width',autoWidth);
+        $('#myApply').css('width', autoWidth);
+        $('#page').css('width', autoWidth);
         /*申请内容的宽度自适应*/
         var _autoWidth = $('.apply-item').width() - 260;
         _autoWidth = _autoWidth < 200 ? 200 : _autoWidth;
-        $('.apply-content').css('width',_autoWidth);
+        $('.apply-content').css('width', _autoWidth);
 
         parents.find('.apply-item').removeClass('active');
         $(this).addClass('active');
@@ -706,9 +715,9 @@ exports.initApprovalManagerTableEvent = function (parents, page) {
             $('.knowledge-detail').removeClass('active');
             $('.my-apply-list .apply-item').removeClass('active');
             /*申请栏与申请内容宽度恢复*/
-            $('#myApply').css('width','auto');
-            $('#page').css('width','auto');
-            $('.apply-content').css('width',1200);
+            $('#myApply').css('width', 'auto');
+            $('#page').css('width', 'auto');
+            $('.apply-content').css('width', 1200);
         });
         approvalManagerFunc.getApplyContentAndProcessFunc({id: item.id, tmplId: item.tmplId}, page);
     });

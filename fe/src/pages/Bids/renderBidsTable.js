@@ -1,4 +1,5 @@
 var initEvent = require('./initEvent');
+var common = require('../Common');
 var UploadAttach = require('../../components/UploadAttach/index');
 /*
 * 查询设置条件
@@ -127,7 +128,7 @@ function renderBidListTable(allArr, type) {
                 '<th class="border" style="width: 150px;">材料名称</th>' +
                 '<th class="border" style="width: 150px;">规格型号</th>' +
                 '<th class="border" style="width: 50px;">单位</th>' +
-                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border" style="width: 90px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '<th class="border" style="width: 50px;">操作</th>' +
                 '</tr>');
@@ -137,7 +138,7 @@ function renderBidListTable(allArr, type) {
                 '<th class="border" style="width: 150px;">费用名称</th>' +
                 '<th class="border" style="width: 150px;">工作内容</th>' +
                 '<th class="border" style="width: 50px;">单位</th>' +
-                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border" style="width: 90px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '<th class="border" style="width: 50px;">操作</th>' +
                 '</tr>');
@@ -238,7 +239,7 @@ exports.prevNewBid = function (data) {
             '<th class="border" style="width: 150px;">材料名称</th>' +
             '<th class="border" style="width: 150px;">规格型号</th>' +
             '<th class="border" style="width: 50px;">单位</th>' +
-            '<th class="border" style="width: 50px;">数量</th>' +
+            '<th class="border" style="width: 90px;">数量</th>' +
             '<th class="border">说明</th>' +
             '</tr>');
     } else if (data.bidType == 2 || data.bidType == 3 || data.bidType == 4) {
@@ -247,7 +248,7 @@ exports.prevNewBid = function (data) {
             '<th class="border" style="width: 150px;">费用名称</th>' +
             '<th class="border" style="width: 150px;">工作内容</th>' +
             '<th class="border" style="width: 50px;">单位</th>' +
-            '<th class="border" style="width: 50px;">数量</th>' +
+            '<th class="border" style="width: 90px;">数量</th>' +
             '<th class="border">说明</th>' +
             '</tr>');
     }
@@ -536,7 +537,7 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
                 '<th class="border" style="width: 150px;">材料名称</th>' +
                 '<th class="border" style="width: 150px;">规格型号</th>' +
                 '<th class="border" style="width: 50px;">单位</th>' +
-                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border" style="width: 90px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '</tr>'
 
@@ -546,7 +547,7 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
                 '<th class="border" style="width: 150px;">费用名称</th>' +
                 '<th class="border" style="width: 150px;">工作内容</th>' +
                 '<th class="border" style="width: 50px;">单位</th>' +
-                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border" style="width: 90px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '</tr>'
         }
@@ -577,10 +578,23 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
             '<td class="border">' + item.contactName + '</td>' +
             '<td class="border">' + item.phone + '</td>' +
             '<td class="border">' + getTaxType(item.taxType) + '</td>' +
-            '<td class="border">暂无</td>' +
+            '<td class="border" style="position: relative;"><a class="confirm-hover">查看</a></td>' +
             '</tr>');
         dom.appendTo($('#bidInvitationPrev'));
+        dom.find('a').click(function(e){
+            common.stopPropagation(e);
+            $('.businessScope-modal').remove();
+            var temp = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;height: 100px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+                '<div>' + item.businessScope + '</div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 20px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '</div>');
+            temp.appendTo($(this).parents('td'))
+        })
     }
+    $('body').click(function(e){
+        common.stopPropagation(e);
+        $('.businessScope-modal').remove();
+    })
 }
 
 function getTaxType(type) {
@@ -724,7 +738,7 @@ exports.renderBidNoticeList = function (data) {
                 '<th class="border" style="width: 150px;">材料名称</th>' +
                 '<th class="border" style="width: 150px;">规格型号</th>' +
                 '<th class="border" style="width: 50px;">单位</th>' +
-                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border" style="width: 90px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '</tr>');
         } else {
@@ -733,7 +747,7 @@ exports.renderBidNoticeList = function (data) {
                 '<th class="border" style="width: 150px;">费用名称</th>' +
                 '<th class="border" style="width: 150px;">工作内容</th>' +
                 '<th class="border" style="width: 50px;">单位</th>' +
-                '<th class="border" style="width: 50px;">数量</th>' +
+                '<th class="border" style="width: 90px;">数量</th>' +
                 '<th class="border">说明</th>' +
                 '</tr>');
         }

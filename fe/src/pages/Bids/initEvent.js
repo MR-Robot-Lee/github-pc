@@ -113,7 +113,6 @@ function _initAddBidsEvent(attachList, id) {
             enterpriseModal.$body.find('.span-btn-bc').click();
             renderBidsTable.renderBidList(checkedArr, type);
             $('#bidList').parents('table').show();
-
         })
     });
 
@@ -133,6 +132,7 @@ function _initAddBidsEvent(attachList, id) {
     //初始化发布
     $(".submit").off('click').on('click', function (e) {
         common.stopPropagation(e);
+        console.log('发布');
         var data = {};
         data.id = id || ''; // 已保存过的再发布是有id的，新建的无id
         if ($("#bidType").val()) { //招标类型
@@ -179,10 +179,11 @@ function _initAddBidsEvent(attachList, id) {
         });
         var flag = false;
         $('#bidList').find('tr').each(function () {
+            console.log($(this).data('item'));
             var _data = {};
             _data.objEnumType = $("#bidType").val() * 1 + 1;
             _data.objId = $(this).data('item').objId || $(this).data('item').id;
-            _data.objQpy = $(this).data('item').objQpy || $(this).data('item').count / 1;
+            _data.objQpy = $(this).data('item').count / 1 || $(this).data('item').objQpy ;
             if (!_data.objQpy) {
                 flag = true;
             }
@@ -255,7 +256,8 @@ function _initAddBidsEvent(attachList, id) {
 /*
 * 招标要求中的删除事件
 * */
-exports.initBidsRequireEvent = function () {
+exports.initBidsRequireEvent = _initBidsRequireEvent;
+function _initBidsRequireEvent() {
     $('#bidRequireSetting').find('a').click(function () {
         var that = this;
         var arr = delItem($('#bidRequireSetting'), that);
@@ -265,7 +267,10 @@ exports.initBidsRequireEvent = function () {
 /*
 * 招标清单中的删除与输入事件
 * */
-exports.initBidsListEvent = function (type) {
+exports.initBidsListEvent = _initBidsListEvent
+function _initBidsListEvent(type) {
+    console.log('???');
+    console.log(type);
     $('#bidList').off('click', 'a');
     $('#bidList').on('click', 'a', function (e) {
         common.stopPropagation(e);
@@ -274,6 +279,7 @@ exports.initBidsListEvent = function (type) {
         renderBidsTable._renderBidListTable(arr, type);
     });
     $('#bidList').find('input').on('blur', function () {//失焦时tr得到数量或说明属性
+        console.log(111);
         var iptType = $(this).data('type');
         $(this).parents('tr').data('item')[iptType] = $(this).val();
     });
@@ -503,7 +509,7 @@ exports.initBidItemEvent = function (parent, page) {
         }
         $('#bidType').val(_data.bidType);
         $('[name=bidTitle]').val(_data.bidTitle);
-        $('#bidDeadline').html(new Date(_data.endTime).Format("yyyy-MM-dd"));
+        $('#bidDeadline').html(new Date(_data.endTime).Format("yyyy-MM-dd hh:mm:ss"));
         $('[name=bidScale]').val(_data.bidScale);
         $('[name=bidContent]').val(_data.bidContent);
         var bidRequireList = _data.bidRequireList;

@@ -2130,7 +2130,7 @@ exports.initSummaryTableEvent = function (parents) {
             var purchaseModal = Modal('查看采购', checkPurchaseModal());
             purchaseModal.show();
             purchaseModal.showClose();
-            initMaterialManger.checkPurchaseListModal({subProjId: item.subProjId, mtrlId: item.mtrlId}, purchaseModal);
+            initMaterialManger.checkPurchaseListModal({subProjId: item.subProjId, mtrlId: item.mtrlId}, purchaseModal, item);
         }
     })
 };
