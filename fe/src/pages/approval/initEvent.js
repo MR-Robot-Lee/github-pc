@@ -334,6 +334,7 @@ exports.initApprovalProcessSettingTableEvent = function (parents) {
     })
     parents.find('a').click(function (e) {
         common.stopPropagation(e);
+        var that = this;
         var type = $(this).data('type');
         var item = $(this).parents('tr').data('item');
         if (type === 'edit') {
@@ -348,15 +349,15 @@ exports.initApprovalProcessSettingTableEvent = function (parents) {
         } else if (type === 'open') {
             approvalApi.putApprTemp({switchType: 1, tempId: item.id}).then(function (res) {
                 if (res.code === 1) {
-                    $(this).hide();
-                    $(this).parents('tr').find('.close-temp').show();
+                    $(that).hide();
+                    $(that).parents('tr').find('.close-temp').show();
                 }
             })
         } else if (type === 'close') {
             approvalApi.putApprTemp({switchType: 2, tempId: item.id}).then(function (res) {
                 if (res.code === 1) {
-                    $(this).hide();
-                    $(this).parents('tr').find('.open-temp').show();
+                    $(that).hide();
+                    $(that).parents('tr').find('.open-temp').show();
                 }
             })
         }

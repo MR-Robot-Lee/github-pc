@@ -30,6 +30,7 @@ exports.renderApprovalProcessSettingTable = function (list) {
     var parents = $('#processSettingTable').html('');
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];
+        console.log(item.on_off);
         var count = i + 1;
         var dom = $('<tr class="trHeightLight-hover" style="cursor: pointer;">\
                   <td style="padding-left: 20px">' + count + '</td>\
@@ -43,10 +44,10 @@ exports.renderApprovalProcessSettingTable = function (list) {
                    <a class="delete-hover fl" data-type="delete">删除</a>\
                   </td>\
                  </tr>');
-        // if(item.on_off === 2){
-        //     dom.find('.close-temp').hide();
-        //     dom.find('.open-temp').show();
-        // }
+        if(item.on_off === 2){
+            dom.find('.close-temp').hide();
+            dom.find('.open-temp').show();
+        }
         dom.data('item', item);
         dom.appendTo(parents);
     }
