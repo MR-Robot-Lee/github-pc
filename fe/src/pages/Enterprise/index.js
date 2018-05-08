@@ -25,13 +25,11 @@ function initEvent(type, page) {
         });
         enterpriseSearch.click(function (e) {
             common.stopPropagation(e);
-            console.log(type);
             var searchModel = Model('搜索', searchModal());
             searchModel.showClose();
             searchModel.show();
             searchModel.$body.find('.search').click(function (e) {
                 common.stopPropagation(e);
-                console.log(222);
                 var data = {};
                 data.entpType = 84;
                 data.pageNo = 1;

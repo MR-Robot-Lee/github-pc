@@ -154,7 +154,6 @@ function getCompanyList() {
 function showOrHideSystem() {
     var user = window.localStorage.getItem('user');
     user = user ? JSON.parse(user) : {permission: {}};
-    console.log(user);
     var sys = user.permission['sys:*'];
     var bid1 = user.permission['bid:get'];
     var bid2 = user.permission['bid:add'];

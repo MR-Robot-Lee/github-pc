@@ -9,7 +9,6 @@ var Page = require('../../components/Page');
  * @param item
  */
 exports.getTableList = function getTableList(item, type, page, funType) {
-    console.log(funType);
     var url = '';
     var data = {};
     if (type === 'charge') {

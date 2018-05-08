@@ -321,7 +321,6 @@ exports.initRecordHoverEvent = function (parent) {
         var pageX = e.pageX;
         var pageY = e.pageY;
         desc.css({'top': pageY - 80, 'left': pageX - parent.offset().left + 40});
-        // console.log(pageX);
     });
     parent.find('tr').on('mouseleave', function () {
         $('.job-description').remove();

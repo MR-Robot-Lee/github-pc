@@ -293,7 +293,6 @@ exports.renderRegionSelect = function (data, p, c, d) {
 }
 
 exports.renderSearchTable = function(list, modal, type){
-    console.log(list);
     var parent = modal.$body.find('tbody');
     for(var i = 0; i < list.length; i++){
         var item = list[i];

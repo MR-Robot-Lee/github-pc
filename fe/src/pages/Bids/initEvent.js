@@ -132,7 +132,6 @@ function _initAddBidsEvent(attachList, id) {
     //初始化发布
     $(".submit").off('click').on('click', function (e) {
         common.stopPropagation(e);
-        console.log('发布');
         var data = {};
         data.id = id || ''; // 已保存过的再发布是有id的，新建的无id
         if ($("#bidType").val()) { //招标类型
@@ -179,7 +178,6 @@ function _initAddBidsEvent(attachList, id) {
         });
         var flag = false;
         $('#bidList').find('tr').each(function () {
-            console.log($(this).data('item'));
             var _data = {};
             _data.objEnumType = $("#bidType").val() * 1 + 1;
             _data.objId = $(this).data('item').objId || $(this).data('item').id;
@@ -269,8 +267,6 @@ function _initBidsRequireEvent() {
 * */
 exports.initBidsListEvent = _initBidsListEvent
 function _initBidsListEvent(type) {
-    console.log('???');
-    console.log(type);
     $('#bidList').off('click', 'a');
     $('#bidList').on('click', 'a', function (e) {
         common.stopPropagation(e);
@@ -279,7 +275,6 @@ function _initBidsListEvent(type) {
         renderBidsTable._renderBidListTable(arr, type);
     });
     $('#bidList').find('input').on('blur', function () {//失焦时tr得到数量或说明属性
-        console.log(111);
         var iptType = $(this).data('type');
         $(this).parents('tr').data('item')[iptType] = $(this).val();
     });

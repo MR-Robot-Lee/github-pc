@@ -101,7 +101,6 @@ exports.renderOrganizeStruEmployeeTable = function (list, data) {
     var parents = $('#employeeTable').html('');
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];
-        console.log(item);
         var sex = item.sex === 1 ? '男' : '女';
         var projPosName = item.projPosName || '暂无';
         var status = '';

@@ -173,7 +173,6 @@ exports.renderCheckRecordTable = function (list) {
 * 人员管理 个人信息
 * */
 exports.renderWorkerInfoTable = function (item) {
-    console.log(item);
     var parent = $('.check-worker-info');
     var status = item.status === 1 ? '考勤中' : '离线';
     var sex = item.sex === 1 ? '男' : '女';

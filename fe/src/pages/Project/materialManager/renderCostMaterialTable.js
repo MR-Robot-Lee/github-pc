@@ -1067,7 +1067,6 @@ exports.renderCheckSummaryModalTable = function (list, modal, $item) {
  * @param modal
  */
 exports.renderCheckPurchaseModalTable = function (list, modal, item) {
-    console.log(item);
     list = list || [];
     modal.$body.find('.mtrlName').html(item.mtrlName);
     var parents = modal.$body.find('tbody').html('');
@@ -1394,7 +1393,6 @@ exports.renderAddWorkerTable = function (list, modal, parent) {
 }
 
 exports.renderCreateOrderTable = function (list, modal, id) {
-    console.log(list);
     modal.$body.find('tbody').html('');
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
@@ -1528,7 +1526,6 @@ exports.renderManageOrderTable = function (modal, data, id) {
                 '</tr>');
             if (item.status === 2) {
                 dealMoney += (item.orderQpy * item.orderPrice);
-                console.log(dealMoney);
             }
             dom.data('item', item);
             dom.appendTo(modal.$body.find('tbody'));
@@ -1572,7 +1569,6 @@ exports.renderManageOrderTable = function (modal, data, id) {
                 '<td class="border">' + (item.remark || '') + '</td>' +
                 '<td class="border">' + status + '</td>' +
                 '</tr>');
-            console.log(item.orderQpy * item.orderPrice);
             if (item.status === 2) {
                 dealMoney += (item.orderQpy * item.orderPrice);
             }

@@ -106,7 +106,6 @@ exports.renderBidList = function (arr, type) {
             allArr.push(newArr[i]);
         }
     }
-    console.log(allArr);
     renderBidListTable(allArr, type);
 }
 
@@ -117,7 +116,6 @@ function renderBidListTable(allArr, type) {
     var tbody = $('#bidList');
     tbody.html('');
     //渲染表头
-    console.log(allArr);
     if (!allArr.length) {
         $('#bidList').parents('table').hide();
     } else {
@@ -313,7 +311,6 @@ exports.prevNewBid = function (data) {
     /* 投标邀请 */
     for (var i = 0; i < data._entpList.length; i++) {
         var item = data._entpList[i];
-        console.log(item);
         var dom = $('<tr class="small">' +
             '<td class="border">' + (i + 1) + '</td>' +
             '<td class="border">' + item.entpTypeName + '</td>' +
@@ -659,12 +656,10 @@ exports.renderCompanyInfoTable = function (data, modal) {
     modal.$body.find('.openBank').html(data.openBank);
     modal.$body.find('.bankCard').html(data.bankCard);
     modal.$body.find('.attachesList')
-    // console.log(data.attachList);
     if(!data.attachList) {
         modal.$body.find('.attachesList').text('无');
     }else{
         for (var i = 0; i < data.attachList.length; i++) {
-            console.log(data.attachList[i].attachUrl);
             var attachUrl = '';
             if (data.attachList[i].attachUrl.indexOf("uploadWechat/wechat") === -1) {
                 attachUrl = window.API_PATH + '/customer' + data.attachList[i].attachUrl;

@@ -30,7 +30,6 @@ exports.renderApprovalProcessSettingTable = function (list) {
     var parents = $('#processSettingTable').html('');
     for (var i = 0, length = list.length; i < length; i++) {
         var item = list[i];
-        console.log(item.on_off);
         var count = i + 1;
         var dom = $('<tr class="trHeightLight-hover" style="cursor: pointer;">\
                   <td style="padding-left: 20px">' + count + '</td>\

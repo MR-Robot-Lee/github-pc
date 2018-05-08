@@ -961,9 +961,14 @@ function initTableConfirm($confirm, type, modal, materialParent, newMaterial) {
                 ids.push($(trs[i]).parents("tr").data("item").id);
             }
             ids = ids.join(";");
-
-            var liItem = li.data("item");
-            var data = {id: ids, oid: liItem.id, nid: parseInt(valueParent)};
+            if(newMaterial){ // 材料库
+                var liItem = li.eq(1).data("item");
+                var nid = parseInt(newValue)
+            } else { // 非材料库
+                var liItem = li.data("item");
+                var nid = parseInt(valueParent)
+            }
+            var data = {id: ids, oid: liItem.id, nid: nid};
             if (data.oid == data.nid) {
                 return alert("移动目标已经在列表中");
             }
@@ -972,7 +977,6 @@ function initTableConfirm($confirm, type, modal, materialParent, newMaterial) {
                 data.ocid = $(li[1]).data("item").id;
             }
         }
-
         chargeApi.moveTableOther(type, data, function (res) {
             if (res.code === 1) {
                 modal.hide();

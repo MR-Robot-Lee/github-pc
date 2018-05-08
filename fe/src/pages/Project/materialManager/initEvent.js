@@ -322,7 +322,6 @@ exports.initMaterialPlanEvent = function () {
                     $('.mentionPlan').hide()
                 }
             } else if (type === 'purchase-order') {//采购
-                console.log(1111);
                 $type = 2;
                 $(materialPurchaseOrder()).appendTo(parents);
                 initMaterialManger.initMaterialDetailById(item.id, type);
@@ -339,25 +338,28 @@ exports.initMaterialPlanEvent = function () {
                     $('.checkAccept').hide();
                 }
             } else if (type === 'check-order') {// 点收单
+                console.log(item);
                 $(materialCheckOrder()).appendTo(parents);
                 initCheckAndAccept(parents, item);
                 initMaterialManger.initMaterialDetailById(item.id, type);
                 $type = 3;
                 if (userNo === item.checkUserNo) {
+                    $('.material-plan .confirm').show();
+                } else {
+                    $('.material-plan .confirm').hide();
+                }
+                if (userNo === item.checkUserNo && item.planStatus !== 6) { // 隐藏点收和驳回按钮的情况
                     $('.checkAndAccept').show();
                     $('.rebut').show();
-                    $('.material-plan .confirm').show();
                 } else {
                     $('.checkAndAccept').hide();
                     $('.rebut').hide();
-                    $('.material-plan .confirm').hide();
                 }
             } else if (type === 'cost-order') { // 费用单
                 $(materialCostOrder()).appendTo(parents);
                 initMaterialManger.getMaterialPlanCostFindByPlanIdFunc(item.id);
                 initCostOrderList(parents, item);
             }
-            console.log(type);
             if (type === 'cost-order') {
                 initMaterialManger.initGetCostMaterialList({mtrlPlanId: item.id}, parents);
             } else {
@@ -636,7 +638,6 @@ function initPurchaseDetail(parents, item) {
             common.stopPropagation(e);
             var flag = false;
             $('.materialManagerOrder tbody tr').each(function(){
-                console.log($(this).data());
                 if($(this).data('item').entprName){
                     flag = true;
                 }
@@ -747,10 +748,6 @@ function initCheckOrderEvent(modal, item, parents) {
     modal.$body.find('.confirm').click(function (e) {
         common.stopPropagation(e);
         var trs = modal.$body.find('tbody tr');
-        // var acceptTime = modal.$body.find('.acceptTime').val();
-        //   if (!acceptTime) {
-        //   return alert('请输入点收时间');
-        // }
         var acceptTime = moment(new Date()).format('YYYY-MM-DD');
         var error = false;
         var errMsg = '';
@@ -764,6 +761,9 @@ function initCheckOrderEvent(modal, item, parents) {
             data.checkTime = new Date(acceptTime).getTime();
             data.id = $item.id;
             data.checkTotalMoney = $item.prchTotalMoney;
+            if(isNaN(acceptCount)){
+                return alert('请输入有效数字')
+            }
             if (!acceptCount) {
                 error = true;
                 errMsg = '请输入点收数量';
@@ -1236,7 +1236,6 @@ function initInsideModalEvent(modal) {
     });
     modal.$body.find('#newMaterial').click(function (e) {
         var that = this;
-        console.log('lalala');
         common.stopPropagation(e);
         $('.material-manager-modal').remove();
         addMaterial = $(addMaterialModal());
@@ -2472,7 +2471,6 @@ exports.initCreateOrderEvent = function (modal, id) {
         data.mtrlPlanId = id;
         modal.$body.find('tbody tr').each(function () {
             var _data = {};
-            console.log($(this).data('item'));
             _data.mtrlId = $(this).data('item').mtrlId;
             _data.mtrlPlanDetailId = $(this).data('item').id;
             _data.orderQpy = $(this).data('item').orderQpy;
@@ -2509,7 +2507,6 @@ exports.initOrderEvent = function (modal) {
         if ($(this).data('type') === 'manage') {
             costMaterialApi.getOrderInfo(item.id).then(function(res){
                 if(res.code === 1){
-                    console.log(res);
                     var data = res.data || {};
                     if (item.orderStatus === 1) {//未报价
                         var _modal = waitingOrderModal();
@@ -2533,7 +2530,6 @@ exports.initOrderEvent = function (modal) {
             deleteModal.showClose();
             deleteModal.$body.find('.confirm').click(function(){
                 costMaterialApi.putOrderStatus(item.id, 5).then(function(res){
-                    console.log('删除了');
                     if(res.code === 1){
                         $(that).parents('tr').nextAll('tr').find('td:first-child').each(function(){
                             $(that).html($(that).html()/1 - 1);

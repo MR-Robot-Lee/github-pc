@@ -437,7 +437,6 @@ exports.getRegionFunc = function (type, province, city, district) {
 
 exports.getSearchTableFunc = function (data, modal, type) {
     request.get('/customer/enterpise/base', {qs: data}).then(function (res) {
-        console.log(res);
         var list = res.data ? res.data.data : {};
         renderEnterpirseTable.renderSearchTable(list, modal, type);
     })
