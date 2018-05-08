@@ -303,6 +303,19 @@
     }
 }
 
+.icon-enterprise-search {
+    cursor: pointer;
+    background: url(./images/enterprise-search.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+    &:hover {
+        background: url(./images/enterprise-search-active.png) no-repeat;
+    }
+}
+
 .icon-enterprise-one-add {
     cursor: pointer;
     background: url(./images/enterprise-add-type.png) no-repeat;

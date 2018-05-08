@@ -291,4 +291,7 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
         window.location.replace('/enterprise/hr');
     });
 };
-
+exports.HELLO = function(page) {
+    console.log("进入了initEvent中的Hello函数");
+    console.log(page);
+}
