@@ -1,5 +1,7 @@
 var enterpriseApi = require('./enterpriseApi');
 var renderEnterpirseTable = require('./renderEnterpirseTable');
+var request = require('../../helper/request');
+
 /**
  * 获取材料历史列表
  * @param data
@@ -75,7 +77,6 @@ exports.delStepListFunc = function (id, modal) {
 };
 
 
-
 /**
  * 人力资源
  * @param data
@@ -115,7 +116,6 @@ exports.delHrListFunc = function (id, modal) {
         }
     })
 };
-
 
 
 /**
@@ -427,10 +427,18 @@ function renderChartFactory(id, type) {
 exports.getRegionFunc = function (type, province, city, district) {
     enterpriseApi.getRegion().then(function (res) {
         var data = res.data || {};
-        if(type === 'hr'){
+        if (type === 'hr') {
             renderEnterpirseTable.renderRegionSelect(data, province, city, district);
-        } else if(type === 'supplier'){
+        } else if (type === 'supplier') {
             renderEnterpirseTable.renderRegionSelect(data, province, city);
         }
+    })
+}
+
+exports.getSearchTableFunc = function (data, modal, type) {
+    request.get('/customer/enterpise/base', {qs: data}).then(function (res) {
+        console.log(res);
+        var list = res.data ? res.data.data : {};
+        renderEnterpirseTable.renderSearchTable(list, modal, type);
     })
 }

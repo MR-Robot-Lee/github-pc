@@ -4,10 +4,13 @@ var enterpriseApi = require('./enterpriseApi');
 var modalEventHandler = require('./modal/modalEventHandler');
 var initEnterpriseFunc = require('./initEnterpriseFunc');
 var _initEvent = require('./initEvent');
+var searchModal = require('./modal/search.ejs');
 var Page = require('../../components/Page');
+var Model = require('../../components/Model');
 
 function initEvent(type, page) {
     var enterpriseCategory = $("#enterpriseCategory");
+    var enterpriseSearch = $("#enterpriseSearch");
     enterpriseCategory.data("type", type);
     if (enterpriseCategory.length > 0 && !enterpriseCategory.data('flag')) {
         enterpriseCategory.data('flag', true);
@@ -20,6 +23,22 @@ function initEvent(type, page) {
             var type = $(this).data('type');
             modalEventHandler.createChildNav(type, "add");
         });
+        enterpriseSearch.click(function (e) {
+            common.stopPropagation(e);
+            console.log(type);
+            var searchModel = Model('搜索', searchModal());
+            searchModel.showClose();
+            searchModel.show();
+            searchModel.$body.find('.search').click(function (e) {
+                common.stopPropagation(e);
+                console.log(222);
+                var data = {};
+                data.entpType = 84;
+                data.pageNo = 1;
+                data.pageSize = 10;
+                initEnterpriseFunc.getSearchTableFunc(data, searchModel, type)
+            })
+        })
         /**
          * 新增
          */

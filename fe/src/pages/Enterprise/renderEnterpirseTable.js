@@ -1,3 +1,5 @@
+var modalEventHandler = require('./modal/modalEventHandler')
+
 exports.renderMaterialHistoryTable = function (list) {
     list = list || [];
     var parents = $('#materialHistory').html('');
@@ -288,4 +290,22 @@ exports.renderRegionSelect = function (data, p, c, d) {
             }
         })
     }
+}
+
+exports.renderSearchTable = function(list, modal, type){
+    console.log(list);
+    var parent = modal.$body.find('tbody');
+    for(var i = 0; i < list.length; i++){
+        var item = list[i];
+        var dom = $('<tr class="small">' +
+            '<td class"border">'+item.entpName+'</td>' +
+            '<td class"border">'+item.openBank+'</td>' +
+            '<td class"border">'+item.openName+'</td>' +
+            '<td class"border">'+item.contactName+'</td>' +
+            '<td class"border">'+item.bankCard+'</td>' +
+            '</tr>');
+        dom.data('item',item);
+        dom.appendTo(parent);
+    }
+    modalEventHandler.initSearchTableEvent(modal, type);
 }

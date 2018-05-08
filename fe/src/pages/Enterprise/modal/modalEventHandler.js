@@ -21,6 +21,8 @@ var moveTableModal = require('./moveTableData.ejs');
 var addEmployee = require('../../../components/addEmployee');
 var UploadAttach = require('../../../components/UploadAttach');
 var addSupplier = require('../../../components/addSupplier');
+var renderTableDom = require('../renderTableDom');
+
 
 /**
  * 删除处理
@@ -1032,4 +1034,18 @@ function initMoveTable(materialParent, materialChild, newMaterial, type) {
             }
         }
     });
+}
+
+exports.initSearchTableEvent = function(modal, type){
+    modal.$body.find('tr').click(function(e){
+        common.stopPropagation(e);
+        var parent = $('#enterpriseLibrary').html('');
+        modal.hide();
+        // modal.$body.find('.icon-close').click();
+        var list = [];
+        var data = $(this).data('item');
+        list.push(data);
+        renderTableDom.renderLabourCharge(list, parent, type);
+
+    })
 }

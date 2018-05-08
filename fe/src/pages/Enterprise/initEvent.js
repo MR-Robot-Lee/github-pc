@@ -295,3 +295,4 @@ exports.HELLO = function(page) {
     console.log("进入了initEvent中的Hello函数");
     console.log(page);
 }
+
