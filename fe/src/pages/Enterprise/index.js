@@ -120,7 +120,7 @@ module.exports = {
             initEnterpriseFunc.getSupplierPriceMoneyFunc();
             _initEvent.initSupplierHistoryEvent(page);
         } else if (type === 'enterprise-hr-index') {
-            initEnterpriseFunc.getHrListFunc(null, page);
+            // initEnterpriseFunc.getHrListFunc(null, page);
             initEnterpriseFunc.getHrPriceMoneyFunc();
             _initEvent.initHrHistoryEvent(page);
         } else {

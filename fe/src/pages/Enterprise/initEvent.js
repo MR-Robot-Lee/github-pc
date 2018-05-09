@@ -286,6 +286,10 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
             return alert('请选择查询月份');
         }
     });
+    var timestamp = Date.parse(new Date()); // 获取当前时间戳
+    var currentDate = moment(timestamp).format('YYYY/MM'); // 获取当前年月
+    $('.during').html(currentDate);
+    $('#modalHistoryModal').click();
     $('#callback').click(function (e) {
         Common.stopPropagation(e);
         window.location.replace('/enterprise/hr');

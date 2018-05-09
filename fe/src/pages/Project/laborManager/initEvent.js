@@ -240,6 +240,9 @@ exports.initEmpManagerTableEvent = function () {
             recordModal.$body.find('.during').jeDate({
                 format: 'YYYY/MM'
             });
+            var timestamp = Date.parse(new Date()); // 获取当前时间戳
+            var currentDate = moment(timestamp).format('YYYY/MM'); // 获取当前年月
+            recordModal.$body.find('.during').html(currentDate)
             recordModal.$body.find('.search').click(function (e) {
                 common.stopPropagation(e);
                 var startTime = recordModal.$body.find('.during').html();
@@ -265,7 +268,7 @@ exports.initEmpManagerTableEvent = function () {
                     return alert('请选择查询月份');
                 }
             })
-            initLaborManagerFunc.getWokererKaoqinAttendFunc(recordModal);
+            recordModal.$body.find('.search').click();
         } else if (type === 'info') {
             $('.check-worker-info').remove();
             $(this).parents('td').css('position', 'relative');
