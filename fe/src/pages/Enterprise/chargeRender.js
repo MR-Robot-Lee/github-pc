@@ -188,7 +188,4 @@ charge.initDomSpanClick = function (parents) {
     });
 };
 
-charge.addActiveToList = function addActiveToList(data, type) {
-}
-
 module.exports = charge;

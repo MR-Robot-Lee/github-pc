@@ -25,6 +25,7 @@ function initEvent(type, page) {
         });
         enterpriseSearch.click(function (e) {
             common.stopPropagation(e);
+            // console.log(type);
             var searchModel = Model('搜索', searchModal());
             searchModel.showClose();
             searchModel.show();
@@ -116,7 +117,7 @@ module.exports = {
             initEnterpriseFunc.getSupplierPriceMoneyFunc();
             _initEvent.initSupplierHistoryEvent(page);
         } else if (type === 'enterprise-hr-index') {
-            initEnterpriseFunc.getHrListFunc(null, page);
+            // initEnterpriseFunc.getHrListFunc(null, page);
             initEnterpriseFunc.getHrPriceMoneyFunc();
             _initEvent.initHrHistoryEvent(page);
         } else {

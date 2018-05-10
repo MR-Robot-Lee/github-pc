@@ -245,7 +245,8 @@ exports.initLaborHistoryEvent = function (page) {//人工费详情搜索
 
 exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
     $('.during').jeDate({
-        format: 'YYYY/MM'
+        format: 'YYYY/MM',
+        isinitVal:true
     });
     $('#modalHistoryModal').click(function (e) {
         Common.stopPropagation(e);
@@ -290,5 +291,6 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
         Common.stopPropagation(e);
         window.location.replace('/enterprise/hr');
     });
+    $('#modalHistoryModal').click();
 };
 

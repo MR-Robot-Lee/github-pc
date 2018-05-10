@@ -105,7 +105,7 @@ exports.renderHrHistoryTable = function (list) {//人力资源库
         var item = moment(list[i].attendTime).format("YYYY-MM-DD");
         var status = '';
         if (list[i].status === 2) {
-            status = 'style="color: #de6d0b"';
+            status = 'style="color: #009441"';
         }
         list[i].atdTime = '<span ' + status + '>' + moment(list[i].attendTime).format("YYYY-MM-DD HH:mm").split(' ')[1] + '&nbsp;&nbsp;</span>';
         //如果数组中没有数据，或者数组中的时间、供应商、班组、工种有任意一个不同，就插入到新数组最前位置

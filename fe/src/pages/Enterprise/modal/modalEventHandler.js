@@ -1046,42 +1046,45 @@ exports.initSearchTableEvent = function (modal, type) {
         var list = [];
         list.push(data);
 
+        // console.log('data');
+        // console.log(data);
 
         // 点击每条数据，对应的分类高亮显示
         var firstLevelDom = $('.child-span-right').find('#childNav > li');
         var secondLevelDom = firstLevelDom.find('.level2 > li');
-        // if(type === "enterprise") {
-            if(firstLevelDom.length > 0) {
-                firstLevelDom.each(function(index, element) {
-                    var $ele = $(element);
-                    var level1ID = $ele.attr('id');
-                    if(level1ID == data.mtrlCategory || data.laborType || data.measureType || data.subletType || data.entpType || data.projTypeId || data.teamId) {
-                        if(!$ele.hasClass('active')) {
-                            // $ele.click();
-                            $ele.addClass('active').siblings().removeClass('active');
-                            // var top = $ele.offset().top;
-                            // $ele.parent().animate({scrollTop: top}, 500);
-                        }
-                        /* if(secondLevelDom.length > 0) {
-                            secondLevelDom.each(function(index, element) {
-                                var $e = $(element);
-                                var level2ID = $e.attr('id');
-                                if(parseInt(level2ID) == data.mtrlType) {
-                                    $e.addClass('active').siblings().removeClass('active');
-                                }
-                            })
-                        } */
-                    }
-                })
-            }
-        // }
+        // 一二级分类先前高亮显示的元素
+        var $firstPrevActive = $('.child-span-right').find('#childNav > li.active');
+        var $secondPrevActive = firstLevelDom.find('.level2 > li.active');
+        //  各个库回滚到顶部要用到
+        var commonHeaderHeight = $('.child-span-right .common-header').outerHeight();
 
+        if (firstLevelDom.length > 0) {
+            firstLevelDom.each(function (index, element) {
+                var $ele = $(element);
+                var level1ID = $ele.attr('id');
+                if (level1ID == (data.mtrlCategory || data.laborType || data.measureType || data.subletType || data.entpType || data.projTypeId || data.teamId)) {
+                    if (!$ele.hasClass('active')) {
+                        $firstPrevActive.find('> .level2') && $firstPrevActive.find('> .level2').hide();
+                        $ele.find('> .level2') && $ele.find('> .level2').show();
+                        $ele.addClass('active').siblings().removeClass('active');
+                        var top = $ele.offset().top - commonHeaderHeight + $ele.scrollTop();
+                        $ele.parent().animate({ scrollTop: top }, 300);
+                    }
+                    if (secondLevelDom.length > 0) {
+                        secondLevelDom.each(function (index, element) {
+                            var $e = $(element);
+                            var level2ID = $e.attr('id');
+                            if (parseInt(level2ID) == data.mtrlType) {
+                                $secondPrevActive.removeClass('active');
+                                $e.addClass('active');
+                            }
+                        })
+                    }
+                }
+            })
+        }
+        // 二次搜索时的滚到顶部不能准确定位；
         // charge.addActiveToList(data, type);
         renderTableDom.renderLabourCharge(list, parent, type);
-
     })
 }
-
-/* function scrollToTopHandler () {
-
-}  */
