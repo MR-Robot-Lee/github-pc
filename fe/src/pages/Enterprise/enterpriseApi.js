@@ -10,7 +10,7 @@ exports.getMaterialHistoryList = function (data) {
     data.mtrlId = $('#materialHistoryId').data('hid');
     data.pageNo = data.pageNo || 1;
     data.pageSize = data.pageSize || 10;
-    return request.get('/customer/material/prchHistory', {qs: data})
+    return request.get('/customer/material/prchHistory', { qs: data })
 };
 /**
  * 添加材料历史采购
@@ -18,7 +18,7 @@ exports.getMaterialHistoryList = function (data) {
  * @returns {Request}
  */
 exports.postMaterialHistory = function (data) {
-    return request.post('/customer/material/history', {body: data});
+    return request.post('/customer/material/history', { body: data });
 };
 /**
  * 删除材料的采购历史
@@ -32,7 +32,7 @@ exports.delMaterialHistory = function (id) {
  * @returns {Request}
  */
 exports.putMaterialHistory = function () {
-    return request.put('/customer/material/history/' + data.id, {body: data});
+    return request.put('/customer/material/history/' + data.id, { body: data });
 };
 
 /**
@@ -45,7 +45,7 @@ exports.getSubpackageList = function (data) {
     data.subletId = $('#subpackageHistoryId').data('hid');
     data.pageNo = data.pageNo || 1;
     data.pageSize = data.pageSize || 10;
-    return request.get('/customer/sublet/history', {qs: data})
+    return request.get('/customer/sublet/history', { qs: data })
 };
 
 /**
@@ -54,7 +54,7 @@ exports.getSubpackageList = function (data) {
  * @returns {Request}
  */
 exports.putSubpackageList = function (data) {
-    return request.get('/customer/sublet/history' + data.id, {body: data})
+    return request.get('/customer/sublet/history' + data.id, { body: data })
 };
 
 
@@ -64,7 +64,7 @@ exports.putSubpackageList = function (data) {
  * @returns {Request}
  */
 exports.postSubpackageList = function (data) {
-    return request.get('/customer/sublet/history', {body: data})
+    return request.get('/customer/sublet/history', { body: data })
 };
 
 
@@ -94,7 +94,7 @@ exports.getStepList = function (data) {
     data.measureId = $('#stepHistoryId').data('hid');
     data.pageNo = data.pageNo || 1;
     data.pageSize = data.pageSize || 10;
-    return request.get('/customer/measure/history', {qs: data});
+    return request.get('/customer/measure/history', { qs: data });
 };
 /**
  * 添加措施
@@ -102,7 +102,7 @@ exports.getStepList = function (data) {
  * @returns {Request}
  */
 exports.postStepList = function (data) {
-    return request.get('/customer/measure/history', {body: data});
+    return request.get('/customer/measure/history', { body: data });
 };
 /**
  * 修改措施
@@ -110,7 +110,7 @@ exports.postStepList = function (data) {
  * @returns {Request}
  */
 exports.putStepList = function (data) {
-    return request.get('/customer/measure/history' + data.id, {body: data});
+    return request.get('/customer/measure/history' + data.id, { body: data });
 };
 
 /**
@@ -123,7 +123,7 @@ exports.getLaborList = function (data) {
     data.laborId = $('#laborHistoryId').data('hid');
     data.pageNo = data.pageNo || 1;
     data.pageSize = data.pageSize || 10;
-    return request.get('/customer/labor/history', {qs: data})
+    return request.get('/customer/labor/history', { qs: data })
 };
 /**
  * 修改人力
@@ -132,7 +132,7 @@ exports.getLaborList = function (data) {
  */
 exports.putLaborList = function (data) {
     data = data || {};
-    return request.get('/customer/labor/history' + data.id, {body: data})
+    return request.get('/customer/labor/history' + data.id, { body: data })
 };
 
 /**
@@ -142,7 +142,7 @@ exports.putLaborList = function (data) {
  */
 exports.postLaborList = function (data) {
     data = data || {};
-    return request.get('/customer/labor/history', {body: data})
+    return request.get('/customer/labor/history', { body: data })
 };
 
 /**
@@ -155,7 +155,7 @@ exports.getHrList = function (data) {
     data.workerNo = $('#hrHistoryId').data('workerno');
     data.pageNo = data.pageNo || 1;
     data.pageSize = data.pageSize || 100;
-    return request.get('/customer/attend/getWorkAttend', {qs: data})
+    return request.get('/customer/attend/getWorkAttend', { qs: data })
 };
 
 /**
@@ -170,31 +170,31 @@ exports.delLaborList = function (id) {
 exports.getStepPriceMoney = function (data) {
     data = data || {};
     data.measureId = $('#stepHistoryId').data('hid');
-    return request.get('/customer/measure/avgPriceMoney', {qs: data});
+    return request.get('/customer/measure/avgPriceMoney', { qs: data });
 };
 
 exports.getLaborPriceMoney = function (data) {
     data = data || {};
     data.laborId = $('#laborHistoryId').data('hid');
-    return request.get('/customer/labor/avgPriceMoney', {qs: data});
+    return request.get('/customer/labor/avgPriceMoney', { qs: data });
 };
 
 exports.getMaterialPriceMoney = function (data) {
     data = data || {};
     data.mtrlId = $('#materialHistoryId').data('hid');
-    return request.get('/customer/material/avgPriceMoney', {qs: data});
+    return request.get('/customer/material/avgPriceMoney', { qs: data });
 };
 
 exports.getSubpackagePriceMoney = function (data) {
     data = data || {};
     data.subletId = $('#subpackageHistoryId').data('hid');
-    return request.get('/customer/sublet/avgPriceMoney', {qs: data});
+    return request.get('/customer/sublet/avgPriceMoney', { qs: data });
 };
 
 exports.getHrPriceMoney = function (data) {
     data = data || {};
     data.workerNo = $('#hrHistoryId').data('workerno');
-    return request.get('/customer/attend/getWorkerInfo', {qs: data});
+    return request.get('/customer/attend/getWorkerInfo', { qs: data });
 };
 
 /**
@@ -208,12 +208,12 @@ exports.getSupplierList = function (data) {
     data.entpId = $('#supplierHistoryId').data('hid');
     data.pageNo = data.pageNo || 1;
     data.pageSize = data.pageSize || 10;
-    return request.get('/customer/enterpise/history', {qs: data});
+    return request.get('/customer/enterpise/history', { qs: data });
 };
 
 exports.getSupplierObjList = function () {
     var entpId = $('#supplierHistoryId').data('hid');
-    return request.get('/customer/enterpise/history/' + entpId, {qs: {entpId: entpId}});
+    return request.get('/customer/enterpise/history/' + entpId, { qs: { entpId: entpId } });
 };
 /**
  * 添加材料
@@ -222,7 +222,7 @@ exports.getSupplierObjList = function () {
  */
 exports.postMaterialBase = function (data) {
     data = data || {};
-    return request.post('/customer/material/base', {body: data});
+    return request.post('/customer/material/base', { body: data });
 };
 
 /**
@@ -232,7 +232,7 @@ exports.postMaterialBase = function (data) {
  */
 exports.getMeasureCheckPrice = function (data) {
     data = data || {};
-    return request.get('/customer/measure/history', {qs: data});
+    return request.get('/customer/measure/history', { qs: data });
 };
 
 /**
@@ -242,7 +242,7 @@ exports.getMeasureCheckPrice = function (data) {
  */
 exports.getLaborCheckPrice = function (data) {
     data = data || {};
-    return request.get('/customer/labor/history', {qs: data});
+    return request.get('/customer/labor/history', { qs: data });
 };
 
 /**
@@ -252,7 +252,7 @@ exports.getLaborCheckPrice = function (data) {
  */
 exports.getSubletCheckPrice = function (data) {
     data = data || {};
-    return request.get('/customer/sublet/history', {qs: data});
+    return request.get('/customer/sublet/history', { qs: data });
 };
 
 /**
@@ -262,49 +262,49 @@ exports.getSubletCheckPrice = function (data) {
  */
 exports.getMaterialCheckPrice = function (data) {
     data = data || {};
-    return request.get('/customer/material/prchHistory', {qs: data});
+    return request.get('/customer/material/prchHistory', { qs: data });
 };
 /*
 * 新建班组
 * */
 exports.postAddEntpTeam = function (data) {
     data = data || {};
-    return request.post('/customer/attend/addEntpTeam', {body: data});
+    return request.post('/customer/attend/addEntpTeam', { body: data });
 };
 /*
 * 新建工人
 * */
 exports.postAddWorker = function (data) {
     data = data || {};
-    return request.post('/customer/attend/addWorker', {body: data});
+    return request.post('/customer/attend/addWorker', { body: data });
 };
 /*
 * 删除一条工人信息
 * */
 exports.delAddWorker = function (data) {
     data = data || {};
-    return request.del('/customer/attend/delWorkById', {qs: data});
+    return request.del('/customer/attend/delWorkById', { qs: data });
 };
 /*
 * 查询所有班组
 * */
 exports.getAllEntpTeams = function (data) {
     data = data || {};
-    return request.get('/customer/attend/getAllEntpTeams', {body: data});
+    return request.get('/customer/attend/getAllEntpTeams', { body: data });
 };
 /*
 * 查询某一类型下的所有供应商
 * */
 exports.getEntpByTypeId = function (data) {
     data = data || {};
-    return request.get('/customer/attend/getEntpByTypeId', {body: data});
+    return request.get('/customer/attend/getEntpByTypeId', { body: data });
 };
 /*
 * 查询供应商类型
 * */
 exports.getEntpTypes = function (data) {
     data = data || {};
-    return request.get('/customer/attend/getEntpTypes', {body: data});
+    return request.get('/customer/attend/getEntpTypes', { body: data });
 };
 /*
 * 查询省市区列表
@@ -317,33 +317,41 @@ exports.getRegion = function () {
 * */
 exports.getWorksByCondition = function (data) {
     data = data || {};
-    return request.get('/customer/attend/getWorksByCondition', {qs: data});
+    return request.get('/customer/attend/getWorksByCondition', { qs: data });
 };
 /*
 * 查询出勤人员总数
 * */
 exports.postStaticsCounts = function (data) {
     data = data || {};
-    return request.post('/customer/attend/staticsCounts', {body: data});
+    return request.post('/customer/attend/staticsCounts', { body: data });
 };
 /*
 * 修改班组名称
 * */
 exports.putUpdEntpTeamName = function (data) {
     data = data || {};
-    return request.put('/customer/attend/updEntpTeamName', {body: data});
+    return request.put('/customer/attend/updEntpTeamName', { body: data });
 };
 /*
 * 修改工人信息
 * */
 exports.putUpdWorkerInfo = function (data) {
     data = data || {};
-    return request.put('/customer/attend/updWorkerInfo', {body: data});
+    return request.put('/customer/attend/updWorkerInfo', { body: data });
 };
 /*
 * 修改工人考勤状态
 * */
 exports.postUpdWorkerStatus = function (data) {
     data = data || {};
-    return request.post('/customer/attend/updWorkerStatus', {body: data});
+    return request.post('/customer/attend/updWorkerStatus', { body: data });
 };
+
+/*
+* 全局搜索企业库中的每个库
+* */
+exports.getSearchAllLibraryInfo = function (data) {
+    data = data || {};
+    return request.get('/customer/enterpise/getEntpInfoByConditions', {qs: data})
+}

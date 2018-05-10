@@ -279,6 +279,7 @@ exports.getCostEvaluateFuncModal = function (modal) {
 
 exports.uploadExcelFunc = function (file) {
     costBudgetManagerApi.uploadExcel(file, function (data) {
+        window.location.reload();
     });
 };
 /**

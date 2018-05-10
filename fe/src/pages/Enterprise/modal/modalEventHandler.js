@@ -2,6 +2,7 @@ var remind = require('./deleteModal.ejs');
 var Modal = require('../../../components/Model');
 var Region = require('../../../components/Region');
 var common = require('../../Common');
+var charge = require('../chargeRender');
 var chargeApi = require('../chargeApi');
 var enterpriseApi = require('../enterpriseApi');
 var initEnterpriseFunc = require('../initEnterpriseFunc');
@@ -95,7 +96,7 @@ exports.putModalEvent = function putModalEvent(change, type, obj) {
             $('.addEmployeeModal').find('.project-title').html('修改人员');
             $('.addEmployeeModal').find('[name=workerNo]').html(obj.workerNo).parent().show();
             $('.addEmployeeModal').find('[name=workerName]').val(obj.workerName);
-            $('.addEmployeeModal').find('[name=phone]').val(obj.phone).prop('disabled',true);
+            $('.addEmployeeModal').find('[name=phone]').val(obj.phone).prop('disabled', true);
             $('.addEmployeeModal').find('[name=gender]').eq(obj.sex - 1).prop('checked', true);
             var birthDay = obj.birthday.split('-');
             var year = birthDay[0];
@@ -599,7 +600,7 @@ function initLibraryInputDom(inputs, obj, modal) {
         $(input).val(obj[name]);
     }
     modal.$body.find('#chargeUserNo').data("user",
-        {userNo: obj.chargeUserNo, userName: obj.chargeName});
+        { userNo: obj.chargeUserNo, userName: obj.chargeName });
     modal.$body.find('#chargeUserNo').text(obj.chargeName);
 }
 
@@ -885,7 +886,7 @@ function initMoveClick($confirm, materialParent, materialChild, newMaterial, mod
         chargeApi.moveMaterialData(data, function (res) {
             if (res.code === 1) {
                 modal.hide();
-                chargeApi.getChildNav("enterprise", "update", {mtrlCategory: newValue, id: childValue});
+                chargeApi.getChildNav("enterprise", "update", { mtrlCategory: newValue, id: childValue });
             }
         })
     })
@@ -951,7 +952,7 @@ function initTableConfirm($confirm, type, modal, materialParent, newMaterial) {
             }
             nos = nos.join(";");
             var liItem = li.data("item");
-            var data = {id: nos, oid: liItem.teamId, nid: parseInt(valueParent)};
+            var data = { id: nos, oid: liItem.teamId, nid: parseInt(valueParent) };
             if (data.oid == data.nid) {
                 return alert("移动目标已经在列表中");
             }
@@ -961,14 +962,9 @@ function initTableConfirm($confirm, type, modal, materialParent, newMaterial) {
                 ids.push($(trs[i]).parents("tr").data("item").id);
             }
             ids = ids.join(";");
-            if(newMaterial){ // 材料库
-                var liItem = li.eq(1).data("item");
-                var nid = parseInt(newValue)
-            } else { // 非材料库
-                var liItem = li.data("item");
-                var nid = parseInt(valueParent)
-            }
-            var data = {id: ids, oid: liItem.id, nid: nid};
+
+            var liItem = li.data("item");
+            var data = { id: ids, oid: liItem.id, nid: parseInt(valueParent) };
             if (data.oid == data.nid) {
                 return alert("移动目标已经在列表中");
             }
@@ -977,6 +973,7 @@ function initTableConfirm($confirm, type, modal, materialParent, newMaterial) {
                 data.ocid = $(li[1]).data("item").id;
             }
         }
+
         chargeApi.moveTableOther(type, data, function (res) {
             if (res.code === 1) {
                 modal.hide();
@@ -1040,16 +1037,51 @@ function initMoveTable(materialParent, materialChild, newMaterial, type) {
     });
 }
 
-exports.initSearchTableEvent = function(modal, type){
-    modal.$body.find('tr').click(function(e){
+exports.initSearchTableEvent = function (modal, type) {
+    modal.$body.find('tbody tr').click(function (e) {
         common.stopPropagation(e);
         var parent = $('#enterpriseLibrary').html('');
-        modal.hide();
-        // modal.$body.find('.icon-close').click();
-        var list = [];
         var data = $(this).data('item');
+        modal.hide();
+        var list = [];
         list.push(data);
+
+
+        // 点击每条数据，对应的分类高亮显示
+        var firstLevelDom = $('.child-span-right').find('#childNav > li');
+        var secondLevelDom = firstLevelDom.find('.level2 > li');
+        // if(type === "enterprise") {
+            if(firstLevelDom.length > 0) {
+                firstLevelDom.each(function(index, element) {
+                    var $ele = $(element);
+                    var level1ID = $ele.attr('id');
+                    if(level1ID == data.mtrlCategory || data.laborType || data.measureType || data.subletType || data.entpType || data.projTypeId || data.teamId) {
+                        if(!$ele.hasClass('active')) {
+                            // $ele.click();
+                            $ele.addClass('active').siblings().removeClass('active');
+                            // var top = $ele.offset().top;
+                            // $ele.parent().animate({scrollTop: top}, 500);
+                        }
+                        /* if(secondLevelDom.length > 0) {
+                            secondLevelDom.each(function(index, element) {
+                                var $e = $(element);
+                                var level2ID = $e.attr('id');
+                                if(parseInt(level2ID) == data.mtrlType) {
+                                    $e.addClass('active').siblings().removeClass('active');
+                                }
+                            })
+                        } */
+                    }
+                })
+            }
+        // }
+
+        // charge.addActiveToList(data, type);
         renderTableDom.renderLabourCharge(list, parent, type);
 
     })
 }
+
+/* function scrollToTopHandler () {
+
+}  */

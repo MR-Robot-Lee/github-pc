@@ -103,9 +103,9 @@ exports.renderHrHistoryTable = function (list) {//人力资源库
     var arr = [];
     for (var i = 0; i < list.length; i++) {
         var item = moment(list[i].attendTime).format("YYYY-MM-DD");
-        var status ='';
+        var status = '';
         if (list[i].status === 2) {
-            status = 'style="color: #009411"';
+            status = 'style="color: #de6d0b"';
         }
         list[i].atdTime = '<span ' + status + '>' + moment(list[i].attendTime).format("YYYY-MM-DD HH:mm").split(' ')[1] + '&nbsp;&nbsp;</span>';
         //如果数组中没有数据，或者数组中的时间、供应商、班组、工种有任意一个不同，就插入到新数组最前位置
@@ -242,8 +242,9 @@ exports.renderHrHistoryDom = function (obj) {
     $('[name=phone]').text(obj.phone);
     $('[name=idNo]').text(obj.idNo);
     $('[name=attendTime]').text(moment(obj.attendTime).format("YYYY-MM-DD"));
-    // $('[name=attendCount]').text(obj.attendCount);
+    $('[name=attendCount]').text(obj.attendCount);
 };
+
 
 /*
 * 省市县三级联动
@@ -291,19 +292,30 @@ exports.renderRegionSelect = function (data, p, c, d) {
     }
 }
 
-exports.renderSearchTable = function(list, modal, type){
+exports.renderSearchTable = function (list, modal, type) {
+    var thead = modal.$body.find('thead');
+    thead.empty().append($('<tr></tr>'));
     var parent = modal.$body.find('tbody');
-    for(var i = 0; i < list.length; i++){
-        var item = list[i];
-        var dom = $('<tr class="small">' +
-            '<td class"border">'+item.entpName+'</td>' +
-            '<td class"border">'+item.openBank+'</td>' +
-            '<td class"border">'+item.openName+'</td>' +
-            '<td class"border">'+item.contactName+'</td>' +
-            '<td class"border">'+item.bankCard+'</td>' +
-            '</tr>');
-        dom.data('item',item);
-        dom.appendTo(parent);
+    parent.empty();
+
+    var theadList = list[0];
+    for (var i = 0; i < theadList.length; i++) {
+        var item = theadList[i];
+        var dom = $('<th class="border">' + item + '</th>');
+        dom.appendTo(thead.find('tr'));
+    }
+
+    var tbodyList = list[1];
+    var allInfo = list[2]; 
+    for (var i = 0; i < tbodyList.length; i++) {
+        var item = tbodyList[i];
+        var tr = $('<tr></tr>');
+        for (var k in item) {
+            var td = $('<td class="border">' + item[k] + '</td>');
+            td.appendTo(tr);
+        }
+        tr.data('item', allInfo[i]);
+        tr.appendTo(parent);
     }
     modalEventHandler.initSearchTableEvent(modal, type);
 }

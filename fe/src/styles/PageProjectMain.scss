@@ -1594,3 +1594,49 @@
     border-radius: 3px;
     color: #666666;
 }
+
+.carousel-imgs-container{
+    width: 1014px;
+    height: 412px;
+    overflow: hidden;
+    ul{
+        width:4000px;
+        transition-duration: 0.5s;
+        li{
+            float: left;
+            width: 1014px;
+            height: 412px;
+            &.img1{
+                background: url(./images/help-pic1.png) no-repeat;
+            }
+            &.img2{
+                background: url(./images/help-pic2.png) no-repeat;
+            }
+            &.img3{
+                background: url(./images/help-pic3.png) no-repeat;
+            }
+        }
+    }
+}
+
+.carousel-points-container{
+    margin: 10px 0;
+    ul{
+        text-align: center;
+        li{
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: #ccc;
+            &:last-child{
+                margin: 0;
+            }
+            &.active{
+                background-color: #009411;
+            }   
+        }
+    }
+}

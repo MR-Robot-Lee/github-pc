@@ -790,10 +790,12 @@ exports.renderMaterialPlanOrderDom = function (obj) {
     if (obj.planAppearTime) {
         planAppearTime = moment(obj.planAppearTime).format('YYYY-MM-DD')
     }
+    console.log(obj);
     var excpCount = obj.excpCount ? obj.excpCount + '项' : '0项';
     $('span[name=excpCount]').text(excpCount);
     $('input[name=planUser]').val(obj.planUserName);
     $('input[name=prchUser]').val(obj.prchUserName);
+    $('input[name=checkUserName]').val(obj.checkUserName);
     $('input[name=planAppearTime]').val(planAppearTime);
     $('input[name=planMoney]').val(obj.planMoney);
     $('input[name=outPlanMoney]').val(obj.outBudPlanMoney);
@@ -811,7 +813,6 @@ exports.renderPurchaseOrderDom = function (obj) {
         var input = $(inputs[i]);
         var name = input.attr('name');
         input.val(obj[name] ? obj[name] : i > 1 ? 0.00 : '');
-
     }
     var realAppearTime = '';
     var prchTime = '';
@@ -842,6 +843,7 @@ exports.renderSuccessFullBidDom = function (obj) {
     $('span[name=excpCount]').text(excpCount);
     $('input[name=planUser]').val(obj.planUserName);
     $('input[name=prchUser]').val(obj.prchUserName);
+    $('input[name=checkUserName]').val(obj.checkUserName);
     $('input[name=planAppearTime]').val(planAppearTime);
     $('input[name=planMoney]').val(obj.planMoney || 0);
     $('input[name=prchMoney]').val(obj.prchMoney || 0);

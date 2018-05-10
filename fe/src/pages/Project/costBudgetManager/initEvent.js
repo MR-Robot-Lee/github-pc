@@ -15,6 +15,7 @@ var quantityCheckModal = require('./modal/quantityCheckModal.ejs');
 var EvaluationReportModal = require('./modal/EvaluationReportModal.ejs');
 var exceptionRemarkModal = require('./modal/exceptionRemarkModal.ejs');
 var adjustPriceModal = require('./modal/adjustPriceModal.ejs');
+var budgetImportHelpModal = require('./modal/budgetImportHelpModal.ejs')
 var projectInitEvent = require('../initEvent');
 var copyChildModal = require('./modal/copyChildModal.ejs');
 var Page = require('../../../components/Page');
@@ -291,6 +292,37 @@ exports.costBudgetClick = function costBudgetClick($page) {
             copyModal.appendTo($('body'));
             initCopyChildData(item);
             initCopyChildEvent(copyModal, item, $page);
+        })
+        $('#budgetImportHelp').click(function (e) {
+            common.stopPropagation(e);
+            var importHelpModal = Modal('导入预算说明', budgetImportHelpModal());
+            importHelpModal.showClose();
+            importHelpModal.show();
+            var idx = 0;
+            importHelpModal.$body.find('.next').click(function (e) {
+                common.stopPropagation(e);
+                if (idx === 2) {
+                    importHelpModal.hide();
+                } else {
+                    idx += 1;
+                    changeCarousel(idx);
+                }
+            })
+            importHelpModal.$body.find('.carousel-points-container li').click(function (e) {
+                common.stopPropagation(e);
+                idx = $(this).index();
+                changeCarousel(idx);
+            })
+
+            function changeCarousel(idx) {
+                importHelpModal.$body.find('.carousel-points-container li').removeClass('active').eq(idx).addClass('active');
+                importHelpModal.$body.find('.carousel-imgs-container ul').css('marginLeft', -1014 * idx);
+                if (idx === 2) {
+                    importHelpModal.$body.find('.next').html('我知道了');
+                } else {
+                    importHelpModal.$body.find('.next').html('下一步');
+                }
+            }
         })
     }
 };

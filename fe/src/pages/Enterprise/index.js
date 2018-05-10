@@ -30,11 +30,7 @@ function initEvent(type, page) {
             searchModel.show();
             searchModel.$body.find('.search').click(function (e) {
                 common.stopPropagation(e);
-                var data = {};
-                data.entpType = 84;
-                data.pageNo = 1;
-                data.pageSize = 10;
-                initEnterpriseFunc.getSearchTableFunc(data, searchModel, type)
+                initEnterpriseFunc.getSearchTableFunc(searchModel, type)
             })
         })
         /**
@@ -120,7 +116,7 @@ module.exports = {
             initEnterpriseFunc.getSupplierPriceMoneyFunc();
             _initEvent.initSupplierHistoryEvent(page);
         } else if (type === 'enterprise-hr-index') {
-            // initEnterpriseFunc.getHrListFunc(null, page);
+            initEnterpriseFunc.getHrListFunc(null, page);
             initEnterpriseFunc.getHrPriceMoneyFunc();
             _initEvent.initHrHistoryEvent(page);
         } else {

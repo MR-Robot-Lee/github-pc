@@ -645,7 +645,7 @@ function initPurchaseDetail(parents, item) {
             if(!flag){
                 return alert('没有采购不可提交点收')
             }
-            if($(".modal-form [name=checkUserName]").val()){
+            if($(".material-plan [name=checkUserName]").val()){
                 var remindPurchase = Modal('提示', remindModal());
                 remindPurchase.$body.find('.remind-text').html('确定已完成全部采购编辑？');
                 remindPurchase.show();

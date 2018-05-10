@@ -711,3 +711,16 @@
     margin-left: 5px;
     background: url(./images/associated-icon.png) no-repeat;
 }
+
+.icon-help{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-top: -2px;
+    cursor: pointer;
+    background: url(./images/help.png) no-repeat;
+    &:hover{
+        background: url(./images/help-active.png) no-repeat;
+    }
+}

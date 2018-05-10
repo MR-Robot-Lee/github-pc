@@ -53,7 +53,7 @@ charge.renderNav = function renderNav(list, type, parents, $dom, childParents, p
             dom.data("level", "child");
         } else {
             dom.appendTo(parents);
-            if(item.id){
+            if (item.id) {
                 dom.attr('id', item.id);
             } else {
                 dom.attr('id', item.teamId);
@@ -187,4 +187,8 @@ charge.initDomSpanClick = function (parents) {
         }
     });
 };
+
+charge.addActiveToList = function addActiveToList(data, type) {
+}
+
 module.exports = charge;

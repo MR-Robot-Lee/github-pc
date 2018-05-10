@@ -14,9 +14,9 @@ exports.getMaterialHistoryListFunc = function (data, page) {
         var pageNo = res.data ? res.data.pageNo : 10;
         var pageSize = res.data ? res.data.pageSize : 1;
         var total = res.data ? res.data.total : 0;
-        page.update({pageNo: pageNo, pageSize: pageSize, total: total});
+        page.update({ pageNo: pageNo, pageSize: pageSize, total: total });
         page.change(function ($page) {
-            that.getMaterialHistoryListFunc({pageNo: $page.pageNo, pageSize: $page.pageSize}, page);
+            that.getMaterialHistoryListFunc({ pageNo: $page.pageNo, pageSize: $page.pageSize }, page);
         });
         renderEnterpirseTable.renderMaterialHistoryTable(list);
     });
@@ -49,13 +49,13 @@ exports.getStepListFunc = function (data, page) {
         var pageNo = res.data ? res.data.pageNo : 10;
         var pageSize = res.data ? res.data.pageSize : 1;
         var total = res.data ? res.data.total : 0;
-        page.update({pageNo: pageNo, pageSize: pageSize, total: total});
+        page.update({ pageNo: pageNo, pageSize: pageSize, total: total });
         //绑定分页修改事件
         page.change(function ($page) {
             //一旦分页有变动，这里就会回调，然后在这里面执行ajax请求接口刷新数据
             //分页的界面更新是由接口返回的数据驱动的 所以ajax请求完成后需要执行update更新分页界面
             //理论上 接口返回的分页数据应该与 函数里的data相同
-            that.getStepListFunc({pageNo: $page.pageNo, pageSize: $page.pageSize}, page);
+            that.getStepListFunc({ pageNo: $page.pageNo, pageSize: $page.pageSize }, page);
         });
         renderEnterpirseTable.renderStepHistoryTable(list);
     })
@@ -130,12 +130,12 @@ exports.getLaborListFunc = function (data, page) {
         var pageNo = res.data ? res.data.pageNo : 10;
         var pageSize = res.data ? res.data.pageSize : 1;
         var total = res.data ? res.data.total : 0;
-        page.update({pageNo: pageNo, pageSize: pageSize, total: total});
+        page.update({ pageNo: pageNo, pageSize: pageSize, total: total });
         page.change(function ($page) {
             //一旦分页有变动，这里就会回调，然后在这里面执行ajax请求接口刷新数据
             //分页的界面更新是由接口返回的数据驱动的 所以ajax请求完成后需要执行update更新分页界面
             //理论上 接口返回的分页数据应该与 函数里的data相同
-            that.getLaborListFunc({pageNo: $page.pageNo, pageSize: $page.pageSize}, page);
+            that.getLaborListFunc({ pageNo: $page.pageNo, pageSize: $page.pageSize }, page);
         });
         renderEnterpirseTable.renderLaborHistoryTable(list);
     })
@@ -167,12 +167,12 @@ exports.getSubpackageList = function (data, page) {
         var pageNo = res.data ? res.data.pageNo : 10;
         var pageSize = res.data ? res.data.pageSize : 1;
         var total = res.data ? res.data.total : 0;
-        page.update({pageNo: pageNo, pageSize: pageSize, total: total});
+        page.update({ pageNo: pageNo, pageSize: pageSize, total: total });
         page.change(function ($page) {
             //一旦分页有变动，这里就会回调，然后在这里面执行ajax请求接口刷新数据
             //分页的界面更新是由接口返回的数据驱动的 所以ajax请求完成后需要执行update更新分页界面
             //理论上 接口返回的分页数据应该与 函数里的data相同
-            that.getSubpackageList({pageNo: $page.pageNo, pageSize: $page.pageSize}, page);
+            that.getSubpackageList({ pageNo: $page.pageNo, pageSize: $page.pageSize }, page);
         });
         renderEnterpirseTable.renderSubpagckageHistoryTable(list);
     })
@@ -201,13 +201,13 @@ exports.getSupplierListFunc = function (data, page) {
         var pageNo = res.data ? res.data.pageNo : 1;
         var pageSize = res.data ? res.data.pageSize : 0;
         var total = res.data ? res.data.total : 1;
-        page.update({pageNo: pageNo, pageSize: pageSize, total: total});
+        page.update({ pageNo: pageNo, pageSize: pageSize, total: total });
         //绑定分页修改事件
         page.change(function ($page) {
             //一旦分页有变动，这里就会回调，然后在这里面执行ajax请求接口刷新数据
             //分页的界面更新是由接口返回的数据驱动的 所以ajax请求完成后需要执行update更新分页界面
             //理论上 接口返回的分页数据应该与 函数里的data相同
-            that.getSupplierListFunc({pageNo: $page.pageNo, pageSize: $page.pageSize}, page);
+            that.getSupplierListFunc({ pageNo: $page.pageNo, pageSize: $page.pageSize }, page);
         });
         renderEnterpirseTable.renderSupplierHistoryTable(list);
     })
@@ -222,7 +222,7 @@ exports.getSupplierPriceMoneyFunc = function () {
 
 exports.renderCompetence = function () {
     var user = window.localStorage.getItem('user');
-    user = user ? JSON.parse(user) : {permission: {}};
+    user = user ? JSON.parse(user) : { permission: {} };
     var enterpriseData = user.permission['cost:get'];
     if (enterpriseData) {
         $('.costGet').show();
@@ -247,7 +247,7 @@ exports.renderCompetence = function () {
  */
 exports.renderEnterpirseCompetence = function () {
     var user = window.localStorage.getItem('user');
-    user = user ? JSON.parse(user) : {permission: {}};
+    user = user ? JSON.parse(user) : { permission: {} };
     var cost = user.permission['cost:*'];
     if (cost) {
         $('#enterpriseCategory').show();
@@ -269,7 +269,7 @@ exports.renderEnterpirseCompetence = function () {
  */
 exports.renderSupplierCompetence = function () {
     var user = window.localStorage.getItem('user');
-    user = user ? JSON.parse(user) : {permission: {}};
+    user = user ? JSON.parse(user) : { permission: {} };
     var enterprise = user.permission['enterprise:*'];
     if (enterprise) {
         $('#enterpriseCategory').show();
@@ -291,7 +291,7 @@ exports.renderSupplierCompetence = function () {
  */
 exports.renderLibriryCompetence = function () {
     var user = window.localStorage.getItem('user');
-    user = user ? JSON.parse(user) : {permission: {}};
+    user = user ? JSON.parse(user) : { permission: {} };
     var projDb = user.permission['projDb:*'];
     if (projDb) {
         $('#enterpriseCategory').show();
@@ -435,9 +435,79 @@ exports.getRegionFunc = function (type, province, city, district) {
     })
 }
 
-exports.getSearchTableFunc = function (data, modal, type) {
-    request.get('/customer/enterpise/base', {qs: data}).then(function (res) {
-        var list = res.data ? res.data.data : {};
+exports.getSearchTableFunc = function (modal, type) {
+    var allTypeId = {
+        enterprise: 1,
+        charge: 2,
+        step: 3,
+        subpackage: 4,
+        supplier: 5,
+        library: 6,
+        hr: 7
+    };
+
+    var theadArr = [];
+    var tbodyArr = [];
+
+    // 要渲染的表头数据
+    theadArr[0] = "材料类别";
+    if (type === "enterprise") {
+        theadArr.push("材料类型");
+    }
+    // 除了库和分库之外的其他项
+    var restTheadItems = {
+        enterprise: ["材料名称", "规格型号", "单位", "均价", "合计金额"],
+        charge: ["费用名称", "工作内容", "单位", "均价", "合计金额"],
+        step: ["费用名称", "工作内容", "单位", "均价", "合计金额"],
+        subpackage: ["费用名称", "工作内容", "单位", "均价", "合计金额"],
+        supplier: ["供应商名称", "管理员", "绑定手机", "经营范围", "地址"],
+        library: ["工程名称", "工程简称", "工程代码", "管理员", "负责人"],
+        hr: ["姓名", "电话", "性别", "出生年月", "籍贯"]
+    }
+    theadArr = theadArr.concat(restTheadItems[type]);
+
+    // 要渲染的表单数据
+    var params = {};
+    params.typeId = allTypeId[type];
+    params.keywords = modal.$body.find('#keywords').val();
+    enterpriseApi.getSearchAllLibraryInfo(params).then(function (res) {
+        var result = res.data || {};
+        var allAttr = {
+            enterprise: ["mtrlCategoryName", "mtrlTypeName", "mtrlName", "specBrand", "unit", "avgPrice", "totalMoney"],
+            charge: ["laborTypeName", "laborName", "workContent", "unit", "avgPrice", "totalMoney"],
+            step: ["measureTypeName", "measureName", "workContent", "unit", "avgPrice", "totalMoney"],
+            subpackage: ["subletTypeName", "subletName", "workContent", "unit", "avgPrice", "totalMoney"],
+            supplier: ["entpTypeName", "entpName", "contactName", "phone", "businessScope", { address: ["provinceName", "cityName", "address"] }],
+            library: ["projTypeName", "projectName", "projShortTitle", "projectNo", "adminName", "chargeName"],
+            hr: ["teamName", "workerName", "phone", "sex", "birthday", { address: ["provinceName", "cityName", "districtName"] }]
+        }
+        for (var i = 0; i < result.length; i++) {
+            var obj = {};
+            var item = result[i];
+            for (var j = 0; j < allAttr[type].length; j++) {
+                var attr = allAttr[type][j];
+                if (typeof attr === "string") {
+                    if (attr === "sex") {
+                        obj[attr] = item[attr] == 1 ? "男" : "女";
+                    } else {
+                        obj[attr] = item[attr];
+                    }
+                } else {
+                    obj.address = [];
+                    for (var k = 0; k < attr.address.length; k++) {
+                        var tmp = item[attr.address[k]] ? item[attr.address[k]] : "暂无";
+                        obj.address.push(tmp);
+                    }
+                    obj.address = obj.address.join('-');
+                }
+            }
+            tbodyArr.push(obj);
+        }
+
+        var list = [];
+        list[0] = theadArr;
+        list[1] = tbodyArr;
+        list[2] = res.data;
         renderEnterpirseTable.renderSearchTable(list, modal, type);
     })
 }
