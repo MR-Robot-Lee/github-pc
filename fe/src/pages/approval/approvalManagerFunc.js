@@ -132,6 +132,8 @@ exports.getTempFindByIdFunc = function () {
     var id = $('#processSettingAdd').data('id');
     if (id) {
         approvalApi.getTempFindById(id).then(function (res) {
+            console.log('getTempFindById:');
+            console.log(res.data);
             var obj = res.data ? res.data.temp : {};
             var nodes = res.data ? res.data.nodes : [];
             renderApprovalManagerTable.renderApprovalProcessSettingAddObj(obj, nodes);
@@ -166,8 +168,10 @@ exports.getNewApplyProcessSettingFunc = function (data) {
     if (data.typeId === 'a') {
         renderApprovalManagerTable.renderNewApplyProcessSetting([]);
     } else {
-        approvalApi.getTemp(data).then(function (res) {
-            var list = res.data ? res.data.data : [];
+        approvalApi.getApprTempList(data).then(function (res) {
+            console.log('getApprTempList:');
+            console.log(res.data);
+            var list = res.data ? res.data : [];
             renderApprovalManagerTable.renderNewApplyProcessSetting(list);
         });
     }

@@ -294,19 +294,22 @@ exports.renderRegionSelect = function (data, p, c, d) {
 
 exports.renderSearchTable = function (list, modal, type) {
     var thead = modal.$body.find('thead');
-    thead.empty().append($('<tr></tr>'));
     var parent = modal.$body.find('tbody');
-    parent.empty();
 
     var theadList = list[0];
-    for (var i = 0; i < theadList.length; i++) {
-        var item = theadList[i];
-        var dom = $('<th class="border">' + item + '</th>');
-        dom.appendTo(thead.find('tr'));
+    thead.empty();
+    if (list[1].length > 0) {
+        thead.append($('<tr></tr>'));
+        for (var i = 0; i < theadList.length; i++) {
+            var item = theadList[i];
+            var dom = $('<th class="border">' + item + '</th>');
+            dom.appendTo(thead.find('tr'));
+        }
     }
 
     var tbodyList = list[1];
-    var allInfo = list[2]; 
+    var allInfo = list[2];
+    parent.empty();
     for (var i = 0; i < tbodyList.length; i++) {
         var item = tbodyList[i];
         var tr = $('<tr></tr>');

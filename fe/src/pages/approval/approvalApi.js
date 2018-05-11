@@ -184,6 +184,16 @@ exports.getRemindCount = function () {
  * @returns {Request}
  */
 exports.putApprTemp = function (data) {
-    data = data || {};
-    return request.put('/customer/approve/switchApprTemp/', { body: data });
+  data = data || {};
+  return request.put('/customer/approve/switchApprTemp/', { body: data });
 };
+
+/**
+* 新建申请流程类型
+* @returns {Request}
+*/
+exports.getApprTempList = function (data) {
+  data = data || {};
+  data.typeId = data.typeId || 0;
+  return request.get('/customer/approve/getApprTempList', { qs: data });
+}

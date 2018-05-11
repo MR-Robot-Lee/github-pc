@@ -50,6 +50,10 @@
         &.reversion {
           height: 10px;
         }
+        &:hover {
+          cursor: pointer;
+          background-color: $bc;
+        }
         td {
           text-align: left;
           padding-left: 10px;

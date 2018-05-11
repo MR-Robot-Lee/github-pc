@@ -29,11 +29,17 @@ function initEvent(type, page) {
             var searchModel = Model('搜索', searchModal());
             searchModel.showClose();
             searchModel.show();
+            searchModel.$body.find('#keywords').on('keydown', function (e) {
+                if (e.keyCode === 13) {
+                    searchModel.$body.find('.search').trigger('click');
+                }
+            })
             searchModel.$body.find('.search').click(function (e) {
                 common.stopPropagation(e);
                 initEnterpriseFunc.getSearchTableFunc(searchModel, type)
             })
         })
+
         /**
          * 新增
          */

@@ -69,6 +69,10 @@ charge.renderNav = function renderNav(list, type, parents, $dom, childParents, p
             var level = $(this).data('level');
             var type = $(this).data('type');
             var item = $(this).data('item');
+
+            console.log('-0------------');
+            console.log(item);
+
             var childItem = "";
             if (level === 'child') {
                 $(this).parents("ul").find(">li").removeClass("active");
@@ -145,8 +149,22 @@ charge.renderNav = function renderNav(list, type, parents, $dom, childParents, p
                 name = item.mtrlCategoryName || item.mtrlTypeName;
             } else if (type === 'hr') {
                 name = item.teamName;
+
+                // 人力资源库common-header增加所属供应商 
+                var entpName = item.entpName;
+                var $entpNameDom = $('<span class="entp-name"></span>');
+                $entpNameDom.css({
+                    marginLeft: '20px',
+                    font: "12px MicrosoftYahei",
+                    color: "5b5b5b"
+                });
+                $entpNameDom.text("隶属供应商：" + entpName);
+                $('#tableTitle').next('.entp-name').remove();
+                $('#tableTitle').after($entpNameDom);
             }
+
             $("#tableTitle").text(name);
+
             chargeApi.getTableList(item, type, page)
         });
     }
