@@ -70,8 +70,8 @@ charge.renderNav = function renderNav(list, type, parents, $dom, childParents, p
             var type = $(this).data('type');
             var item = $(this).data('item');
 
-            console.log('-0------------');
-            console.log(item);
+            // console.log('-0------------');
+            // console.log(item);
 
             var childItem = "";
             if (level === 'child') {

@@ -101,6 +101,17 @@ exports.getHrListFunc = function (data, page) {
     })
 };
 exports.getHrPriceMoneyFunc = function (data) {
+    // LEE: 获取当月时间段
+    var dt = new Date();
+    var year = dt.getFullYear();
+    var month = dt.getMonth() + 1;
+    var startTime = year + '/' + month + '/1';
+    var endTime = year + '/' + (month + 1) + '/1';
+    var start = new Date(startTime).getTime();
+    var end = new Date(endTime).getTime();
+    data = data || {};
+    data.startTime = start;
+    data.endTime = end;
     enterpriseApi.getHrPriceMoney(data).then(function (res) {
         var obj = res.data ? res.data : {};
         renderEnterpirseTable.renderHrHistoryDom(obj);

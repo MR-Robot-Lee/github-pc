@@ -276,6 +276,8 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
             }
             startTime = startTime + '/01';
             endTime = year + '/' + month + '/01';
+            console.log('startTime:' + startTime)
+            console.log('endTime:' + endTime)
             var start = $.timeStampDate(startTime) * 1000;
             var end = $.timeStampDate(endTime) * 1000;
             var data = {};

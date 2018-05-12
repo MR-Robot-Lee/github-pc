@@ -37,8 +37,8 @@ exports.renderApprovalProcessSettingTable = function (list) {
                   <td>' + item.tmplName + '</td>\
                   <td>' + item.remark + '</td>\
                   <td class="clearfix" style="position: relative">\
-                   <a class="delete-hover close-temp fl" data-type="close">关闭</a>\
-                   <a style="display: none;" class="confirm-hover open-temp fl" data-type="open">开启</a>\
+                   <a class="delete-hover close-temp fl" data-type="close">关闭流程</a>\
+                   <a style="display: none;" class="confirm-hover open-temp fl" data-type="open">开启流程</a>\
                    <div class="icon-line fl" style="margin: 0 5px"></div>\
                    <a class="delete-hover fl" data-type="delete">删除</a>\
                   </td>\
