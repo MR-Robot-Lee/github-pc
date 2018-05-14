@@ -289,14 +289,16 @@ exports.initBidsInvitationEvent = function () {
         common.stopPropagation(e);
         var that = this;
         var item = $(this).parents('tr').data('item');
+        console.log('data: ');
+        console.log(item);
         if ($(this).data('type') === 'del') {
             var arr = delItem($('#bidInvitation'), that, 'invite');
             renderBidsTable.renderBidsInvitationTable(arr);
         } else if ($(this).data('type') === 'check') {
             $('.businessScope-modal').remove();
-            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;height: 100px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
                 '<div>' + item.businessScope + '</div>' +
-                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 20px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 10px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
                 '</div>');
             dom.appendTo($(this).parents('td'))
         }
@@ -311,9 +313,9 @@ exports.initBidsInvitationEvent = function () {
             renderBidsTable.renderBidsInvitationTable(arr);
         } else if ($(this).data('type') === 'check') {
             $('.businessScope-modal').remove();
-            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;height: 100px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
                 '<div>' + item.businessScope + '</div>' +
-                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 20px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 10px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
                 '</div>');
             dom.appendTo($(this).parents('td'))
         }

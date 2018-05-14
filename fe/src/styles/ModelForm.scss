@@ -1,9 +1,86 @@
 .modal-form {
   .item {
     padding-bottom: 15px;
+    &.date-recorder {
+      padding-bottom: 18px;
+      input {
+        &.int-default {
+          width: 150px;
+        }
+        
+      }
+    }
+    &.project-name {
+      padding-bottom: 20px;
+    }
+    .w203 {
+      width: 200px;
+    }
+    .h14 {
+      height: 14px;
+    }
+    .lh14 {
+      line-height: 14px;
+    } 
+  }
+  .table-content {
+    th {
+      text-align: center;
+      font-size: 14px;
+      color: #5b5b5b;
+    }
+    td {
+      padding: 5px;
+      background-color: #fff;
+      &.vat {
+        vertical-align: top;
+      }
+      &.progress-choose {
+        input {
+          display: none;
+        }
+        span {
+          display: inline-block;
+          height: 15px;
+          width: 15px;
+          border: 1px solid #5b5b5b;
+          vertical-align: text-bottom;
+          margin-right: 6px;
+        }
+        i {
+          font-style: normal;
+          font-size: 14px;
+        }
+        input:checked + span {
+          color: #009441;
+          border-color: #009441;
+          line-height: 15px;
+          text-align: center;
+        }
+        input:checked + span + i {
+          color: #009441;
+        }
+        input:checked + span:after {
+          content: "√";
+        }
+      }
+    }
+    textarea {
+      border: none;
+      resize: none;
+      width: 100%;
+      height: 73px;
+      outline: none;
+      &.h30 {
+        height: 30px;
+      }
+      &.device {
+        height: 40px;
+      }
+    }
   }
   .bold-title {
-    color: #333;
+    color: #5b5b5b;
     position: relative;
     font-size: 14px;
     font-weight: bold;
@@ -21,6 +98,10 @@
     display: inline-block;
     text-align: right;
     color: #5b5b5b;
+    &.recorder {
+      margin-left: -40px;
+      background-color: transparent;
+    }
   }
   .icon-fill-in {
     width: 7px;

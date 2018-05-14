@@ -581,9 +581,9 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
         dom.find('a').click(function(e){
             common.stopPropagation(e);
             $('.businessScope-modal').remove();
-            var temp = $('<div class="businessScope-modal" style="position: fixed;width: 200px;height: 100px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+            var temp = $('<div class="businessScope-modal" style="position: fixed;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
                 '<div>' + item.businessScope + '</div>' +
-                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 20px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 13px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
                 '</div>');
 
             // LEE:业务范围查看窗口定位：
