@@ -298,7 +298,7 @@ exports.initBidsInvitationEvent = function () {
             $('.businessScope-modal').remove();
             var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
                 '<div>' + item.businessScope + '</div>' +
-                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 10px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 13px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
                 '</div>');
             dom.appendTo($(this).parents('td'))
         }
@@ -315,7 +315,7 @@ exports.initBidsInvitationEvent = function () {
             $('.businessScope-modal').remove();
             var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
                 '<div>' + item.businessScope + '</div>' +
-                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 10px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 13px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
                 '</div>');
             dom.appendTo($(this).parents('td'))
         }
