@@ -119,8 +119,9 @@ UploadAttach.prototype.uploaded = function (err, data, attach) {
         this.appendAttach(data, attach);
     }
 };
-
+// LEE: 供应商库图片预览
 UploadAttach.prototype.appendAttach = function (data, attach) {
+    var _this = this;
     var urlList = [];
     attach.data('data', data);
     this.$item.find('.attachProgress').remove();//移除进度条
@@ -132,7 +133,7 @@ UploadAttach.prototype.appendAttach = function (data, attach) {
         attach.find('.review').show();//显示预览按钮
         attach.find('.review').click(function (e) {
             urlList.length = 0;
-            var allPics = $('.Upload-item').find('.isPic');
+            var allPics = _this.$item.find('.isPic');
             var rank = $(this).parents('.isPic').prevAll('.isPic').length;
             allPics.each(function (index, ele) {
                 urlList.push($(ele).data('data').attachUrl);

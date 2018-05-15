@@ -120,7 +120,7 @@ function _initAddBidsEvent(attachList, id) {
     $('a[name=checkSupplier]').off('click').on('click', function (e) {
         common.stopPropagation(e);
         new addSupplier($('.supplierList'), $('.supplierList'), {}, 'bid');
-        $('.model-add-supplier').css({'left': '225px', 'top': '30%'});
+        $('.model-add-supplier').css({ 'left': '225px', 'top': '30%' });
     });
 
     //招标类型
@@ -181,7 +181,7 @@ function _initAddBidsEvent(attachList, id) {
             var _data = {};
             _data.objEnumType = $("#bidType").val() * 1 + 1;
             _data.objId = $(this).data('item').objId || $(this).data('item').id;
-            _data.objQpy = $(this).data('item').count / 1 || $(this).data('item').objQpy ;
+            _data.objQpy = $(this).data('item').count / 1 || $(this).data('item').objQpy;
             if (!_data.objQpy) {
                 flag = true;
             }
@@ -289,17 +289,24 @@ exports.initBidsInvitationEvent = function () {
         common.stopPropagation(e);
         var that = this;
         var item = $(this).parents('tr').data('item');
-        console.log('data: ');
-        console.log(item);
         if ($(this).data('type') === 'del') {
             var arr = delItem($('#bidInvitation'), that, 'invite');
             renderBidsTable.renderBidsInvitationTable(arr);
         } else if ($(this).data('type') === 'check') {
             $('.businessScope-modal').remove();
-            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+            var dom = $('<div class="businessScope-modal" style="position: fixed;width: 200px;max-height: 155px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
                 '<div>' + item.businessScope + '</div>' +
                 '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 13px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
                 '</div>');
+            var distance = $(this).offset();
+            var distanceX = distance.left;
+            var distanceY = distance.top;
+            var x = distanceX - dom.outerWidth() + 10;
+            var y = distanceY - 15;
+            dom.css({
+                left: x,
+                top: y
+            })
             dom.appendTo($(this).parents('td'))
         }
     });
@@ -313,15 +320,34 @@ exports.initBidsInvitationEvent = function () {
             renderBidsTable.renderBidsInvitationTable(arr);
         } else if ($(this).data('type') === 'check') {
             $('.businessScope-modal').remove();
-            var dom = $('<div class="businessScope-modal" style="position: absolute;top: -10px;left: -200px;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+            var dom = $('<div class="businessScope-modal" style="position: fixed;width: 200px;max-height: 155px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
                 '<div>' + item.businessScope + '</div>' +
                 '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 13px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
                 '</div>');
+            var distance = $(this).offset();
+            var distanceX = distance.left;
+            var distanceY = distance.top;
+            var x = distanceX - dom.outerWidth() + 10;
+            var y = distanceY - 15;
+            dom.css({
+                left: x,
+                top: y
+            })
             dom.appendTo($(this).parents('td'))
         }
     });
     $('body').click(function () {
         $('.businessScope-modal').remove();
+    })
+    $('.table-content').on('scroll', function () {
+        if ($('.businessScope-modal')) {
+            $('.businessScope-modal').remove();
+        }
+    })
+    $('.container-list-warp').on('scroll', function () {
+        if ($('.businessScope-modal')) {
+            $('.businessScope-modal').remove();
+        }
     })
 }
 
@@ -387,7 +413,7 @@ exports.initBidItemEvent = function (parent, page) {
         $("[name=noInfoBidsList_page]").hide();
         $('.back-to-list').show();
         var user = window.localStorage.getItem('user');
-        user = user ? JSON.parse(user) : {permission: {}};
+        user = user ? JSON.parse(user) : { permission: {} };
         var bid2 = user.permission['bid:add'];
         var bid3 = user.permission['bid:*'];
         if ($(this).data('item').bidStatus === 1) {//待发布
@@ -418,7 +444,7 @@ exports.initBidItemEvent = function (parent, page) {
             $('.detail-title').html(_data.bidTitle);
             $('.bid-status span').html(getBidStatus(_data.bidStatus));
             $('.publishUserName').html(_data.addUserName);
-            if(_data.publishTime){
+            if (_data.publishTime) {
                 $('.publishTime').html(moment(_data.publishTime).format('YYYY/MM/DD hh:mm'));
             } else {
                 $('.publishTime').html('暂未发布')
@@ -691,7 +717,7 @@ exports.initWinzheBidEvent = function (id) {
                 var bidsListModal = Modal('投标清单', checkBidsListModal());
                 bidsListModal.showClose();
                 bidsListModal.show();
-                initBidsFunc.getBidingInfoFunc({bidId: id, entpId: data.entpId}, bidsListModal)
+                initBidsFunc.getBidingInfoFunc({ bidId: id, entpId: data.entpId }, bidsListModal)
             } else {
                 return alert('暂无投标清单')
             }
@@ -792,7 +818,7 @@ exports.initBidsSettingEvent = function () {
         addType.$body.find('.confirm').click(function (e) {
             common.stopPropagation(e);
             var requireDesc = addType.$body.find('[name=requireDesc]').val();
-            initBidsFunc.postInfoModalFunc({requireDesc: requireDesc}, addType);
+            initBidsFunc.postInfoModalFunc({ requireDesc: requireDesc }, addType);
         });
     });
 }
@@ -812,7 +838,7 @@ exports.initInfoListEvent = function () {
             changeType.$body.find('.confirm').click(function (e) {
                 common.stopPropagation(e);
                 var requireDesc = changeType.$body.find('[name=requireDesc]').val();
-                initBidsFunc.putInfoModalFunc(bidId, {requireDesc: requireDesc}, changeType);
+                initBidsFunc.putInfoModalFunc(bidId, { requireDesc: requireDesc }, changeType);
             });
         } else if ($(this).data('type') === 'delete') {
             var delBidsRequireModal = Modal('提示', delModal());

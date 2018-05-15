@@ -338,7 +338,6 @@ exports.initMaterialPlanEvent = function () {
                     $('.checkAccept').hide();
                 }
             } else if (type === 'check-order') {// 点收单
-                console.log(item);
                 $(materialCheckOrder()).appendTo(parents);
                 initCheckAndAccept(parents, item);
                 initMaterialManger.initMaterialDetailById(item.id, type);

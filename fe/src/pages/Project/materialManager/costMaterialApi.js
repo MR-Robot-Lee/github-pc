@@ -319,7 +319,9 @@ exports.getCostMaterialList = function (data) {
     data = data || {};
     data.projId = $('#projectSchedule').data('id');
     data.pageSize = data.pageSize || $('.Page__size .item.active').text();
-    data.pageNo = data.pageNo || $('.Page__pages .item.active').text();
+    // data.pageNo = data.pageNo || $('.Page__pages .item.active').text();
+    // LEE: 费用单传递页码参数
+    data.pageNo = data.pageNo || 1;
     return request.get('/customer/material/plan/cost', {qs: data});
 };
 /**

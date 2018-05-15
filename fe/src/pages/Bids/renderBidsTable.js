@@ -577,26 +577,26 @@ exports.renderBidDetailTable = function (bidRequireList, bidInviteVOList, bidDet
             '<td class="border">' + getTaxType(item.taxType) + '</td>' +
             '<td class="border"><a class="confirm-hover">查看</a></td>' +
             '</tr>');
+        dom.data('temp', $('<div class="businessScope-modal" style="position: fixed;width: 200px;max-height: 155px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
+        '<div>' + item.businessScope + '</div>' +
+        '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 13px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
+        '</div>'));
         dom.appendTo($('#bidInvitationPrev'));
         dom.find('a').click(function(e){
             common.stopPropagation(e);
             $('.businessScope-modal').remove();
-            var temp = $('<div class="businessScope-modal" style="position: fixed;width: 200px;max-height: 150px;border: 1px solid #ccc;background-color: #fff;border-radius: 5px;padding: 10px;">' +
-                '<div>' + item.businessScope + '</div>' +
-                '<div style="width: 13px;height: 13px;border-top: 1px solid #ccc;border-right: 1px solid #ccc;position: absolute;top: 13px;right: -7px;transform: rotate(45deg);background-color: #fff"></div>' +
-                '</div>');
-
             // LEE:业务范围查看窗口定位：
+            var DOM = $(this).parent().parent().data('temp');
             var distance = $(this).offset();
             var distanceX = distance.left;
             var distanceY = distance.top;
-            var x = distanceX - temp.outerWidth();
-            var y = distanceY - 20;
-            temp.css({
+            var x = distanceX - DOM.outerWidth();
+            var y = distanceY - 13;
+            DOM.css({
                 left: x,
                 top: y
             });
-            temp.appendTo($(this).parents('td'))
+            DOM.appendTo($(this).parent());
         })
     }
     $('body').click(function(e){
