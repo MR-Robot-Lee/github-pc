@@ -9,7 +9,7 @@ var Page = require('../../components/Page');
  * @param item
  */
 exports.getTableList = function getTableList(item, type, page, funType) {
-    console.log(funType);
+    // console.log(funType);
     var url = '';
     var data = {};
     if (type === 'charge') {
@@ -73,6 +73,10 @@ exports.getTableList = function getTableList(item, type, page, funType) {
         }
         if (res.code === 1) {
             renderTableDom.renderLabourCharge(res.data.data, parent, type, funType);
+            console.log('出发了pageupdate事件')
+            var pageNo1 = localStorage.getItem('currPage');
+            console.log('pageNo1: ')
+            console.log(pageNo1);
             page.update({pageNo: res.data.pageNo, pageSize: res.data.pageSize, total: res.data.total});
 
             //绑定分页修改事件
@@ -83,6 +87,10 @@ exports.getTableList = function getTableList(item, type, page, funType) {
                 // Page.update(data);
                 item.pageNo = $page.pageNo;
                 item.pageSize = $page.pageSize;
+                console.log('$page: ')
+                console.log($page);
+                localStorage.setItem('currPage', $page.pageNo);
+
                 getTableList(item, type, page, funType);
             });
         }

@@ -953,6 +953,8 @@ function initTableConfirm($confirm, type, modal, materialParent, newMaterial) {
             nos = nos.join(";");
             var liItem = li.data("item");
             var data = { id: nos, oid: liItem.teamId, nid: parseInt(valueParent) };
+            console.log('data1: ');
+            console.log(data);
             if (data.oid == data.nid) {
                 return alert("移动目标已经在列表中");
             }
@@ -965,20 +967,35 @@ function initTableConfirm($confirm, type, modal, materialParent, newMaterial) {
 
             var liItem = li.data("item");
             var data = { id: ids, oid: liItem.id, nid: parseInt(valueParent) };
-            if (data.oid == data.nid) {
+            console.log('data2: ');
+            console.log(data);
+            /**
+             * LEE :更改前代码如下：
+             * if (data.oid == data.nid) {
                 return alert("移动目标已经在列表中");
-            }
+               }
+               if (newValue && type === 'enterprise') {
+                   data.ncid = parseInt(newValue);
+                   data.ocid = $(li[1]).data("item").id;
+               }
+             */
+            if (data.oid == data.nid && type !== 'enterprise') {
+                return alert("移动目标已经在列表中");
+            } 
             if (newValue && type === 'enterprise') {
                 data.ncid = parseInt(newValue);
                 data.ocid = $(li[1]).data("item").id;
+                if(data.ncid === data.ocid) {
+                    return alert("移动的目标已经在列表中");
+                }
             }
         }
 
         chargeApi.moveTableOther(type, data, function (res) {
             if (res.code === 1) {
                 modal.hide();
-                if (data.nicd) {
-                    $('#' + data.nicd).click();
+                if (data.ncid) {
+                    $('#' + data.ncid + '-level').click();
                 } else {
                     $('#' + data.nid).click();
                 }

@@ -268,6 +268,7 @@ function initConfirmQualifyManager($confirm, modal, attach) {
 
 /**
  * 初始化日志按钮
+ * 如果没有日志，新建日志，填写日志，提交日志
  */
 function initBlogMenuBtn($confirm, modal, type) {
     if (!$confirm.data("flag")) {
@@ -275,7 +276,9 @@ function initBlogMenuBtn($confirm, modal, type) {
         $confirm.click(function (e) {
             common.stopPropagation(e);
             var id = $(this).data("id");
-            var inputs = modal.$body.find("input[type=text]");
+            // LEE；新建日志中需要填写的所有项(包含Input和textarea)
+            var inputs = $.merge(modal.$body.find("input[type=text]"), modal.$body.find("textarea"));
+            // 原来为：var inputs = modal.$body.find("input[type=text]");
             var error = false;
             var errorMsg = '';
             var data = {};
@@ -293,12 +296,15 @@ function initBlogMenuBtn($confirm, modal, type) {
                     break;
                 }
             }
-            data.subProjName1 = $('input[name=subProjName1]').val();
-            data.subProjContent1 = $('input[name=subProjContent1]').val();
-            data.subProjName2 = $('input[name=subProjName2]').val();
-            data.subProjContent2 = $('input[name=subProjContent2]').val();
-            data.subProjName3 = $('input[name=subProjName3]').val();
-            data.subProjContent3 = $('input[name=subProjContent3]').val();
+            /**
+             * LEE：textarea的地方原本为input
+             */
+            data.subProjName1 = $('textarea[name=subProjName1]').val();
+            data.subProjContent1 = $('textarea[name=subProjContent1]').val();
+            data.subProjName2 = $('textarea[name=subProjName2]').val();
+            data.subProjContent2 = $('textarea[name=subProjContent2]').val();
+            data.subProjName3 = $('textarea[name=subProjName3]').val();
+            data.subProjContent3 = $('textarea[name=subProjContent3]').val();
             if (error) {
                 return alert(errorMsg);
             }
@@ -362,9 +368,12 @@ function initBlogMenuBtn($confirm, modal, type) {
 
 /**
  * 初始化dom数据
+ * 如果有日志，展示日志
  */
 function initBlogModalData(modal, obj) {
-    var inputs = modal.$body.find("input[type=text]");
+    // var inputs = modal.$body.find("input[type=text]");
+    // 日志中需要展示的所有项
+    var inputs = $.merge(modal.$body.find("input[type=text]"), modal.$body.find("textarea"));
     for (var i = 0, length = inputs.length; i < length; i++) {
         var input = inputs[i];
         var name = $(input).attr('name');

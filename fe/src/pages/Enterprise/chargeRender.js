@@ -150,7 +150,7 @@ charge.renderNav = function renderNav(list, type, parents, $dom, childParents, p
             } else if (type === 'hr') {
                 name = item.teamName;
 
-                // 人力资源库common-header增加所属供应商 
+                // LEE: 人力资源库common-header增加所属供应商 
                 var entpName = item.entpName;
                 var $entpNameDom = $('<span class="entp-name"></span>');
                 $entpNameDom.css({

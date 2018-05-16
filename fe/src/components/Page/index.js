@@ -122,6 +122,8 @@ Page.prototype.makePageDom = function (page, active) {
 Page.prototype.change = function (cb) {
     if (typeof cb === 'function') {
         this.onChange = cb;
+        console.log('this:');
+        console.log(this);
     }
 };
 

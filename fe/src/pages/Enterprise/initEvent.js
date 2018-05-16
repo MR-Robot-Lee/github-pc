@@ -169,7 +169,7 @@ exports.initMaterialHistoryEvent = function (page) {//材料详情搜索
     });
     $('#callback').click(function (e) {
         Common.stopPropagation(e);
-        window.location.replace('/enterprise')
+        window.location.replace('/enterprise');
     });
 };
 exports.initSupplierHistoryEvent = function (page) {//供应商库详情搜索
@@ -276,8 +276,6 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
             }
             startTime = startTime + '/01';
             endTime = year + '/' + month + '/01';
-            console.log('startTime:' + startTime)
-            console.log('endTime:' + endTime)
             var start = $.timeStampDate(startTime) * 1000;
             var end = $.timeStampDate(endTime) * 1000;
             var data = {};
@@ -296,3 +294,9 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
     $('#modalHistoryModal').click();
 };
 
+function initCallBackFunc(urlStr){
+    $('#callback').click(function (e) {
+        Common.stopPropagation(e);
+        window.location.replace(urlStr);
+    });
+}
