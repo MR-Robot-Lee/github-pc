@@ -14,31 +14,31 @@ exports.getTableList = function getTableList(item, type, page, funType) {
     var data = {};
     if (type === 'charge') {
         url = '/customer/labor/baseStats';
-        data.qs = {laborType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10}
+        data.qs = { laborType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10 }
         if (item.keywords) {
             data.qs.keywords = item.keywords
         }
     } else if (type === 'step') {
         url = '/customer/measure/baseStats';
-        data.qs = {measureType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10}
+        data.qs = { measureType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10 }
         if (item.keywords) {
             data.qs.keywords = item.keywords
         }
     } else if (type === 'subpackage') {
         url = '/customer/sublet/baseStats';
-        data.qs = {subletType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10}
+        data.qs = { subletType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10 }
         if (item.keywords) {
             data.qs.keywords = item.keywords
         }
     } else if (type === 'supplier') {
         url = '/customer/enterpise/base';
-        data.qs = {entpType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10}
+        data.qs = { entpType: item.id, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10 }
         if (item.keywords) {
             data.qs.keywords = item.keywords
         }
     } else if (type === 'library') {
         url = '/customer/project/base/' + item.id;
-        data.qs = {pageNo: item.pageNo || 1, pageSize: item.pageSize || 10}
+        data.qs = { pageNo: item.pageNo || 1, pageSize: item.pageSize || 10 }
         if (item.keywords) {
             data.qs.keywords = item.keywords
         }
@@ -55,7 +55,7 @@ exports.getTableList = function getTableList(item, type, page, funType) {
         }
     } else if (type === 'hr') {
         url = '/customer/attend/getWorksByCondition';
-        data.qs = {teamId: item.teamId, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10}
+        data.qs = { teamId: item.teamId, pageNo: item.pageNo || 1, pageSize: item.pageSize || 10 }
         if (item.keywords) {
             data.qs.keywords = item.keywords
         }
@@ -73,24 +73,24 @@ exports.getTableList = function getTableList(item, type, page, funType) {
         }
         if (res.code === 1) {
             renderTableDom.renderLabourCharge(res.data.data, parent, type, funType);
-            console.log('出发了pageupdate事件')
-            var pageNo1 = localStorage.getItem('currPage');
-            console.log('pageNo1: ')
-            console.log(pageNo1);
-            page.update({pageNo: res.data.pageNo, pageSize: res.data.pageSize, total: res.data.total});
-
+            // LEE:
+            console.log('触发了pageupdate事件');
+            page.update({ pageNo: res.data.pageNo, pageSize: res.data.pageSize, total: res.data.total });
             //绑定分页修改事件
             page.change(function ($page) {
                 //一旦分页有变动，这里就会回调，然后在这里面执行ajax请求接口刷新数据
                 //分页的界面更新是由接口返回的数据驱动的 所以ajax请求完成后需要执行update更新分页界面
                 //理论上 接口返回的分页数据应该与 函数里的data相同
                 // Page.update(data);
+                console.log("触发了page.change事件")
                 item.pageNo = $page.pageNo;
                 item.pageSize = $page.pageSize;
-                console.log('$page: ')
-                console.log($page);
-                localStorage.setItem('currPage', $page.pageNo);
-
+                var tableListInfo = {};
+                tableListInfo.item = item;
+                tableListInfo.type = type;
+                tableListInfo.page = page;
+                tableListInfo.funType = funType;
+                localStorage.setItem('tableListInfo', JSON.stringify(tableListInfo));
                 getTableList(item, type, page, funType);
             });
         }
@@ -114,7 +114,7 @@ exports.postTableList = function postTableList(data, type, callback) {
     } else if (type === 'hr') {
 
     }
-    request.post(url, {body: data}).then(function (res) {
+    request.post(url, { body: data }).then(function (res) {
         if (callback) {
             callback(res)
         }
@@ -141,7 +141,7 @@ exports.postMaterialBaseAll = function postMaterialBaseAll(data, type, callback)
     } else if (type === 'enterprise' || type === 'material') {
         url = '/customer/material/baseAll';
     }
-    request.post(url, {body: data}).then(function (res) {
+    request.post(url, { body: data }).then(function (res) {
         if (callback) {
             callback(res)
         }
@@ -164,7 +164,7 @@ exports.putTableList = function putTableList(data, type, callback) {
     } else if (type === 'enterprise') {
         url = '/customer/material/base'
     }
-    request.put(url + '/' + data.id, {body: data}).then(function (res) {
+    request.put(url + '/' + data.id, { body: data }).then(function (res) {
         if (callback) {
             callback(res)
         }
@@ -321,7 +321,7 @@ exports.postChildNav = function postChildNav(data, type, callback) {
     } else if (type === 'hr') {
         url = '/customer/attend/addEntpTeam';
     }
-    request.post(url, {body: data}).then(function (res) {
+    request.post(url, { body: data }).then(function (res) {
         if (callback) {
             callback(res)
         }
@@ -356,7 +356,7 @@ exports.putChildNav = function putChildNav(data, type, callback) {
     if (type === 'hr') {
         id = data.teamId;
     }
-    request.put(url + '/' + id, {body: data}).then(function (res) {
+    request.put(url + '/' + id, { body: data }).then(function (res) {
         if (callback) {
             callback(res)
         }
@@ -420,7 +420,7 @@ exports.getMaterialList = function getMaterialList(type, callback) {
     request.get(url).then(function (res) {
         if (res.code === 1 && callback) {
             var data = res.data || {};
-            if(type !== 'hr'){
+            if (type !== 'hr') {
                 data = res.data.data;
             }
             callback(data);
@@ -457,7 +457,7 @@ exports.moveTableOther = function moveTableOther(type, item, callback) {
     } else if (type === 'hr') {
         url = '/customer/attend/transTeam?oldTeamId=' + item.oid + '&newTeamId=' + item.nid + '&workerNos=' + item.id;
     }
-    request.put(url, {body: data}).then(function (res) {
+    request.put(url, { body: data }).then(function (res) {
         if (callback) {
             callback(res);
         }
@@ -503,16 +503,16 @@ exports.getModalTableList = function getModalTableList(type, item) {
     var url = '';
     if (type === 'labor') {
         url = '/customer/labor/base';
-        data.qs = {laborType: item.id, pageNo: item.pageNo || 1, pageSize: 10000}
+        data.qs = { laborType: item.id, pageNo: item.pageNo || 1, pageSize: 10000 }
     } else if (type === 'step') {
         url = '/customer/measure/base';
-        data.qs = {measureType: item.id, pageNo: item.pageNo || 1, pageSize: 10000}
+        data.qs = { measureType: item.id, pageNo: item.pageNo || 1, pageSize: 10000 }
     } else if (type === 'subpackage') {
         url = '/customer/sublet/base';
-        data.qs = {subletType: item.id, pageNo: item.pageNo || 1, pageSize: 10000}
+        data.qs = { subletType: item.id, pageNo: item.pageNo || 1, pageSize: 10000 }
     } else if (type === 'supplier') {
         url = '/customer/enterpise/base';
-        data.qs = {entpType: item.id, pageNo: item.pageNo || 1, pageSize: 10000}
+        data.qs = { entpType: item.id, pageNo: item.pageNo || 1, pageSize: 10000 }
     } else if (type === 'material') {
         url = '/customer/material/base';
         data.qs = {

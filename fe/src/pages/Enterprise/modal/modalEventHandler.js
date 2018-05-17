@@ -1100,7 +1100,7 @@ exports.initSearchTableEvent = function (modal, type) {
                 }
             })
         }
-        // 二次搜索时的滚到顶部不能准确定位；
+        // LEE: 二次搜索时的滚到顶部不能准确定位；
         // charge.addActiveToList(data, type);
         renderTableDom.renderLabourCharge(list, parent, type);
     })

@@ -4,6 +4,7 @@ var Model = require('../../components/Model');
 var deleteModal = require('./modal/deleteModal.ejs');
 var ReviewImage = require('../../components/ReviewImage');
 var enterpriseApi = require('./enterpriseApi');
+var chargeApi = require('./chargeApi');
 
 /**
  * 人工费
@@ -167,6 +168,8 @@ exports.initMaterialHistoryEvent = function (page) {//材料详情搜索
         data.keywords = keywords;
         initEnterpriseFunc.getMaterialHistoryListFunc(data, page);
     });
+    
+    // initCallBackFunc('/enterprise');
     $('#callback').click(function (e) {
         Common.stopPropagation(e);
         window.location.replace('/enterprise');
@@ -294,9 +297,14 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
     $('#modalHistoryModal').click();
 };
 
+// LEE: 返回功能封装
 function initCallBackFunc(urlStr){
     $('#callback').click(function (e) {
         Common.stopPropagation(e);
         window.location.replace(urlStr);
+        var tableListInfo = JSON.parse(localStorage.getItem('tableListInfo') || '{}');
+        console.log('tableListInfo: ')
+        console.log(tableListInfo)
+        chargeApi.getTableList(tableListInfo.item, tableListInfo.type, tableListInfo.page, tableListInfo.funType);
     });
 }

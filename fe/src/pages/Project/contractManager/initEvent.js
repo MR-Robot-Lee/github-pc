@@ -232,7 +232,7 @@ exports.initContractSumTableEvent = function (parents) {
             initAddContractModalData(addModal, item, 'update');
             initAddContractModalEvent(addModal);
         } else if (type === 'delete') {
-            contractManagerFunc.initDeleteContractById({id: item.id}, page);
+            contractManagerFunc.initDeleteContractById({ id: item.id }, page);
         } else if (type === 'detail') {
             var addModal = Model('合同详情', addContractModal());
             var checkModal = Model('合同详情', checkContractDetailModal());
@@ -252,11 +252,11 @@ exports.initContractSumTableEvent = function (parents) {
 function initUpdateContractModal(modal, item) {
     modal.$body.find('.confirm').data('id', item.id);
     modal.$body.find('[name=title]').val(item.cntrName);
-    modal.$body.find('.chargePersonal').data('user', {userNo: item.cntrChargeNo, userName: item.cntrChargeName});
+    modal.$body.find('.chargePersonal').data('user', { userNo: item.cntrChargeNo, userName: item.cntrChargeName });
     modal.$body.find('.chargePersonal').text(item.cntrChargeName);
     modal.$body.find('.subProjectModal').val(item.subProjId);
     modal.$body.find('.contractType').val(item.cntrType);
-    modal.$body.find('.addContracter').data('item', {id: item.entprId, entpName: item.cntrParty});
+    modal.$body.find('.addContracter').data('item', { id: item.entprId, entpName: item.cntrParty });
     modal.$body.find('.addContracter').text(item.cntrParty);
 }
 
@@ -292,7 +292,7 @@ exports.initBillContractEvent = function (page) {
             common.stopPropagation(e);
             var billType = $('.billType').val();
             var subProject = $('.subProject').val();
-            contractManagerFunc.initContractBill({subProjId: subProject, type: billType}, null, null, page);
+            contractManagerFunc.initContractBill({ subProjId: subProject, type: billType }, null, null, page);
         });
     }
 };
@@ -334,13 +334,13 @@ function initMaterialCheckModalData() {
     var modal = arguments[0];
     var item = arguments[1];
     if (item.mtrlId) {
-        initCostBudgetList.getMaterialFindSubItemListFunc({mtrlId: item.mtrlId}, modal);
+        initCostBudgetList.getMaterialFindSubItemListFunc({ mtrlId: item.mtrlId }, modal);
     } else if (item.laborId) {
-        initCostBudgetList.getLaborFindSubItemListFunc({laborId: item.laborId, subProjId: item.subProjId}, modal);
+        initCostBudgetList.getLaborFindSubItemListFunc({ laborId: item.laborId, subProjId: item.subProjId }, modal);
     } else if (item.measureId) {
-        initCostBudgetList.getStepFindSubItemListFunc({measureId: item.measureId, subProjId: item.subProjId}, modal);
+        initCostBudgetList.getStepFindSubItemListFunc({ measureId: item.measureId, subProjId: item.subProjId }, modal);
     } else if (item.subletId) {
-        initCostBudgetList.getSubpackageSubItemListFunc({subletId: item.subletId, subProjId: item.subProjId}, modal);
+        initCostBudgetList.getSubpackageSubItemListFunc({ subletId: item.subletId, subProjId: item.subProjId }, modal);
     }
 }
 
@@ -362,7 +362,7 @@ function initQuantity(parents, item) {
     } else if (item.subletId) {
         type = 5;
     }
-    contractManagerFunc.getUsedListFunc({budWorkId: item.id, subProjId: item.subProjId, workType: type}, modal)
+    contractManagerFunc.getUsedListFunc({ budWorkId: item.id, subProjId: item.subProjId, workType: type }, modal)
 }
 
 /**
@@ -382,19 +382,19 @@ exports.initContractContentDetailEvent = function () {
         compileCntrContent.click(function (e) {
             common.stopPropagation(e);
             var obj = {};
-            if($('[name=taxTypePage]').eq(0).prop('checked')){
+            if ($('[name=taxTypePage]').eq(0).prop('checked')) {
                 obj.taxType = 1;
             } else {
                 obj.taxType = 2;
             }
             obj.enterpBase = {};
-            obj.cntrPrice = $('[name=cntrPrice]').html()/1;
-            if($('[name=settlementType]').html() == '固定总价'){
+            obj.cntrPrice = $('[name=cntrPrice]').html() / 1;
+            if ($('[name=settlementType]').html() == '固定总价') {
                 obj.settlementType = 1;
             } else {
                 obj.settlementType = 2;
             }
-            obj.cntrStartTime =  $('[name=cntrStartTime]').html();
+            obj.cntrStartTime = $('[name=cntrStartTime]').html();
             obj.cntrEndTime = $('[name=cntrEndTime]').html();
             obj.cntrContent = $('[name=cntrContent]').html();
             obj.payTypeDesc = $('[name=payTypeDesc]').html();
@@ -402,7 +402,7 @@ exports.initContractContentDetailEvent = function () {
             obj.ensureMonth = $('[name=ensureMonth]').html();
             obj.otherDesc = $('[name=otherDesc]').html();
             obj.attaches = [];
-            $('.contract-attach-list .attach-item').each(function(index, ele){
+            $('.contract-attach-list .attach-item').each(function (index, ele) {
                 obj.attaches.push($(ele).data('data'));
             })
             initEditContract(obj);
@@ -430,7 +430,7 @@ exports.initContractContentDetailEvent = function () {
             var approval = new approvalProcess('合同审批流程', function () {
                 var cntrId = $('#contractDetail').data('id');
                 var item = approval.getSelectData();
-                contractManagerFunc.postApprovalSubmitFunc({cntrId: cntrId, tmplId: item.id}, approval)
+                contractManagerFunc.postApprovalSubmitFunc({ cntrId: cntrId, tmplId: item.id }, approval)
             });
             approval.getApprovalModal(1);
         });
@@ -601,7 +601,7 @@ function initMaterialContractModal(that) {
     var total = 0;
     if (!isNaN(budPrice) && !isNaN(cntrPrice)) {
         total = cntrPrice - budPrice;
-        total = parseInt(total*100)/100;
+        total = parseInt(total * 100) / 100;
     }
     contractMaterial.$body.find('.windControl').text(total + '元');
     contractMaterial.$body.find('#addMaterial').click(function (e) {
@@ -654,7 +654,7 @@ function initMaterialContractModal(that) {
         if (error) {
             return alert(errMsg);
         }
-        contractManagerFunc.postContractMaterialFunc({list: list}, contractMaterial);
+        contractManagerFunc.postContractMaterialFunc({ list: list }, contractMaterial);
     });
     contractMaterial.$body.find('.quedin').click(function (e) {
         common.stopPropagation(e);
@@ -789,6 +789,11 @@ function initInsideModalEvent(modal) {
         $('.material-manager-modal.enterprise-add').remove();
     })
     modal.$body.find('#newMaterial').click(function (e) {
+        // LEE: todo
+        var mt1 = $(modal.$body.find('.materialType1 option:selected')[1]).text();
+        var mt2 = $(modal.$body.find('.materialType2 option:selected')[1]).text();
+        console.log('mt1: ' + mt1);
+        console.log('mt2: ' + mt2);
         var that = this;
         common.stopPropagation(e);
         $('.material-manager-modal').remove();
@@ -797,6 +802,12 @@ function initInsideModalEvent(modal) {
         var categoryIpt = addMaterial.find('.category-ipt');//类别输入框(一级)
         var typeSel = addMaterial.find('.type-sel');//类型选择框(二级)
         var typeIpt = addMaterial.find('.type-ipt');//类型输入框(二级)
+        /* if (mt1 !== "全部") {
+            categorySel.children('span').html(mt1);
+        }
+        if (mt2 !== "全部") {
+            typeSel.children('span').html(mt2);
+        } */
         /*添加一级下拉菜单*/
         $(this).parents('.modal-form').find('.materialType1 option').each(function (index, ele) {
             if (index > 0) {
@@ -808,7 +819,7 @@ function initInsideModalEvent(modal) {
                 costBudgetManagerEventModal._typeListEvent('material', dom, addMaterial, 'Cntr');
             }
         })
-        addMaterial.css({'left': '848px', 'top': '-30px'}).find('.category-sel ul').css('height','400px');
+        addMaterial.css({ 'left': '848px', 'top': '-30px' }).find('.category-sel ul').css('height', '400px');
         addMaterial.appendTo($('.add-material-modal'));
         /*初始化菜单交互事件*/
         costBudgetManagerEventModal._materialShift(categorySel, categoryIpt, 'materialType');
@@ -821,7 +832,15 @@ function initInsideModalEvent(modal) {
             common.stopPropagation(e);
             addMaterial.remove();
         });
+        if (mt1 !== "全部") {
+            categorySel.children('span').html(mt1);
+        }
+        if (mt2 !== "全部") {
+            typeSel.children('span').html(mt2);
+        }
         addMaterial.find('.confirm').click(function (e) {
+            console.log('VAL: ')
+            console.log($('.material-type').data('item'));
             common.stopPropagation(e);
             var data = {};
             var mtrlCategoryName = categoryIpt.find('input').val() || categorySel.children('span').html();
@@ -1095,8 +1114,8 @@ function initAddItemModalEvent(modal, parentModal, item) {
             modal.$body.find('#balanceContractModal tr.new2').remove();
             renderContractTable.renderAddItemTbodyModal(parents, _list, 'new1');
         });
-        $('#materialEnterpriseModal').css({'pointer-events': 'none', 'color': '#999999'});
-        $('#supplierEnterpriseModal').css({'pointer-events': 'none', 'color': '#999999'});
+        $('#materialEnterpriseModal').css({ 'pointer-events': 'none', 'color': '#999999' });
+        $('#supplierEnterpriseModal').css({ 'pointer-events': 'none', 'color': '#999999' });
     });
     /**
      * 添加说明
@@ -1120,7 +1139,7 @@ function initAddItemModalEvent(modal, parentModal, item) {
             if (!workContent) {
                 return alert('请输入工作内容');
             }
-            $(that).data('item', {calcRule: rule, remark: workContent});
+            $(that).data('item', { calcRule: rule, remark: workContent });
             desModal.hide();
         });
     });
@@ -1345,7 +1364,7 @@ function initBudgetModalEvent(modal, parentModal, subProjId) {
         for (var j = 0; j < preList.length; j++) {
             oldList.push($(preList[j]).data('item'))
         }
-        contractManagerFunc.initContractBill({subProjId: subProjId, type: value}, modal, oldList);
+        contractManagerFunc.initContractBill({ subProjId: subProjId, type: value }, modal, oldList);
     });
     modal.$body.find('.billType').change();
     modal.$body.find('.confirm').click(function (e) {
@@ -1461,7 +1480,7 @@ exports.initContractTotalSumTableModalEvent = function (parents, modal) {
         var confirm = exceptionModal.$body.find('.confirm');
         confirm.data('ids', exctIds);
         var projId = $('#projectSchedule').data('id');
-        initCostBudgetList.getExceptionIdListFunc({projId: projId, ids: exctIds}, exceptionModal);
+        initCostBudgetList.getExceptionIdListFunc({ projId: projId, ids: exctIds }, exceptionModal);
         confirm.click(function (e) {
             common.stopPropagation(e);
             if (item.excpCount > 0 && item.excpIds) {
@@ -1505,7 +1524,7 @@ exports.initContractTotalSumTableModalEvent = function (parents, modal) {
     var total = 0;
     if (!isNaN(budPrice) && !isNaN(cntrPrice)) {
         total = cntrPrice - budPrice;
-        total = parseInt(total*100)/100;
+        total = parseInt(total * 100) / 100;
     }
     modal.$body.find('.windControl').text(total + '元');
 };
@@ -1513,7 +1532,7 @@ exports.initContractTotalSumTableModalEvent = function (parents, modal) {
 function initContractTotalModalEvent(modal, item, parents, parentModal) {
     modal.$body.find('.confirm').click(function (e) {
         common.stopPropagation(e);
-        contractManagerFunc.initDelContractSubItem({id: item.id}, parents, modal, parentModal);
+        contractManagerFunc.initDelContractSubItem({ id: item.id }, parents, modal, parentModal);
     })
 }
 
@@ -1571,7 +1590,7 @@ function initDeleteEventModal() {
     modal.$body.find('.confirm').click(function (e) {
         common.stopPropagation(e);
         if (item.cntrId) {
-            contractManagerFunc.initDelContractCntrMtrl(modal, {id: item.id, cntrId: item.cntrId}, tr);
+            contractManagerFunc.initDelContractCntrMtrl(modal, { id: item.id, cntrId: item.cntrId }, tr);
         } else {
             tr.remove();
         }
@@ -1604,7 +1623,7 @@ exports.initContractDetailTableEvent = function (parents) {
         var confirm = exceptionModal.$body.find('.confirm');
         confirm.data('ids', exctIds);
         var projId = $('#projectSchedule').data('id');
-        initCostBudgetList.getExceptionIdListFunc({projId: projId, ids: exctIds}, exceptionModal);
+        initCostBudgetList.getExceptionIdListFunc({ projId: projId, ids: exctIds }, exceptionModal);
         confirm.click(function (e) {
             common.stopPropagation(e);
             if (item.excpCount > 0 && item.excpIds) {
@@ -1626,7 +1645,7 @@ exports.initContractDetailTableEvent = function (parents) {
 };
 
 function initBalanceCheckModalData(modal, item) {
-    contractManagerFunc.getContractSubItemDetailListFunc({cntrId: item.cntrId, cntrSubitemId: item.id}, modal);
+    contractManagerFunc.getContractSubItemDetailListFunc({ cntrId: item.cntrId, cntrSubitemId: item.id }, modal);
 }
 
 exports.initCheckboxEvent = function (parents) {

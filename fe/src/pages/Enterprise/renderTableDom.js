@@ -11,7 +11,6 @@ var Model = require('../../components/Model');
  * @param list
  */
 exports.renderLabourCharge = function renderLabourCharge(list, parents, type, funType) {
-    console.log('绘制 ' + type + '库')
     list = list || [];
     if (list.length > 0) {
         $("#noInfoEnterprise_search").show();
