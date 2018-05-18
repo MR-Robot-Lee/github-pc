@@ -789,11 +789,16 @@ function initInsideModalEvent(modal) {
         $('.material-manager-modal.enterprise-add').remove();
     })
     modal.$body.find('#newMaterial').click(function (e) {
-        // LEE: todo
-        var mt1 = $(modal.$body.find('.materialType1 option:selected')[1]).text();
-        var mt2 = $(modal.$body.find('.materialType2 option:selected')[1]).text();
-        console.log('mt1: ' + mt1);
-        console.log('mt2: ' + mt2);
+        /**
+         *  LEE： 如果合同管理-总价核算-企业库-材料分类中选择了分类， 
+         *  点击新建材料的时候，把选中的分类填充到材料类型和材料类别中，下面是填充需要用到的数据,
+         *  弹出的新建材料框，材料类别和材料类型中的li的索引和选材-选择材料-企业库模态框中的材料分类下的一级分类，二级分类中的option的索引一样
+         *  所以只需要找到两者索引进行比对，然后触发新建材料弹出框中对应索引的材料类型和材料类别中的li的click事件即可
+         */
+        var mt1 = $(modal.$body.find('.materialType1 option:selected')[1]);
+        var mt2 = $(modal.$body.find('.materialType2 option:selected')[1]);
+        var mt1Index = mt1.index();
+        var mt2Index = mt2.index();
         var that = this;
         common.stopPropagation(e);
         $('.material-manager-modal').remove();
@@ -802,12 +807,6 @@ function initInsideModalEvent(modal) {
         var categoryIpt = addMaterial.find('.category-ipt');//类别输入框(一级)
         var typeSel = addMaterial.find('.type-sel');//类型选择框(二级)
         var typeIpt = addMaterial.find('.type-ipt');//类型输入框(二级)
-        /* if (mt1 !== "全部") {
-            categorySel.children('span').html(mt1);
-        }
-        if (mt2 !== "全部") {
-            typeSel.children('span').html(mt2);
-        } */
         /*添加一级下拉菜单*/
         $(this).parents('.modal-form').find('.materialType1 option').each(function (index, ele) {
             if (index > 0) {
@@ -819,7 +818,8 @@ function initInsideModalEvent(modal) {
                 costBudgetManagerEventModal._typeListEvent('material', dom, addMaterial, 'Cntr');
             }
         })
-        addMaterial.css({ 'left': '848px', 'top': '-30px' }).find('.category-sel ul').css('height', '400px');
+        // addMaterial.css({ 'left': '848px', 'top': '-30px' }).find('.category-sel ul').css('height', '400px');
+        addMaterial.find('.category-sel ul').css('height', '400px');
         addMaterial.appendTo($('.add-material-modal'));
         /*初始化菜单交互事件*/
         costBudgetManagerEventModal._materialShift(categorySel, categoryIpt, 'materialType');
@@ -832,15 +832,16 @@ function initInsideModalEvent(modal) {
             common.stopPropagation(e);
             addMaterial.remove();
         });
-        if (mt1 !== "全部") {
-            categorySel.children('span').html(mt1);
+        // LEE： 如果合同管理-总价核算-企业库-材料分类中选择了分类，点击新建材料的时候，把选中的分类填充到材料类型和材料类别中
+        if (mt1Index !== 0) {
+            categorySel.children('ul').find('li:eq(' + mt1Index + ')').triggerHandler('click');
+            categorySel.removeClass('border-active');
         }
-        if (mt2 !== "全部") {
-            typeSel.children('span').html(mt2);
+        if (mt2Index !== 0) {
+            typeSel.children('ul').find('li:eq(' + mt2Index + ')').triggerHandler('click');
+            typeSel.removeClass('border-active');
         }
         addMaterial.find('.confirm').click(function (e) {
-            console.log('VAL: ')
-            console.log($('.material-type').data('item'));
             common.stopPropagation(e);
             var data = {};
             var mtrlCategoryName = categoryIpt.find('input').val() || categorySel.children('span').html();

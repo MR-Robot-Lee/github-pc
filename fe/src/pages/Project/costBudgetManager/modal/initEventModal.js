@@ -426,7 +426,11 @@ function typeListEvent(type, dom, modal, inCntr) {
     dom.click(function (e) {
         common.stopPropagation(e);
         var item = dom.html();
-        var categorySel = modal.find('.category-sel');
+        console.log('item: ')
+        console.log(dom.data('item'));
+        console.log('list: ')
+        console.log(dom.data('list'));
+        var categorySel = modal.find('.category-sel'); 
         var typeSel = modal.find('.type-sel');
         var typeIpt = modal.find('.type-ipt');
         /*选中后改变select内容，并绑定对应data*/
