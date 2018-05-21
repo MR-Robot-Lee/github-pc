@@ -106,7 +106,7 @@ function loginOut() {
 function getCompanyList() {
     request.get('/customer/index/company').then(function (res) {
         var list = res.data ? res.data : [];
-        list.unshift({companyNo: 0, etpName: '我的阿筑'});
+        list.unshift({ companyNo: 0, etpName: '我的阿筑' });
         var parents = $('#companyList').html('');
         for (var i = 0, length = list.length; i < length; i++) {
             var item = list[i];
@@ -149,11 +149,20 @@ function getCompanyList() {
         $('.company-list-handler').addClass('company-hide');
         $('.login-out').addClass('login-out-hide');
     })
+    $(document).click(function () {
+        !($('.company-list-handler').hasClass('company-hide')) && $('.company-list-handler').addClass('company-hide');
+    })
+    var iframe = $('.IndexMain').find('.iframeParent').children('iframe');
+    iframe.on('load', function () {
+        this.contentDocument.onclick = function () {
+            alert("111112");
+        }
+    })
 }
 
 function showOrHideSystem() {
     var user = window.localStorage.getItem('user');
-    user = user ? JSON.parse(user) : {permission: {}};
+    user = user ? JSON.parse(user) : { permission: {} };
     var sys = user.permission['sys:*'];
     var bid1 = user.permission['bid:get'];
     var bid2 = user.permission['bid:add'];

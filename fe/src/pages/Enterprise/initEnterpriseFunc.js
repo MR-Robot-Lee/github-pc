@@ -110,8 +110,8 @@ exports.getHrPriceMoneyFunc = function (data) {
     var start = new Date(startTime).getTime();
     var end = new Date(endTime).getTime();
     data = data || {};
-    data.startTime = start;
-    data.endTime = end;
+    data.startTime = data.startTime || start;
+    data.endTime = data.endTime || end;
     enterpriseApi.getHrPriceMoney(data).then(function (res) {
         var obj = res.data ? res.data : {};
         renderEnterpirseTable.renderHrHistoryDom(obj);

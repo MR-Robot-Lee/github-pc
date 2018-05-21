@@ -124,7 +124,7 @@ module.exports = {
             _initEvent.initSupplierHistoryEvent(page);
         } else if (type === 'enterprise-hr-index') {
             // initEnterpriseFunc.getHrListFunc(null, page);
-            initEnterpriseFunc.getHrPriceMoneyFunc();
+            initEnterpriseFunc.getHrPriceMoneyFunc(null);
             _initEvent.initHrHistoryEvent(page);
         } else {
             initEvent(type, page);

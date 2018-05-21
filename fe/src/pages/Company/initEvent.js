@@ -83,6 +83,10 @@ exports.initCompanyEvent = function () {
     })
     loginOut();
   }
+  // LEE: 点击空白处，切换公司菜单隐藏
+  $(document).click(function(){
+    !($('.company-list-handler').hasClass('company-hide')) && $('.company-list-handler').addClass('company-hide');
+  })
 };
 
 function loginOut () {

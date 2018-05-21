@@ -68,7 +68,9 @@ exports.initLocaleManagerEvent = function (page) {
             $('.allReportBtn').find('.item').removeClass('active');
             $(this).addClass('active');
             var keyword = $('.keyword').val().trim();
-            var noticeType = $('.no-padding li.active').data('type');
+            // LEE: 现场-现场管理-全部/今日/本周/本月进行现场管理报告的筛选
+            // var noticeType = $('.no-padding li.active').data('type');
+            var noticeType = $('.no-padding li.active').data('type') || 0;
             var data = {};
             data.noticeType = noticeType;
             data.timeType = $(this).data('id');

@@ -284,6 +284,7 @@ exports.initHrHistoryEvent = function (page) {//人力资源详情搜索
             var data = {};
             data.startTime = start;
             data.endTime = end;
+            initEnterpriseFunc.getHrPriceMoneyFunc(data);
             initEnterpriseFunc.getHrListFunc(data, page);
             // initLaborManagerFunc.getWokererKaoqinAttendFunc(recordModal, data);
         } else {
