@@ -22,6 +22,16 @@
       margin-right: 10px;
       position: relative;
       left:-20px;
+      /* LEE: 公司列表显示隐藏方案2 */
+      &:before {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: -50px;
+      }
       .company-list-handler {
         position: absolute;
         top: 40px;
