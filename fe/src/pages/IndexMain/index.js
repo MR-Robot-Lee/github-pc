@@ -32,6 +32,16 @@ function setIframe(url) {
     targetA.addClass('active');
     targetA.parent().siblings().find('a').removeClass('active');
     resize();
+    // LEE: 点击空白区域，隐藏公司切换列表
+    var activeIframe = targetIframe.children('iframe');
+    activeIframe.on('load', function () {
+        $(this.contentDocument).on('click', function () {
+            var companyList = $('.company-list-handler');
+            var logoutBtn = $('.login-out');
+            !(companyList.hasClass('company-hide')) && companyList.addClass('company-hide');
+            !(logoutBtn.hasClass('login-out-hide')) && logoutBtn.addClass('login-out-hide');
+        })
+    })
 }
 
 function parseType(url) {
@@ -149,15 +159,15 @@ function getCompanyList() {
         $('.company-list-handler').addClass('company-hide');
         $('.login-out').addClass('login-out-hide');
     })
-    $(document).click(function () {
-        !($('.company-list-handler').hasClass('company-hide')) && $('.company-list-handler').addClass('company-hide');
-    })
-    var iframe = $('.IndexMain').find('.iframeParent').children('iframe');
+
+    /* var iframe = $('.IndexMain').find('.iframeParent.active > iframe');
     iframe.on('load', function () {
-        this.contentDocument.onclick = function () {
-            alert("111112");
+        var newIframe = $('.IndexMain').find('.iframeParent.active > iframe');
+        newIframe[0].contentDocument.onclick = function () {
+            console.log('url: ')
+            console.log(newIframe.parent().data('url'));
         }
-    })
+    }) */
 }
 
 function showOrHideSystem() {
