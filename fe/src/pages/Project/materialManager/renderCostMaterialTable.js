@@ -790,7 +790,6 @@ exports.renderMaterialPlanOrderDom = function (obj) {
     if (obj.planAppearTime) {
         planAppearTime = moment(obj.planAppearTime).format('YYYY-MM-DD')
     }
-    console.log(obj);
     var excpCount = obj.excpCount ? obj.excpCount + '项' : '0项';
     $('span[name=excpCount]').text(excpCount);
     $('input[name=planUser]').val(obj.planUserName);
@@ -827,6 +826,8 @@ exports.renderPurchaseOrderDom = function (obj) {
     $('span[name=approval]').text(parsePlanStatus(obj.planType, obj.planStatus));
     $('input[name=realAppearTime]').val(realAppearTime);
     $('input[name=prchTime]').val(prchTime);
+    // LEE:采购编辑完成确认后，更新点收人
+    $('input[name=checkUserName]').val(obj.checkUserName);
 };
 /**
  * 中标
