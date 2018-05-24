@@ -705,12 +705,15 @@ function initInsideModalEvent(modal) {
         }
     });
     modal.$body.find('.searchModal').click(function (e) {
+        alert('search')
         common.stopPropagation(e);
         var newList = modal.$body.find('.confirm').data('new');
         var oldList = modal.$body.find('.confirm').data('old');
         var subProject = modal.$body.find('.subProject').val();
         var materialType1 = modal.$body.find('#costBudget .materialType1').val();
         var materialType2 = modal.$body.find('#costBudget .materialType2').val();
+        console.log('materialType1: ')
+        console.log(materialType1)
         var allowance = modal.$body.find('.allowance').val();
         var keyword = modal.$body.find('#costBudget .keyword').val();
         var data = {};
@@ -756,9 +759,15 @@ function initInsideModalEvent(modal) {
         common.stopPropagation(e);
         var newList = modal.$body.find('.confirm').data('new');
         var oldList = modal.$body.find('.confirm').data('old');
+        console.log('newList: ');
+        console.log(newList);
+        console.log(oldList)
+
         // var subProject = modal.$body.find('.subProject').val();
         var materialType1 = modal.$body.find('#enterprise .materialType1').val();
         var materialType2 = modal.$body.find('#enterprise .materialType2').val();
+        console.log('val1: ' + materialType1)
+        console.log('val2: ' + materialType2)
         var keyword = modal.$body.find('#enterprise .keyword').val();
         var data = {};
         /* if (!subProject || subProject === 'a') {
@@ -768,7 +777,7 @@ function initInsideModalEvent(modal) {
             return alert('请选择材料一级分类');
         }
         if (!materialType2 || materialType2 === 'a') {
-            return alert('请选择材料一级分类');
+            return alert('请选择材料二级分类');
         }
         /*if (subProject && subProject !== 'a') {
          data.subProjId = subProject;
@@ -881,10 +890,28 @@ function initInsideModalEvent(modal) {
                 if (res.code === 1) {
                     addMaterial.remove();
                     $(that).parents('.model-inner').remove();
+                    // LEE: todo
+                    var searchInfo = {};
+                    searchInfo.mt1Index = mt1Index;
+                    searchInfo.mt2Index = mt2Index;
+                    searchInfo.keywords = data.mtrlName;
                     $('#addMaterial').click();
                     $('.enterprise').click();
+                    var MT1 = modal.$body.find('#enterprise .materialType1').children('option').eq(searchInfo.mt1Index);
+                    var MT2 = modal.$body.find('#enterprise .materialType2').children('option').eq(searchInfo.mt2Index);
+                    MT1.prop('selected', true);
+                    MT2.prop('selected', true);
+                    console.log(MT1.prop('selected'))
+                    console.log(MT2.prop('selected'))
+                    console.log(modal.$body.find('#enterprise .materialType1').val())
+                    console.log(modal.$body.find('#enterprise .materialType2').val())
+                    $('.enterpriseSearch').click()
+                    // modal.$body.find('#enterprise .materialType1').children('option:selected').focus()
+                    // MT1.children('option').eq(searchInfo.mt1Index).prop('selected', true);
+                    // MT2.children('option').eq(searchInfo.mt2Index).prop('selected', true);
                 }
             })
+            // modal.$body.find('.enterpriseSearch').triggerHandler('click');
         });
     })
 }
@@ -917,6 +944,24 @@ function initSelectMaterialModalEvent() {
         } else {
             $("#" + type).show();
             $('#costBudget').hide();
+            // LEE: todo
+            /* var searchInfo = JSON.parse(sessionStorage.getItem('searchInfo') || '{}');
+            var mt1 = modal.$body.find('#enterprise .materialType1');
+            var mt2 = modal.$body.find('#enterprise .materialType2');
+            console.log('searchInfo: ')
+            console.log(searchInfo)
+            if(searchInfo !== {}) {
+                console.log('mt1: ')
+                console.log(mt1.children())
+                var selectedMt1 = mt1.children('option').eq(searchInfo.mt1Index);
+                selectedMt1.attr('selected', true);
+                var selectedMt2 = mt2.children('option').eq(searchInfo.mt2Index);
+                selectedMt2.attr('selected', true);
+                console.log('s1: ' + selectedMt1.val() + ':s2: ' + selectedMt2.val());
+                modal.$body.find('#enterprise .keyword').val(searchInfo.keywords);
+                // modal.$body.find('.enterpriseSearch').triggerHandler('click');
+            } */
+
         }
     });
     modal.$body.find('.budget-menus .item:first-child').click();
