@@ -1,6 +1,7 @@
 require('es6-promise').polyfill();
 
 window.API_PATH = 'https://gc.azhu.co';
+window.WXPIC_PATH = "https://weixin.azhu.co";
 
 var apps = {
   enterprise: require('./pages/Enterprise')

@@ -63,7 +63,16 @@ ReviewImage.prototype.renderIMage = function (data, name) {
         item = item[name]
     }
     var dom = $('<img style="width: 100%;height: 100%;">');
-    dom.attr('src', window.API_PATH + '/customer' + item);
+    // LEE: 判断图片是从手机微信上传的还是在PC端上传的，微信图片域名和PC图片域名不同
+    // 微信图片域名：https://weixin.azhu.co+返回的图片路径
+    // PC图片域名：https://gc.azhu.co/customer+返回的图片路径
+    var PCUploadReg = /^\/upload\//;
+    var WXUploadReg = /^\/uploadWechat\/wechat\//;
+    if (WXUploadReg.test(item)) {
+        dom.attr('src', window.WXPIC_PATH + item);
+    } else if (PCUploadReg.test(item)) {
+        dom.attr('src', window.API_PATH + '/customer' + item);
+    }
     dom.appendTo(this.$imgBody);
     this.renderPage();
 };

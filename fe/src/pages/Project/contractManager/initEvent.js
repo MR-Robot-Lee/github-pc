@@ -833,6 +833,9 @@ function initInsideModalEvent(modal) {
         /*初始化菜单交互事件*/
         costBudgetManagerEventModal._materialShift(categorySel, categoryIpt, 'materialType');
         costBudgetManagerEventModal._materialShift(typeSel, typeIpt);
+        // LEE: 保存此时的数据，留给后面使用
+        var materialType1 = $('.materialType1').eq(1).val();
+        var materialType2 = $('.materialType2').eq(1).val();
 
         addMaterial.click(function (e) {
             common.stopPropagation(e);
@@ -888,27 +891,53 @@ function initInsideModalEvent(modal) {
             }
             chargeApi.postMaterialBaseAll(data, 'material', function (res) {
                 if (res.code === 1) {
+                    var subProject = $('.subProject').val();
                     addMaterial.remove();
                     $(that).parents('.model-inner').remove();
-                    // LEE: todo
-                    var searchInfo = {};
-                    searchInfo.mt1Index = mt1Index;
-                    searchInfo.mt2Index = mt2Index;
-                    searchInfo.keywords = data.mtrlName;
+                    // 点击选材又重新发送了Ajax请求，请求数据需要时间，所以下面通过定时器动态监测数据是否获取到，
+                    // 获取到之后，对材料分类进行数据填充，然后触发查询按钮的点击事件，渲染出列表
                     $('#addMaterial').click();
                     $('.enterprise').click();
-                    var MT1 = modal.$body.find('#enterprise .materialType1').children('option').eq(searchInfo.mt1Index);
-                    var MT2 = modal.$body.find('#enterprise .materialType2').children('option').eq(searchInfo.mt2Index);
-                    MT1.prop('selected', true);
-                    MT2.prop('selected', true);
-                    console.log(MT1.prop('selected'))
-                    console.log(MT2.prop('selected'))
-                    console.log(modal.$body.find('#enterprise .materialType1').val())
-                    console.log(modal.$body.find('#enterprise .materialType2').val())
-                    $('.enterpriseSearch').click()
-                    // modal.$body.find('#enterprise .materialType1').children('option:selected').focus()
-                    // MT1.children('option').eq(searchInfo.mt1Index).prop('selected', true);
-                    // MT2.children('option').eq(searchInfo.mt2Index).prop('selected', true);
+
+                    // LEE: 因为加载数据需要时间，所以
+                    // 监听数据的加载
+                    function materialDataListener() {
+                        var flag = true;//材料添加分部监听标志
+                        var _flag = true;//材料分类监听标志
+                        var num = 0;//超过4秒停止监听
+                        var listener = setInterval(function () {
+                            // 监听分部数据是否成功获取
+                            if($('.subProject').children('option').length > 0 && flag) {
+                                $('.subProject').val(subProject);
+                                flag = false;
+                            }
+                            // 监听一二级分类菜单的数据是否已经成功渲染为option
+                            if($('.materialType1').eq(1).find('option').length > 0 && _flag && num < 200) {
+                                $('.materialType1').eq(1).val(materialType1);
+                                // 模拟一级分类的change事件
+                                var childs = $('.materialType1').eq(1).find('option:selected').data('item');
+                                var parents = $('.materialType2').eq(1).html('');
+                                childs = childs || [];
+                                $('<option>全部</option>').appendTo(parents);
+                                for (var i = 0;i < childs.length; i++) {
+                                    var item = childs[i];
+                                    var _dom = $('<option></option>');
+                                    _dom.text(item.mtrlTypeName);
+                                    _dom.val(item.id);
+                                    _dom.appendTo(parents);
+                                }
+                                $('.materialType2').eq(1).val(materialType2);
+                                _flag = false;
+                            }
+                            // 所有的数据加载完毕，清除监听定时器listener
+                            if(!flag && !_flag) {
+                                $('.enterpriseSearch').click();
+                                clearInterval(listener);
+                            }
+                            num++;
+                        },20);
+                    }
+                    materialDataListener();
                 }
             })
             // modal.$body.find('.enterpriseSearch').triggerHandler('click');
@@ -944,24 +973,6 @@ function initSelectMaterialModalEvent() {
         } else {
             $("#" + type).show();
             $('#costBudget').hide();
-            // LEE: todo
-            /* var searchInfo = JSON.parse(sessionStorage.getItem('searchInfo') || '{}');
-            var mt1 = modal.$body.find('#enterprise .materialType1');
-            var mt2 = modal.$body.find('#enterprise .materialType2');
-            console.log('searchInfo: ')
-            console.log(searchInfo)
-            if(searchInfo !== {}) {
-                console.log('mt1: ')
-                console.log(mt1.children())
-                var selectedMt1 = mt1.children('option').eq(searchInfo.mt1Index);
-                selectedMt1.attr('selected', true);
-                var selectedMt2 = mt2.children('option').eq(searchInfo.mt2Index);
-                selectedMt2.attr('selected', true);
-                console.log('s1: ' + selectedMt1.val() + ':s2: ' + selectedMt2.val());
-                modal.$body.find('#enterprise .keyword').val(searchInfo.keywords);
-                // modal.$body.find('.enterpriseSearch').triggerHandler('click');
-            } */
-
         }
     });
     modal.$body.find('.budget-menus .item:first-child').click();

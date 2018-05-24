@@ -1254,7 +1254,7 @@ function initInsideModalEvent(modal) {
                 costBudgetManagerEventModal._typeListEvent('material', dom, addMaterial, 'Cntr');
             }
         })
-        addMaterial.css({'left': '847px', 'top': '-30px'});
+        // addMaterial.css({'left': '847px', 'top': '-30px'});
         addMaterial.appendTo($('.add-material-modal'));
         /*初始化菜单交互事件*/
         costBudgetManagerEventModal._materialShift(categorySel, categoryIpt, 'materialType');

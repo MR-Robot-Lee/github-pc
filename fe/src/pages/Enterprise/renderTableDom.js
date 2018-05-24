@@ -244,6 +244,8 @@ function renderTableHrDom(item, i) {
 * 供应商库
 * */
 function renderTableSupplierDom(item, i) {
+    /* console.log('item: ')
+    console.log(item) */
     var count = i + 1;
     var attachCount = item.attachCount > 0 ? '<span class="icon-red-dot">' + item.attachCount + '</span>' : '';
     var countAtt = item.attachCount > 0 ? '' : 'no-attach';
