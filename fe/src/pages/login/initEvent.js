@@ -30,6 +30,42 @@ $('body').on('keydown', function (e) {//回车登录功能
   }
 });
 
+// LEE: win7以上操作系统才可以更改密码--待优化
+$('#rememberKey').parent().next().click(function () {
+  var UA = navigator.userAgent;
+  var NTVersion = parseFloat(navigator.userAgent.substring(navigator.userAgent.search("Windows NT") + 11));
+  if (NTVersion < 6.1) {
+    return alert("您的系统版本过低，请到Win7以上系统或者手机端完成该操作");
+  }
+})
+// LEE: 检测操作系统版本
+/* function detectOS() {
+  var UA = navigator.userAgent;
+  var plat = navigator.platform.toLowerCase();
+  var isWin = (plat == 'win32') || (plat == 'windows');
+  var isMac = (plat == 'mac68k') || (plat == 'macppc') || (plat == 'macintosh') || (plat == 'macintel');
+  if (isMac) return "Mac";
+  var isUnix = (plat == 'x11') && !isWin && !isMac;
+  if (isUnix) return "Unix";
+  var isLinux = String(navigator.platform).indexOf("Linux") > -1;
+  if (isLinux) return "Linux";
+  if (isWin) {
+      var isWin2K = UA.indexOf("Windows NT 5.0") > -1 || UA.indexOf("Windows 2000") > -1;
+      if (isWin2K) return "Win2000";
+      var isWinXP = UA.indexOf("Windows NT 5.1") > -1 || UA.indexOf("Windows XP") > -1;
+      if (isWinXP) return "WinXP";
+      var isWin2003 = UA.indexOf("Windows NT 5.2") > -1 || UA.indexOf("Windows 2003") > -1;
+      if (isWin2003) return "Win2003";
+      var isWinVista = UA.indexOf("Windows NT 6.0") > -1 || UA.indexOf("Windows Vista") > -1;
+      if (isWinVista) return "WinVista";
+      var isWin7 = UA.indexOf("Windows NT 6.1") > -1 || UA.indexOf("Windows 7") > -1;
+      if (isWin7) return "Win7";
+      var isWin10 = UA.indexOf("Windows NT 10.0") || UA.indexOf("Windows 10") > -1;
+      if (isWin10) return "Win10";
+  }
+  return "other";
+} */
+
 localStorage.setItem('work-remind', 1);
 
 exports.initLoginEvent = function () {
