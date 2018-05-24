@@ -321,6 +321,7 @@ exports.initMaterialDetailById = function (id, type, modal) {
         if (type === 'material-plan') {
             renderCostMaterialTable.renderMaterialPlanOrderDom(data);
         } else if (type === 'purchase-order') {
+            // LEE:渲染采购单，同时更新点收人
             renderCostMaterialTable.renderPurchaseOrderDom(data);
         } else if (type === 'check-order') {
             renderCostMaterialTable.renderAcceptOrderDom(data);
