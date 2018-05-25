@@ -34,8 +34,10 @@ $('body').on('keydown', function (e) {//回车登录功能
 $('#rememberKey').parent().next().click(function () {
   var UA = navigator.userAgent;
   var NTVersion = parseFloat(navigator.userAgent.substring(navigator.userAgent.search("Windows NT") + 11));
-  if (NTVersion < 6.1) {
-    return alert("您的系统版本过低，请到Win7以上系统或者手机端完成该操作");
+  var isMobile = /Android|webOS|iPhone|iPad|BlackBerry/i.test(UA);
+  if (NTVersion < 6.1 && !isMobile) {
+    alert("您的系统版本过低，请到Win7以上系统或者手机端完成该操作");
+    return false;
   }
 })
 // LEE: 检测操作系统版本
