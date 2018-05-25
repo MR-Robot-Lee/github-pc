@@ -41,7 +41,7 @@ $('#rememberKey').parent().next().click(function () {
   }
 })
 // LEE: 检测操作系统版本
-/* function detectOS() {
+function detectOS() {
   var UA = navigator.userAgent;
   var plat = navigator.platform.toLowerCase();
   var isWin = (plat == 'win32') || (plat == 'windows');
@@ -66,7 +66,7 @@ $('#rememberKey').parent().next().click(function () {
       if (isWin10) return "Win10";
   }
   return "other";
-} */
+}
 
 localStorage.setItem('work-remind', 1);
 
