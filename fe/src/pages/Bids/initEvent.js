@@ -419,8 +419,9 @@ exports.initBidItemEvent = function (parent, page) {
         if ($(this).data('item').bidStatus === 1) {//待发布
             $('.edit-bid').show();
             $('.submit-bid').show();
+        // LEE:增加招标邀请按钮
         } else if ($(this).data('item').bidStatus === 2) {//招标中
-
+            $('.invite-bid').show();
         } else if ($(this).data('item').bidStatus === 3) {//已截止
             $('.check-bid').show();
         } else if ($(this).data('item').bidStatus === 4) {//流标
@@ -545,6 +546,10 @@ exports.initBidItemEvent = function (parent, page) {
         bidsApi.putBidsStatus(_data.id, 2).then(function () {
             window.location.href = '/bids';
         })
+    })
+    // LEE:增加招标邀请按钮 todo
+    $('.invite-bid').click(function () {
+        alert('aaaaa');
     })
     $('.check-bid').off('click').on('click', function (e) { // 评标
         common.stopPropagation(e);

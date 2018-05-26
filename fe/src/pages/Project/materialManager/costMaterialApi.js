@@ -526,3 +526,12 @@ exports.putOrderDetail = function (mtrlOrderId, id, type) {
 exports.putOrderStatus = function (id, type) {
     return request.put('/customer/mtrlOrder/order/' + id + '/' + type);
 }
+
+/**
+ * 拒绝采购
+ */
+
+exports.putRefusePrch = function(data) {
+    var data = data || {};
+    return request.put('/customer/material/refusePrch', {body: data});
+}

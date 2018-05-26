@@ -410,7 +410,8 @@ function payMoneyClickEvent(importContract, applyMoney, confirm, modal, pItem) {
             common.stopPropagation(e);
             var radio = materialPurchContract.$body.find('.radio.active');
             if (radio.length === 0) {
-                return alert('请选择导入的合同')
+                // LEE：无合同，提示无相关合同
+                return alert('没有关联的合同')
             }
             var item = radio.parents('.contract-item').data('item');
             modal.$body.find('[name=cntrNo]').val(item.cntrNo)
