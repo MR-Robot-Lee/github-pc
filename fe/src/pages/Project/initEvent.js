@@ -144,6 +144,8 @@ function initBuilderDiary(){
         var today = moment().format("YYYY-MM-DD").split('-').join('')/1;//今天的日期
 
         if (id) {
+            // LEE:查看日志的时候，要判断当前用户，如果记录日志的用户和当前登录的用户不是同一人，则无修改日志权限，需隐藏或禁用确定按钮。
+            var user = JSON.parse(localStorage.getItem('user') || '{}');
             var modal = Modal('查看日志', projectLogModal());
             modal.showClose();
             modal.show();
@@ -162,6 +164,13 @@ function initBuilderDiary(){
                 if (res.code === 1) {
                     initBlogModalData(modal, res.data);
                     $confirm.data("id", res.data.id);
+                    console.log('user: ')
+                    console.log(user)
+                    console.log('res.data: ')
+                    console.log(res.data);
+                    if(res.data.addUserName !== user.employee.userName) {
+                        $confirm.hide();
+                    }
                 }
             });
             initBlogMenuBtn($confirm, modal, 'check');

@@ -60,6 +60,7 @@ var payMoneyModal = require('./modal/payMoneyModal.ejs');
 var materialPurchContractModal = require('./modal/materialPurchContractModal.ejs');
 var scheduleManager = require('../scheduleManager/initEvent');
 var remindModal = require('./modal/remindMaterialRemoveModal.ejs');
+var remindRefusePurchaseModal = require('./modal/remindRefusePurchaseModal.ejs');
 var levelData = require('./levelData');
 var getOrganize = require('../organizationManager/organizationApi');
 var addOrgEmployeeModal = require('../scheduleManager/modal/addOrgEmployeeModal.ejs');
@@ -584,6 +585,7 @@ function initPurchaseDetail(parents, item) {
     var createOrder = $("#createOrder");//生成订单
     var manageOrder = $("#manageOrder");//管理订单
     var purchaseOrder = $("#purchaseOrder");//采购编辑
+    var refusePurchase = $("#refusePurchase");//拒绝采购
     createOrder.click(function (e) {
         common.stopPropagation(e);
         if($('[name=approval]').html() === '待采购'){
@@ -658,6 +660,18 @@ function initPurchaseDetail(parents, item) {
             }
         })
     }
+
+    // LEE: 拒绝采购 --todo
+    refusePurchase.click(function (e) {
+        common.stopPropagation(e);
+        var refuseModal = Modal('提示', remindRefusePurchaseModal());
+        refuseModal.showClose();
+        refuseModal.show();
+        refuseModal.$body.find('.confirm').click(function () {
+            refuseModal.hide();
+            
+        });
+    })
 }
 
 /**

@@ -793,8 +793,9 @@ exports.renderMaterialPlanOrderDom = function (obj) {
     var excpCount = obj.excpCount ? obj.excpCount + '项' : '0项';
     $('span[name=excpCount]').text(excpCount);
     $('input[name=planUser]').val(obj.planUserName);
-    $('input[name=prchUser]').val(obj.prchUserName);
-    $('input[name=checkUserName]').val(obj.checkUserName);
+    // LEE: 无采购人和点收人的时候，显示暂无
+    $('input[name=prchUser]').val(obj.prchUserName ? obj.prchUserName : "暂无");
+    $('input[name=checkUserName]').val(obj.checkUserName ? obj.checkUserName : "暂无");
     $('input[name=planAppearTime]').val(planAppearTime);
     $('input[name=planMoney]').val(obj.planMoney);
     $('input[name=outPlanMoney]').val(obj.outBudPlanMoney);
@@ -826,8 +827,8 @@ exports.renderPurchaseOrderDom = function (obj) {
     $('span[name=approval]').text(parsePlanStatus(obj.planType, obj.planStatus));
     $('input[name=realAppearTime]').val(realAppearTime);
     $('input[name=prchTime]').val(prchTime);
-    // LEE:采购编辑完成确认后，更新点收人
-    $('input[name=checkUserName]').val(obj.checkUserName);
+    // LEE:采购编辑完成确认后，更新点收人,如果没有，设为暂无
+    $('input[name=checkUserName]').val(obj.checkUserName ? obj.checkUserName : '暂无');
 };
 /**
  * 中标
