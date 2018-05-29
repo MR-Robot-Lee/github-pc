@@ -169,11 +169,14 @@ exports.renderMaterialPurchaseOrderTable = function (list, parents) {
         var prchTime = item.prchTime ? moment(item.prchTime).format('YYYY/MM/DD') : '';
         var acctType;
         if (item.acctType === 1) {
-            acctType = '实付款（无合同）';
+            // acctType = '实付款（无合同）';
+            acctType = '实付款（采购支付）';
         } else if (item.acctType === 2) {
-            acctType = '应付款项';
+            // acctType = '应付款项';
+            acctType = '应付款（财务挂账）';
         } else if (item.acctType === 3) {
-            acctType = '实付款（有合同）';
+            // acctType = '实付款（有合同）';
+            acctType = '实付款（财务支付）';
         } else {
             acctType = '';
         }
@@ -264,11 +267,14 @@ exports.renderCostMaterialOrderList = function (list, parents) {
         var count = i + 1;
         var acctType;
         if (item.acctType === 1) {
-            acctType = '实付款（无合同）';
+            // acctType = '实付款（无合同）';
+            acctType = '实付款（采购支付）';
         } else if (item.acctType === 2) {
-            acctType = '应付款项';
+            // acctType = '应付款项';
+            acctType = '应付款（财务挂账）';
         } else if (item.acctType === 3) {
-            acctType = '实付款（有合同）';
+            // acctType = '实付款（有合同）';
+            acctType = '实付款（财务支付）';
         }
         var dom = $(materialCostOrderTr({
             count: count,
@@ -561,11 +567,14 @@ exports.renderPurchaseModal = function (list, modal, type) {
         if (item.acctType) {
             var prchType;
             if (item.acctType === 1) {
-                prchType = '实付款（无合同）';
+                // prchType = '实付款（无合同）';
+                prchType = '实付款（采购支付）';
             } else if (item.acctType === 2) {
-                prchType = '应付款项';
+                // prchType = '应付款项';
+                prchType = '应付款（财务挂账）';
             } else if (item.acctType === 3) {
-                prchType = '实付款（有合同）';
+                // prchType = '实付款（有合同）';
+                prchType = '实付款（财务支付）';
             }
             dom.find('.planType').data('item', {acctType: item.prchType, text: prchType})
             dom.find('.planType').text(prchType)
@@ -1406,7 +1415,7 @@ exports.renderCreateOrderTable = function (list, modal, id) {
             '<td class="border">' + item.specBrand + '</td>' +
             '<td class="border">' + item.unit + '</td>' +
             '<td class="border">' + (item.planCount || '') + '</td>' +
-            '<td class="border"><input type="text" data-type="count"></td>' +
+            '<td class="border"><input type="text" data-type="count" value="'+ item.planCount +'"></td>' +
             '<td class="border">' + (item.planRemark || '') + '</td>' +
             '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
             '</tr>');
@@ -1458,11 +1467,14 @@ function getAcctType(type) {
     type = parseInt(type);
     switch (type) {
         case 1:
-            return '实付款(无合同)';
+            // return '实付款(无合同)';
+            return '实付款(采购支付)';
         case 2:
-            return '应付账款';
+            // return '应付账款';
+            return '应付账(财务挂账)';
         case 3:
-            return '实付款(有合同)';
+            // return '实付款(有合同)';
+            return '实付款(财务支付)';
     }
 }
 

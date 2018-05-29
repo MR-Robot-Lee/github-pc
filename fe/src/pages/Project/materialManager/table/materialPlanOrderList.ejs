@@ -4,7 +4,7 @@
             <div style="position: absolute;right: 0;top: 50%;margin-top: -15px;">
                 <span class="span-btn background-list-gray mentionPlan" id="mentionPlan" style="display: none;">提计划</span>
                 <!--<span class="span-btn background-list-gray">查看审批</span>-->
-                <span class="span-btn background-list-gray">导出</span>
+                <span class="span-btn background-list-gray" id="exportTable">导出</span>
                 <!--<span class="span-btn background-list-gray span-btn-bc cancel">退出</span>-->
             </div>
         </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="table-content"
          style="margin: 0 20px;">
-        <table>
+        <table id="materialPlanOrderListTable">
             <thead id="showTitle">
             <tr class="small">
                 <th style="width: 45px;" class="border">序号</th>

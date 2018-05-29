@@ -5,7 +5,13 @@
                 <span class="span-btn background-list-gray" id="createOrder">生成订单</span>
                 <span class="span-btn background-list-gray" id="manageOrder">订单管理</span>
                 <span class="span-btn background-list-gray" id="purchaseOrder">采购编辑</span>
-                <span class="span-btn background-list-gray">导出</span>
+                <span class="span-btn background-list-gray" id="exportTable">导出
+                    <!-- <ul>
+                        <li>导出为PNG</li>
+                        <li>导出为DOC</li>
+                        <li>导出为XLS</li>
+                    </ul> -->
+                </span>
                 <span class="span-btn background-list-gray" id="refusePurchase">拒绝采购</span>
             </div>
         </div>
@@ -24,7 +30,7 @@
     </div>
     <div class="table-content"
          style="margin:0 20px;">
-        <table>
+        <table id="materialPurchaseOraderTable">
             <thead>
             <tr class="small">
                 <th class="border" style="width: 45px;"></th>

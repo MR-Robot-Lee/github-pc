@@ -30,6 +30,24 @@
     }
 }
 
+/* LEE:搜索图标样式 */
+.icon-search {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: normal;
+    color: #5b5b5b;
+    font-style: normal;
+    width: 17px;
+    height: 17px;
+    background: url(./images/enterprise-search.png) no-repeat;
+    &:hover {
+        background: url(./images/enterprise-search-active.png) no-repeat;
+        color: #009441;
+    }
+}
+
 .icon-close {
     cursor: pointer;
     display: inline-block;

@@ -43,10 +43,25 @@
         font-weight: bold;
       }
       i{
-        position: absolute;
-        right: 30px;
-        margin-top: 1px;
-        display: none;
+        /* LEE: 为Modal增加搜索按钮 */
+        &.icon-search {
+          position: absolute;
+          right: 90px;
+          margin-top: 1px;
+          display: none;
+          &:after {
+            content: '搜索';
+            display: inline-block;
+            width: 30px;
+            margin-left: 20px;
+          }
+        }
+        &.icon-close {
+          position: absolute;
+          right: 30px;
+          margin-top: 1px;
+          display: none;
+        }
       }
       border-bottom: 1px solid #eeeeee;
     }
