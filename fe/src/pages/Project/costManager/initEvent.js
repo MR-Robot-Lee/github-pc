@@ -736,7 +736,8 @@ exports.initFinancialCostSumEvent = function (parents) {
                 initCostManagerFunc.getFinanceCostFunc(item.id, checkPayAbledMoney);
             } else if (item.fundResc === 3) {
                 if (item.cntrId) {
-                    var MaterialManagerModal = Model('材料管理(实付款有合同)费用报销单', MaterialManagerCntrCostApply());
+                    // var MaterialManagerModal = Model('材料管理(实付款有合同)费用报销单', MaterialManagerCntrCostApply());
+                    var MaterialManagerModal = Model('材料采购(财务支付)费用单', MaterialManagerCntrCostApply());
                     MaterialManagerModal.showClose();
                     MaterialManagerModal.show();
                     hideModalConfirm(MaterialManagerModal);
@@ -809,7 +810,8 @@ exports.initFinancialCostSumEvent = function (parents) {
                         }
                     })
                 } else {
-                    var MaterialManagerNoCntrModal = Model('材料管理(实付款无合同)费用报销单', MaterialManagerNoCntrCostApply());
+                    // var MaterialManagerNoCntrModal = Model('材料管理(实付款无合同)费用报销单', MaterialManagerNoCntrCostApply());
+                    var MaterialManagerNoCntrModal = Model('材料采购(采购支付)费用报销单', MaterialManagerNoCntrCostApply());
                     MaterialManagerNoCntrModal.showClose();
                     MaterialManagerNoCntrModal.show();
                     hideModalConfirm(MaterialManagerNoCntrModal);
@@ -963,7 +965,8 @@ exports.initFinancialMeTableEvent = function (parents) {
 };
 
 function payMoneyMaterialCostOrderEvent(childItem) {
-    var MaterialManagerModal = Model('材料管理(实付款有合同)费用报销单', MaterialManagerCntrCostApply());
+    // var MaterialManagerModal = Model('材料管理(实付款有合同)费用报销单', MaterialManagerCntrCostApply());
+    var MaterialManagerModal = Model('材料采购(财务支付)费用单', MaterialManagerCntrCostApply());
     MaterialManagerModal.showClose();
     MaterialManagerModal.show();
     hideModalConfirm(MaterialManagerModal);
@@ -1032,7 +1035,8 @@ function payMoneyMaterialCostOrderEvent(childItem) {
 }
 
 function payMoneyMaterialNoCntrCostOrderEvent(childItem) {
-    var MaterialManagerNoCntrModal = Model('材料管理(实付款无合同)费用报销单', MaterialManagerNoCntrCostApply());
+    // var MaterialManagerNoCntrModal = Model('材料管理(实付款无合同)费用报销单', MaterialManagerNoCntrCostApply());
+    var MaterialManagerNoCntrModal = Model('材料采购(采购支付)费用报销单', MaterialManagerNoCntrCostApply());
     MaterialManagerNoCntrModal.showClose();
     MaterialManagerNoCntrModal.show();
     hideModalConfirm(MaterialManagerNoCntrModal);

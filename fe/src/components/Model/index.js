@@ -13,7 +13,10 @@ function Model(title, body) {
     this.$header = this.$model.find('.Model__header');
     this.topWindow = $.isTopWindow ? window : parent;
     this.$topDocument = $(this.topWindow.document);
-    this.$close = this.$model.find("i");
+    // 为模态框增加搜索按钮
+    this.$search = this.$model.find('i.icon-search');
+    // this.$close = this.$model.find("i");
+    this.$close = this.$model.find("i.icon-close");
     this.$container = this.$topDocument.find('.model-wrap');
     this.$close.click(function (e) {
         common.stopPropagation(e);
@@ -24,7 +27,13 @@ function Model(title, body) {
         that.hide();
     });
 }
-
+// 为模态框增加搜索按钮
+Model.prototype.showSearch = function () {
+    this.$search.show();
+}
+Model.prototype.hideSearch = function () {
+    this.$search.hide();
+}
 Model.prototype.showClose = function () {
     this.$close.show();
 };

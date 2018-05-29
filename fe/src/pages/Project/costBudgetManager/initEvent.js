@@ -19,6 +19,7 @@ var budgetImportHelpModal = require('./modal/budgetImportHelpModal.ejs')
 var projectInitEvent = require('../initEvent');
 var copyChildModal = require('./modal/copyChildModal.ejs');
 var Page = require('../../../components/Page');
+var enterpriseSearchModal = require('./modal/search.ejs');
 
 
 exports.initMainViewClick = function initMainViewClick() {
@@ -821,6 +822,7 @@ function initAnalysisModal(analysisModal, item) {
         }
         var $modal = Modal('企业库数据', enterpriseDataBase());
         var type = analysisModal.$body.find('.budget-menus a.active').data('type');
+        $modal.showSearch();
         $modal.showClose();
         $modal.show();
         var analysisisList = getTableNewData(analysisModal);
@@ -837,6 +839,15 @@ function initAnalysisModal(analysisModal, item) {
             initTableInputChange(tbody, analysisModal, type);
         }, getTableOldData(analysisModal, type));
         $modal.$body.find('.budget-menus a:not(.active)').addClass('cancel-active');
+        // LEE:增加搜索功能 -- todo3
+        $modal.$header.find('.icon-search').click(function (e) {
+            common.stopPropagation(e);
+            var searchModal = Modal('企业库数据-搜索', enterpriseSearchModal());
+            searchModal.show();
+            searchModal.showClose();
+            // 搜索的时候，需要确定在哪个库搜索，type即库的类型
+            console.log(type)
+        })
     });
     /**
      * 添加材料

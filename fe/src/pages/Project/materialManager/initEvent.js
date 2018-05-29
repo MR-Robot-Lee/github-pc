@@ -192,7 +192,7 @@ exports.initMaterialPlanEvent = function () {
             var keywords = $('.keyword').val().trim();
             var type = $('#myPlanMaterial').hasClass('background-list-gray') ? 1 : 2;
             var planType = $('.planType').val();
-            var data = {type: type, planStatus: planStatus, planType: planType};
+            var data = { type: type, planStatus: planStatus, planType: planType };
             if (keywords) {
                 data.keywords = keywords;
             }
@@ -247,7 +247,7 @@ exports.initMaterialPlanEvent = function () {
                 $(this).addClass('background-list-gray');
                 type = 1;
             }
-            var data = {type: type};
+            var data = { type: type };
             data.planStatus = planStatus;
             if (!keywords) {
                 data.keywords = keywords;
@@ -276,7 +276,7 @@ exports.initMaterialPlanEvent = function () {
             if (type === 'material-plan') {
                 $(materialBiddingOrder()).appendTo(parents);
                 initMaterialDetail(parents);
-                initMaterialManger.getBidDetailListFunc({mtrlPlanId: item.id, type: 1}, parents);
+                initMaterialManger.getBidDetailListFunc({ mtrlPlanId: item.id, type: 1 }, parents);
                 initMaterialManger.initMaterialDetailById(item.id, type);
                 if (userNo === item.planUserNo) {
                     $('.submitApproval').show();
@@ -289,7 +289,7 @@ exports.initMaterialPlanEvent = function () {
                 $(materialSuccessfulBid()).appendTo(parents);
                 initMaterialDetail(parents);
                 initMaterialManger.initMaterialDetailById(item.id, type);
-                initMaterialManger.getBidDetailListFunc({mtrlPlanId: item.id, type: 2}, parents);
+                initMaterialManger.getBidDetailListFunc({ mtrlPlanId: item.id, type: 2 }, parents);
                 if (userNo === item.prchUserNo) {
                     $('.biddingPlan').show();
                     $('.directReport').show();
@@ -361,9 +361,9 @@ exports.initMaterialPlanEvent = function () {
                 initCostOrderList(parents, item);
             }
             if (type === 'cost-order') {
-                initMaterialManger.initGetCostMaterialList({mtrlPlanId: item.id}, parents);
+                initMaterialManger.initGetCostMaterialList({ mtrlPlanId: item.id }, parents);
             } else {
-                initMaterialManger.initMaterialPlanDetailList({mtrlPlanId: item.id, type: $type}, parents, type);
+                initMaterialManger.initMaterialPlanDetailList({ mtrlPlanId: item.id, type: $type }, parents, type);
             }
         });
     }
@@ -374,7 +374,8 @@ exports.initMaterialPlanEvent = function () {
  * @param parents
  */
 function initMaterialDetail(parents) {
-
+    // LEE: 导出计划单
+    common.initExportList('#materialPlanOrderListTable');
     parents.find('.cancel').click(function (e) {
         common.stopPropagation(e);
         $('.plan-page').removeClass("active");
@@ -393,7 +394,7 @@ function initMaterialDetail(parents) {
     $('.directPurchase').click(function (e) {
         common.stopPropagation(e);
         var item = parents.data('item');
-        initMaterialManger.initPrchUser({mtrlPlanId: item.id});
+        initMaterialManger.initPrchUser({ mtrlPlanId: item.id });
     });
     /**
      * 中标编辑
@@ -417,7 +418,7 @@ function initMaterialDetail(parents) {
         remindPurchase.showClose();
         remindPurchase.$body.find('.confirm').click(function () {
             var item = parents.data('item');
-            initMaterialManger.initPostCheckAndAccept({status: 1, mtrlPlanId: item.id}, remindPurchase);
+            initMaterialManger.initPostCheckAndAccept({ status: 1, mtrlPlanId: item.id }, remindPurchase);
         })
     });
     $('.submitApproval').click(function (e) {
@@ -425,7 +426,7 @@ function initMaterialDetail(parents) {
         var approval = new approvalProcess('材料审批流程', function () {
             var materialItem = $('.materialPlanDetail').data('item');
             var _item = approval.getSelectData();
-            initMaterialManger.postPlanApprovaeFunc({tmplId: _item.id, mtrlPlanId: materialItem.id}, approval);
+            initMaterialManger.postPlanApprovaeFunc({ tmplId: _item.id, mtrlPlanId: materialItem.id }, approval);
         });
         approval.getApprovalModal(4);
     });
@@ -499,7 +500,7 @@ function initEditBidSuccessFulData(modal) {
                 }
             }
         }
-        initMaterialManger.postBidSuccessDetail({list: list}, modal);
+        initMaterialManger.postBidSuccessDetail({ list: list }, modal);
     });
 }
 
@@ -560,9 +561,9 @@ function initMaterialPlanDetail(parents) {
                 }
                 var pItem = $('.materialPlanDetail').data('item');
                 if (pItem.planType === 1) { // 采购
-                    initMaterialManger.delMaterialPlanModalFunc({mtrlPlanId: pItem.id, id: item.id}, deleteModal, tr);
+                    initMaterialManger.delMaterialPlanModalFunc({ mtrlPlanId: pItem.id, id: item.id }, deleteModal, tr);
                 } else { // 招标
-                    initMaterialManger.delMaterialPurchModalFunc({mtrlPlanId: pItem.id, id: item.id}, deleteModal, tr)
+                    initMaterialManger.delMaterialPurchModalFunc({ mtrlPlanId: pItem.id, id: item.id }, deleteModal, tr)
                 }
             });
         }
@@ -588,14 +589,14 @@ function initPurchaseDetail(parents, item) {
     var refusePurchase = $("#refusePurchase");//拒绝采购
     createOrder.click(function (e) {
         common.stopPropagation(e);
-        if($('[name=approval]').html() === '待采购'){
+        if ($('[name=approval]').html() === '待采购') {
             var list = [];
             $("input.choose").each(function () {
                 if ($(this).prop('checked')) {
                     list.push($(this).parents('tr').data('item'));
                 }
             })
-            if(list.length){
+            if (list.length) {
                 var createModal = Modal('生成订单', createOrderModal());
                 createModal.show();
                 createModal.showClose();
@@ -616,7 +617,7 @@ function initPurchaseDetail(parents, item) {
                 manageModal.show();
                 manageModal.showClose();
                 renderCostMaterialTable.renderOrderTable(list, manageModal);
-            } else if(res.code === 7){
+            } else if (res.code === 7) {
                 return alert('暂无订单')
             }
         })
@@ -638,22 +639,22 @@ function initPurchaseDetail(parents, item) {
         $('.checkAccept').click(function (e) {
             common.stopPropagation(e);
             var flag = false;
-            $('.materialManagerOrder tbody tr').each(function(){
-                if($(this).data('item').entprName){
+            $('.materialManagerOrder tbody tr').each(function () {
+                if ($(this).data('item').entprName) {
                     flag = true;
                 }
             })
-            if(!flag){
+            if (!flag) {
                 return alert('没有采购不可提交点收')
             }
-            if($(".material-plan [name=checkUserName]").val()){
+            if ($(".material-plan [name=checkUserName]").val()) {
                 var remindPurchase = Modal('提示', remindModal());
                 remindPurchase.$body.find('.remind-text').html('确定已完成全部采购编辑？');
                 remindPurchase.show();
                 remindPurchase.showClose();
                 remindPurchase.$body.find('.confirm').click(function () {
                     remindPurchase.hide();
-                    initMaterialManger.initPostCheckAndAccept({status: 1, mtrlPlanId: item.id}, remindPurchase);
+                    initMaterialManger.initPostCheckAndAccept({ status: 1, mtrlPlanId: item.id }, remindPurchase);
                 })
             } else {
                 return alert('没有点收人')
@@ -661,7 +662,7 @@ function initPurchaseDetail(parents, item) {
         })
     }
 
-    // LEE: 拒绝采购 --todo
+    // LEE: 拒绝采购 --todo 
     refusePurchase.click(function (e) {
         common.stopPropagation(e);
         var refuseModal = Modal('提示', remindRefusePurchaseModal());
@@ -669,9 +670,27 @@ function initPurchaseDetail(parents, item) {
         refuseModal.show();
         refuseModal.$body.find('.confirm').click(function () {
             refuseModal.hide();
-            
+            $('.material-plan .cancel ').trigger('click');
+            var item = $('#materialPlanDetail').data('item');
+            console.log('item: ')
+            console.log(item)
+            var data = {};
+            data.mtrlPlanId = item.id;
+            data.projId = item.projId;
+            costMaterialApi.putRefusePrch(data)
+                .then(function (res) {
+                    if (res.code === 1) {
+                        initMaterialManager.initMaterialPlan();
+                    }
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
         });
     })
+    
+    // LEE: 导出采购单
+    common.initExportList('#materialPurchaseOraderTable');
 }
 
 /**
@@ -680,9 +699,11 @@ function initPurchaseDetail(parents, item) {
  * @param item
  */
 function initCostOrderList(parents, item) {
+    // LEE: 导出费用单
+    common.initExportList('#materialCostOrderTable');
     parents.find('.costOrder').click(function (e) {
         common.stopPropagation(e);
-        initMaterialManger.initPostCostOrder({mtrlPlanId: item.id}, parents);
+        initMaterialManger.initPostCostOrder({ mtrlPlanId: item.id }, parents);
     });
     parents.find('.cancel').click(function (e) {
         common.stopPropagation(e);
@@ -700,15 +721,18 @@ function initGetPurchasePlan(modal, parents) {
         modal.$body.find('.modal-form .purchaseTime').val(moment(item.realAppearTime).format('YYYY-MM-DD'));
     }
     if (item.prchUserName) {
-        modal.$body.find('.checkUserName').data('user', {userNo: item.checkUserNo, userName: item.checkUserName});
+        modal.$body.find('.checkUserName').data('user', { userNo: item.checkUserNo, userName: item.checkUserName });
     }
-    initMaterialManger.initMaterialPlanDetailModal({mtrlPlanId: item.id, type: 2}, modal, 'purchase');
+    initMaterialManger.initMaterialPlanDetailModal({ mtrlPlanId: item.id, type: 2 }, modal, 'purchase');
 }
 
 /**
  * 点收modal 唤起
  */
 function initCheckAndAccept(parents, item) {
+    // LEE: 导出点收单
+    common.initExportList('#materialCheckOrderTable');
+    
     var checkAndAccept = $('.checkAndAccept');
     var rebut = $('.rebut');
     if (!checkAndAccept.data('flag')) {
@@ -729,7 +753,7 @@ function initCheckAndAccept(parents, item) {
             remindPurchase.$body.find('.remind-text').html('确定需要驳回吗？');
             remindPurchase.$body.find('.confirm').click(function () {
                 remindPurchase.hide();
-                initMaterialManger.initPostCheckAndAccept({mtrlPlanId: item.id, status: 3});
+                initMaterialManger.initPostCheckAndAccept({ mtrlPlanId: item.id, status: 3 });
             })
         });
         parents.find('.confirm').click(function (e) {
@@ -739,7 +763,7 @@ function initCheckAndAccept(parents, item) {
             remindPurchase.showClose();
             remindPurchase.$body.find('.confirm').click(function () {
                 remindPurchase.hide();
-                initMaterialManger.initPostCheckAndAccept({mtrlPlanId: item.id, status: 2});
+                initMaterialManger.initPostCheckAndAccept({ mtrlPlanId: item.id, status: 2 });
             })
         });
 
@@ -754,7 +778,7 @@ function initGetCheckOrderList(modal, item) {
     if (item.checkTime) {
         modal.$body.find('.acceptTime').val(moment(item.checkTime).format('YYYY-MM-DD'));
     }
-    initMaterialManger.initMaterialPlanDetailModal({mtrlPlanId: item.id, type: 3}, modal, 'check');
+    initMaterialManger.initMaterialPlanDetailModal({ mtrlPlanId: item.id, type: 3 }, modal, 'check');
 }
 
 function initCheckOrderEvent(modal, item, parents) {
@@ -774,7 +798,7 @@ function initCheckOrderEvent(modal, item, parents) {
             data.checkTime = new Date(acceptTime).getTime();
             data.id = $item.id;
             data.checkTotalMoney = $item.prchTotalMoney;
-            if(isNaN(acceptCount)){
+            if (isNaN(acceptCount)) {
                 return alert('请输入有效数字')
             }
             if (!acceptCount) {
@@ -891,7 +915,7 @@ function initPurchaseEditTbody(modal, item) {
         checkUserNo: user.userNo,
         realAppearTime: purchaseTime,
         mtrlPlanId: item.id
-    }, {list: list, mtrlPlanId: item.id}, modal);
+    }, { list: list, mtrlPlanId: item.id }, modal);
 }
 
 /**
@@ -907,9 +931,9 @@ function initMentionPlanModalDom(modal, item) {
         modal.$body.find('input[type=date]').val(moment(item.planAppearTime).format('YYYY-MM-DD'));
     }
     if (item.prchUserName && item.planType === 1) {
-        modal.$body.find('.purchasePeople').data('user', {userNo: item.prchUserNo, userName: item.prchUserName});
+        modal.$body.find('.purchasePeople').data('user', { userNo: item.prchUserNo, userName: item.prchUserName });
     } else if (item.prchUserName && item.planType === 2) {
-        modal.$body.find('.purchasePeople').data('item', {userNo: item.prchUserNo, userName: item.prchUserName});
+        modal.$body.find('.purchasePeople').data('item', { userNo: item.prchUserNo, userName: item.prchUserName });
     }
     if (item.planType === 1) {
         $('.purchasePeopleLabel').text('采购人');
@@ -1256,7 +1280,7 @@ function initInsideModalEvent(modal) {
         var categoryIpt = addMaterial.find('.category-ipt');//类别输入框(一级)
         var typeSel = addMaterial.find('.type-sel');//类型选择框(二级)
         var typeIpt = addMaterial.find('.type-ipt');//类型输入框(二级)
-        categorySel.find('ul').css({'maxHeight':'400px'});
+        categorySel.find('ul').css({ 'maxHeight': '400px' });
         /*添加一级下拉菜单*/
         $(this).next('.fl').find('.materialType1 option').each(function (index, ele) {
             if (index > 0) {
@@ -1486,7 +1510,7 @@ exports.initPlanAmountEvent = function (page) {
             common.stopPropagation(e);
             var keyword = $('.keyword').val().trim();
             var subProject = $('.subProject').val();
-            var data = {subProjId: subProject};
+            var data = { subProjId: subProject };
             if (keyword) {
                 data.keywords = keyword;
             }
@@ -1651,7 +1675,7 @@ exports.initPurchaseEditModalEvent = function (parents) {
         // $(this).parents('tr').addClass('trHeightLight');//选中行高亮
         var offsetX = $(".Model")[0].offsetLeft;//获取鼠标X坐标
         var offsetY = $(".Model")[0].offsetTop;//获取鼠标Y坐标
-        $(this).parent().find('.model-add-supplier').css({'left': e.pageX - offsetX, 'top': e.pageY - offsetY});//弹出框定位
+        $(this).parent().find('.model-add-supplier').css({ 'left': e.pageX - offsetX, 'top': e.pageY - offsetY });//弹出框定位
     });
     /**
      * 计划款项
@@ -1667,7 +1691,7 @@ exports.initPurchaseEditModalEvent = function (parents) {
         });
         var offsetX = $(".Model")[0].offsetLeft;//获取鼠标X坐标
         var offsetY = $(".Model")[0].offsetTop;//获取鼠标Y坐标
-        $(this).parent().find('.modal-add-type').css({'left': e.pageX - offsetX, 'top': e.pageY - offsetY});//弹出框定位
+        $(this).parent().find('.modal-add-type').css({ 'left': e.pageX - offsetX, 'top': e.pageY - offsetY });//弹出框定位
         initPlanTypeEvent(dom, $(this));
     })
     parents.find('.clearPlan').click(function (e) {//采购编辑清除材料内容
@@ -1707,7 +1731,7 @@ function initPlanTypeEvent(modal, parents) {
             var text = $(this).text();
             var id = $(this).data('id');
             parents.text(text);
-            parents.data('item', {acctType: id, text: text});
+            parents.data('item', { acctType: id, text: text });
         }
         modal.remove();
     })
@@ -1722,7 +1746,7 @@ exports.initSupplierModalEvent = function (modal, parents) {
     modal.find('.supplierType li').click(function (e) {
         common.stopPropagation(e);
         var item = $(this).data('item');
-        initMaterialManger.initSupplierList({entpType: item.id}, modal, parents);
+        initMaterialManger.initSupplierList({ entpType: item.id }, modal, parents);
     });
 };
 /**
@@ -1752,7 +1776,8 @@ exports.initCostOrderTableEvent = function (parents) {
         var item = $(this).parents('tr').data('item');
         var materialCostOrder;
         if (item.acctType === 2) {//应付款项
-            materialCostOrder = Modal('材料管理(应付款)费用单', materialCostOrderManager());
+            // materialCostOrder = Modal('材料管理(应付款)费用单', materialCostOrderManager());
+            materialCostOrder = Modal('材料采购(财务挂账)费用单', materialCostOrderManager());
             initMaterialManger.initGetMaterialCostOrderDetail({
                 costId: item.id,
                 mtrlPlanId: item.mtrlPlanId
@@ -1770,7 +1795,8 @@ exports.initCostOrderTableEvent = function (parents) {
                 materialCostOrder.$body.find('.approvalMaterial').hide();
             }
         } else if (item.acctType === 1) {//实付款（无合同）
-            var materialPayOrder = Modal('材料管理(实付款无合同)费用报销单', materialPayOrderNoBudgetManager());
+            // var materialPayOrder = Modal('材料管理(实付款无合同)费用报销单', materialPayOrderNoBudgetManager());
+            var materialPayOrder = Modal('材料采购(采购支付)费用报销单', materialPayOrderNoBudgetManager());
             if (item.status === 1 || item.status === 4) {
                 materialPayOrder.$body.find('.approvalMaterial').css('display', 'inline-block');
             } else {
@@ -1803,7 +1829,8 @@ exports.initCostOrderTableEvent = function (parents) {
                 approval.getApprovalModal(5);
             })
         } else if (item.acctType === 3) {//实付款（有合同）
-            materialPayBudgetOrder = Modal('材料管理(实付款有合同)费用报销单', materialPayOrderBudgetManager());
+            // materialPayBudgetOrder = Modal('材料管理(实付款有合同)费用报销单', materialPayOrderBudgetManager());
+            materialPayBudgetOrder = Modal('材料采购(财务支付)费用单', materialPayOrderBudgetManager());
             initMaterialManger.initGetMaterialCostOrderDetail({
                 costId: item.id,
                 mtrlPlanId: item.mtrlPlanId
@@ -2096,7 +2123,7 @@ exports.initMaterialPlanAmountTable = function (parents) {
 };
 
 function initMaterialPlanPurchaseTotalOrder(modal, item) {
-    initMaterialManger.initGetPurchaseOrderTotalList({mtrlId: item.mtrlId, subProjId: item.subProjId}, modal)
+    initMaterialManger.initGetPurchaseOrderTotalList({ mtrlId: item.mtrlId, subProjId: item.subProjId }, modal)
 }
 
 function initMaterialPlanPurchaseEvent(modal, parents) {
@@ -2110,7 +2137,7 @@ function initMaterialPlanPurchaseEvent(modal, parents) {
 }
 
 function initMaterialPlanPurchaseOrder(modal, item) {
-    initMaterialManger.initGetPurchaseOrderList({mtrlId: item.mtrlId, subProjId: item.subProjId}, modal);
+    initMaterialManger.initGetPurchaseOrderList({ mtrlId: item.mtrlId, subProjId: item.subProjId }, modal);
 }
 
 /**
@@ -2142,7 +2169,7 @@ exports.initSummaryTableEvent = function (parents) {
             var purchaseModal = Modal('查看采购', checkPurchaseModal());
             purchaseModal.show();
             purchaseModal.showClose();
-            initMaterialManger.checkPurchaseListModal({subProjId: item.subProjId, mtrlId: item.mtrlId}, purchaseModal, item);
+            initMaterialManger.checkPurchaseListModal({ subProjId: item.subProjId, mtrlId: item.mtrlId }, purchaseModal, item);
         }
     })
 };
@@ -2354,7 +2381,7 @@ exports.initBidSuccessFullModalTableEvent = function (parents) {
         new addSupplier($(this), $(this).next('.supplierList')); // todo
         var offsetX = $(".Model")[0].offsetLeft;//获取鼠标X坐标
         var offsetY = $(".Model")[0].offsetTop;//获取鼠标Y坐标
-        $(this).parent().find('.model-add-supplier').css({'left': e.pageX - offsetX, 'top': e.pageY - offsetY});//弹出框定位
+        $(this).parent().find('.model-add-supplier').css({ 'left': e.pageX - offsetX, 'top': e.pageY - offsetY });//弹出框定位
     })
 };
 
@@ -2387,7 +2414,7 @@ exports.initExceptionEvent = function (parents, type) {
         var confirm = exceptionModal.$body.find('.confirm');
         _ids = _ids.join(';');
         confirm.data('ids', _ids);
-        initCostBudgetList.getExceptionIdListFunc({ids: _ids}, exceptionModal);
+        initCostBudgetList.getExceptionIdListFunc({ ids: _ids }, exceptionModal);
         confirm.click(function (e) {
             common.stopPropagation(e);
             exceptionModal.hide();
@@ -2467,14 +2494,14 @@ exports.initCreateOrderEvent = function (modal, id) {
     modal.$body.find('.chooseSup').click(function (e) {
         common.stopPropagation(e);
         new addSupplier($('.checkedSup'), $('body'), {});
-        $('.model-add-supplier').css({'left': '30%', 'top': '20%', 'z-index': 10000});
+        $('.model-add-supplier').css({ 'left': '30%', 'top': '20%', 'z-index': 10000 });
     })
     modal.$body.find('.confirm').click(function (e) {
         common.stopPropagation(e);
         if (!modal.$body.find('.checkedSup').html()) {
             return alert('请选择供应商');
         }
-        if(!modal.$body.find('select').val()) {
+        if (!modal.$body.find('select').val()) {
             return alert('请选择记账款项');
         }
         var data = {};
@@ -2503,10 +2530,10 @@ exports.initCreateOrderEvent = function (modal, id) {
             $(this).parents('tr').data('item').remark = $(this).val();
         }
     })
-    modal.$body.find('a').click(function(){
-        $(this).parents('tr').nextAll('tr').each(function(){
+    modal.$body.find('a').click(function () {
+        $(this).parents('tr').nextAll('tr').each(function () {
             var num = $(this).find('td:first-child').html();
-            $(this).find('td:first-child').html(num/1 - 1);
+            $(this).find('td:first-child').html(num / 1 - 1);
         })
         $(this).parents('tr').remove();
     })
@@ -2518,8 +2545,8 @@ exports.initOrderEvent = function (modal) {
         var that = this;
         var item = $(this).parents('tr').data('item');
         if ($(this).data('type') === 'manage') {
-            costMaterialApi.getOrderInfo(item.id).then(function(res){
-                if(res.code === 1){
+            costMaterialApi.getOrderInfo(item.id).then(function (res) {
+                if (res.code === 1) {
                     var data = res.data || {};
                     if (item.orderStatus === 1) {//未报价
                         var _modal = waitingOrderModal();
@@ -2541,11 +2568,11 @@ exports.initOrderEvent = function (modal) {
             var deleteModal = Modal('提示', delModal());
             deleteModal.show();
             deleteModal.showClose();
-            deleteModal.$body.find('.confirm').click(function(){
-                costMaterialApi.putOrderStatus(item.id, 5).then(function(res){
-                    if(res.code === 1){
-                        $(that).parents('tr').nextAll('tr').find('td:first-child').each(function(){
-                            $(that).html($(that).html()/1 - 1);
+            deleteModal.$body.find('.confirm').click(function () {
+                costMaterialApi.putOrderStatus(item.id, 5).then(function (res) {
+                    if (res.code === 1) {
+                        $(that).parents('tr').nextAll('tr').find('td:first-child').each(function () {
+                            $(that).html($(that).html() / 1 - 1);
                         });
                         $(that).parents('tr').remove();
                     }
@@ -2556,8 +2583,8 @@ exports.initOrderEvent = function (modal) {
     })
 }
 
-exports.initPutOrderEvent = function(modal, item){
-    modal.$body.find('.confirm').click(function(e){
+exports.initPutOrderEvent = function (modal, item) {
+    modal.$body.find('.confirm').click(function (e) {
         common.stopPropagation(e);
         var data = {};
         data.entpId = item.entpId;
@@ -2586,40 +2613,40 @@ exports.initPutOrderEvent = function(modal, item){
     })
 }
 
-exports.initCheckingOrderEvent = function(modal, data, id){
+exports.initCheckingOrderEvent = function (modal, data, id) {
     modal.$body.find('#refresh').off('click');
-    modal.$body.find('#refresh').on('click', function(){
-        costMaterialApi.getOrderInfo(id).then(function(res){
-            if(res.code === 1){
+    modal.$body.find('#refresh').on('click', function () {
+        costMaterialApi.getOrderInfo(id).then(function (res) {
+            if (res.code === 1) {
                 var _data = res.data || {};
                 renderCostMaterialTable.renderManageOrderTable(modal, _data, id);
             }
         })
     })
     modal.$body.find('a').off('click');
-    modal.$body.find('a').on('click', function(){
+    modal.$body.find('a').on('click', function () {
         var item = $(this).parents('tr').data('item');
         var that = this;
-        if($(this).data('type') === 'check'){
+        if ($(this).data('type') === 'check') {
 
-        } else if($(this).data('type') === 'reject'){
-            costMaterialApi.putOrderDetail(id, item.id, 3).then(function(res){
-                if(res.code === 1){
+        } else if ($(this).data('type') === 'reject') {
+            costMaterialApi.putOrderDetail(id, item.id, 3).then(function (res) {
+                if (res.code === 1) {
                     $('#refresh').click()
                 }
             });
-        } else if($(this).data('type') === 'deal'){
-            costMaterialApi.putOrderDetail(id, item.id, 2).then(function(res){
-                if(res.code === 1){
+        } else if ($(this).data('type') === 'deal') {
+            costMaterialApi.putOrderDetail(id, item.id, 2).then(function (res) {
+                if (res.code === 1) {
                     $('#refresh').click()
                 }
             });
         }
     })
     modal.$body.find('.confirm').off('click');
-    modal.$body.find('.confirm').on('click', function(){
-        costMaterialApi.putOrderStatus(id, 3).then(function(res){
-            if(res.code === 1){
+    modal.$body.find('.confirm').on('click', function () {
+        costMaterialApi.putOrderStatus(id, 3).then(function (res) {
+            if (res.code === 1) {
                 modal.$body.find('.span-btn-bc').click();
             }
         })
@@ -2629,7 +2656,7 @@ exports.initCheckingOrderEvent = function(modal, data, id){
 /*
 * 查看说明弹窗
 * */
-function showRemarkModal(modal, data){
+function showRemarkModal(modal, data) {
 
 }
 

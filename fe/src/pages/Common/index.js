@@ -53,10 +53,71 @@ function inputFocus() {
         $(".cus-input").css('border-color', "#bebebe");
     });
 }
+/**
+ * 
+ * @param table 要导出的表格的jQuery选择器
+ * LEE: 增加导出表格功能
+ */
+function initExportList(table) {
+    $('#exportTable').css({
+        position: 'relative'
+    })
+    var list = $('<ul>'
+        + '<li>导出为PNG</li>' 
+        + '<li>导出为DOC</li>' 
+        + '<li>导出为XLS</li>' 
+        + '</ul>');
+    list.css({
+        display: 'none',
+        position: 'absolute',
+        top: '29px',
+        left: '50%',
+        marginLeft: '-55px',
+        backgroundColor: '#fff',
+        border: '1px solid #bebebe',
+        width: '100px',
+        textAlign: 'center',
+    });
+    list.children('li').css({
+        color: '#5b5b5b'
+    }).mouseover(function () {
+        $(this).css({
+            color: "#009411"
+        }).siblings().css({
+            color: "#5b5b5b"
+        })
+    })
+    list.appendTo($('#exportTable'));
+    $('#exportTable').hover(function () {
+        list.show();
+    }, function () {
+        list.hide();
+    })
+    list.children('li').click(function (e) {
+        stopPropagation(e);
+        var index = $(this).index();
+        if(index === 0) {
+            $(table).tableExport({
+                type: 'png'
+            })
+        }
+        if(index === 1) {
+            $(table).tableExport({
+                type: 'doc'
+            })
+        }
+        if (index === 2) {
+            $(table).tableExport({
+                type: 'xls'
+            })
+        }
+    })
+}
 
 module.exports = {
     clickBody: clickBody,
     cusSelect: cusSelect,
     stopPropagation: stopPropagation,
-    inputFocus: inputFocus
+    inputFocus: inputFocus,
+    initExportList: initExportList
 };
