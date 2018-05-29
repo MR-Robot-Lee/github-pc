@@ -375,7 +375,7 @@ exports.initMaterialPlanEvent = function () {
  */
 function initMaterialDetail(parents) {
     // LEE: 导出计划单
-    common.initExportList('#materialPlanOrderListTable');
+    // common.initExportList('#materialPlanOrderListTable');
     parents.find('.cancel').click(function (e) {
         common.stopPropagation(e);
         $('.plan-page').removeClass("active");
@@ -690,7 +690,7 @@ function initPurchaseDetail(parents, item) {
     })
     
     // LEE: 导出采购单
-    common.initExportList('#materialPurchaseOraderTable');
+    // common.initExportList('#materialPurchaseOraderTable');
 }
 
 /**
@@ -700,7 +700,7 @@ function initPurchaseDetail(parents, item) {
  */
 function initCostOrderList(parents, item) {
     // LEE: 导出费用单
-    common.initExportList('#materialCostOrderTable');
+    // common.initExportList('#materialCostOrderTable');
     parents.find('.costOrder').click(function (e) {
         common.stopPropagation(e);
         initMaterialManger.initPostCostOrder({ mtrlPlanId: item.id }, parents);
@@ -731,7 +731,7 @@ function initGetPurchasePlan(modal, parents) {
  */
 function initCheckAndAccept(parents, item) {
     // LEE: 导出点收单
-    common.initExportList('#materialCheckOrderTable');
+    // common.initExportList('#materialCheckOrderTable');
     
     var checkAndAccept = $('.checkAndAccept');
     var rebut = $('.rebut');
