@@ -665,27 +665,32 @@ function initPurchaseDetail(parents, item) {
     // LEE: 拒绝采购 --todo 
     refusePurchase.click(function (e) {
         common.stopPropagation(e);
-        var refuseModal = Modal('提示', remindRefusePurchaseModal());
-        refuseModal.showClose();
-        refuseModal.show();
-        refuseModal.$body.find('.confirm').click(function () {
-            refuseModal.hide();
-            $('.material-plan .cancel ').trigger('click');
-            var item = $('#materialPlanDetail').data('item');
-            console.log('item: ')
-            console.log(item)
-            var data = {};
-            data.mtrlPlanId = item.id;
-            data.projId = item.projId;
-            costMaterialApi.putRefusePrch(data)
-                .then(function (res) {
-                    if (res.code === 1) {
-                        initMaterialManager.initMaterialPlan();
-                    }
-                })
-                .catch(function (err) {
-                    console.log(err);
-                })
+        var firstRefuseModal = Modal('提示', remindRefusePurchaseModal());
+        firstRefuseModal.showClose();
+        firstRefuseModal.show();
+        firstRefuseModal.$body.find('.confirm').click(function () {
+            firstRefuseModal.hide();
+            var secondRefuseModal = Modal('提示', remindRefusePurchaseModal());
+            secondRefuseModal.$body.find('.remind-text').html('请再次确认，是否拒绝采购该计划单？');
+            secondRefuseModal.showClose();
+            secondRefuseModal.show();
+            secondRefuseModal.$body.find('.confirm').click(function () {
+                secondRefuseModal.hide();
+                $('.material-plan .cancel ').trigger('click');
+                var item = $('#materialPlanDetail').data('item');
+                var data = {};
+                data.mtrlPlanId = item.id;
+                data.projId = item.projId;
+                costMaterialApi.putRefusePrch(data)
+                    .then(function (res) {
+                        if (res.code === 1) {
+                            initMaterialManager.initMaterialPlan();
+                        }
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    })
+            })
         });
     })
     
