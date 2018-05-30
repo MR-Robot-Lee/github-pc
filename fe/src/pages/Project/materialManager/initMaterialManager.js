@@ -9,8 +9,6 @@ var onScrollDom = require('../../Common/onScrollDom');
  * @param data
  */
 exports.initMaterialPlan = function (data) {
-    console.log('data: ')
-    console.log(data);
     var $page = $('#page').html('');
     var page = new Page($page, {
         pageSize: [10, 20, 30], // 设置每页显示条数按钮
