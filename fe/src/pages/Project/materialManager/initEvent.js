@@ -375,7 +375,7 @@ exports.initMaterialPlanEvent = function () {
  */
 function initMaterialDetail(parents) {
     // LEE: 导出计划单
-    common.initExportList('#materialPlanOrderListTable');
+    // common.initExportList('#materialPlanOrderListTable');
     parents.find('.cancel').click(function (e) {
         common.stopPropagation(e);
         $('.plan-page').removeClass("active");
@@ -671,7 +671,7 @@ function initPurchaseDetail(parents, item) {
         firstRefuseModal.$body.find('.confirm').click(function () {
             firstRefuseModal.hide();
             var secondRefuseModal = Modal('提示', remindRefusePurchaseModal());
-            secondRefuseModal.$body.find('.remind-text').html('请再次确认，是否拒绝采购该计划单？');
+            secondRefuseModal.$body.find('.remind-text').html('请再次确认，是否删除该采购单？');
             secondRefuseModal.showClose();
             secondRefuseModal.show();
             secondRefuseModal.$body.find('.confirm').click(function () {
@@ -695,7 +695,7 @@ function initPurchaseDetail(parents, item) {
     })
     
     // LEE: 导出采购单
-    common.initExportList('#materialPurchaseOraderTable');
+    // common.initExportList('#materialPurchaseOraderTable');
 }
 
 /**
@@ -705,7 +705,7 @@ function initPurchaseDetail(parents, item) {
  */
 function initCostOrderList(parents, item) {
     // LEE: 导出费用单
-    common.initExportList('#materialCostOrderTable');
+    // common.initExportList('#materialCostOrderTable');
     parents.find('.costOrder').click(function (e) {
         common.stopPropagation(e);
         initMaterialManger.initPostCostOrder({ mtrlPlanId: item.id }, parents);
@@ -736,7 +736,7 @@ function initGetPurchasePlan(modal, parents) {
  */
 function initCheckAndAccept(parents, item) {
     // LEE: 导出点收单
-    common.initExportList('#materialCheckOrderTable');
+    // common.initExportList('#materialCheckOrderTable');
     
     var checkAndAccept = $('.checkAndAccept');
     var rebut = $('.rebut');
@@ -2501,6 +2501,16 @@ exports.initCreateOrderEvent = function (modal, id) {
         new addSupplier($('.checkedSup'), $('body'), {});
         $('.model-add-supplier').css({ 'left': '30%', 'top': '20%', 'z-index': 10000 });
     })
+    // LEE: 生成订单中订单数量默认和提计划时的数量一样，那么就不会触发input的change事件，
+    // 所以需要预先给请求postAddOrder设定好orderQpy参数
+    var inputs = modal.$body.find('input');
+    inputs.each(function (index, ele) {
+        if ($(this).data('type') === 'count') {
+            $(this).parents('tr').data('item').orderQpy = $(this).val();
+        } else if ($(this).data('type') === 'remark') {
+            $(this).parents('tr').data('item').remark = $(this).val();
+        }
+    })
     modal.$body.find('.confirm').click(function (e) {
         common.stopPropagation(e);
         if (!modal.$body.find('.checkedSup').html()) {
@@ -2528,13 +2538,14 @@ exports.initCreateOrderEvent = function (modal, id) {
             }
         })
     })
-    modal.$body.find('input').change(function () {
+    modal.$body.find('input').change(setOrderQpy);
+    function setOrderQpy () {
         if ($(this).data('type') === 'count') {
             $(this).parents('tr').data('item').orderQpy = $(this).val();
         } else if ($(this).data('type') === 'remark') {
             $(this).parents('tr').data('item').remark = $(this).val();
         }
-    })
+    }
     modal.$body.find('a').click(function () {
         $(this).parents('tr').nextAll('tr').each(function () {
             var num = $(this).find('td:first-child').html();
@@ -2609,6 +2620,8 @@ exports.initPutOrderEvent = function (modal, item) {
             }
         })
     })
+    // LEE: 生成订单中订单数量默认和提计划时的数量一样，那么就不会触发input的change事件，
+    // 所以不管是否有改变Input的值，都应该执行里面的代码
     modal.$body.find('input').change(function () {
         if ($(this).data('type') === 'count') {
             $(this).parents('tr').data('item').orderQpy = $(this).val();

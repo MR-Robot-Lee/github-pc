@@ -1415,7 +1415,7 @@ exports.renderCreateOrderTable = function (list, modal, id) {
             '<td class="border">' + item.specBrand + '</td>' +
             '<td class="border">' + item.unit + '</td>' +
             '<td class="border">' + (item.planCount || '') + '</td>' +
-            '<td class="border"><input type="text" data-type="count" value="'+ item.planCount +'"></td>' +
+            '<td class="border"><input type="text" data-type="count" value="'+ (item.planCount || '') +'"></td>' +
             '<td class="border">' + (item.planRemark || '') + '</td>' +
             '<td class="border"><a href="javascript:;" class="delete-hover">删除</a></td>' +
             '</tr>');
