@@ -474,3 +474,12 @@ exports.postCopyChild = function (data) {
     data = data || {};
     return request.post('/customer/budget/subitem/copy', {body: data});
 };
+
+/**
+ * 
+ * @param data 
+ */
+exports.getEntpInfoByConditions = function (data) {
+    data = data || {};
+    return request.get('/customer/enterpise/getEntpInfoByConditions', {qs: data});
+}

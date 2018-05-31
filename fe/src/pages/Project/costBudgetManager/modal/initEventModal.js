@@ -744,3 +744,43 @@ function getTableList(type, item, modal, $list) {
         modal.$body.find('.table-content').data('flag', false);
     })
 }
+
+// LEE: 成本预算-单位成本分析-添加-右上角搜索-点击搜索出来的表格数据，把数据回填到企业库数据modal
+/* exports.initSearchTableEvent = function (modal, type) {
+    var tr = modal.$body.find('tbody tr');
+    tr.click(function (e) {
+        common.stopPropagation(e);
+        var parent = $('#modalEnterpriseList').html('');
+        var data = $(this).data('item');
+        modal.hide();
+        console.log('data:::')
+        console.log(data);
+        var firstCategoryDom = $('#modalEnterpriseNav > li');
+        var secondCategoryDom = firstCategoryDom.find('li');
+        var firstPrevActive = $('#modalEnterpriseNav > li.active');
+        var secondPrevActive = firstCategoryDom.find('li.active');
+        var categoryOffTop = $('.modal-data-base-nav').offset().top;
+        if (firstCategoryDom.length > 0) {
+            firstCategoryDom.each(function (index, ele) {
+                var contentLv1 = $(ele).children('a').find('.ellipsis').text();
+                if(contentLv1 === (data.mtrlCategoryName || data.laborTypeName || data.measureTypeName || data.subletTypeName)) {
+                    if(!$(this).hasClass('active')) {
+                        $(this).addClass('active').siblings().removeClass('active');
+                        $(this).find('.icon-select-arrow').addClass('active');
+                        firstPrevActive.find('.icon-select-arrow').removeClass('active');
+                        secondPrevActive.parent().hide();
+                        $(this).children('ul').show();
+                    }
+                    if(secondCategoryDom.length > 0) {
+                        secondCategoryDom.each(function (index, ele) {
+                            var contentLv2 = $(ele).find
+                        })
+                    }
+                    var categoryScrTop = $('.modal-data-base-nav').scrollTop();
+                    var toTop = $(ele).offset().top - categoryOffTop + categoryScrTop;
+                    $('.modal-data-base-nav').animate({scrollTop: toTop}, 300);
+                }
+            })
+        }
+    })
+} */

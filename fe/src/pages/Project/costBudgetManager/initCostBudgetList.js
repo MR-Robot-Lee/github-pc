@@ -351,3 +351,67 @@ exports.postCopyChildFunc = function (data, modal, $page) {
         }
     })
 };
+
+
+exports.getEntpInfoByConditionsFunc = function(modal, type) {
+    var allTypeId = {
+        material: 1,
+        labor: 2,
+        step: 3,
+        subpackage: 4
+    };
+    var theadArr = [];
+    var tbodyArr = [];
+    // 要渲染的表头数据
+    theadArr[0] = "序号";
+    // 除了库和分库之外的其他项
+    var restTheadItems = {
+        material: ["材料类别", "材料类型", "材料名称", "规格型号", "单位", "均价"],
+        labor: ["材料类别", "费用名称", "工作内容", "单位", "均价"],
+        step: ["材料类别", "费用名称", "工作内容", "单位", "均价"],
+        subpackage: ["材料类别", "费用名称", "工作内容", "单位", "均价"]
+    }
+    theadArr = theadArr.concat(restTheadItems[type]);
+
+    // 要渲染的表单数据
+    var params = {};
+    params.typeId = allTypeId[type];
+    params.keywords = modal.$body.find('#keywords').val();
+    costBudgetManagerApi.getEntpInfoByConditions(params).then(function (res) {
+        var result = res.data || {};
+        var allAttr = {
+            material: ["mtrlCategoryName", "mtrlTypeName", "mtrlName", "specBrand", "unit", "avgPrice"],
+            labor: ["laborTypeName", "laborName", "workContent", "unit", "avgPrice"],
+            step: ["measureTypeName", "measureName", "workContent", "unit", "avgPrice"],
+            subpackage: ["subletTypeName", "subletName", "workContent", "unit", "avgPrice"]
+        }
+        for (var i = 0; i < result.length; i++) {
+            var obj = {};
+            var item = result[i];
+            for (var j = 0; j < allAttr[type].length; j++) {
+                var attr = allAttr[type][j];
+                if (typeof attr === "string") {
+                    if (attr === "sex") {
+                        obj[attr] = item[attr] == 1 ? "男" : "女";
+                    } else {
+                        obj[attr] = item[attr];
+                    }
+                } else {
+                    obj.address = [];
+                    for (var k = 0; k < attr.address.length; k++) {
+                        var tmp = item[attr.address[k]] ? item[attr.address[k]] : "暂无";
+                        obj.address.push(tmp);
+                    }
+                    obj.address = obj.address.join('-');
+                }
+            }
+            tbodyArr.push(obj);
+        }
+
+        var list = [];
+        list[0] = theadArr;
+        list[1] = tbodyArr;
+        list[2] = res.data;
+        renderTableDom.renderSearchTable(list, modal, type);
+    })
+}

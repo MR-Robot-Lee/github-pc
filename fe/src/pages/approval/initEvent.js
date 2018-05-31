@@ -136,8 +136,6 @@ exports.initApprovalProcessSettingAddEvent = function () {
             $('#carbonCopyJob').val('');
             $('#carbonCopyJob').data('user', '');
         });
-        console.log('----------~~~~~~~~~');
-        console.log($('.confirm'));
         $('.confirm').click(function (e) {
             common.stopPropagation(e);
             var id = $('#processSettingAdd').data('id');
