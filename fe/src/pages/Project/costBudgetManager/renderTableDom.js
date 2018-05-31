@@ -1,17 +1,18 @@
 var initEvent = require('./initEvent');
 var projectDesc = require('./modal/projectDesc.ejs');
 var projectInitEvent = require('../initEvent');
+var initEventModal = require('./modal/initEventModal');
 
 
 /**
  * 保留两位小数
  * @param {Number} num 需要处理为只保留两位的数字
  */
-function reserveTwoDecimals (num){
-    if(isNaN(num*1)){
+function reserveTwoDecimals(num) {
+    if (isNaN(num * 1)) {
         return null; // 非数字返回null
     } else {
-        return parseInt(num*100)/100;
+        return parseInt(num * 100) / 100;
     }
 }
 /**
@@ -333,7 +334,7 @@ exports.renderQuantityTable = function renderQuantityTable(list) {
         var unit;
         var originQpy;
         var checkQpy;
-        if(item.sysNo){
+        if (item.sysNo) {
             unit = item.unit;
             originQpy = item.originQpy;
             checkQpy = item.checkQpy;
@@ -401,5 +402,72 @@ function parseType(type) {
             return '合同管理';
         case 4:
             return '结算管理 ';
+    }
+}
+
+// LEE:渲染企业库数据搜索列表 --todo2
+exports.renderSearchTable = function (list, modal, type) {
+    var thead = modal.$body.find('thead');
+    var tbody = modal.$body.find('tbody');
+    var tableContent = modal.$body.find('.table-content');
+    tableContent.css('height', 500);
+    var theadList = list[0];
+    var tbodyList = list[1];
+    var allInfo = list[2];
+    var noDataDom = $('<div>'
+        + '<div class="icon-uninformed"></div>'
+        + '<div class="remind-content"></div>'
+        + '</div>')
+    noDataDom.css({
+        textAlign: 'center',
+        color: '#999',
+        marginTop: 180
+    })
+    if (type === "material") {
+        noDataDom.find('.remind-content').text('没有符合条件的材料，请重新搜索')
+    }
+    if (tbodyList.length > 0) {
+        thead.empty();
+        tbody.empty();
+        // thead.append('<tr><th class="border" style="width: 40px"><input type="checkbox"></th></tr>');
+        thead.append('<tr></tr>');
+        for (var i = 0; i < theadList.length; i++) {
+            var item = theadList[i];
+            var th = $('<th class="border">' + item + '</th>');
+            th.appendTo(thead.find('tr'));
+        }
+        thead.find('th:eq(0)').css('width', 45)
+        for (var i = 0; i < tbodyList.length; i++) {
+            var item = tbodyList[i];
+            var tr = $('<tr></tr>');
+            // $('<td class="border"><input type="checkbox"></td>').appendTo(tr);
+            $('<td class="border">' + (i + 1) + '</td>').css({
+                textAlign: 'center',
+                padding: 0
+            }).appendTo(tr);
+            for (var k in item) {
+                var val = item[k];
+                var td = $('<td class="border">' + val + '</td>');
+                td.appendTo(tr);
+            }
+            tr.data('item', allInfo[i]);
+            tr.appendTo(tbody);
+        }
+        // LEE:全选，部分选取功能
+        /* thead.find(':checkbox').click(function () {
+            var isChecked = tbody.find(':checkbox').prop('checked')
+            tbody.find(':checkbox').prop('checked', !isChecked);
+        })
+        tbody.find(':checkbox').click(function () {
+            if (tbody.find(':checkbox:checked').length === tbodyList.length) {
+                thead.find(':checkbox').prop('checked', true);
+            } else {
+                thead.find(':checkbox').prop('checked', false);
+            }
+        }) */
+        // LEE: 点击搜索出来的每条数据(每条tr),进行对应的处理
+        initEventModal.initSearchTableEvent(modal, type)
+    } else {
+        noDataDom.appendTo(tableContent.empty());
     }
 }

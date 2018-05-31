@@ -846,7 +846,10 @@ function initAnalysisModal(analysisModal, item) {
             searchModal.show();
             searchModal.showClose();
             // 搜索的时候，需要确定在哪个库搜索，type即库的类型
-            console.log(type)
+            searchModal.$body.find('.search').click(function () {
+                common.stopPropagation(e);
+                initCostBudgetList.getEntpInfoByConditionsFunc(searchModal, type);
+            })
         })
     });
     /**
