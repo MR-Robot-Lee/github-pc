@@ -839,7 +839,7 @@ function initAnalysisModal(analysisModal, item) {
             initTableInputChange(tbody, analysisModal, type);
         }, getTableOldData(analysisModal, type));
         $modal.$body.find('.budget-menus a:not(.active)').addClass('cancel-active');
-        // LEE:增加搜索功能 -- todo3
+        // LEE:成本预算-单位成本分析-添加-企业库数据-右上角增加搜索功能
         $modal.$header.find('.icon-search').click(function (e) {
             common.stopPropagation(e);
             var searchModal = Modal('企业库数据-搜索', enterpriseSearchModal());
@@ -848,7 +848,7 @@ function initAnalysisModal(analysisModal, item) {
             // 搜索的时候，需要确定在哪个库搜索，type即库的类型
             searchModal.$body.find('.search').click(function () {
                 common.stopPropagation(e);
-                initCostBudgetList.getEntpInfoByConditionsFunc(searchModal, type);
+                initCostBudgetList.getEntpInfoByConditionsFunc(searchModal, type, $modal);
             })
         })
     });
@@ -1205,7 +1205,7 @@ function initAnalysisOthenModalTable(parents, list, type, status, analysisModal)
     initAnalysisMaterialModal(parents, analysisModal);
     initTableInputChange(parents, analysisModal, type);
 }
-
+exports.initAnalysisMaterialModalTable = initAnalysisMaterialModalTable;
 function initAnalysisMaterialModalTable(parents, list, type, analysisModal) {
     list = list || [];
     if (list.length > 0) {
