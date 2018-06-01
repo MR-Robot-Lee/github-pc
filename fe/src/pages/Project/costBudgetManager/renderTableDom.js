@@ -405,16 +405,17 @@ function parseType(type) {
     }
 }
 
-// LEE:渲染企业库数据搜索列表 --todo2
-exports.renderSearchTable = function (list, modal, type) {
+// LEE:渲染企业库数据搜索列表
+exports.renderSearchTable = function (list, modal, type, parentModal) {
     var thead = modal.$body.find('thead');
     var tbody = modal.$body.find('tbody');
+    var table = modal.$body.find('table');
     var tableContent = modal.$body.find('.table-content');
     tableContent.css('height', 500);
     var theadList = list[0];
     var tbodyList = list[1];
     var allInfo = list[2];
-    var noDataDom = $('<div>'
+    var noDataDom = $('<div id="noDataDom">'
         + '<div class="icon-uninformed"></div>'
         + '<div class="remind-content"></div>'
         + '</div>')
@@ -427,6 +428,8 @@ exports.renderSearchTable = function (list, modal, type) {
         noDataDom.find('.remind-content').text('没有符合条件的材料，请重新搜索')
     }
     if (tbodyList.length > 0) {
+        table.show();
+        tableContent.find('#noDataDom').length > 0 && tableContent.find('#noDataDom').remove();
         thead.empty();
         tbody.empty();
         // thead.append('<tr><th class="border" style="width: 40px"><input type="checkbox"></th></tr>');
@@ -466,8 +469,11 @@ exports.renderSearchTable = function (list, modal, type) {
             }
         }) */
         // LEE: 点击搜索出来的每条数据(每条tr),进行对应的处理
-        initEventModal.initSearchTableEvent(modal, type)
+        initEventModal.initSearchTableEvent(modal, type, parentModal)
     } else {
-        noDataDom.appendTo(tableContent.empty());
+        table.hide();
+        if (tableContent.find('#noDataDom').length == 0) {
+            noDataDom.appendTo(tableContent);
+        }
     }
 }

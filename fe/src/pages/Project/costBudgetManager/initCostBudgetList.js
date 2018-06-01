@@ -352,8 +352,8 @@ exports.postCopyChildFunc = function (data, modal, $page) {
     })
 };
 
-
-exports.getEntpInfoByConditionsFunc = function(modal, type) {
+// LEE: 组合单位成本分析-企业库数据-搜索需要渲染的表单数据
+exports.getEntpInfoByConditionsFunc = function(modal, type, parentModal) {
     var allTypeId = {
         material: 1,
         labor: 2,
@@ -412,6 +412,6 @@ exports.getEntpInfoByConditionsFunc = function(modal, type) {
         list[0] = theadArr;
         list[1] = tbodyArr;
         list[2] = res.data;
-        renderTableDom.renderSearchTable(list, modal, type);
+        renderTableDom.renderSearchTable(list, modal, type, parentModal);
     })
 }

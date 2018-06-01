@@ -5,7 +5,6 @@ var addMaterialModal = require('./addMaterialModal.ejs');
 var addStepModal = require('./addStepModal.ejs');
 var onScrollDom = require('../../../Common/onScrollDom');
 var initCostBudgetList = require('./../initCostBudgetList');
-
 /**
  * 初始化企业库列表
  * @param modal
@@ -17,7 +16,7 @@ exports.initBaseDataModal = function initBaseDataModal(modal, type, callback, $l
     modal.$body.find('.budget-menus a').click(function (e) {
         common.stopPropagation(e);
         var $type = $(this).data('type');
-        var showName = {material: '新增材料', labor: '新增人工', step: '新增措施', subpackage: '新增分包', supplier: '供应商'}
+        var showName = { material: '新增材料', labor: '新增人工', step: '新增措施', subpackage: '新增分包', supplier: '供应商' }
         if (type && typeof type === 'string' && type !== $type) {
             return;
         }
@@ -426,7 +425,7 @@ function typeListEvent(type, dom, modal, inCntr) {
     dom.click(function (e) {
         common.stopPropagation(e);
         var item = dom.html();
-        var categorySel = modal.find('.category-sel'); 
+        var categorySel = modal.find('.category-sel');
         var typeSel = modal.find('.type-sel');
         var typeIpt = modal.find('.type-ipt');
         /*选中后改变select内容，并绑定对应data*/
@@ -687,34 +686,34 @@ function submitData(type, modal) {
                 $('#addEnterprise').click();
 
                 /*定时器模仿监听list是否加载完成*/
-                var addListListener = setInterval(function(){
-                    if($('.modal-data-base-nav>ul>li').length > 0){
+                var addListListener = setInterval(function () {
+                    if ($('.modal-data-base-nav>ul>li').length > 0) {
                         clearInterval(addListListener);
-                        $('#'+tempId).click();
+                        $('#' + tempId).click();
                         /*定时器模仿监听第二次list渲染是否完成*/
-                        var _addListListener = setInterval(function(){
-                            if($('.modal-data-base-nav>ul>li').length > 0){
+                        var _addListListener = setInterval(function () {
+                            if ($('.modal-data-base-nav>ul>li').length > 0) {
                                 clearInterval(_addListListener);
                                 var categoryId = res.data.categoryId;//一级id
-                                $('.modal-data-base-nav>ul>li').each(function(){
-                                    if($(this).data('item').id === categoryId){
+                                $('.modal-data-base-nav>ul>li').each(function () {
+                                    if ($(this).data('item').id === categoryId) {
                                         $(this).click();//一级li点击
                                     }
                                 });
                                 /*是否有二级类型*/
-                                if(type === 'material'){
+                                if (type === 'material') {
                                     var typeId = res.data.typeId;//二级id
-                                    $('.modal-data-base-nav>ul>li.active').find('li').each(function(index,ele){
+                                    $('.modal-data-base-nav>ul>li.active').find('li').each(function (index, ele) {
                                         /*判断是否有二级列表*/
-                                        if($(ele).data('item').id === typeId){
+                                        if ($(ele).data('item').id === typeId) {
                                             $(ele).click();//二级li点击
                                         }
                                     })
                                 }
                             }
-                        },100)
+                        }, 100)
                     }
-                },100);
+                }, 100);
             }
         });
     });
@@ -746,15 +745,15 @@ function getTableList(type, item, modal, $list) {
 }
 
 // LEE: 成本预算-单位成本分析-添加-右上角搜索-点击搜索出来的表格数据，把数据回填到企业库数据modal
-/* exports.initSearchTableEvent = function (modal, type) {
+exports.initSearchTableEvent = function (modal, type, parentModal) {
     var tr = modal.$body.find('tbody tr');
     tr.click(function (e) {
         common.stopPropagation(e);
         var parent = $('#modalEnterpriseList').html('');
         var data = $(this).data('item');
+        var list = [];
+        list.push(data);
         modal.hide();
-        console.log('data:::')
-        console.log(data);
         var firstCategoryDom = $('#modalEnterpriseNav > li');
         var secondCategoryDom = firstCategoryDom.find('li');
         var firstPrevActive = $('#modalEnterpriseNav > li.active');
@@ -763,24 +762,36 @@ function getTableList(type, item, modal, $list) {
         if (firstCategoryDom.length > 0) {
             firstCategoryDom.each(function (index, ele) {
                 var contentLv1 = $(ele).children('a').find('.ellipsis').text();
-                if(contentLv1 === (data.mtrlCategoryName || data.laborTypeName || data.measureTypeName || data.subletTypeName)) {
-                    if(!$(this).hasClass('active')) {
-                        $(this).addClass('active').siblings().removeClass('active');
-                        $(this).find('.icon-select-arrow').addClass('active');
-                        firstPrevActive.find('.icon-select-arrow').removeClass('active');
-                        secondPrevActive.parent().hide();
-                        $(this).children('ul').show();
+                if (contentLv1 === (data.mtrlCategoryName || data.laborTypeName || data.measureTypeName || data.subletTypeName)) {
+                    if (!($(this).hasClass('active'))) {
+                        // 如果是材料库，那么一级菜单高亮类名为active
+                        if (type === 'material') {
+                            $(this).addClass('active').siblings().removeClass('active');
+                            $(this).find('.icon-select-arrow').addClass('active');
+                            firstPrevActive.find('.icon-select-arrow').removeClass('active');
+                            secondPrevActive.parent().hide();
+                            $(this).children('ul').show();
+                        } else {
+                            // 如果是其他库，则分类菜单的高亮类名为active-fff
+                            $(this).addClass('active-fff').siblings().removeClass('active-fff');
+                        }
                     }
-                    if(secondCategoryDom.length > 0) {
+                    if (secondCategoryDom.length > 0) {
                         secondCategoryDom.each(function (index, ele) {
-                            var contentLv2 = $(ele).find
+                            var contentLv2 = $(ele).find('.ellipsis').text();
+                            if (contentLv2 === data.mtrlTypeName) {
+                                secondPrevActive.removeClass('active');
+                                $(this).addClass('active');
+                            }
                         })
                     }
                     var categoryScrTop = $('.modal-data-base-nav').scrollTop();
                     var toTop = $(ele).offset().top - categoryOffTop + categoryScrTop;
-                    $('.modal-data-base-nav').animate({scrollTop: toTop}, 300);
+                    $('.modal-data-base-nav').animate({ scrollTop: toTop }, 300);
+                    renderModalEnterpriseTable(list, type, parentModal);
+                    tableCheckEvent(parentModal);   
                 }
             })
         }
     })
-} */
+}
